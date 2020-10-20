@@ -17,7 +17,7 @@ CREATE TABLE gukbap_user(
 		user_last_name                		VARCHAR2(30)		 NULL ,
 		user_birthdate                		DATE		 NULL ,
 		user_phone                    		NUMBER(13)		 NOT NULL,
-		user_level                    		VARCHAR2(20)		 DEFAULT user		 NULL 
+		user_level                    		VARCHAR2(20)		 DEFAULT 'user'		 NULL 
 );
 
 
