@@ -3,14 +3,14 @@ DROP TABLE chat CASCADE CONSTRAINTS;
 DROP TABLE wishlist CASCADE CONSTRAINTS;
 DROP TABLE review CASCADE CONSTRAINTS;
 DROP TABLE order_detail CASCADE CONSTRAINTS;
-DROP TABLE order CASCADE CONSTRAINTS;
+DROP TABLE gukbap_order CASCADE CONSTRAINTS;
 DROP TABLE userAddress CASCADE CONSTRAINTS;
 DROP TABLE address CASCADE CONSTRAINTS;
 DROP TABLE product CASCADE CONSTRAINTS;
-DROP TABLE category CASCADE CONSTRAINTS;
-DROP TABLE user CASCADE CONSTRAINTS;
+DROP TABLE product_category CASCADE CONSTRAINTS;
+DROP TABLE gukbap_user CASCADE CONSTRAINTS;
 
-CREATE TABLE user(
+CREATE TABLE gukbap_user(
 		user_id                       		VARCHAR2(50)		 NULL ,
 		user_password                 		VARCHAR2(30)		 NULL ,
 		user_first_name               		VARCHAR2(30)		 NULL ,
@@ -21,16 +21,23 @@ CREATE TABLE user(
 );
 
 
-CREATE TABLE category(
-		category_no                   		NUMBER(10)		 NULL ,
-		category_name                 		VARCHAR2(20)		 NULL 
+CREATE TABLE product_category(
+		c_no                          		NUMBER(10)		 NULL ,
+		c_name                        		VARCHAR2(20)		 NULL 
 );
 
-DROP SEQUENCE category_category_no_SEQ;
+DROP SEQUENCE product_category_c_no_SEQ;
 
-CREATE SEQUENCE category_category_no_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
+CREATE SEQUENCE product_category_c_no_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
 
-
+CREATE TRIGGER product_category_c_no_TRG
+BEFORE INSERT ON product_category
+FOR EACH ROW
+BEGIN
+IF :NEW.c_no IS NOT NULL THEN
+  SELECT product_category_c_no_SEQ.NEXTVAL INTO :NEW.c_no FROM DUAL;
+END IF;
+END;
 
 
 CREATE TABLE product(
@@ -38,12 +45,12 @@ CREATE TABLE product(
 		product_name                  		VARCHAR2(50)		 NULL ,
 		product_price                 		NUMBER(10)		 NULL ,
 		product_image                 		VARCHAR2(500)		 NULL ,
-		product_desc                  		VARCHAR2(5000)		 NULL ,
+		product_desc                  		VARCHAR2(2000)		 NULL ,
 		product_sale_count            		NUMBER(10)		 NULL ,
 		product_click_count           		NUMBER(10)		 NULL ,
 		category_no                   		NUMBER(10)		 NULL ,
 		product_order                 		NUMBER(10)		 NULL ,
-		product_isOnSale              		VARCHAR2(10)		 DEFAULT false		 NULL ,
+		product_isOnSale              		VARCHAR2(10)		 DEFAULT 'false'		 NULL ,
 		product_discountRate          		NUMBER(10)		 DEFAULT 0		 NULL ,
 		product_sale_date             		DATE		 NULL 
 );
@@ -52,6 +59,14 @@ DROP SEQUENCE product_product_no_SEQ;
 
 CREATE SEQUENCE product_product_no_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
 
+CREATE TRIGGER product_product_no_TRG
+BEFORE INSERT ON product
+FOR EACH ROW
+BEGIN
+IF :NEW.product_no IS NOT NULL THEN
+  SELECT product_product_no_SEQ.NEXTVAL INTO :NEW.product_no FROM DUAL;
+END IF;
+END;
 
 
 CREATE TABLE address(
@@ -67,7 +82,14 @@ DROP SEQUENCE address_address_no_SEQ;
 
 CREATE SEQUENCE address_address_no_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
 
-
+CREATE TRIGGER address_address_no_TRG
+BEFORE INSERT ON address
+FOR EACH ROW
+BEGIN
+IF :NEW.address_no IS NOT NULL THEN
+  SELECT address_address_no_SEQ.NEXTVAL INTO :NEW.address_no FROM DUAL;
+END IF;
+END;
 
 
 CREATE TABLE userAddress(
@@ -80,10 +102,17 @@ DROP SEQUENCE userAddress_userAddress_no_SEQ;
 
 CREATE SEQUENCE userAddress_userAddress_no_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
 
+CREATE TRIGGER userAddress_userAddress_no_TRG
+BEFORE INSERT ON userAddress
+FOR EACH ROW
+BEGIN
+IF :NEW.userAddress_no IS NOT NULL THEN
+  SELECT userAddress_userAddress_no_SEQ.NEXTVAL INTO :NEW.userAddress_no FROM DUAL;
+END IF;
+END;
 
 
-
-CREATE TABLE order(
+CREATE TABLE gukbap_order(
 		order_no                      		NUMBER(10)		 NULL ,
 		order_date                    		DATE		 DEFAULT sysdate		 NULL ,
 		order_status                  		VARCHAR2(10)		 NULL ,
@@ -93,24 +122,38 @@ CREATE TABLE order(
 		user_id                       		VARCHAR2(50)		 NULL 
 );
 
-DROP SEQUENCE order_order_no_SEQ;
+DROP SEQUENCE gukbap_order_order_no_SEQ;
 
-CREATE SEQUENCE order_order_no_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
+CREATE SEQUENCE gukbap_order_order_no_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
 
-
+CREATE TRIGGER gukbap_order_order_no_TRG
+BEFORE INSERT ON gukbap_order
+FOR EACH ROW
+BEGIN
+IF :NEW.order_no IS NOT NULL THEN
+  SELECT gukbap_order_order_no_SEQ.NEXTVAL INTO :NEW.order_no FROM DUAL;
+END IF;
+END;
 
 
 CREATE TABLE order_detail(
-		order_detail_no               		NUMBER(10)		 NULL ,
+		o_d_no                        		NUMBER(10)		 NULL ,
 		order_no                      		NUMBER(10)		 NULL ,
 		product_no                    		NUMBER(10)		 NULL 
 );
 
-DROP SEQUENCE order_detail_order_detail_no_SEQ;
+DROP SEQUENCE order_detail_o_d_no_SEQ;
 
-CREATE SEQUENCE order_detail_order_detail_no_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
+CREATE SEQUENCE order_detail_o_d_no_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
 
-
+CREATE TRIGGER order_detail_o_d_no_TRG
+BEFORE INSERT ON order_detail
+FOR EACH ROW
+BEGIN
+IF :NEW.o_d_no IS NOT NULL THEN
+  SELECT order_detail_o_d_no_SEQ.NEXTVAL INTO :NEW.o_d_no FROM DUAL;
+END IF;
+END;
 
 
 CREATE TABLE review(
@@ -129,7 +172,14 @@ DROP SEQUENCE review_review_no_SEQ;
 
 CREATE SEQUENCE review_review_no_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
 
-
+CREATE TRIGGER review_review_no_TRG
+BEFORE INSERT ON review
+FOR EACH ROW
+BEGIN
+IF :NEW.review_no IS NOT NULL THEN
+  SELECT review_review_no_SEQ.NEXTVAL INTO :NEW.review_no FROM DUAL;
+END IF;
+END;
 
 
 CREATE TABLE wishlist(
@@ -142,6 +192,14 @@ DROP SEQUENCE wishlist_wishlist_no_SEQ;
 
 CREATE SEQUENCE wishlist_wishlist_no_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
 
+CREATE TRIGGER wishlist_wishlist_no_TRG
+BEFORE INSERT ON wishlist
+FOR EACH ROW
+BEGIN
+IF :NEW.wishlist_no IS NOT NULL THEN
+  SELECT wishlist_wishlist_no_SEQ.NEXTVAL INTO :NEW.wishlist_no FROM DUAL;
+END IF;
+END;
 
 
 CREATE TABLE chat(
@@ -154,57 +212,70 @@ DROP SEQUENCE chat_chat_no_SEQ;
 
 CREATE SEQUENCE chat_chat_no_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
 
-
+CREATE TRIGGER chat_chat_no_TRG
+BEFORE INSERT ON chat
+FOR EACH ROW
+BEGIN
+IF :NEW.chat_no IS NOT NULL THEN
+  SELECT chat_chat_no_SEQ.NEXTVAL INTO :NEW.chat_no FROM DUAL;
+END IF;
+END;
 
 
 CREATE TABLE chat_content(
-		chat_content_no               		NUMBER(10)		 NULL ,
-		chat_content_msg              		VARCHAR2(500)		 NULL ,
-		chat_content_date             		DATE		 DEFAULT sysdate		 NULL ,
-		chat_content_userId           		VARCHAR2(120)		 NULL ,
-		chat_content_image            		VARCHAR2(120)		 NULL ,
-		chat_content_read             		NUMBER(1)		 DEFAULT 1		 NULL ,
+		ch_c_no                       		NUMBER(10)		 NULL ,
+		ch_c_msg                      		VARCHAR2(500)		 NULL ,
+		ch_c_date                     		DATE		 DEFAULT sysdate		 NULL ,
+		ch_c_userId                   		VARCHAR2(120)		 NULL ,
+		ch_c_image                    		VARCHAR2(120)		 NULL ,
+		ch_c_read                     		NUMBER(1)		 DEFAULT 1		 NULL ,
 		chat_no                       		NUMBER(10)		 NULL 
 );
 
-DROP SEQUENCE chat_content_chat_content_no_SEQ;
+DROP SEQUENCE chat_content_ch_c_no_SEQ;
 
-CREATE SEQUENCE chat_content_chat_content_no_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
+CREATE SEQUENCE chat_content_ch_c_no_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
+
+CREATE TRIGGER chat_content_ch_c_no_TRG
+BEFORE INSERT ON chat_content
+FOR EACH ROW
+BEGIN
+IF :NEW.ch_c_no IS NOT NULL THEN
+  SELECT chat_content_ch_c_no_SEQ.NEXTVAL INTO :NEW.ch_c_no FROM DUAL;
+END IF;
+END;
 
 
 
+ALTER TABLE gukbap_user ADD CONSTRAINT IDX_gukbap_user_PK PRIMARY KEY (user_id);
 
-ALTER TABLE user ADD CONSTRAINT IDX_user_PK PRIMARY KEY (user_id);
-
-ALTER TABLE category ADD CONSTRAINT IDX_category_PK PRIMARY KEY (category_no);
+ALTER TABLE product_category ADD CONSTRAINT IDX_product_category_PK PRIMARY KEY (c_no);
 
 ALTER TABLE product ADD CONSTRAINT IDX_product_PK PRIMARY KEY (product_no);
-ALTER TABLE product ADD CONSTRAINT IDX_product_FK0 FOREIGN KEY (category_no) REFERENCES category (category_no);
 
 ALTER TABLE address ADD CONSTRAINT IDX_address_PK PRIMARY KEY (address_no);
 
 ALTER TABLE userAddress ADD CONSTRAINT IDX_userAddress_PK PRIMARY KEY (userAddress_no);
-ALTER TABLE userAddress ADD CONSTRAINT IDX_userAddress_FK0 FOREIGN KEY (user_id) REFERENCES user (user_id);
+ALTER TABLE userAddress ADD CONSTRAINT IDX_userAddress_FK0 FOREIGN KEY (user_id) REFERENCES gukbap_user (user_id);
 ALTER TABLE userAddress ADD CONSTRAINT IDX_userAddress_FK1 FOREIGN KEY (address_no) REFERENCES address (address_no);
 
-ALTER TABLE order ADD CONSTRAINT IDX_order_PK PRIMARY KEY (order_no);
-ALTER TABLE order ADD CONSTRAINT IDX_order_FK0 FOREIGN KEY (user_id) REFERENCES user (user_id);
+ALTER TABLE gukbap_order ADD CONSTRAINT IDX_gukbap_order_PK PRIMARY KEY (order_no);
+ALTER TABLE gukbap_order ADD CONSTRAINT IDX_gukbap_order_FK0 FOREIGN KEY (user_id) REFERENCES gukbap_user (user_id);
 
-ALTER TABLE order_detail ADD CONSTRAINT IDX_order_detail_PK PRIMARY KEY (order_detail_no);
-ALTER TABLE order_detail ADD CONSTRAINT IDX_order_detail_FK0 FOREIGN KEY (order_no) REFERENCES order (order_no);
+ALTER TABLE order_detail ADD CONSTRAINT IDX_order_detail_PK PRIMARY KEY (o_d_no);
+ALTER TABLE order_detail ADD CONSTRAINT IDX_order_detail_FK0 FOREIGN KEY (order_no) REFERENCES gukbap_order (order_no);
 ALTER TABLE order_detail ADD CONSTRAINT IDX_order_detail_FK1 FOREIGN KEY (product_no) REFERENCES product (product_no);
 
 ALTER TABLE review ADD CONSTRAINT IDX_review_PK PRIMARY KEY (review_no);
 ALTER TABLE review ADD CONSTRAINT IDX_review_FK0 FOREIGN KEY (product_no) REFERENCES product (product_no);
-ALTER TABLE review ADD CONSTRAINT IDX_review_FK1 FOREIGN KEY (order_detail_no) REFERENCES order_detail (order_detail_no);
 
 ALTER TABLE wishlist ADD CONSTRAINT IDX_wishlist_PK PRIMARY KEY (wishlist_no);
-ALTER TABLE wishlist ADD CONSTRAINT IDX_wishlist_FK0 FOREIGN KEY (user_id) REFERENCES user (user_id);
+ALTER TABLE wishlist ADD CONSTRAINT IDX_wishlist_FK0 FOREIGN KEY (user_id) REFERENCES gukbap_user (user_id);
 ALTER TABLE wishlist ADD CONSTRAINT IDX_wishlist_FK1 FOREIGN KEY (product_no) REFERENCES product (product_no);
 
 ALTER TABLE chat ADD CONSTRAINT IDX_chat_PK PRIMARY KEY (chat_no);
-ALTER TABLE chat ADD CONSTRAINT IDX_chat_FK0 FOREIGN KEY (user_id) REFERENCES user (user_id);
+ALTER TABLE chat ADD CONSTRAINT IDX_chat_FK0 FOREIGN KEY (user_id) REFERENCES gukbap_user (user_id);
 
-ALTER TABLE chat_content ADD CONSTRAINT IDX_chat_content_PK PRIMARY KEY (chat_content_no);
+ALTER TABLE chat_content ADD CONSTRAINT IDX_chat_content_PK PRIMARY KEY (ch_c_no);
 ALTER TABLE chat_content ADD CONSTRAINT IDX_chat_content_FK0 FOREIGN KEY (chat_no) REFERENCES chat (chat_no);
 
