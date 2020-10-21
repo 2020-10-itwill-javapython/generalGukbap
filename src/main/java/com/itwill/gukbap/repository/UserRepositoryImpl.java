@@ -11,9 +11,8 @@ import com.itwill.gukbap.mapper.UserMapper;
 @Repository
 public class UserRepositoryImpl implements UserRepository {
 	@Autowired
-	UserMapper userMapper;
+	private UserMapper userMapper;
 	
-
 	@Override
 	public int insertUser(UserDomain user) {
 		return userMapper.insertUser(user);
@@ -33,9 +32,11 @@ public class UserRepositoryImpl implements UserRepository {
 	public boolean isExistedUser(String user_id) {
 		boolean isExist = false;
 		int userCount = userMapper.isExistedUser(user_id);
+		
 		if (userCount == 1) {
 			isExist = true;
 		}
+		
 		return isExist;
 	}
 	
