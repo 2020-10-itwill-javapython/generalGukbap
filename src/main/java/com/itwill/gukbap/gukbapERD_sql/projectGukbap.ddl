@@ -16,7 +16,7 @@ CREATE TABLE gukbap_user(
 		user_first_name               		VARCHAR2(30)		 NULL ,
 		user_last_name                		VARCHAR2(30)		 NULL ,
 		user_birthdate                		DATE		 NULL ,
-		user_phone                    		NUMBER(13)		 NOT NULL,
+		user_phone                    		VARCHAR2(20)		 NULL,
 		user_level                    		VARCHAR2(20)		 DEFAULT 'user'		 NULL 
 );
 
@@ -30,14 +30,7 @@ DROP SEQUENCE product_category_c_no_SEQ;
 
 CREATE SEQUENCE product_category_c_no_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
 
-CREATE TRIGGER product_category_c_no_TRG
-BEFORE INSERT ON product_category
-FOR EACH ROW
-BEGIN
-IF :NEW.c_no IS NOT NULL THEN
-  SELECT product_category_c_no_SEQ.NEXTVAL INTO :NEW.c_no FROM DUAL;
-END IF;
-END;
+
 
 
 CREATE TABLE product(
@@ -59,14 +52,7 @@ DROP SEQUENCE product_product_no_SEQ;
 
 CREATE SEQUENCE product_product_no_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
 
-CREATE TRIGGER product_product_no_TRG
-BEFORE INSERT ON product
-FOR EACH ROW
-BEGIN
-IF :NEW.product_no IS NOT NULL THEN
-  SELECT product_product_no_SEQ.NEXTVAL INTO :NEW.product_no FROM DUAL;
-END IF;
-END;
+
 
 
 CREATE TABLE address(
