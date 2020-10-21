@@ -851,7 +851,7 @@
                           <green>255</green>
                           <blue>206</blue>
                         </backgroundColor>
-                        <sql></sql>
+                        <sql>INSERT INTO product (product_no, product_name, product_price, product_image, product_desc, product_sale_count, product_click_count, category_no, product_order, product_isOnSale, product_discountRate, product_sale_date) VALUES (product_no, product_name, product_price, product_image, product_desc, product_sale_count, product_click_count, category_no, product_order, product_isOnSale, product_discountRate, product_sale_date);</sql>
                       </target>
                       <foreignKeyName>order_detail_FK_2</foreignKeyName>
                       <references/>
