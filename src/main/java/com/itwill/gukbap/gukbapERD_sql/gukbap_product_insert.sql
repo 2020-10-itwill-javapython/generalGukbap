@@ -1,55 +1,55 @@
 
---Á¦Ç° Ãß°¡(Á¦Ç° ¹øÈ£ »©°í null Çã¿ë)
---±¹¹ä: ±¼±¹¹ä, µÅÁö±¹¹ä, ¼Ò°í±â±¹¹ä, ¼ø´ë±¹¹ä, Äá³ª¹°±¹¹ä
+--ì œí’ˆ ì¶”ê°€(ì œí’ˆ ë²ˆí˜¸ ë¹¼ê³  null í—ˆìš©)
+--êµ­ë°¥: êµ´êµ­ë°¥, ë¼ì§€êµ­ë°¥, ì†Œê³ ê¸°êµ­ë°¥, ìˆœëŒ€êµ­ë°¥, ì½©ë‚˜ë¬¼êµ­ë°¥
 INSERT INTO product (product_no, product_name, product_price, product_image, product_desc, product_sale_count, product_click_count, category_no, product_order, product_isOnSale, product_discountRate, product_sale_date) 
-VALUES (product_product_no_SEQ, '±¼±¹¹ä', 8000, product_image, '**********½Ì½ÌÇÑ Åë¿µ»ê ±¼ÀÌ °¡µæ µé¾îÀÖ´Â ¿µ¾ç¸¸Á¡ ±¹¹ä**********', product_sale_count, product_click_count, category_no, product_order, product_isOnSale, product_discountRate, product_sale_date);
+VALUES (product_product_no_SEQ, 'êµ´êµ­ë°¥', 8000, product_image, '**********ì‹±ì‹±í•œ í†µì˜ì‚° êµ´ì´ ê°€ë“ ë“¤ì–´ìˆëŠ” ì˜ì–‘ë§Œì  êµ­ë°¥**********', product_sale_count, product_click_count, category_no, product_order, product_isOnSale, product_discountRate, product_sale_date);
 
 INSERT INTO product (product_no, product_name, product_price, product_image, product_desc, product_sale_count, product_click_count, category_no, product_order, product_isOnSale, product_discountRate, product_sale_date) 
-VALUES (product_product_no_SEQ, 'µÅÁö±¹¹ä', 8000, product_image, '**********µÅÁö´Ù¸®»À¸¦ ³Ö°í ¿ì·Á³½ »Ç¾á±¹¹°¿¡ µÅÁö°í±â¿Í ¾ç³äÀåÀÌ ¿Ã¶ó°¡´Â °í±â±¹¹ä**********', product_sale_count, product_click_count, category_no, product_order, product_isOnSale, product_discountRate, product_sale_date);
+VALUES (product_product_no_SEQ, 'ë¼ì§€êµ­ë°¥', 8000, product_image, '**********ë¼ì§€ë‹¤ë¦¬ë¼ˆë¥¼ ë„£ê³  ìš°ë ¤ë‚¸ ë½€ì–€êµ­ë¬¼ì— ë¼ì§€ê³ ê¸°ì™€ ì–‘ë…ì¥ì´ ì˜¬ë¼ê°€ëŠ” ê³ ê¸°êµ­ë°¥**********', product_sale_count, product_click_count, category_no, product_order, product_isOnSale, product_discountRate, product_sale_date);
 
 INSERT INTO product (product_no, product_name, product_price, product_image, product_desc, product_sale_count, product_click_count, category_no, product_order, product_isOnSale, product_discountRate, product_sale_date) 
-VALUES (product_product_no_SEQ, '¼Ò°í±â±¹¹ä', 8500, product_image, '**********¼Ò°í±â¿¡ Äá³ª¹°°ú ¿ì°ÅÁö¸¦ ³Ö°í Ç« ²úÀÎ ¾óÅ«ÇÑ ±¹¹ä**********', product_sale_count, product_click_count, category_no, product_order, product_isOnSale, product_discountRate, product_sale_date);
+VALUES (product_product_no_SEQ, 'ì†Œê³ ê¸°êµ­ë°¥', 8500, product_image, '**********ì†Œê³ ê¸°ì— ì½©ë‚˜ë¬¼ê³¼ ìš°ê±°ì§€ë¥¼ ë„£ê³  í‘¹ ë“ì¸ ì–¼í°í•œ êµ­ë°¥**********', product_sale_count, product_click_count, category_no, product_order, product_isOnSale, product_discountRate, product_sale_date);
 
 INSERT INTO product (product_no, product_name, product_price, product_image, product_desc, product_sale_count, product_click_count, category_no, product_order, product_isOnSale, product_discountRate, product_sale_date) 
-VALUES (product_product_no_SEQ, '¼ø´ë±¹¹ä', 8000, product_image, '**********ÅäÁ¾¼ø´ë¿Í ½Ã·¡±â¸¦ ³Ö°í ²úÀÎ ÇªÁüÇÑ ¾çÀÇ ¼ø´ë±¹¹ä**********', product_sale_count, product_click_count, category_no, product_order, product_isOnSale, product_discountRate, product_sale_date);
+VALUES (product_product_no_SEQ, 'ìˆœëŒ€êµ­ë°¥', 8000, product_image, '**********í† ì¢…ìˆœëŒ€ì™€ ì‹œë˜ê¸°ë¥¼ ë„£ê³  ë“ì¸ í‘¸ì§í•œ ì–‘ì˜ ìˆœëŒ€êµ­ë°¥**********', product_sale_count, product_click_count, category_no, product_order, product_isOnSale, product_discountRate, product_sale_date);
 
 INSERT INTO product (product_no, product_name, product_price, product_image, product_desc, product_sale_count, product_click_count, category_no, product_order, product_isOnSale, product_discountRate, product_sale_date) 
-VALUES (product_product_no_SEQ, 'Äá³ª¹°±¹¹ä', 7000, product_image, '**********¹«°øÇØ·Î Àç¹èµÇ´Â Äá³ª¹°¿¡ 20¿©°¡Áö Ãµ¿¬Àç·á¸¦ »ç¿ëÇÏ¿© ¿ì·Á³½ Äá³ª¹°±¹¹ä**********', product_sale_count, product_click_count, category_no, product_order, product_isOnSale, product_discountRate, product_sale_date);
+VALUES (product_product_no_SEQ, 'ì½©ë‚˜ë¬¼êµ­ë°¥', 7000, product_image, '**********ë¬´ê³µí•´ë¡œ ì¬ë°°ë˜ëŠ” ì½©ë‚˜ë¬¼ì— 20ì—¬ê°€ì§€ ì²œì—°ì¬ë£Œë¥¼ ì‚¬ìš©í•˜ì—¬ ìš°ë ¤ë‚¸ ì½©ë‚˜ë¬¼êµ­ë°¥**********', product_sale_count, product_click_count, category_no, product_order, product_isOnSale, product_discountRate, product_sale_date);
 
---»çÀÌµå: ±¼Àü, ¸ğµë¼ø´ë, ¼Ò°í±â¼öÀ°
+--ì‚¬ì´ë“œ: êµ´ì „, ëª¨ë“¬ìˆœëŒ€, ì†Œê³ ê¸°ìˆ˜ìœ¡
 INSERT INTO product (product_no, product_name, product_price, product_image, product_desc, product_sale_count, product_click_count, category_no, product_order, product_isOnSale, product_discountRate, product_sale_date) 
-VALUES (product_product_no_SEQ, '±¼Àü', 14000, product_image, '**********±¼ º»¿¬ÀÇ ¸À°ú ÇâÀ» ´À³¥ ¼ö ÀÖ´Â ±¼Àü**********', product_sale_count, product_click_count, category_no, product_order, product_isOnSale, product_discountRate, product_sale_date);
-
-INSERT INTO product (product_no, product_name, product_price, product_image, product_desc, product_sale_count, product_click_count, category_no, product_order, product_isOnSale, product_discountRate, product_sale_date) 
-VALUES (product_product_no_SEQ, '¸ğµë¼ø´ë', 20000, product_image, '**********¸Ó¸´°í±â¿Í ¼¼ °¡Áö Á¾·ùÀÇ ¼ø´ë¸¦ ÇÑ Á¢½Ã¿¡**********', product_sale_count, product_click_count, category_no, product_order, product_isOnSale, product_discountRate, product_sale_date);
+VALUES (product_product_no_SEQ, 'êµ´ì „', 14000, product_image, '**********êµ´ ë³¸ì—°ì˜ ë§›ê³¼ í–¥ì„ ëŠë‚„ ìˆ˜ ìˆëŠ” êµ´ì „**********', product_sale_count, product_click_count, category_no, product_order, product_isOnSale, product_discountRate, product_sale_date);
 
 INSERT INTO product (product_no, product_name, product_price, product_image, product_desc, product_sale_count, product_click_count, category_no, product_order, product_isOnSale, product_discountRate, product_sale_date) 
-VALUES (product_product_no_SEQ, '¼Ò°í±â¼öÀ°', 38000, product_image, '**********¼Ò°í±â »çÅÂ¿Í ¾çÁö¸¦ È²ÅÂÀ°¼ö¿¡ »î¾Æ ºÎÃß¿Í ÇÔ²² Áñ±â´Â ¼Ò°í±â¼öÀ°**********', product_sale_count, product_click_count, category_no, product_order, product_isOnSale, product_discountRate, product_sale_date);
-
---Äİ¶ó, »çÀÌ´Ù, »ı¼ö, ÂüÀÌ½½ÈÄ·¹½¬, Ä«½ºº´¸ÆÁÖ
-INSERT INTO product (product_no, product_name, product_price, product_image, product_desc, product_sale_count, product_click_count, category_no, product_order, product_isOnSale, product_discountRate, product_sale_date) 
-VALUES (product_product_no_SEQ, 'ÄÚÄ«Äİ¶ó', 3000, product_image, '**********1.5L Å« ÆäÆ®º´(ÀÏÈ¸¿ëÄÅ Á¦°ø ¾ÈÇÔ)**********', product_sale_count, product_click_count, category_no, product_order, product_isOnSale, product_discountRate, product_sale_date);
+VALUES (product_product_no_SEQ, 'ëª¨ë“¬ìˆœëŒ€', 20000, product_image, '**********ë¨¸ë¦¿ê³ ê¸°ì™€ ì„¸ ê°€ì§€ ì¢…ë¥˜ì˜ ìˆœëŒ€ë¥¼ í•œ ì ‘ì‹œì—**********', product_sale_count, product_click_count, category_no, product_order, product_isOnSale, product_discountRate, product_sale_date);
 
 INSERT INTO product (product_no, product_name, product_price, product_image, product_desc, product_sale_count, product_click_count, category_no, product_order, product_isOnSale, product_discountRate, product_sale_date) 
-VALUES (product_product_no_SEQ, 'ÄÚÄ«Äİ¶ó', 2000, product_image, '**********355ml ¶×¶×ÇÑ Äµ(»¡´ë Á¦°ø ¾ÈÇÔ)**********', product_sale_count, product_click_count, category_no, product_order, product_isOnSale, product_discountRate, product_sale_date);
+VALUES (product_product_no_SEQ, 'ì†Œê³ ê¸°ìˆ˜ìœ¡', 38000, product_image, '**********ì†Œê³ ê¸° ì‚¬íƒœì™€ ì–‘ì§€ë¥¼ í™©íƒœìœ¡ìˆ˜ì— ì‚¶ì•„ ë¶€ì¶”ì™€ í•¨ê»˜ ì¦ê¸°ëŠ” ì†Œê³ ê¸°ìˆ˜ìœ¡**********', product_sale_count, product_click_count, category_no, product_order, product_isOnSale, product_discountRate, product_sale_date);
+
+--ì½œë¼, ì‚¬ì´ë‹¤, ìƒìˆ˜, ì°¸ì´ìŠ¬í›„ë ˆì‰¬, ì¹´ìŠ¤ë³‘ë§¥ì£¼
+INSERT INTO product (product_no, product_name, product_price, product_image, product_desc, product_sale_count, product_click_count, category_no, product_order, product_isOnSale, product_discountRate, product_sale_date) 
+VALUES (product_product_no_SEQ, 'ì½”ì¹´ì½œë¼', 3000, product_image, '**********1.5L í° í˜íŠ¸ë³‘(ì¼íšŒìš©ì»µ ì œê³µ ì•ˆí•¨)**********', product_sale_count, product_click_count, category_no, product_order, product_isOnSale, product_discountRate, product_sale_date);
 
 INSERT INTO product (product_no, product_name, product_price, product_image, product_desc, product_sale_count, product_click_count, category_no, product_order, product_isOnSale, product_discountRate, product_sale_date) 
-VALUES (product_product_no_SEQ, '½ºÇÁ¶óÀÌÆ®', 3000, product_image, '**********1.5¸®ÅÍ Å« ÆäÆ®º´(ÀÏÈ¸¿ëÄÅ Á¦°ø ¾ÈÇÔ)**********', product_sale_count, product_click_count, category_no, product_order, product_isOnSale, product_discountRate, product_sale_date);
+VALUES (product_product_no_SEQ, 'ì½”ì¹´ì½œë¼', 2000, product_image, '**********355ml ëš±ëš±í•œ ìº”(ë¹¨ëŒ€ ì œê³µ ì•ˆí•¨)**********', product_sale_count, product_click_count, category_no, product_order, product_isOnSale, product_discountRate, product_sale_date);
 
 INSERT INTO product (product_no, product_name, product_price, product_image, product_desc, product_sale_count, product_click_count, category_no, product_order, product_isOnSale, product_discountRate, product_sale_date) 
-VALUES (product_product_no_SEQ, '½ºÇÁ¶óÀÌÆ®', 2000, product_image, '**********355ml ¶×¶×ÇÑ Äµ(»¡´ë Á¦°ø ¾ÈÇÔ)**********', product_sale_count, product_click_count, category_no, product_order, product_isOnSale, product_discountRate, product_sale_date);
+VALUES (product_product_no_SEQ, 'ìŠ¤í”„ë¼ì´íŠ¸', 3000, product_image, '**********1.5ë¦¬í„° í° í˜íŠ¸ë³‘(ì¼íšŒìš©ì»µ ì œê³µ ì•ˆí•¨)**********', product_sale_count, product_click_count, category_no, product_order, product_isOnSale, product_discountRate, product_sale_date);
 
 INSERT INTO product (product_no, product_name, product_price, product_image, product_desc, product_sale_count, product_click_count, category_no, product_order, product_isOnSale, product_discountRate, product_sale_date) 
-VALUES (product_product_no_SEQ, 'ÂüÀÌ½½ÈÄ·¹½¬', 4000, product_image, '**********ÂüÀÌ½½ÈÄ·¹½¬(ÀÏÈ¸¿ëÄÅ Á¦°ø ¾ÈÇÔ)**********', product_sale_count, product_click_count, category_no, product_order, product_isOnSale, product_discountRate, product_sale_date);
+VALUES (product_product_no_SEQ, 'ìŠ¤í”„ë¼ì´íŠ¸', 2000, product_image, '**********355ml ëš±ëš±í•œ ìº”(ë¹¨ëŒ€ ì œê³µ ì•ˆí•¨)**********', product_sale_count, product_click_count, category_no, product_order, product_isOnSale, product_discountRate, product_sale_date);
 
 INSERT INTO product (product_no, product_name, product_price, product_image, product_desc, product_sale_count, product_click_count, category_no, product_order, product_isOnSale, product_discountRate, product_sale_date) 
-VALUES (product_product_no_SEQ, 'Ã³À½Ã³·³', 4000, product_image, '**********Ã³À½Ã³·³(ÀÏÈ¸¿ëÄÅ Á¦°ø ¾ÈÇÔ)**********', product_sale_count, product_click_count, category_no, product_order, product_isOnSale, product_discountRate, product_sale_date);
+VALUES (product_product_no_SEQ, 'ì°¸ì´ìŠ¬í›„ë ˆì‰¬', 4000, product_image, '**********ì°¸ì´ìŠ¬í›„ë ˆì‰¬(ì¼íšŒìš©ì»µ ì œê³µ ì•ˆí•¨)**********', product_sale_count, product_click_count, category_no, product_order, product_isOnSale, product_discountRate, product_sale_date);
 
 INSERT INTO product (product_no, product_name, product_price, product_image, product_desc, product_sale_count, product_click_count, category_no, product_order, product_isOnSale, product_discountRate, product_sale_date) 
-VALUES (product_product_no_SEQ, 'Å×¶óº´¸ÆÁÖ', 5000, product_image, '**********Å×¶ó//º´¸ÆÁÖ(ÀÏÈ¸¿ëÄÅ Á¦°ø ¾ÈÇÔ)**********', product_sale_count, product_click_count, category_no, product_order, product_isOnSale, product_discountRate, product_sale_date);
+VALUES (product_product_no_SEQ, 'ì²˜ìŒì²˜ëŸ¼', 4000, product_image, '**********ì²˜ìŒì²˜ëŸ¼(ì¼íšŒìš©ì»µ ì œê³µ ì•ˆí•¨)**********', product_sale_count, product_click_count, category_no, product_order, product_isOnSale, product_discountRate, product_sale_date);
 
 INSERT INTO product (product_no, product_name, product_price, product_image, product_desc, product_sale_count, product_click_count, category_no, product_order, product_isOnSale, product_discountRate, product_sale_date) 
-VALUES (product_product_no_SEQ, 'Ä«½ºº´¸ÆÁÖ', 5000, product_image, '**********Ä«½º//º´¸ÆÁÖ(ÀÏÈ¸¿ëÄÅ Á¦°ø ¾ÈÇÔ)**********', product_sale_count, product_click_count, category_no, product_order, product_isOnSale, product_discountRate, product_sale_date);
+VALUES (product_product_no_SEQ, 'í…Œë¼ë³‘ë§¥ì£¼', 5000, product_image, '**********í…Œë¼//ë³‘ë§¥ì£¼(ì¼íšŒìš©ì»µ ì œê³µ ì•ˆí•¨)**********', product_sale_count, product_click_count, category_no, product_order, product_isOnSale, product_discountRate, product_sale_date);
+
+INSERT INTO product (product_no, product_name, product_price, product_image, product_desc, product_sale_count, product_click_count, category_no, product_order, product_isOnSale, product_discountRate, product_sale_date) 
+VALUES (product_product_no_SEQ, 'ì¹´ìŠ¤ë³‘ë§¥ì£¼', 5000, product_image, '**********ì¹´ìŠ¤//ë³‘ë§¥ì£¼(ì¼íšŒìš©ì»µ ì œê³µ ì•ˆí•¨)**********', product_sale_count, product_click_count, category_no, product_order, product_isOnSale, product_discountRate, product_sale_date);
 
 commit;
 
