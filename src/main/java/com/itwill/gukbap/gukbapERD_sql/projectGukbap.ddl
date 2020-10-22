@@ -68,16 +68,6 @@ DROP SEQUENCE address_address_no_SEQ;
 
 CREATE SEQUENCE address_address_no_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
 
-CREATE TRIGGER address_address_no_TRG
-BEFORE INSERT ON address
-FOR EACH ROW
-BEGIN
-IF :NEW.address_no IS NOT NULL THEN
-  SELECT address_address_no_SEQ.NEXTVAL INTO :NEW.address_no FROM DUAL;
-END IF;
-END;
-
-
 CREATE TABLE userAddress(
 		userAddress_no                		NUMBER(10)		 NULL ,
 		user_id                       		VARCHAR2(50)		 NULL ,
@@ -111,16 +101,6 @@ CREATE TABLE gukbap_order(
 DROP SEQUENCE gukbap_order_order_no_SEQ;
 
 CREATE SEQUENCE gukbap_order_order_no_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
-
-CREATE TRIGGER gukbap_order_order_no_TRG
-BEFORE INSERT ON gukbap_order
-FOR EACH ROW
-BEGIN
-IF :NEW.order_no IS NOT NULL THEN
-  SELECT gukbap_order_order_no_SEQ.NEXTVAL INTO :NEW.order_no FROM DUAL;
-END IF;
-END;
-
 
 CREATE TABLE order_detail(
 		o_d_no                        		NUMBER(10)		 NULL ,
@@ -158,16 +138,6 @@ DROP SEQUENCE review_review_no_SEQ;
 
 CREATE SEQUENCE review_review_no_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
 
-CREATE TRIGGER review_review_no_TRG
-BEFORE INSERT ON review
-FOR EACH ROW
-BEGIN
-IF :NEW.review_no IS NOT NULL THEN
-  SELECT review_review_no_SEQ.NEXTVAL INTO :NEW.review_no FROM DUAL;
-END IF;
-END;
-
-
 CREATE TABLE wishlist(
 		wishlist_no                   		NUMBER(10)		 NULL ,
 		user_id                       		VARCHAR2(50)		 NULL ,
@@ -198,15 +168,6 @@ DROP SEQUENCE chat_chat_no_SEQ;
 
 CREATE SEQUENCE chat_chat_no_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
 
-CREATE TRIGGER chat_chat_no_TRG
-BEFORE INSERT ON chat
-FOR EACH ROW
-BEGIN
-IF :NEW.chat_no IS NOT NULL THEN
-  SELECT chat_chat_no_SEQ.NEXTVAL INTO :NEW.chat_no FROM DUAL;
-END IF;
-END;
-
 
 CREATE TABLE chat_content(
 		ch_c_no                       		NUMBER(10)		 NULL ,
@@ -221,17 +182,6 @@ CREATE TABLE chat_content(
 DROP SEQUENCE chat_content_ch_c_no_SEQ;
 
 CREATE SEQUENCE chat_content_ch_c_no_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
-
-CREATE TRIGGER chat_content_ch_c_no_TRG
-BEFORE INSERT ON chat_content
-FOR EACH ROW
-BEGIN
-IF :NEW.ch_c_no IS NOT NULL THEN
-  SELECT chat_content_ch_c_no_SEQ.NEXTVAL INTO :NEW.ch_c_no FROM DUAL;
-END IF;
-END;
-
-
 
 ALTER TABLE gukbap_user ADD CONSTRAINT IDX_gukbap_user_PK PRIMARY KEY (user_id);
 
