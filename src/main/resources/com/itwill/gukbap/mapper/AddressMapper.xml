@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itwill.gukbap.mapper.AddressMapper">
+    <!-- select -->
+    <select id="selectAll" resultType="com.itwill.gukbap.domain.AddressDomain">
+         SELECT * FROM address
+    </select>
+    
+    <select id="selectAddressByNo" resultType="com.itwill.gukbap.domain.AddressDomain">
+    SELECT * FROM address WHERE ADDRESS_NO=#{address_no}
+    </select>
+    
+    <!-- insert -->
+    <insert id="insertAddress" parameterType="com.itwill.gukbap.domain.AddressDomain">
+    insert into address values(address_address_no_SEQ.nextval,#{address_company_name},#{address_street},
+    #{address_street_optional},#{address_city},#{address_state})
+    </insert>
+    
+    <!-- update -->
+    <update id="updateAddress" parameterType="com.itwill.gukbap.domain.AddressDomain">
+     update address set ADDRESS_COMPANY_NAME=#{address_company_name},ADDRESS_STREET=#{address_street},ADDRESS_STREET_OPTIONAL=#{address_street_optional},ADDRESS_CITY=#{address_city},
+     ADDRESS_STATE=#{address_city} WHERE ADDRESS_NO=#{address_no}
+    </update>
+    
+    <!-- delete -->
+    <delete id="deleteAddress">
+      delete from address where ADDRESS_NO=#{address_no}
+    </delete>
+    
+    
+
+</mapper>

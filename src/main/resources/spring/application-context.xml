@@ -27,5 +27,10 @@
 		<property name="mapperInterface" value="com.itwill.gukbap.mapper.UserMapper"/>
 	</bean>
 	
+	<bean id="addressMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+	    <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+	    <property name="mapperInterface" value="com.itwill.gukbap.mapper.AddressMapper"/>
+	</bean>
+	
 
 </beans>
