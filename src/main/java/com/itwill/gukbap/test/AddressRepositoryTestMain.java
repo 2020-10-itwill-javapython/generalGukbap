@@ -15,8 +15,10 @@ public class AddressRepositoryTestMain {
 		AddressRepository addressDao = applicationContext.getBean(AddressRepository.class);
 		
 		System.out.println(addressDao.selectAll());
-		System.out.println(addressDao.selectAddressByNo(15));
-		//System.out.println(addressDao.deleteAddress(23));
+
+		System.out.println(addressDao.selectAddressByNo(14));
+		//System.out.println(addressDao.deleteAddress(20));
+
 		//System.out.println(addressDao.insertAddress(new AddressDomain(1,"address", "address", "address", "address", "address")));
 		System.out.println(addressDao.updateAddress(new AddressDomain(24,"변경", "변경", "변경", "변경", "변경")));
 

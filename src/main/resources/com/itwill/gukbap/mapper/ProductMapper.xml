@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itwill.gukbap.mapper.ProductMapper">
+	
+	<!-- SELECT -->
+	<select id="selectAll" resultType="com.itwill.gukbap.domain.ProductDomain">
+		select * from product
+	</select>
+	
+	<select id="selectProductByProductName" resultType="com.itwill.gukbap.domain.ProductDomain" parameterType="string">
+		select * from product where product_name= #{product_name}
+	</select>
+	
+	<select id="selectProductByProductNo" resultType="com.itwill.gukbap.domain.ProductDomain" parameterType="int">
+		select * from product where product_no= #{product_no}
+	</select>
+	
+	<!--  
+	<select id="selectProductByCategoryNo" resultType="com.itwill.gukbap.domain.ProductDomain" parameterType="int">
+		select * from product where category_no= #{category_no}
+	</select>
+	-->
+		
+	<!-- INSERT -->
+	<insert id="insertProduct" parameterType="com.itwill.gukbap.domain.ProductDomain">
+		INSERT INTO product (product_no, product_name, product_price, product_image, product_desc, product_sale_count, product_click_count, category_no, product_order, product_isOnSale, product_discountRate, product_sale_date) 
+		VALUES (#{product_no}, #{product_name}, #{product_price}, #{product_image}, 
+				#{product_desc}, #{product_sale_count}, #{product_click_count}, #{category_no}, 
+				#{product_order}, #{product_isOnSale}, #{product_discountRate}, #{product_sale_date})
+	</insert>
+	
+	<!-- update 
+	<update id="updateProduct" parameterType="com.itwill.gukbap.domain.ProductDomain">
+		update product set product_isOnSale= #{product_isOnSale},
+				  		   product_discountRate= #{product_discountRate}
+		where product_sale_date= #{product_sale_date}
+	</update>
+	-->
+
+	<!-- DELETE -->
+	<delete id="deleteProductByProductName" parameterType="String">
+		delete product where product_name= #{product_name}
+	</delete>
+	
+	<delete id="deleteProductByProductNo" parameterType="int">
+		delete product where product_no= #{product_no}
+	</delete>
+	
+	
+</mapper>
