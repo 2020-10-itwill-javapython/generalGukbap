@@ -17,7 +17,7 @@ public class ProductRepositoryTestMain {
 		ProductRepository productDao=applicationContext.getBean(ProductRepository.class);
 		
 		//1.모든 제품 찾기
-		//System.out.println(productDao.selectAll());
+		System.out.println(productDao.selectAll());
 		
 		//2.제품명으로 제품 하나 찾기
 		//System.out.println(productDao.selectProductByProductName("테스트국밥"));
