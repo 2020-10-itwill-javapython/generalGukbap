@@ -34,10 +34,15 @@ public class ProductRepositoryImpl implements ProductRepository {
 		return productMapper.selectProductByProductNo(product_no);
 	}
 	
-//	@Override
-//	public List<ProductDomain> selectProductByCategoryNo(int category_no) {
-//		return productMapper.selectProductByCategoryNo(category_no);
-//	}
+	@Override
+	public List<ProductDomain> selectProductByCategoryNo(int c_no) {
+		return productMapper.selectProductByCategoryNo(c_no);
+	}
+	
+	@Override
+	public ProductDomain selectProductIsOnSale(String sysdate) {
+		return productMapper.selectProductIsOnSale(sysdate);
+	}
 	
 	@Override
 	public int updateProduct(ProductDomain product) {

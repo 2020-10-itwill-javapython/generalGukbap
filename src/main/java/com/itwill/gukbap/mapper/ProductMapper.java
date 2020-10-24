@@ -12,7 +12,9 @@ public interface ProductMapper {
 
 	public ProductDomain selectProductByProductNo(int product_no);
 
-	//public List<ProductDomain> selectProductByCategoryNo(int category_no);
+	public List<ProductDomain> selectProductByCategoryNo(int c_no);
+	
+	public ProductDomain selectProductIsOnSale(String sysdate);
 	
 	public int insertProduct(ProductDomain product);
 	

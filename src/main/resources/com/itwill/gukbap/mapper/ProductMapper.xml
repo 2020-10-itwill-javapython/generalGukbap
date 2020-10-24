@@ -15,25 +15,31 @@
 		select * from product where product_no= #{product_no}
 	</select>
 	
-	<!--  
 	<select id="selectProductByCategoryNo" resultType="com.itwill.gukbap.domain.ProductDomain" parameterType="int">
-		select * from product where category_no= #{category_no}
+		select * from product where c_no= #{c_no}
 	</select>
-	-->
+	
+	<!-- 수정해야 함 -->
+	<select id="selectProductIsOnSale" resultType="com.itwill.gukbap.domain.ProductDomain" parameterType="string">
+		select product_no, product_name, product_price*0.7 as product_price, 
+	   		   product_image, product_desc, product_sale_count, product_click_count, 
+	   		   c_no, product_order, product_isOnSale, product_discountRate, product_sale_date
+		from product
+		where product_sale_date= #{product_sale_date}
+	</select>
+	
 		
 	<!-- INSERT -->
 	<insert id="insertProduct" parameterType="com.itwill.gukbap.domain.ProductDomain">
-		INSERT INTO product (product_no, product_name, product_price, product_image, product_desc, product_sale_count, product_click_count, category_no, product_order, product_isOnSale, product_discountRate, product_sale_date) 
+		INSERT INTO product (product_no, product_name, product_price, product_image, product_desc, product_sale_count, product_click_count, c_no, product_order, product_isOnSale, product_discountRate, product_sale_date) 
 		VALUES (#{product_no}, #{product_name}, #{product_price}, #{product_image}, 
-				#{product_desc}, #{product_sale_count}, #{product_click_count}, #{category_no}, 
+				#{product_desc}, #{product_sale_count}, #{product_click_count}, #{c_no}, 
 				#{product_order}, #{product_isOnSale}, #{product_discountRate}, #{product_sale_date})
 	</insert>
 	
 	<!-- update 
 	<update id="updateProduct" parameterType="com.itwill.gukbap.domain.ProductDomain">
-		update product set product_isOnSale= #{product_isOnSale},
-				  		   product_discountRate= #{product_discountRate}
-		where product_sale_date= #{product_sale_date}
+		
 	</update>
 	-->
 

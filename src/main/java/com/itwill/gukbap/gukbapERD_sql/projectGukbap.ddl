@@ -41,7 +41,7 @@ CREATE TABLE product(
 		product_desc                  		VARCHAR2(2000)		 NULL ,
 		product_sale_count            		NUMBER(10)		 NULL ,
 		product_click_count           		NUMBER(10)		 NULL ,
-		category_no                   		NUMBER(10)		 NULL ,
+		c_no                   				NUMBER(10)		 NULL ,
 		product_order                 		NUMBER(10)		 NULL ,
 		product_isOnSale              		VARCHAR2(10)		 DEFAULT 'false'		 NULL ,
 		product_discountRate          		NUMBER(10)		 DEFAULT 0		 NULL ,
