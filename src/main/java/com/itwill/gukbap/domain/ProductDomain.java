@@ -11,7 +11,7 @@ public class ProductDomain {
 		product_desc                  		VARCHAR2(2000)		 NULL ,
 		product_sale_count            		NUMBER(10)		 NULL ,
 		product_click_count           		NUMBER(10)		 NULL ,
-		category_no                   		NUMBER(10)		 NULL ,
+		c_no                   		NUMBER(10)		 NULL ,
 		product_order                 		NUMBER(10)		 NULL ,
 		product_isOnSale              		VARCHAR2(10)		 DEFAULT 'false'		 NULL ,
 		product_discountRate          		NUMBER(10)		 DEFAULT 0		 NULL, 
@@ -25,7 +25,7 @@ public class ProductDomain {
 	private String product_desc;
 	private int product_sale_count;
 	private int product_click_count;
-	private int category_no;
+	private int c_no;
 	private int product_order;
 	private String product_isOnSale;
 	private int product_discountRate;
@@ -37,7 +37,7 @@ public class ProductDomain {
 	
 
 	public ProductDomain(int product_no, String product_name, int product_price, String product_image,
-			String product_desc, int product_sale_count, int product_click_count, int category_no, int product_order,
+			String product_desc, int product_sale_count, int product_click_count, int c_no, int product_order,
 			String product_isOnSale, int product_discountRate, String product_sale_date) {
 		super();
 		this.product_no = product_no;
@@ -47,7 +47,7 @@ public class ProductDomain {
 		this.product_desc = product_desc;
 		this.product_sale_count = product_sale_count;
 		this.product_click_count = product_click_count;
-		this.category_no = category_no;
+		this.c_no = c_no;
 		this.product_order = product_order;
 		this.product_isOnSale = product_isOnSale;
 		this.product_discountRate = product_discountRate;
@@ -111,12 +111,12 @@ public class ProductDomain {
 		this.product_click_count = product_click_count;
 	}
 
-	public int getCategory_no() {
-		return category_no;
+	public int getC_no() {
+		return c_no;
 	}
 
-	public void setCategory_no(int category_no) {
-		this.category_no = category_no;
+	public void setC_no(int c_no) {
+		this.c_no = c_no;
 	}
 
 	public int getProduct_order() {
@@ -158,7 +158,7 @@ public class ProductDomain {
 		return "ProductDomain [ product_no= " + product_no + ", product_name= " + product_name + ", product_price= " + 
 				product_price + ", product_image= " + product_image + ", product_desc= " + product_desc + 
 				", product_sale_count= " + product_sale_count + ", product_click_count= " + product_click_count +
-				", category_no= " + category_no + ", product_order= " + product_order +
+				", c_no= " + c_no + ", product_order= " + product_order +
 				", product_isOnSale= " + product_isOnSale + ", product_discountRate= " + 
 				product_discountRate +", product_sale_date= " + product_sale_date + "]"+"\n"; 
 	}

@@ -1,15 +1,6 @@
 /*
---날짜에 따라 할인 적용
-update product set product_isOnSale='true',
-				   product_discountRate=30
-where product_sale_date='';
-				   
-
---날짜에 따라 할인 적용 취소
-update product set product_isOnSale='false',
-				   product_discountRate=0
-where product_sale_date='';
-*/
+대체 어떤 업데이트가 필요하지??
+ */
 
 --제품명으로 제품 삭제
 delete product where product_name='테스트국밥';
