@@ -1,21 +1,21 @@
 INSERT INTO gukbap_order (order_no, order_date, order_status, order_total_pricce, order_desc, order_note, user_id) 
 VALUES (gukbap_order_order_no_SEQ.nextval, to_date('2020/10/19', 'yyyy/MM/dd'), 
-'ÁØºñÁß', 8000, '±¼±¹¹ä', '¼öÀúÁÖ¼¼¿ä','helprun@naver.com');
+'ì¤€ë¹„ì¤‘', 8000, 'êµ´êµ­ë°¥', 'ìˆ˜ì €ì£¼ì„¸ìš”','helprun@naver.com');
 
 INSERT INTO gukbap_order (order_no, order_date, order_status, order_total_pricce, order_desc, order_note, user_id) 
 VALUES (gukbap_order_order_no_SEQ.nextval, to_date('2020/10/25', 'yyyy/MM/dd'), 
-'¹è¼ÛÁß', 11000, 'µÅÁö±¹¹ä¿Ü1Á¾', 'Á£°¡¶ô ÁÖ¼¼¿ä','OMG_mim@naver.com');
+'ë°°ì†¡ì¤‘', 11000, 'ë¼ì§€êµ­ë°¥ì™¸1ì¢…', 'ì “ê°€ë½ ì£¼ì„¸ìš”','OMG_mim@naver.com');
 
 INSERT INTO gukbap_order (order_no, order_date, order_status, order_total_pricce, order_desc, order_note, user_id) 
 VALUES (gukbap_order_order_no_SEQ.nextval, to_date('2020/10/24', 'yyyy/MM/dd'), 
-'¹è¼ÛÁß', 31500, '¼Ò°í±â±¹¹ä¿Ü2Á¾','¾ÈÀü¿îÀüÇÏ¼¼¿ä','boyoung90@naver.com');
+'ë°°ì†¡ì¤‘', 31500, 'ì†Œê³ ê¸°êµ­ë°¥ì™¸2ì¢…','ì•ˆì „ìš´ì „í•˜ì„¸ìš”','boyoung90@naver.com');
 
 INSERT INTO gukbap_order (order_no, order_date, order_status, order_total_pricce, order_desc, order_note, user_id) 
 VALUES (gukbap_order_order_no_SEQ.nextval, to_date('2020/10/23', 'yyyy/MM/dd'), 
-'ÁØºñÁß', 10000, '¼ø´ë±¹¹ä¿Ü1Á¾','»¡¸®¿À¼¼¿ä','chan@naver.com');
+'ì¤€ë¹„ì¤‘', 10000, 'ìˆœëŒ€êµ­ë°¥ì™¸1ì¢…','ë¹¨ë¦¬ì˜¤ì„¸ìš”','chan@naver.com');
 
 INSERT INTO gukbap_order (order_no, order_date, order_status, order_total_pricce, order_desc, order_note, user_id) 
 VALUES (gukbap_order_order_no_SEQ.nextval, to_date('2020/10/21', 'yyyy/MM/dd'), 
-'ÁØºñÁß', 18000, 'Äá³ª¹°±¹¹ä¿Ü2Á¾','»¡¸®¿À¼¼¿ä','syLim@naver.com');
+'ì¤€ë¹„ì¤‘', 18000, 'ì½©ë‚˜ë¬¼êµ­ë°¥ì™¸2ì¢…','ë¹¨ë¦¬ì˜¤ì„¸ìš”','syLim@naver.com');
 
 commit;

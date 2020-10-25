@@ -4,12 +4,12 @@ delete gukbap_order where order_no=1;
 
 delete gukbap_order where user_id='syLim@naver.com';
 
-update gukbap_order set order_note='Á£°¡¶ô3°³ÁÖ¼¼¿ä' WHERE order_no=2;
+update gukbap_order set order_note='ì “ê°€ë½3ê°œì£¼ì„¸ìš”' WHERE order_no=2;
 
-update gukbap_order set order_status='ÁÖ¹®Áß' WHERE order_no=3;
+update gukbap_order set order_status='ì£¼ë¬¸ì¤‘' WHERE order_no=3;
 
-update gukbap_order set order_status='¹è¼ÛÁß',order_total_pricce=15000,order_desc='¼ø´ë±¹¹ä¿Ü2Á¾',order_note='»¡¸®»¡¸®'
+update gukbap_order set order_status='ë°°ì†¡ì¤‘',order_total_pricce=15000,order_desc='ìˆœëŒ€êµ­ë°¥ì™¸2ì¢…',order_note='ë¹¨ë¦¬ë¹¨ë¦¬'
 WHERE user_id='boyoung90@naver.com';
 
-update gukbap_order set order_status='¹è¼ÛÁß',order_total_pricce=15000,order_desc='¼ø´ë±¹¹ä¿Ü2Á¾',order_note='»¡¸®»¡¸®'
+update gukbap_order set order_status='ë°°ì†¡ì¤‘',order_total_pricce=15000,order_desc='ìˆœëŒ€êµ­ë°¥ì™¸2ì¢…',order_note='ë¹¨ë¦¬ë¹¨ë¦¬'
 WHERE order_no=10;
