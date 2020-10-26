@@ -28,7 +28,7 @@ public class UserRepositoryTestMain {
 //						"01012345678", null)));
 //		System.out.println(userDao.selectUserById("test@naver.com"));
 //		System.out.println(userDao.deleteUser("test@naver.com"));
-		System.out.println(userDao.selectUserById("test@naver.com"));
+//		System.out.println(userDao.selectUserById("OMG_mim@naver.com"));
 		
 	}
 

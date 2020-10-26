@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itwill.gukbap.mapper.UserAddressMapper">
+	<!-- INSERT -->
+	<insert id="user_address_mapping" parameterType="com.itwill.gukbap.domain.UserAddressDomain">
+		INSERT INTO userAddress (userAddress_no, user_id, address_no) 
+		VALUES (userAddress_userAddress_no_SEQ.nextval, #{user_id}, #{address_no})
+	</insert>
+	
+	<!-- DELETE -->
+	<delete id="deleteUserAddress" parameterType="com.itwill.gukbap.domain.UserAddressDomain">
+		delete useraddress where user_id = #{user_id} and address_no = #{address_no}
+	</delete>
+	
+	<delete id="deleteAllUserAddress" parameterType="String">
+		delete useraddress where user_id = #{user_id}
+	</delete>
+</mapper>
