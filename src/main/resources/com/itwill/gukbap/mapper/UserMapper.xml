@@ -1,14 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.itwill.gukbap.mapper.UserMapper">
+	<!-- RESULTMAP -->
+	<resultMap type="com.itwill.gukbap.domain.UserDomain" id="userResultMap">
+		<result property="user_id" column="user_id"/>
+		<result property="user_password" column="user_password"/>
+		<result property="user_first_name" column="user_first_name"/>
+		<result property="user_last_name" column="user_last_name"/>
+		<result property="user_birthdate" column="user_birthdate"/>
+		<result property="user_phone" column="user_phone"/>
+		<result property="user_level" column="user_level"/>
+		
+		<collection property="addresses" autoMapping="true" ofType="com.itwill.gukbap.domain.AddressDomain"/>
+	</resultMap>
 	
 	<!-- SELECT -->
-	<select id="selectAll" resultType="com.itwill.gukbap.domain.UserDomain">
-		select * from gukbap_user where user_level != 'admin'
+	<select id="selectAll" resultMap="userResultMap">
+		select u.*, a.* from gukbap_user u 
+		full outer join useraddress ua on u.user_id = ua.user_id
+		full outer join address a on ua.address_no = a.address_no
+		where user_level != 'admin'
 	</select>
 	
-	<select id="selectUserById" resultType="com.itwill.gukbap.domain.UserDomain" parameterType="string">
-		select * from gukbap_user where user_id = #{user_id}
+	<select id="selectUserById" resultMap="userResultMap" parameterType="string">
+		select u.*, a.* from gukbap_user u 
+		full outer join useraddress ua on u.user_id = ua.user_id
+		full outer join address a on ua.address_no = a.address_no
+		where u.user_level != 'admin' and u.user_id = #{user_id}
 	</select>
 	
 	<select id="isExistedUser" resultType="_int" parameterType="String">

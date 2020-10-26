@@ -2,12 +2,13 @@ package com.itwill.gukbap.service;
 
 import java.util.List;
 
+import com.itwill.gukbap.domain.AddressDomain;
 import com.itwill.gukbap.domain.UserDomain;
 import com.itwill.gukbap.exception.ExistedUserExecption;
 
 public interface UserService {
 
-	int registerNewUser(UserDomain user) throws ExistedUserExecption;
+	int registerNewUser(UserDomain user, AddressDomain address) throws ExistedUserExecption;
 
 	UserDomain login(String user_id, String password) throws Exception;
 

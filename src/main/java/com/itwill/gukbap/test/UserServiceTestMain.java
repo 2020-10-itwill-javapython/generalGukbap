@@ -28,6 +28,7 @@ public class UserServiceTestMain {
 //								"이름", "성", 
 //								"19990101", "01025954808", null)));\
 //		System.out.println(userService.deleteUser("akiratksk@naver.com"));
+//		System.out.println(userService.deleteUser("OMG_mim@naver.com"));
 	}
 
 }
