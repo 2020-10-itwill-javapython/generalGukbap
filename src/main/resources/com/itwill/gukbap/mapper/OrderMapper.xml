@@ -5,5 +5,30 @@
     <select id="selectAll" resultType="com.itwill.gukbap.domain.OrderDomain">
         SELECT * FROM gukbap_order
     </select>
+    
+    <select id="selectOrderByNo" resultType="com.itwill.gukbap.domain.OrderDomain">
+    SELECT * FROM gukbap_order WHERE ORDER_NO=#{order_no}
+    </select>
+    
+    <select id="selectOrderByName" resultType="com.itwill.gukbap.domain.OrderDomain">
+    SELECT * FROM gukbap_order WHERE USER_ID=#{user_id}
+    </select>
+    
+    <insert id="insertOrder" parameterType="com.itwill.gukbap.domain.OrderDomain">
+	INSERT INTO gukbap_order (order_no, order_date, order_status, order_total_pricce, order_desc, order_note, user_id) 
+	VALUES (gukbap_order_order_no_SEQ.nextval, to_date(#{order_date}, 'yyyy/MM/dd'), 
+	#{order_status},#{order_total_pricce}, #{order_desc},#{order_note},#{user_id})
+    </insert>
+    
+    <update id="updateOrder" parameterType="com.itwill.gukbap.domain.OrderDomain">
+    update gukbap_order set order_status=#{order_status},order_total_pricce=#{order_total_pricce},order_desc=#{order_desc},order_note=#{order_note}
+    WHERE order_no=#{order_no}
+    </update>
+    
+    <delete id="deleteOrder">
+     delete gukbap_order where order_no=#{order_no}
+    </delete>
+    
+    
 
 </mapper>
