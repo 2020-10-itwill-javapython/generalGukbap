@@ -38,13 +38,10 @@
 	    <property name="mapperInterface" value="com.itwill.gukbap.mapper.ProductMapper"/>
 	</bean>
 	
-	<!-- 
 	<bean id="productCategoryMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
 		<property name="sqlSessionFactory"  ref="sqlSessionFactory"/>
 		<property name="mapperInterface" value="com.itwill.gukbap.mapper.ProductCategoryMapper"/>
 	</bean>
-	 -->
-
 
 	<bean id="userAddressMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
 		<property name="sqlSessionFactory" ref="sqlSessionFactory"/>
@@ -52,9 +49,6 @@
 	</bean>
 	
 
-
-
-	 
 	 <bean id="Order" class="org.mybatis.spring.mapper.MapperFactoryBean">
 	   <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
 	   <property name="mapperInterface" value="com.itwill.gukbap.mapper.OrderMapper"/>

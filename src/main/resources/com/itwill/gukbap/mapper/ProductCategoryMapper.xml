@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itwill.gukbap.mapper.ProductCategoryMapper">
+	
+	<!-- SELECT -->
+	<select id="selectAll" 
+			resultType="com.itwill.gukbap.domain.ProductCategoryDomain">
+		select * from product_category
+	</select>
+	
+	<select id="selectProductCategoryByCategoryNo" 
+			resultType="com.itwill.gukbap.domain.ProductCategoryDomain" 
+			parameterType="int">
+		select * from product_category where c_no= #{c_no}
+	</select>
+	
+		
+	<!-- INSERT -->
+	<insert id="insertProductCategory" 
+			parameterType="com.itwill.gukbap.domain.ProductCategoryDomain">
+		INSERT INTO product_category VALUES (#{c_no}, #{c_name})
+	</insert>
+	
+	<!-- update -->
+	<update id="updateProductCategoryName" 
+			parameterType="com.itwill.gukbap.domain.ProductCategoryDomain">
+		update product_category set c_name = #{c_name} where c_no = #{c_no}
+	</update>
+	
+
+	<!-- DELETE -->
+	<delete id="deleteProductCategoryByCategoryName" parameterType="String">
+		delete product_category where c_name= #{c_name}
+	</delete>
+	
+	<delete id="deleteProductCategoryByCategoryNo" parameterType="int">
+		delete product_category where c_no= #{c_no}
+	</delete>
+	
+	
+</mapper>
