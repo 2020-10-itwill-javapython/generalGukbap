@@ -78,14 +78,6 @@ DROP SEQUENCE userAddress_userAddress_no_SEQ;
 
 CREATE SEQUENCE userAddress_userAddress_no_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
 
-CREATE TRIGGER userAddress_userAddress_no_TRG
-BEFORE INSERT ON userAddress
-FOR EACH ROW
-BEGIN
-IF :NEW.userAddress_no IS NOT NULL THEN
-  SELECT userAddress_userAddress_no_SEQ.NEXTVAL INTO :NEW.userAddress_no FROM DUAL;
-END IF;
-END;
 
 
 CREATE TABLE gukbap_order(
@@ -112,14 +104,6 @@ DROP SEQUENCE order_detail_o_d_no_SEQ;
 
 CREATE SEQUENCE order_detail_o_d_no_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
 
-CREATE TRIGGER order_detail_o_d_no_TRG
-BEFORE INSERT ON order_detail
-FOR EACH ROW
-BEGIN
-IF :NEW.o_d_no IS NOT NULL THEN
-  SELECT order_detail_o_d_no_SEQ.NEXTVAL INTO :NEW.o_d_no FROM DUAL;
-END IF;
-END;
 
 
 CREATE TABLE review(
@@ -148,14 +132,6 @@ DROP SEQUENCE wishlist_wishlist_no_SEQ;
 
 CREATE SEQUENCE wishlist_wishlist_no_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
 
-CREATE TRIGGER wishlist_wishlist_no_TRG
-BEFORE INSERT ON wishlist
-FOR EACH ROW
-BEGIN
-IF :NEW.wishlist_no IS NOT NULL THEN
-  SELECT wishlist_wishlist_no_SEQ.NEXTVAL INTO :NEW.wishlist_no FROM DUAL;
-END IF;
-END;
 
 
 CREATE TABLE chat(

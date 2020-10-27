@@ -50,6 +50,11 @@
 		<property name="mapperInterface" value="com.itwill.gukbap.mapper.UserAddressMapper"/>
 	</bean>
 	
+	<bean id="wishListMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+		<property name="mapperInterface" value="com.itwill.gukbap.mapper.WishListMapper"/>
+	</bean>
+	
 
 
 </beans>
