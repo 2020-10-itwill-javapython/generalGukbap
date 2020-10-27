@@ -25,6 +25,12 @@ public class AddressRepositoryImpl implements AddressRepository{
 		return addressMapper.selectAddressByNo(address_no);
 	}
 	
+	
+	@Override
+	public int selectCurrentNo() {
+		return addressMapper.selectCurrentNo();
+	}
+	
 	@Override
 	public int insertAddress(AddressDomain address) {
 		return addressMapper.insertAddress(address);

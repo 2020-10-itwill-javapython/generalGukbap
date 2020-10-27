@@ -1,5 +1,6 @@
 SELECT * FROM address;
 SELECT * FROM address WHERE ADDRESS_NO=9;
-SELECT * FROM address WHERE ADDRESS_COMPANY_NAME='±¹¹ä';
-SELECT * FROM address WHERE ADDRESS_CITY='ÆÄÁÖ½Ã';
+SELECT * FROM address WHERE ADDRESS_COMPANY_NAME='êµ­ë°¥';
+SELECT * FROM address WHERE ADDRESS_CITY='íŒŒì£¼ì‹œ';
 
+select address_address_no_SEQ.currval from dual;

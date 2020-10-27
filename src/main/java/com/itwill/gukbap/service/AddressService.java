@@ -14,6 +14,6 @@ public interface AddressService {
 
 	int updateAddress(AddressDomain address);
 
-	int deleteAddress(int address_no);
+	int deleteAddress(int address_no, String user_id);
 
 }

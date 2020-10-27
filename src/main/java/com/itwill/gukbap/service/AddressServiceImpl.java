@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.itwill.gukbap.domain.AddressDomain;
+import com.itwill.gukbap.domain.UserAddressDomain;
 import com.itwill.gukbap.repository.AddressRepository;
+import com.itwill.gukbap.repository.UserAddressRepository;
 
 @Service
 public class AddressServiceImpl implements  AddressService {
@@ -14,6 +16,8 @@ public class AddressServiceImpl implements  AddressService {
 	@Autowired
 	private AddressRepository addressRepository;
 	
+	@Autowired
+	private UserAddressRepository userAddressRepository;
 	
 	@Override
 	public List<AddressDomain> selectAll() {
@@ -39,9 +43,10 @@ public class AddressServiceImpl implements  AddressService {
 	}
 	
 	
-	
 	@Override
-	public int deleteAddress(int address_no) {
+	public int deleteAddress(int address_no, String user_id) {
+		UserAddressDomain userAddressDomain=new UserAddressDomain(user_id, address_no);
+	    userAddressRepository.delete_single_userAddress(userAddressDomain);
 		return addressRepository.deleteAddress(address_no);
 	}    
 

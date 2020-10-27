@@ -6,6 +6,10 @@
          SELECT * FROM address
     </select>
     
+    <select id="selectCurrentNo" resultType="int">
+    select address_address_no_SEQ.currval from dual
+    </select>
+    
     <select id="selectAddressByNo" resultType="com.itwill.gukbap.domain.AddressDomain">
     SELECT * FROM address WHERE ADDRESS_NO=#{address_no}
     </select>

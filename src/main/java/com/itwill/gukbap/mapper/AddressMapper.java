@@ -17,5 +17,7 @@ public interface AddressMapper {
 	public int deleteAddress(int address_no);
 
 	public int updateAddress(AddressDomain address);
+	
+	public int selectCurrentNo();
 
 }
