@@ -14,6 +14,8 @@ public interface AddressRepository {
 	
 	public int insertAddress(AddressDomain address);
 
-	int updateAddress(AddressDomain address);
+	public int updateAddress(AddressDomain address);
+
+	public int selectCurrentNo();
 
 }

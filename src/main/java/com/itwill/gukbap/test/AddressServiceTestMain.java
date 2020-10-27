@@ -20,7 +20,7 @@ public class AddressServiceTestMain {
 		System.out.println(addressService.selectAddressByNo(22));
 		//System.out.println(addressService.insertAddress(new AddressDomain(1,"address", "address", "address", "address", "address")));
 		//System.out.println(addressService.updateAddress(new AddressDomain(24,"변경", "변경", "변경", "변경", "변경")));
-		//System.out.println(addressService.deleteAddress(21));
+		System.out.println(addressService.deleteAddress(25,"helprun@naver.com"));
 	}
 
 }
