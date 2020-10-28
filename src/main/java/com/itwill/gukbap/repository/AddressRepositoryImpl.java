@@ -35,8 +35,6 @@ public class AddressRepositoryImpl implements AddressRepository{
 		return addressMapper.updateAddress(address);
 	}
 	
-	
-	
 	@Override
 	public int deleteAddress(int address_no) {
 		return addressMapper.deleteAddress(address_no);

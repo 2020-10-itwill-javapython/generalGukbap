@@ -17,5 +17,17 @@
 	</select>
 	
 	<!-- INSERT -->
-	<insert id="insertItemIntoWishList"></insert>
+	<insert id="insertItemIntoWishList" parameterType="java.util.Map">
+		INSERT INTO wishlist (wishlist_no, user_id, product_no) 
+		VALUES (wishlist_wishlist_no_SEQ.nextval, #{user_id}, #{product_no})
+	</insert>
+	
+	<!-- DELETE -->
+	<delete id="clearWishList" parameterType="String">
+		delete wishlist where user_id = #{user_id}
+	</delete>
+	
+	<delete id="removeItemFromWishList" parameterType="java.util.Map">
+		delete wishlist where user_id = #{user_id} and product_no = #{product_no}
+	</delete>
 </mapper>
