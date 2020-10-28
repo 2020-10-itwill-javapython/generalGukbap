@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itwill.gukbap.mapper.WishListMapper">
+	<!-- RESULTMAP -->
+	<resultMap type="com.itwill.gukbap.domain.WishListDomain" id="wishListResultMap" autoMapping="true">
+		<association property="product" javaType="com.itwill.gukbap.domain.ProductDomain" autoMapping="true"/>
+	</resultMap>
+	
+	<!-- SELECT -->
+	<select id="selectWishListById" resultMap="wishListResultMap" parameterType="String">
+	   select 
+		    w.*,
+			p.*		    
+	   from wishlist w  
+		    full outer join product p on w.product_no = p.product_no
+	   where w.user_id = #{user_id}
+	</select>
+	
+	<!-- INSERT -->
+	<insert id="insertItemIntoWishList" parameterType="java.util.Map">
+		INSERT INTO wishlist (wishlist_no, user_id, product_no) 
+		VALUES (wishlist_wishlist_no_SEQ.nextval, #{user_id}, #{product_no})
+	</insert>
+	
+	<!-- DELETE -->
+	<delete id="clearWishList" parameterType="String">
+		delete wishlist where user_id = #{user_id}
+	</delete>
+	
+	<delete id="removeItemFromWishList" parameterType="java.util.Map">
+		delete wishlist where user_id = #{user_id} and product_no = #{product_no}
+	</delete>
+</mapper>
