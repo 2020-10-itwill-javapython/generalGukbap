@@ -12,20 +12,39 @@
 		<result property="user_level" column="user_level"/>
 		
 		<collection property="addresses" autoMapping="true" ofType="com.itwill.gukbap.domain.AddressDomain"/>
+		<collection property="orders" autoMapping="true" ofType="com.itwill.gukbap.domain.OrderDomain"/>
 	</resultMap>
 	
 	<!-- SELECT -->
 	<select id="selectAll" resultMap="userResultMap">
-		select u.*, a.* from gukbap_user u 
+		select 
+			u.*, 
+			a.*, 
+			go.order_no,
+			go.order_date, 
+			go.order_status, 
+			go.order_total_pricce, 
+			go.order_desc, 
+			go.order_note from gukbap_user u 
 		full outer join useraddress ua on u.user_id = ua.user_id
 		full outer join address a on ua.address_no = a.address_no
+        full outer join gukbap_order go on u.user_id = go.user_id
 		where user_level != 'admin'
 	</select>
 	
 	<select id="selectUserById" resultMap="userResultMap" parameterType="string">
-		select u.*, a.* from gukbap_user u 
+		select 
+			u.*, 
+			a.*, 
+			go.order_no,
+			go.order_date, 
+			go.order_status, 
+			go.order_total_pricce, 
+			go.order_desc, 
+			go.order_note from gukbap_user u 
 		full outer join useraddress ua on u.user_id = ua.user_id
 		full outer join address a on ua.address_no = a.address_no
+        full outer join gukbap_order go on u.user_id = go.user_id
 		where u.user_level != 'admin' and u.user_id = #{user_id}
 	</select>
 	

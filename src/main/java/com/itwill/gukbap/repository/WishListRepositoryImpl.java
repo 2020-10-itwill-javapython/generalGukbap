@@ -28,17 +28,18 @@ public class WishListRepositoryImpl implements WishListRepository {
 
 	@Override
 	public int removeItemFromWishList(WishListDomain wishListDomain) {
-		Map<String, Object> deleteInfoMap = new HashMap();
-		deleteInfoMap.put("user_id", wishListDomain.getUser_id());
-		deleteInfoMap.put("product_no", wishListDomain.getProduct().getProduct_no());
-		return wishListMapper.removeItemFromWishList(deleteInfoMap);
+		return wishListMapper.removeItemFromWishList(this.convertDomainIntoMap(wishListDomain));
 	}
 
 	@Override
 	public int insertItemIntoWishList(WishListDomain wishListDomain) {
+		return wishListMapper.insertItemIntoWishList(this.convertDomainIntoMap(wishListDomain));
+	}
+	
+	public Map<String, Object> convertDomainIntoMap(WishListDomain wishListDomain) {
 		Map<String, Object> wishListMap = new HashMap();
 		wishListMap.put("user_id", wishListDomain.getUser_id());
 		wishListMap.put("product_no", wishListDomain.getProduct().getProduct_no());
-		return wishListMapper.insertItemIntoWishList(wishListMap);
+		return wishListMap;
 	}
 }

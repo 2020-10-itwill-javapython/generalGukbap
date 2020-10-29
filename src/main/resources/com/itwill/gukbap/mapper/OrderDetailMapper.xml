@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itwill.gukbap.mapper.OrderDetailMapper">
+	<!-- RESULTMAP -->
+	<resultMap type="com.itwill.gukbap.domain.OrderDetailDomain" id="orderDetailMap" autoMapping="true">
+		<association property="product" javaType="com.itwill.gukbap.domain.ProductDomain" autoMapping="true"/>
+	</resultMap>
+	
+	<!-- SELECT -->
+	<select id="selectOrderItems" parameterType="_int" resultMap="orderDetailMap">
+		select 
+		    od.o_d_no, 
+		    od.order_no, 
+		    od.o_d_product_count,
+		    p.* 
+		from order_detail od
+		join product p on od.product_no = p.product_no
+		where order_no = #{order_no}
+	</select>
+	
+	<select id="product_exist_check" resultType="_int" parameterType="java.util.Map">
+		select count(*)
+		from order_detail od
+		join product p on od.product_no = p.product_no
+		where p.product_no = #{product_no} and od.order_no = #{order_no}
+	</select>
+	
+	<!-- UPDATE -->
+	<update id="updateProductCount" parameterType="java.util.Map">
+		update order_detail 
+		set o_d_product_count = #{product_count} 
+		where product_no = #{product_no} and order_no = #{order_no}
+	</update>
+	
+	<!-- DELETE -->
+	<delete id="deleteOrderItem" parameterType="java.util.Map">
+		delete order_detail 
+		where order_no = #{order_no} and product_no = #{product_no}
+	</delete>
+	
+	<delete id="clearOrderItems" parameterType="_int">
+		delete order_detail where order_no = #{order_no}
+	</delete>
+</mapper>

@@ -12,13 +12,15 @@ public class UserDomain {
 	private String user_phone;
 	private String user_level;
 	private List<AddressDomain> addresses;
+	private List<OrderDomain> orders;
 	
 	public UserDomain() {
 		
 	}
 	
 	public UserDomain(String user_id, String user_password, String user_first_name, String user_last_name,
-			String user_birthdate, String user_phone, String user_level, List<AddressDomain> addressList) {
+			String user_birthdate, String user_phone, String user_level, List<AddressDomain> addresses,
+			List<OrderDomain> orders) {
 		super();
 		this.user_id = user_id;
 		this.user_password = user_password;
@@ -27,7 +29,8 @@ public class UserDomain {
 		this.user_birthdate = user_birthdate;
 		this.user_phone = user_phone;
 		this.user_level = user_level;
-		this.addresses = addressList;
+		this.addresses = addresses;
+		this.orders = orders;
 	}
 
 	public String getUser_id() {
@@ -81,6 +84,14 @@ public class UserDomain {
 		this.addresses = addresses;
 	}
 
+	public List<OrderDomain> getOrders() {
+		return orders;
+	}
+
+	public void setOrders(List<OrderDomain> orders) {
+		this.orders = orders;
+	}
+
 	public boolean isMatchPassword(String password) {
 		boolean isMatchPassword = false;
 		if (this.user_password.equals(password)) {
@@ -93,8 +104,10 @@ public class UserDomain {
 	public String toString() {
 		return "UserDomain [user_id=" + user_id + ", user_password=" + user_password + ", user_first_name="
 				+ user_first_name + ", user_last_name=" + user_last_name + ", user_birthdate=" + user_birthdate
-				+ ", user_phone=" + user_phone + ", user_level=" + user_level + ", addressList=" + addresses + "]\n";
+				+ ", user_phone=" + user_phone + ", user_level=" + user_level + ", addresses=" + addresses + ", orders="
+				+ orders + "]";
 	}
+
 	
 	
 }

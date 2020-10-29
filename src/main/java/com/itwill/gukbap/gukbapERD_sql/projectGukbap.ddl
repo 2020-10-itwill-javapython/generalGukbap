@@ -16,7 +16,7 @@ CREATE TABLE gukbap_user(
 		user_first_name               		VARCHAR2(30)		 NULL ,
 		user_last_name                		VARCHAR2(30)		 NULL ,
 		user_birthdate                		DATE		 NULL ,
-		user_phone                    		VARCHAR2(20)		 NULL,
+		user_phone                    		NUMBER(13)		 NOT NULL,
 		user_level                    		VARCHAR2(20)		 DEFAULT 'user'		 NULL 
 );
 
@@ -32,7 +32,6 @@ CREATE SEQUENCE product_category_c_no_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
 
 
 
-
 CREATE TABLE product(
 		product_no                    		NUMBER(10)		 NULL ,
 		product_name                  		VARCHAR2(50)		 NULL ,
@@ -41,7 +40,7 @@ CREATE TABLE product(
 		product_desc                  		VARCHAR2(2000)		 NULL ,
 		product_sale_count            		NUMBER(10)		 NULL ,
 		product_click_count           		NUMBER(10)		 NULL ,
-		c_no                   				NUMBER(10)		 NULL ,
+		c_no                          		NUMBER(10)		 NULL ,
 		product_order                 		NUMBER(10)		 NULL ,
 		product_isOnSale              		VARCHAR2(10)		 DEFAULT 'false'		 NULL ,
 		product_discountRate          		NUMBER(10)		 DEFAULT 0		 NULL ,
@@ -51,7 +50,6 @@ CREATE TABLE product(
 DROP SEQUENCE product_product_no_SEQ;
 
 CREATE SEQUENCE product_product_no_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
-
 
 
 
@@ -67,6 +65,7 @@ CREATE TABLE address(
 DROP SEQUENCE address_address_no_SEQ;
 
 CREATE SEQUENCE address_address_no_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
+
 
 CREATE TABLE userAddress(
 		userAddress_no                		NUMBER(10)		 NULL ,
@@ -94,15 +93,19 @@ DROP SEQUENCE gukbap_order_order_no_SEQ;
 
 CREATE SEQUENCE gukbap_order_order_no_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
 
+
+
 CREATE TABLE order_detail(
 		o_d_no                        		NUMBER(10)		 NULL ,
 		order_no                      		NUMBER(10)		 NULL ,
+		o_d_product_count             		NUMBER(10)		 NULL ,
 		product_no                    		NUMBER(10)		 NULL 
 );
 
 DROP SEQUENCE order_detail_o_d_no_SEQ;
 
 CREATE SEQUENCE order_detail_o_d_no_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
+
 
 
 
@@ -115,12 +118,15 @@ CREATE TABLE review(
 		review_group_no               		NUMBER(10)		 NULL ,
 		review_group_order            		NUMBER(10)		 NULL ,
 		product_no                    		NUMBER(10)		 NULL ,
-		order_detail_no               		NUMBER(10)		 NULL 
+		o_d_no                        		NUMBER(10)		 NULL 
 );
 
 DROP SEQUENCE review_review_no_SEQ;
 
 CREATE SEQUENCE review_review_no_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
+
+
+
 
 CREATE TABLE wishlist(
 		wishlist_no                   		NUMBER(10)		 NULL ,
@@ -145,6 +151,7 @@ DROP SEQUENCE chat_chat_no_SEQ;
 CREATE SEQUENCE chat_chat_no_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
 
 
+
 CREATE TABLE chat_content(
 		ch_c_no                       		NUMBER(10)		 NULL ,
 		ch_c_msg                      		VARCHAR2(500)		 NULL ,
@@ -159,11 +166,16 @@ DROP SEQUENCE chat_content_ch_c_no_SEQ;
 
 CREATE SEQUENCE chat_content_ch_c_no_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
 
+
+
+
+
 ALTER TABLE gukbap_user ADD CONSTRAINT IDX_gukbap_user_PK PRIMARY KEY (user_id);
 
 ALTER TABLE product_category ADD CONSTRAINT IDX_product_category_PK PRIMARY KEY (c_no);
 
 ALTER TABLE product ADD CONSTRAINT IDX_product_PK PRIMARY KEY (product_no);
+ALTER TABLE product ADD CONSTRAINT IDX_product_FK0 FOREIGN KEY (c_no) REFERENCES product_category (c_no);
 
 ALTER TABLE address ADD CONSTRAINT IDX_address_PK PRIMARY KEY (address_no);
 
@@ -180,6 +192,7 @@ ALTER TABLE order_detail ADD CONSTRAINT IDX_order_detail_FK1 FOREIGN KEY (produc
 
 ALTER TABLE review ADD CONSTRAINT IDX_review_PK PRIMARY KEY (review_no);
 ALTER TABLE review ADD CONSTRAINT IDX_review_FK0 FOREIGN KEY (product_no) REFERENCES product (product_no);
+ALTER TABLE review ADD CONSTRAINT IDX_review_FK1 FOREIGN KEY (o_d_no) REFERENCES order_detail (o_d_no);
 
 ALTER TABLE wishlist ADD CONSTRAINT IDX_wishlist_PK PRIMARY KEY (wishlist_no);
 ALTER TABLE wishlist ADD CONSTRAINT IDX_wishlist_FK0 FOREIGN KEY (user_id) REFERENCES gukbap_user (user_id);
@@ -191,3 +204,5 @@ ALTER TABLE chat ADD CONSTRAINT IDX_chat_FK0 FOREIGN KEY (user_id) REFERENCES gu
 ALTER TABLE chat_content ADD CONSTRAINT IDX_chat_content_PK PRIMARY KEY (ch_c_no);
 ALTER TABLE chat_content ADD CONSTRAINT IDX_chat_content_FK0 FOREIGN KEY (chat_no) REFERENCES chat (chat_no);
 
+
+INSERT INTO product (product_no, product_name, product_price, product_image, product_desc, product_sale_count, product_click_count, category_no, product_order, product_isOnSale, product_discountRate, product_sale_date) VALUES (product_no, product_name, product_price, product_image, product_desc, product_sale_count, product_click_count, category_no, product_order, product_isOnSale, product_discountRate, product_sale_date);
