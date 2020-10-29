@@ -1,5 +1,8 @@
 /*insert into address values(address_address_no_SEQ.nextval,'국밥','교하로70','33-10','파주시','경기도/대한민국');*/
+select * from gukbap_order go join order_detail od on go.order_no = od.order_no;
+select go.*, od.o_d_no, od.o_d_product_count, od.product_no from gukbap_order go join order_detail od on go.order_no = od.order_no;
 
+select od.o_d_no, od.order_no, od.o_d_product_count,p.* from order_detail od join product p on od.product_no = p.product_no where order_no =19;
 
 insert into address (ADDRESS_NO,ADDRESS_COMPANY_NAME,ADDRESS_STREET,ADDRESS_CITY,ADDRESS_STATE)
 values(address_address_no_SEQ.nextval,'국밥','교하로70','파주시','경기도/한국');

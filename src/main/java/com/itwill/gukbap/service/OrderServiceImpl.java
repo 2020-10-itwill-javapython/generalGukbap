@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.itwill.gukbap.domain.OrderDomain;
+import com.itwill.gukbap.repository.OrderDetailRepository;
 import com.itwill.gukbap.repository.OrderRepository;
 
 @Service
@@ -14,9 +15,12 @@ public class OrderServiceImpl implements OrderService{
     @Autowired
 	private OrderRepository orderRepository;
     
+    @Autowired
+    private OrderDetailRepository orderDetailRepository;
+    
     @Override
-    public List<OrderDomain> selectAll(){
-        return orderRepository.selectAll();	
+    public List<OrderDomain> selectAll(String user_id){
+        return orderRepository.selectAll(user_id);	
     }
     
     @Override

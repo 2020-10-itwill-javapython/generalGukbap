@@ -6,7 +6,7 @@ import com.itwill.gukbap.domain.OrderDomain;
 
 public interface OrderMapper {
 
-	public List<OrderDomain> selectAll();
+	public List<OrderDomain> selectAll(String user_id);
 
 	public int insertOrder(OrderDomain order);
 

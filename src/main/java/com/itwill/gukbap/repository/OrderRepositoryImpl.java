@@ -15,8 +15,8 @@ public class OrderRepositoryImpl implements OrderRepository{
 	OrderMapper orderMapper;
 	
 	@Override
-	public List<OrderDomain> selectAll() {
-		return orderMapper.selectAll();
+	public List<OrderDomain> selectAll(String user_id) {
+		return orderMapper.selectAll(user_id);
 	}
 	
 	

@@ -1,5 +1,7 @@
 package com.itwill.gukbap.domain;
 
+import java.util.List;
+
 public class OrderDomain {
 	/*
 	 * 	order_no                      		NUMBER(10)		 NULL ,
@@ -17,6 +19,7 @@ public class OrderDomain {
 	private String order_desc;
 	private String order_note;
 	private String user_id;
+	private List<OrderDetailDomain> orderDetailList;
 	
 	public OrderDomain() {
 		// TODO Auto-generated constructor stub
@@ -34,6 +37,20 @@ public class OrderDomain {
 		this.order_desc = order_desc;
 		this.order_note = order_note;
 		this.user_id = user_id;
+	}
+	
+	
+
+
+
+	public List<OrderDetailDomain> getOrderDetailList() {
+		return orderDetailList;
+	}
+
+
+
+	public void setOrderDetailList(List<OrderDetailDomain> orderDetailList) {
+		this.orderDetailList = orderDetailList;
 	}
 
 
@@ -100,8 +117,12 @@ public class OrderDomain {
 	public String toString() {
 		return "OrderDomain [order_no=" + order_no + ", order_date=" + order_date + ", order_status=" + order_status
 				+ ", order_total_pricce=" + order_total_pricce + ", order_desc=" + order_desc + ", order_note="
-				+ order_note + ", user_id=" + user_id + "]"+"\n";
+				+ order_note + ", user_id=" + user_id + ", orderDetailList=" + orderDetailList + "]"+"\n";
 	}
+
+
+
+	
 	
 	
 

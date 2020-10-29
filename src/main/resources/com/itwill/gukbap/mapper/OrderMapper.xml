@@ -1,13 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.itwill.gukbap.mapper.OrderMapper">
+	<resultMap type="com.itwill.gukbap.domain.OrderDomain" id="orderDomainMap">
+		<result property="order_no" column="order_no"/>
+		<result property="order_date" column="order_date"/>
+		<result property="order_status" column="order_status"/>
+		<result property="order_total_pricce" column="order_total_pricce"/>
+		<result property="order_desc" column="order_desc"/>
+		<result property="order_note" column="order_note"/>
+		<result property="user_id" column="user_id"/>
+		
+		<collection property="orderDetailList" ofType="com.itwill.gukbap.domain.OrderDetailDomain" autoMapping="true"/>
+	</resultMap>
 
-    <select id="selectAll" resultType="com.itwill.gukbap.domain.OrderDomain">
-        SELECT * FROM gukbap_order
+    <select id="selectAll" parameterType="String" resultMap="orderDomainMap">
+        select 
+        	go.*, 
+        	od.o_d_no, 
+        	od.o_d_product_count, 
+        	od.product_no 
+        from gukbap_order go 
+        join order_detail od on go.order_no = od.order_no
+        where go.user_id = #{user_id}
     </select>
     
-    <select id="selectOrderByNo" resultType="com.itwill.gukbap.domain.OrderDomain">
-    SELECT * FROM gukbap_order WHERE ORDER_NO=#{order_no}
+    <select id="selectOrderByNo" resultMap="orderDomainMap">
+     	select 
+        	go.*, 
+        	od.o_d_no, 
+        	od.o_d_product_count, 
+        	od.product_no 
+        from gukbap_order go 
+        join order_detail od on go.order_no = od.order_no
+		WHERE go.ORDER_NO=#{order_no}
+   
+   <!--  SELECT * FROM gukbap_order WHERE ORDER_NO=#{order_no} -->
     </select>
     
     <select id="selectOrderByName" resultType="com.itwill.gukbap.domain.OrderDomain">
