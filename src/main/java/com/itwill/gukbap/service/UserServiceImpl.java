@@ -35,7 +35,10 @@ public class UserServiceImpl implements UserService {
 		}
 		addressRepository.insertAddress(address);
 		userRepository.insertUser(user);
-		return userAddressRepository.map_user_with_address(new UserAddressDomain(user.getUser_id(), address.getAddress_no()));
+		return userAddressRepository.
+				map_user_with_address(
+						new UserAddressDomain(user.getUser_id(),
+											  addressRepository.selectCurrentNo()));
 	}
 	
 	@Override

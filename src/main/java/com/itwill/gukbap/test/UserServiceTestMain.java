@@ -3,6 +3,7 @@ package com.itwill.gukbap.test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.itwill.gukbap.domain.AddressDomain;
 import com.itwill.gukbap.domain.UserDomain;
 import com.itwill.gukbap.service.UserService;
 
@@ -19,8 +20,9 @@ public class UserServiceTestMain {
 //						new UserDomain(
 //								"akiratksk@naver.com", "password",
 //								"first name", "last name", 
-//								"19920505", "01025954808", null)));
-//		System.out.println(userService.selectUserById("helprun@naver.com"));
+//								"19920505", "01025954808", "",null),
+//						new AddressDomain(0, "테스트주소", "테스트주소", "테스트주소", "테스트주소", "테스트주소")));
+//		System.out.println(userService.selectUserById("akiratksk@naver.com"));
 //		System.out.println(
 //				userService.updateUserInfo(
 //						new UserDomain(

@@ -12,7 +12,7 @@ public class UserRepositoryTestMain {
 		ApplicationContext applicationContext = 
 				new ClassPathXmlApplicationContext("classpath:/spring/application-context.xml");
 		UserRepository userDao = applicationContext.getBean(UserRepository.class);
-		System.out.println(userDao.selectAll());
+//		System.out.println(userDao.selectAll());
 //		System.out.println(userDao.selectUserById("helprun@naver.com"));
 //		System.out.println(userDao.isExistedUser("helprun@naver.com"));
 //		System.out.println(userDao.insertUser(
