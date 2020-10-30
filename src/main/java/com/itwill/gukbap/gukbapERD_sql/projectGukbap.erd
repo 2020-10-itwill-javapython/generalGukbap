@@ -23,8 +23,8 @@
       <constraint>
         <height>-1</height>
         <width>-1</width>
-        <x>340</x>
-        <y>289</y>
+        <x>296</x>
+        <y>216</y>
       </constraint>
       <sourceConnections/>
       <targetConnections>
@@ -51,8 +51,8 @@
             <constraint>
               <height>-1</height>
               <width>-1</width>
-              <x>65</x>
-              <y>61</y>
+              <x>147</x>
+              <y>23</y>
             </constraint>
             <sourceConnections>
               <net.java.amateras.db.visual.model.ForeignKeyModel reference="../../.."/>
@@ -80,8 +80,8 @@
                   <constraint>
                     <height>-1</height>
                     <width>-1</width>
-                    <x>36</x>
-                    <y>432</y>
+                    <x>-4</x>
+                    <y>480</y>
                   </constraint>
                   <sourceConnections/>
                   <targetConnections>
@@ -263,8 +263,8 @@
             <constraint>
               <height>-1</height>
               <width>-1</width>
-              <x>309</x>
-              <y>558</y>
+              <x>215</x>
+              <y>699</y>
             </constraint>
             <sourceConnections>
               <net.java.amateras.db.visual.model.ForeignKeyModel reference="../../.."/>
@@ -293,8 +293,8 @@
                   <constraint>
                     <height>-1</height>
                     <width>-1</width>
-                    <x>778</x>
-                    <y>623</y>
+                    <x>1077</x>
+                    <y>783</y>
                   </constraint>
                   <sourceConnections>
                     <net.java.amateras.db.visual.model.ForeignKeyModel reference="../../.."/>
@@ -322,7 +322,7 @@
                         <constraint>
                           <height>-1</height>
                           <width>-1</width>
-                          <x>593</x>
+                          <x>665</x>
                           <y>317</y>
                         </constraint>
                         <sourceConnections>
@@ -350,8 +350,8 @@
                               <constraint>
                                 <height>-1</height>
                                 <width>-1</width>
-                                <x>804</x>
-                                <y>78</y>
+                                <x>729</x>
+                                <y>19</y>
                               </constraint>
                               <sourceConnections/>
                               <targetConnections>
@@ -432,8 +432,8 @@
                               <constraint>
                                 <height>-1</height>
                                 <width>-1</width>
-                                <x>1124</x>
-                                <y>5</y>
+                                <x>1147</x>
+                                <y>33</y>
                               </constraint>
                               <sourceConnections>
                                 <net.java.amateras.db.visual.model.ForeignKeyModel reference="../../.."/>
@@ -523,7 +523,12 @@
                                 <net.java.amateras.db.visual.model.ColumnModel>
                                   <columnName>review_group_no</columnName>
                                   <logicalName>review_group_no</logicalName>
-                                  <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../../../../../../../../../../../../../net.java.amateras.db.visual.model.ForeignKeyModel/source/sourceConnections/net.java.amateras.db.visual.model.ForeignKeyModel[2]/target/columns/net.java.amateras.db.visual.model.ColumnModel/columnType"/>
+                                  <columnType class="net.java.amateras.db.dialect.ColumnType">
+                                    <name>NUMBER</name>
+                                    <logicalName>Numeric</logicalName>
+                                    <supportSize>true</supportSize>
+                                    <type>2</type>
+                                  </columnType>
                                   <size>10</size>
                                   <notNull>false</notNull>
                                   <primaryKey>false</primaryKey>
@@ -532,9 +537,20 @@
                                   <defaultValue></defaultValue>
                                 </net.java.amateras.db.visual.model.ColumnModel>
                                 <net.java.amateras.db.visual.model.ColumnModel>
-                                  <columnName>review_group_order</columnName>
-                                  <logicalName>review_group_order</logicalName>
-                                  <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../../../../../../../../../../../../../net.java.amateras.db.visual.model.ForeignKeyModel/source/sourceConnections/net.java.amateras.db.visual.model.ForeignKeyModel[2]/target/columns/net.java.amateras.db.visual.model.ColumnModel/columnType"/>
+                                  <columnName>review_step</columnName>
+                                  <logicalName>review_step</logicalName>
+                                  <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../net.java.amateras.db.visual.model.ColumnModel[6]/columnType"/>
+                                  <size>10</size>
+                                  <notNull>false</notNull>
+                                  <primaryKey>false</primaryKey>
+                                  <description></description>
+                                  <autoIncrement>false</autoIncrement>
+                                  <defaultValue></defaultValue>
+                                </net.java.amateras.db.visual.model.ColumnModel>
+                                <net.java.amateras.db.visual.model.ColumnModel>
+                                  <columnName>review_depth</columnName>
+                                  <logicalName>review_depth</logicalName>
+                                  <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../net.java.amateras.db.visual.model.ColumnModel[6]/columnType"/>
                                   <size>10</size>
                                   <notNull>false</notNull>
                                   <primaryKey>false</primaryKey>
@@ -606,8 +622,8 @@
                               <constraint>
                                 <height>-1</height>
                                 <width>-1</width>
-                                <x>477</x>
-                                <y>39</y>
+                                <x>439</x>
+                                <y>22</y>
                               </constraint>
                               <sourceConnections>
                                 <net.java.amateras.db.visual.model.ForeignKeyModel>
@@ -874,7 +890,7 @@
                     <net.java.amateras.db.visual.model.ColumnModel>
                       <columnName>o_d_no</columnName>
                       <logicalName>o_d_no</logicalName>
-                      <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../../sourceConnections/net.java.amateras.db.visual.model.ForeignKeyModel[2]/target/targetConnections/net.java.amateras.db.visual.model.ForeignKeyModel/source/columns/net.java.amateras.db.visual.model.ColumnModel[9]/columnType"/>
+                      <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../../sourceConnections/net.java.amateras.db.visual.model.ForeignKeyModel[2]/target/targetConnections/net.java.amateras.db.visual.model.ForeignKeyModel/source/columns/net.java.amateras.db.visual.model.ColumnModel[10]/columnType"/>
                       <size>10</size>
                       <notNull>false</notNull>
                       <primaryKey>true</primaryKey>
@@ -1054,8 +1070,8 @@
             <constraint>
               <height>-1</height>
               <width>-1</width>
-              <x>1066</x>
-              <y>220</y>
+              <x>536</x>
+              <y>717</y>
             </constraint>
             <sourceConnections>
               <net.java.amateras.db.visual.model.ForeignKeyModel reference="../../.."/>
@@ -1084,8 +1100,8 @@
                   <constraint>
                     <height>-1</height>
                     <width>-1</width>
-                    <x>1036</x>
-                    <y>557</y>
+                    <x>1405</x>
+                    <y>530</y>
                   </constraint>
                   <sourceConnections>
                     <net.java.amateras.db.visual.model.ForeignKeyModel reference="../../.."/>
