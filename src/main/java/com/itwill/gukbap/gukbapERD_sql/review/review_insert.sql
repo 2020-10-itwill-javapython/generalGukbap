@@ -29,5 +29,13 @@ INSERT INTO review
 VALUES (review_review_no_SEQ.nextval, 'oystergukbap.jpg', '굴국밥', 
 		'시원해요.', to_date('2020/10/29', 'yyyy/MM/dd'), 
 		5, 1, 1, 1, 1);
+INSERT INTO review 
+VALUES (review_review_no_SEQ.nextval, NULL, '테스트', 
+		'테스트.', to_date('2020/10/29', 'yyyy/MM/dd'), 
+		6, 1, 1, 1, 1);
+INSERT INTO review 
+VALUES (review_review_no_SEQ.nextval, NULL, '테스트', 
+		'테스트.', to_date('2020/10/29', 'yyyy/MM/dd'), 
+		7, 1, 1, 1, 1);
 
 commit;
