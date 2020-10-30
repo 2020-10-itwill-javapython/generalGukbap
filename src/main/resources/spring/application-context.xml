@@ -62,5 +62,10 @@
 	   <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
 	   <property name="mapperInterface" value="com.itwill.gukbap.mapper.OrderDetailMapper"/>
 	 </bean>
+	 
+	 <bean id="reviewMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+	   <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+	   <property name="mapperInterface" value="com.itwill.gukbap.mapper.ReviewMapper"/>
+	 </bean>
 
 </beans>

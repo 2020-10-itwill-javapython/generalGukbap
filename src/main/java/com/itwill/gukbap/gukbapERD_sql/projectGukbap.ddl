@@ -116,7 +116,8 @@ CREATE TABLE review(
 		review_content                		VARCHAR2(3000)		 NULL ,
 		review_upload_date            		DATE		 DEFAULT sysdate		 NULL ,
 		review_group_no               		NUMBER(10)		 NULL ,
-		review_group_order            		NUMBER(10)		 NULL ,
+		review_step                   		NUMBER(10)		 NULL ,
+		review_depth                  		NUMBER(10)		 NULL ,
 		product_no                    		NUMBER(10)		 NULL ,
 		o_d_no                        		NUMBER(10)		 NULL 
 );
