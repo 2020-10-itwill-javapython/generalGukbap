@@ -12,6 +12,9 @@
     },
     "bootstrap": {
       
+    },
+    "jquery-extension": {
+      
     }
   },
   "libs": [

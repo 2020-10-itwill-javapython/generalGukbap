@@ -22,7 +22,7 @@ public class UserServiceTestMain {
 //								"first name", "last name", 
 //								"19920505", "01025954808", "",null),
 //						new AddressDomain(0, "테스트주소", "테스트주소", "테스트주소", "테스트주소", "테스트주소")));
-//		System.out.println(userService.selectUserById("akiratksk@naver.com"));
+		System.out.println(userService.selectUserById("helprun@naver.com"));
 //		System.out.println(
 //				userService.updateUserInfo(
 //						new UserDomain(
