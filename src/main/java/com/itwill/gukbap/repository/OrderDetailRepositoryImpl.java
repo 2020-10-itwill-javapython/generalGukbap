@@ -19,12 +19,45 @@ public class OrderDetailRepositoryImpl implements OrderDetailRepository {
 	public List<OrderDetailDomain> selectOrderItems(int order_no) {
 		return orderDetailMapper.selectOrderItems(order_no);
 	}
-
+	
+	@Override
+	public void addItemIntoOrder(OrderDetailDomain orderDetail) {
+		if (this.isAddedProduct(orderDetail)) { //존재하는 상품이면
+			int currentProductCount = 0;
+			
+			for (OrderDetailDomain order : this.selectOrderItems(orderDetail.getOrder_no())) { //오더아이탬중
+				if (order.getProduct().getProduct_no() == orderDetail.getProduct().getProduct_no()) {//같은 상품을 찾아서
+					currentProductCount = order.getO_d_product_count(); //현재 카운트를 구한다
+				}
+			}
+			//현재 카운트 +  추가된 상품갯수만큼 수량만 업데이트
+			updateProductCount(
+					new OrderDetailDomain(0, 
+							orderDetail.getOrder_no(), 
+							currentProductCount + orderDetail.getO_d_product_count(), 
+							orderDetail.getProduct())); 
+		} else {
+			//아닌경우 그냥 상품을 추가
+			orderDetailMapper.insertOrderDetail(convertOrderDetailIntoMap(orderDetail));
+		}
+	}
+	
+	@Override
+	public int deleteItemFromOrder(OrderDetailDomain orderDetail) {
+		return orderDetailMapper.
+				deleteOrderItem(this.convertOrderDetailIntoMap(orderDetail));
+	}
+	
+	@Override
+	public int clearOrderList(int order_no) {
+		return orderDetailMapper.clearOrderItems(order_no);
+	}
+	
 	@Override
 	public int updateProductCount(OrderDetailDomain orderDetail) {
 		return orderDetailMapper.updateProductCount(this.convertOrderDetailIntoMap(orderDetail));
 	}
-
+	
 	@Override
 	public boolean isAddedProduct(OrderDetailDomain orderDetailDomain) {
 		boolean isAdded = false;
@@ -37,18 +70,6 @@ public class OrderDetailRepositoryImpl implements OrderDetailRepository {
 		return isAdded;
 	}
 	
-	@Override
-	public int deleteItemFromOrder(OrderDetailDomain orderDetail) {
-		return orderDetailMapper.
-				deleteOrderItem(this.convertOrderDetailIntoMap(orderDetail));
-	}
-	
-	@Override
-	public int clearOrderList(int order_no) {
-		return orderDetailMapper.clearOrderItems(17);
-	}
-
-	
 	public Map<String, Object> convertOrderDetailIntoMap(OrderDetailDomain orderDetail){
 		Map<String, Object> orderDetailMap = new HashMap<String, Object>();
 		
@@ -59,6 +80,8 @@ public class OrderDetailRepositoryImpl implements OrderDetailRepository {
 		
 		return orderDetailMap;
 	}
+
+	
 
 	
 }

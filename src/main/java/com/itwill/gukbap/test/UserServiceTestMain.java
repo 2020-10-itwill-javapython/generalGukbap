@@ -18,11 +18,11 @@ public class UserServiceTestMain {
 //		System.out.println(
 //				userService.registerNewUser(
 //						new UserDomain(
-//								"akiratksk@naver.com", "password",
+//								"big-test@naver.com", "password",
 //								"first name", "last name", 
-//								"19920505", "01025954808", "",null),
+//								"19920505", "01025954808", "",null, null),
 //						new AddressDomain(0, "테스트주소", "테스트주소", "테스트주소", "테스트주소", "테스트주소")));
-		System.out.println(userService.selectUserById("helprun@naver.com"));
+//		System.out.println(userService.selectUserById("helprun@naver.com"));
 //		System.out.println(
 //				userService.updateUserInfo(
 //						new UserDomain(

@@ -15,7 +15,7 @@ public class OrderDomain {
 	private int order_no;
 	private String order_date;
 	private String order_status;
-	private int order_total_pricce;
+	private int order_total_price;
 	private String order_desc;
 	private String order_note;
 	private String user_id;
@@ -27,13 +27,13 @@ public class OrderDomain {
 	
 	
 
-	public OrderDomain(int order_no, String order_date, String order_status, int order_total_pricce, String order_desc,
+	public OrderDomain(int order_no, String order_date, String order_status, int order_total_price, String order_desc,
 			String order_note, String user_id) {
 		super();
 		this.order_no = order_no;
 		this.order_date = order_date;
 		this.order_status = order_status;
-		this.order_total_pricce = order_total_pricce;
+		this.order_total_price = order_total_price;
 		this.order_desc = order_desc;
 		this.order_note = order_note;
 		this.user_id = user_id;
@@ -80,11 +80,11 @@ public class OrderDomain {
 	}
 
 	public int getOrder_total_pricce() {
-		return order_total_pricce;
+		return order_total_price;
 	}
 
 	public void setOrder_total_pricce(int order_total_pricce) {
-		this.order_total_pricce = order_total_pricce;
+		this.order_total_price = order_total_pricce;
 	}
 
 	public String getOrder_desc() {
@@ -116,7 +116,7 @@ public class OrderDomain {
 	@Override
 	public String toString() {
 		return "OrderDomain [order_no=" + order_no + ", order_date=" + order_date + ", order_status=" + order_status
-				+ ", order_total_pricce=" + order_total_pricce + ", order_desc=" + order_desc + ", order_note="
+				+ ", order_total_pricce=" + order_total_price + ", order_desc=" + order_desc + ", order_note="
 				+ order_note + ", user_id=" + user_id + ", orderDetailList=" + orderDetailList + "]"+"\n";
 	}
 

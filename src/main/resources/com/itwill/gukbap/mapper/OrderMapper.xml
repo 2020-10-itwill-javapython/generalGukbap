@@ -10,52 +10,82 @@
 		<result property="order_note" column="order_note"/>
 		<result property="user_id" column="user_id"/>
 		
-		<collection property="orderDetailList" ofType="com.itwill.gukbap.domain.OrderDetailDomain" autoMapping="true"/>
+		<collection property="orderDetailList" 
+					ofType="com.itwill.gukbap.domain.OrderDetailDomain" 
+					resultMap="com.itwill.gukbap.mapper.OrderDetailMapper.orderDetailMap"/>
 	</resultMap>
 
-    <select id="selectAll" parameterType="String" resultMap="orderDomainMap">
+    <select id="selectOrdersByName" parameterType="String" resultMap="orderDomainMap">
         select 
         	go.*, 
         	od.o_d_no, 
         	od.o_d_product_count, 
-        	od.product_no 
+        	od.product_no,
+            p.product_name,
+            p.product_price,
+            p.product_image,
+            p.product_desc,
+            p.product_sale_count,
+            p.product_click_count,
+            p.c_no,
+            p.product_order,
+            p.product_isonsale,
+            p.product_discountrate,
+            p.product_sale_date
         from gukbap_order go 
-        join order_detail od on go.order_no = od.order_no
+        left outer join order_detail od on go.order_no = od.order_no
+        left outer join product p on od.product_no = p.product_no
         where go.user_id = #{user_id}
     </select>
     
     <select id="selectOrderByNo" resultMap="orderDomainMap">
-     	select 
+     	 select 
         	go.*, 
         	od.o_d_no, 
         	od.o_d_product_count, 
-        	od.product_no 
+        	od.product_no,
+            p.product_name,
+            p.product_price,
+            p.product_image,
+            p.product_desc,
+            p.product_sale_count,
+            p.product_click_count,
+            p.c_no,
+            p.product_order,
+            p.product_isonsale,
+            p.product_discountrate,
+            p.product_sale_date
         from gukbap_order go 
         join order_detail od on go.order_no = od.order_no
+        join product p on od.product_no = p.product_no
 		WHERE go.ORDER_NO=#{order_no}
    
    <!--  SELECT * FROM gukbap_order WHERE ORDER_NO=#{order_no} -->
     </select>
     
-    <select id="selectOrderByName" resultType="com.itwill.gukbap.domain.OrderDomain">
-    SELECT * FROM gukbap_order WHERE USER_ID=#{user_id}
-    </select>
-    
     <insert id="insertOrder" parameterType="com.itwill.gukbap.domain.OrderDomain">
-	INSERT INTO gukbap_order (order_no, order_date, order_status, order_total_pricce, order_desc, order_note, user_id) 
-	VALUES (gukbap_order_order_no_SEQ.nextval, to_date(#{order_date}, 'yyyy/MM/dd'), 
-	#{order_status},#{order_total_pricce}, #{order_desc},#{order_note},#{user_id})
+		INSERT INTO gukbap_order (order_no, order_date, order_status, order_total_pricce, order_desc, order_note, user_id) 
+		VALUES (gukbap_order_order_no_SEQ.nextval, to_date(#{order_date}, 'yyyy/MM/dd'), 
+		#{order_status},#{order_total_pricce}, #{order_desc},#{order_note},#{user_id})
     </insert>
     
     <update id="updateOrder" parameterType="com.itwill.gukbap.domain.OrderDomain">
-    update gukbap_order set order_status=#{order_status},order_total_pricce=#{order_total_pricce},order_desc=#{order_desc},order_note=#{order_note}
-    WHERE order_no=#{order_no}
+	    update gukbap_order set 
+	    	order_status=#{order_status},
+	    	order_date = sysdate,
+	    	order_total_pricce=#{order_total_pricce},
+	    	order_desc=#{order_desc},
+	    	order_note=#{order_note}
+	    WHERE order_no=#{order_no}
     </update>
     
-    <delete id="deleteOrder">
-     delete gukbap_order where order_no=#{order_no}
+    <delete id="deleteOrder" parameterType="_int">
+   	 	delete gukbap_order where order_no=#{order_no}
     </delete>
     
+    <delete id="clearOrders" parameterType="String">
+    	delete gukbap_order where user_id=#{user_id}
+    </delete>
     
 
 </mapper>

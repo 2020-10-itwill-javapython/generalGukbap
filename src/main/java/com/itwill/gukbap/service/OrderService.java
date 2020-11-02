@@ -2,13 +2,12 @@ package com.itwill.gukbap.service;
 
 import java.util.List;
 
+import com.itwill.gukbap.domain.OrderDetailDomain;
 import com.itwill.gukbap.domain.OrderDomain;
 
 public interface OrderService {
 	
-
-	
-	public int insertOrder(OrderDomain order);
+	public void insertOrder(String user_id, OrderDetailDomain orderDetailDomain);
 	
 	public int updateOrder(OrderDomain order);
 	
@@ -16,8 +15,7 @@ public interface OrderService {
 
 	public OrderDomain selectOrderByNo(int order_no);
 
-	public OrderDomain selectOrderByName(String user_id);
-
-	List<OrderDomain> selectAll(String user_id);
-
+	public List<OrderDomain> selectOrdersByName(String user_id);
+	
+	public int createEmptyOrder(String user_id);
 }
