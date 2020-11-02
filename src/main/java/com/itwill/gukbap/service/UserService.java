@@ -8,16 +8,16 @@ import com.itwill.gukbap.exception.ExistedUserExecption;
 
 public interface UserService {
 
-	int registerNewUser(UserDomain user, AddressDomain address) throws ExistedUserExecption;
+	public int registerNewUser(UserDomain user, AddressDomain address) throws ExistedUserExecption;
 
-	UserDomain login(String user_id, String password) throws Exception;
+	public UserDomain login(String user_id, String password) throws Exception;
 
-	List<UserDomain> selectAll();
+	public List<UserDomain> selectAll();
 
-	UserDomain selectUserById(String user_id);
+	public UserDomain selectUserById(String user_id);
 
-	int updateUserInfo(UserDomain user);
+	public int updateUserInfo(UserDomain user);
 
-	int deleteUser(String user_id);
+	public void deleteUser(String user_id);
 
 }

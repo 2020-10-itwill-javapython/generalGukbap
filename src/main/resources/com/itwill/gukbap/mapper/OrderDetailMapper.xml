@@ -25,6 +25,14 @@
 		where p.product_no = #{product_no} and od.order_no = #{order_no}
 	</select>
 	
+	<!-- INSERT -->
+	<insert id="insertOrderDetail" parameterType="java.util.Map">
+		INSERT INTO order_detail 
+			(o_d_no, order_no, o_d_product_count, product_no) 
+		VALUES (order_detail_o_d_no_SEQ.nextval, 
+				#{order_no}, #{product_count}, #{product_no})
+	</insert>
+	
 	<!-- UPDATE -->
 	<update id="updateProductCount" parameterType="java.util.Map">
 		update order_detail 

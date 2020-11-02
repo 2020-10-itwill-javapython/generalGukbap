@@ -18,7 +18,7 @@ public class OrderDetailRepoTestMain {
 		
 //		System.out.println(repository.updateProductCount(
 //				new OrderDetailDomain(0, 17, 3, prodRepository.selectProductByProductNo(2))));
-//		System.out.println(repository.selectOrderItems(17));
+		System.out.println(repository.selectOrderItems(18));
 //		System.out.println(
 //				repository.isAddedProduct(
 //						new OrderDetailDomain(0, 17, 0, 
@@ -27,6 +27,7 @@ public class OrderDetailRepoTestMain {
 //				repository.
 //					deleteItemFromOrder(new OrderDetailDomain(0, 17, 0, prodRepository.selectProductByProductNo(2))));
 //		System.out.println(repository.clearOrderList(17));
+//		repository.addItemIntoOrder(new OrderDetailDomain(0, 19, 1, prodRepository.selectProductByProductNo(5)));
 	}
 
 }

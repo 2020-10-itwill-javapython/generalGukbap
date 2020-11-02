@@ -15,8 +15,8 @@ public class OrderRepositoryImpl implements OrderRepository{
 	OrderMapper orderMapper;
 	
 	@Override
-	public List<OrderDomain> selectAll(String user_id) {
-		return orderMapper.selectAll(user_id);
+	public List<OrderDomain> selectOrdersByName(String user_id) {
+		return orderMapper.selectOrdersByName(user_id);
 	}
 	
 	
@@ -26,14 +26,16 @@ public class OrderRepositoryImpl implements OrderRepository{
 	}
 	
 	@Override
-	public OrderDomain selectOrderByName(String user_id) {
-		return orderMapper.selectOrderByName(user_id);
-	}
-	
-	
-	@Override
 	public int insertOrder(OrderDomain order) {
 		return orderMapper.insertOrder(order);
+	}
+	
+	@Override
+	public int createEmptyOrder(String user_id) {
+		return this.
+				insertOrder(
+						new OrderDomain(0, "", 
+								"preparing", 0, "", "", user_id));
 	}
 	
 	@Override
@@ -45,5 +47,12 @@ public class OrderRepositoryImpl implements OrderRepository{
 	public int deleteOrder(int order_no) {
 		return orderMapper.deleteOrder(order_no);
 	}
+
+	@Override
+	public int clearOrders(String user_id) {
+		return orderMapper.clearOrders(user_id);
+	}
+
+	
 
 }

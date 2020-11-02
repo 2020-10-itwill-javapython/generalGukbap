@@ -9,14 +9,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.itwill.gukbap.domain.AddressDomain;
+import com.itwill.gukbap.domain.OrderDomain;
 import com.itwill.gukbap.domain.UserAddressDomain;
 import com.itwill.gukbap.domain.UserDomain;
 import com.itwill.gukbap.exception.ExistedUserExecption;
 import com.itwill.gukbap.exception.PasswordMismatchException;
 import com.itwill.gukbap.exception.UserNotFoundException;
 import com.itwill.gukbap.repository.AddressRepository;
+import com.itwill.gukbap.repository.OrderDetailRepository;
+import com.itwill.gukbap.repository.OrderRepository;
 import com.itwill.gukbap.repository.UserAddressRepository;
 import com.itwill.gukbap.repository.UserRepository;
+import com.itwill.gukbap.repository.WishListRepository;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -27,6 +31,12 @@ public class UserServiceImpl implements UserService {
 	private AddressRepository addressRepository;
 	@Autowired
 	private UserAddressRepository userAddressRepository;
+	@Autowired
+	private OrderRepository orderRepository;
+	@Autowired
+	private WishListRepository wishListRepository;
+	@Autowired
+	private OrderDetailRepository orderDetailRepository;
 	
 	@Override
 	public int registerNewUser(UserDomain user, AddressDomain address) throws ExistedUserExecption {
@@ -35,6 +45,7 @@ public class UserServiceImpl implements UserService {
 		}
 		addressRepository.insertAddress(address);
 		userRepository.insertUser(user);
+		orderRepository.createEmptyOrder(user.getUser_id());
 		return userAddressRepository.
 				map_user_with_address(
 						new UserAddressDomain(user.getUser_id(),
@@ -72,7 +83,7 @@ public class UserServiceImpl implements UserService {
 	}
 	
 	@Override
-	public int deleteUser(String user_id) {
+	public void deleteUser(String user_id) {
 		List<AddressDomain> addresses = userRepository.selectUserById(user_id).getAddresses();
 		Set<Integer> addressNumbers = new HashSet<Integer>();
 		
@@ -81,9 +92,24 @@ public class UserServiceImpl implements UserService {
 		}
 		
 		userAddressRepository.delete_all_address(user_id);
+		
 		for (Integer integer : addressNumbers) {
 			addressRepository.deleteAddress(integer.intValue());
 		}
-		return userRepository.deleteUser(user_id);
+		userRepository.deleteUser(user_id);
+		
+		wishListRepository.clearWishList(user_id);
+		
+		List<OrderDomain> orders = orderRepository.selectOrdersByName(user_id);
+		Set<Integer> order_numbers = new HashSet<Integer>();
+		for (OrderDomain orderDomain : orders) {
+			order_numbers.add(orderDomain.getOrder_no());
+		}
+		orderRepository.clearOrders(user_id);
+		
+		for (Integer integer : order_numbers) {
+			orderDetailRepository.clearOrderList(integer.intValue());
+		}
+		
 	}
 }
