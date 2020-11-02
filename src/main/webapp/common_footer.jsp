@@ -9,10 +9,10 @@
                            <div class="footer_logo">
                                <a href="index.html"><img src="assets/img/logo/logo.png" alt=""></a>
                            </div>
-                           <p class="footer_desc">We are a team of designers and developers that create high quality eCommerce, WordPress, Shopify .</p>
-                            <p><span>Address:</span> 4710-4890 Breckinridge USA</p>
-                            <p><span>Email:</span> <a href="#">demo@hasthemes.com</a></p>
-                            <p><span>Call us:</span> <a href="tel:(08)23456789">(08) 23 456 789</a> </p>
+                           <p class="footer_desc">fucking weak</p>
+                            <p><span>Address:</span> 서울 강남구 테헤란로 124 4층</p>
+                            <p><span>Email:</span> <a href="#">jaeil759@itwill.com</a></p>
+                            <p><span>Call us:</span> <a href="tel:(042)82828282">(042)82828282</a> </p>
                         </div>          
                     </div>
                     <div class="col-lg-2 col-md-3 col-sm-5">
@@ -46,15 +46,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6 col-sm-8">
-                        <div class="widgets_container widget_newsletter">
-                            <h3>Sign up newsletter</h3>
-                            <p class="footer_desc">Get updates by subscribe our weekly newsletter</p>
-                            <div class="subscribe_form">
-                                <form id="mc-form" class="mc-form footer-newsletter" >
-                                    <input id="mc-email" type="email" autocomplete="off" placeholder="Enter you email" />
-                                    <button id="mc-submit">Subscribe</button>
-                                </form>
+                  
                                 <!-- mailchimp-alerts Start -->
                                 <div class="mailchimp-alerts text-centre">
                                     <div class="mailchimp-submitting"></div><!-- mailchimp-submitting end -->
@@ -73,7 +65,7 @@
                 <div class="row align-items-center">
                     <div class="col-lg-6 col-md-7">
                         <div class="copyright_area">
-                            <p>Copyright  Â© 2020  <a href="#">Safira</a>  . All Rights Reserved.Design by  <a href="#">Safira</a></p>
+                            <p>Copyright  Â© 2020  <a href="#">국밥부장관</a>  . All Rights Reserved.Design by  <a href="#">국밥부장관</a></p>
                         </div>
                     </div>    
                     <div class="col-lg-6 col-md-5">    
