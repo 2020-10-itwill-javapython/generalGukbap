@@ -22,7 +22,7 @@ public class ReviewRepositoryTestMain {
 		ReviewRepository reviewDao=applicationContext.getBean(ReviewRepository.class);
 		
 		//1.모든 후기
-		System.out.println(reviewDao.selectAllReview());
+		//System.out.println(reviewDao.selectAllReview());
 		
 		//2.모든 후기(최신 후기로 정렬)
 		//System.out.println(reviewDao.selectAllReviewArrangeInTheLatestReview());
@@ -36,12 +36,14 @@ public class ReviewRepositoryTestMain {
 		//5.제품번호로 후기 여러 개
 		//System.out.println(reviewDao.selectReviewByProductNo(1));
 		
-		//6.후기 추가***********date 어떻게???*********** 
-//		System.out.println(reviewDao.insertReview(
-//				new ReviewDomain(6, "porkgukbap.jpg", "돼지국밥", "부산에서 먹는 맛!!", ?, 6, 1, 1, 1, 2)));
+		//6.후기 추가
+		//System.out.println(reviewDao.insertReview(
+//				new ReviewDomain(10, "porkgukbap.jpg", "돼지국밥", "부산에서 먹는 맛!!", "20/11/02", 10, 1, 1, 2, 1)));
 	
-		//7.후기 수정***********date 어떻게???*********** 
-		//System.out.println(reviewDao.updateReview(new ReviewDomain()));
+		
+		//7.후기 수정
+		//System.out.println(reviewDao.updateReview(
+//				new ReviewDomain(9, null, "돼지국밥", "개꿀맛", "20/10/29", 7, 1, 1, 1, 1)));
 		
 		//8.후기 삭제
 		//System.out.println(reviewDao.deleteReviewByReviewNo(6));
