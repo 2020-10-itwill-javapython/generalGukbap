@@ -30,8 +30,8 @@
 	<!-- INSERT -->
 	<insert id="insertReview" parameterType="com.itwill.gukbap.domain.ReviewDomain">
 		insert into review 
-		values (#{review_no}, #{review_image}, #{review_title}, #{review_content}, #{review_upload_date}, 
-				#{review_group_no}, #{review_step}, #{review_depth}, #{product_no}, #{o_d_no})
+		values (#{review_no}, #{review_image}, #{review_title}, #{review_content}, #{review_upload_date},
+		#{review_group_no}, #{review_step}, #{review_depth}, #{product_no}, #{o_d_no})
 	</insert>
 	
 	<!-- update -->
