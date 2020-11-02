@@ -47,7 +47,7 @@ public class TestController {
 	
 	@RequestMapping("order_list")
 	public String order_list(HttpServletRequest request) {
-		List<OrderDomain> orderList=orderService.selectAll("helprun@naver.com");
+		List<OrderDomain> orderList=orderService.selectOrdersByName("helprun@naver.com");
 		request.setAttribute("orderList",orderList);
 		return "order_test";
 	}
