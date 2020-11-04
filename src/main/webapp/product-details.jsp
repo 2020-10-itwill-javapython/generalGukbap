@@ -169,6 +169,7 @@
                             </div>
                             
                         </form>
+                        <!-- 
                         <div class="priduct_social">
                             <ul>
                                 <li><a class="facebook" href="#" title="facebook"><i class="fa fa-facebook"></i> Like</a></li>           
@@ -178,7 +179,7 @@
                                 <li><a class="linkedin" href="#" title="linkedin"><i class="fa fa-linkedin"></i> linked</a></li>        
                             </ul>      
                         </div>
-
+                         -->
                     </div>
                 </div>
             </div>

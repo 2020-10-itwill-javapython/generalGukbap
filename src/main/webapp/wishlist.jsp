@@ -133,6 +133,7 @@
                  </div>
 
             </form> 
+            <!-- 
             <div class="row">
                 <div class="col-12">
                      <div class="wishlist_share">
@@ -147,7 +148,7 @@
                     </div>
                 </div> 
             </div>
-
+            -->
         </div>
     </div>
     <!--wishlist area end -->
