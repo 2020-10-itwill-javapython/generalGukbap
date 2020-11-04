@@ -133,19 +133,20 @@
                             <div class="row">
 
                                 <div class="col-lg-6 mb-20">
-                                    <label>First Name <span>*</span></label>
+                                    <label>이름 <span>*</span></label>
                                     <input type="text">    
                                 </div>
                                 <div class="col-lg-6 mb-20">
-                                    <label>Last Name  <span>*</span></label>
+                                    <label>성  <span>*</span></label>
                                     <input type="text"> 
                                 </div>
                                 <div class="col-12 mb-20">
                                     <label>Company Name</label>
                                     <input type="text">     
                                 </div>
+                                <!-- 
                                 <div class="col-12 mb-20">
-                                    <label for="country">country <span>*</span></label>
+                                    <label for="country">국가 <span>*</span></label>
                                     <select class="select_option" name="cuntry" id="country"> 
                                         <option value="2">bangladesh</option>      
                                         <option value="3">Algeria</option> 
@@ -158,16 +159,17 @@
 
                                     </select>
                                 </div>
+                                 -->
 
                                 <div class="col-12 mb-20">
-                                    <label>Street address  <span>*</span></label>
-                                    <input placeholder="House number and street name" type="text">     
+                                    <label>거리 주소  <span>*</span></label>
+                                    <input placeholder="번지 및 도로명" type="text">     
                                 </div>
                                 <div class="col-12 mb-20">
-                                    <input placeholder="Apartment, suite, unit etc. (optional)" type="text">     
+                                    <input placeholder="아파트, suite, unit etc. (선택 사항)" type="text">     
                                 </div>
                                 <div class="col-12 mb-20">
-                                    <label>Town / City <span>*</span></label>
+                                    <label>시 / 도시 <span>*</span></label>
                                     <input  type="text">    
                                 </div> 
                                  <div class="col-12 mb-20">
@@ -175,12 +177,12 @@
                                     <input type="text">    
                                 </div> 
                                 <div class="col-lg-6 mb-20">
-                                    <label>Phone<span>*</span></label>
+                                    <label>전화번호<span>*</span></label>
                                     <input type="text"> 
 
                                 </div> 
                                  <div class="col-lg-6 mb-20">
-                                    <label> Email Address   <span>*</span></label>
+                                    <label> 이메일 주소   <span>*</span></label>
                                       <input type="text"> 
 
                                 </div> 
@@ -246,7 +248,7 @@
                                                 <input type="text">    
                                             </div> 
                                             <div class="col-lg-6 mb-20">
-                                                <label>Phone<span>*</span></label>
+                                                <label>전화번호<span>*</span></label>
                                                 <input type="text"> 
 
                                             </div> 
@@ -260,8 +262,8 @@
                                 </div>
                                 <div class="col-12">
                                     <div class="order-notes">
-                                         <label for="order_note">Order Notes</label>
-                                        <textarea id="order_note" placeholder="Notes about your order, e.g. special notes for delivery."></textarea>
+                                         <label for="order_note">주문 노트</label>
+                                        <textarea id="order_note" placeholder="주문에 대한 참고 사항"></textarea>
                                     </div>    
                                 </div>     	    	    	    	    	    	    
                             </div>
@@ -274,8 +276,8 @@
                                 <table>
                                     <thead>
                                         <tr>
-                                            <th>Product</th>
-                                            <th>Total</th>
+                                            <th>제품</th>
+                                            <th>가격</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -298,15 +300,15 @@
                                     </tbody>
                                     <tfoot>
                                         <tr>
-                                            <th>Cart Subtotal</th>
+                                            <th>장바구니 합계</th>
                                             <td>$215.00</td>
                                         </tr>
                                         <tr>
-                                            <th>Shipping</th>
+                                            <th>배송비</th>
                                             <td><strong>$5.00</strong></td>
                                         </tr>
                                         <tr class="order_total">
-                                            <th>Order Total</th>
+                                            <th>주문 합계</th>
                                             <td><strong>$220.00</strong></td>
                                         </tr>
                                     </tfoot>
