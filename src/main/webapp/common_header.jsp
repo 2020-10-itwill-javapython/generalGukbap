@@ -64,54 +64,25 @@
                         <div class="canvas_close">
                             <a href="javascript:void(0)"><i class="icon-x"></i></a>  
                         </div>
-                        <div class="language_currency">
-                            <ul>
-                                <li class="language"><a href="#"> Language <i class="icon-right ion-ios-arrow-down"></i></a>
-                                    <ul class="dropdown_language">
-                                        <li><a href="#">French</a></li>
-                                        <li><a href="#">Spanish</a></li>
-                                        <li><a href="#">Russian</a></li>
-                                    </ul>
-                                </li>
-                                <li class="currency"><a href="#"> Currency <i class="icon-right ion-ios-arrow-down"></i></a>
-                                    <ul class="dropdown_currency">
-                                        <li><a href="#">â¬ Euro</a></li>
-                                        <li><a href="#">Â£ Pound Sterling</a></li>
-                                        <li><a href="#">$ US Dollar</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="header_social text-right">
-                            <ul>
-                                <li><a href="#"><i class="ion-social-twitter"></i></a></li>
-                                <li><a href="#"><i class="ion-social-googleplus-outline"></i></a></li>
-                                <li><a href="#"><i class="ion-social-youtube-outline"></i></a></li>
-                                <li><a href="#"><i class="ion-social-facebook"></i></a></li>
-                                <li><a href="#"><i class="ion-social-instagram-outline"></i></a></li>
-                            </ul>
-                        </div>
-                        
+                       
+                      
                         <div class="call-support">
-                            <p><a href="tel:(08)23456789">(08) 23 456 789</a> Customer Support</p>
+                            <p><a href="tel:(042)82828282">(042)82828282</a> 전화문의</p>
                         </div>
                         <div id="menu" class="text-left ">
                             <ul class="offcanvas_main_menu">
                                 <li class="menu-item-has-children active">
-                                    <a href="#">Home</a>
+                                    <a href="#">메인</a>
                                     <ul class="sub-menu">
-                                        <li><a href="index.html">Home 1</a></li>
-                                        <li><a href="index-2.html">Home 2</a></li>
-                                        <li><a href="index-3.html">Home 3</a></li>
-                                        <li><a href="index-4.html">Home 4</a></li>
-                                        <li><a href="index-5.html">Home 5</a></li>
+                                      
+                                       
                                     </ul>
                                 </li>
                                 <li class="menu-item-has-children">
-                                    <a href="#">Shop</a>
+                                    <a href="#">메뉴</a>
                                     <ul class="sub-menu">
                                         <li class="menu-item-has-children">
-                                            <a href="#">Shop Layouts</a>
+                                            <a href="#">메뉴</a>
                                             <ul class="sub-menu">
                                                 <li><a href="shop.html">shop</a></li>
                                                 <li><a href="shop-fullwidth.html">Full Width</a></li>
@@ -121,25 +92,7 @@
                                                 <li><a href="shop-list.html">List View</a></li>
                                             </ul>
                                         </li>
-                                        <li class="menu-item-has-children">
-                                            <a href="#">other Pages</a>
-                                            <ul class="sub-menu">
-                                                <li><a href="cart.html">cart</a></li>
-                                                <li><a href="wishlist.html">Wishlist</a></li>
-                                                <li><a href="checkout.html">Checkout</a></li>
-                                                <li><a href="my-account.html">my account</a></li>
-                                                <li><a href="404.html">Error 404</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="menu-item-has-children">
-                                            <a href="#">Product Types</a>
-                                            <ul class="sub-menu">
-                                                <li><a href="product-details.html">product details</a></li>
-                                                <li><a href="product-sidebar.html">product sidebar</a></li>
-                                                <li><a href="product-grouped.html">product grouped</a></li>
-                                                <li><a href="variable-product.html">product variable</a></li>
-                                            </ul>
-                                        </li>
+                                     
                                     </ul>
                                 </li>
                                 <li class="menu-item-has-children">
@@ -186,7 +139,7 @@
     
     <header>
         <div class="main_header">
-            <div class="header_top">
+          <!--   <div class="header_top">
                 <div class="container">
                     <div class="row align-items-center">
                         <div class="col-lg-6 col-md-6">
@@ -222,7 +175,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <div class="header_middle">
                 <div class="container">
                     <div class="row align-items-center">
@@ -504,66 +457,10 @@
                             <div class="main_menu menu_position"> 
                                 <nav>  
                                     <ul>
-                                        <li><a class="active"  href="index.jsp">home<i class="fa fa-angle-down"></i></a>
-                                            <ul class="sub_menu">
-                                                <li><a href="index.html">Home shop 1</a></li>
-                                                <li><a href="index-2.html">Home shop 2</a></li>
-                                                <li><a href="index-3.html">Home shop 3</a></li>
-                                                <li><a href="index-4.html">Home shop 4</a></li>
-                                                <li><a href="index-5.html">Home shop 5</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="mega_items"><a href="shop-fullwidth-list.jsp">shop<i class="fa fa-angle-down"></i></a> 
-                                            <div class="mega_menu">
-                                                <ul class="mega_menu_inner">
-                                                    <li><a href="#">Shop Layouts</a>
-                                                        <ul>
-                                                            <li><a href="shop-fullwidth.html">Full Width</a></li>
-                                                            <li><a href="shop-fullwidth-list.html">Full Width list</a></li>
-                                                            <li><a href="shop-right-sidebar.html">Right Sidebar </a></li>
-                                                            <li><a href="shop-right-sidebar-list.html"> Right Sidebar list</a></li>
-                                                            <li><a href="shop-list.html">List View</a></li>
-                                                        </ul>
-                                                    </li>
-                                                    <li><a href="#">other Pages</a>
-                                                        <ul>
-                                                            <li><a href="cart.html">cart</a></li>
-                                                            <li><a href="wishlist.html">Wishlist</a></li>
-                                                            <li><a href="checkout.html">Checkout</a></li>
-                                                            <li><a href="my-account.html">my account</a></li>
-                                                            <li><a href="404.html">Error 404</a></li>
-                                                        </ul>
-                                                    </li>
-                                                    <li><a href="#">Product Types</a>
-                                                        <ul>
-                                                            <li><a href="product-details.html">product details</a></li>
-                                                            <li><a href="product-sidebar.html">product sidebar</a></li>
-                                                            <li><a href="product-grouped.html">product grouped</a></li>
-                                                            <li><a href="variable-product.html">product variable</a></li>
-
-                                                        </ul>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </li>
-                                        <li><a href="blog-sidebar.jsp">blog<i class="fa fa-angle-down"></i></a>
-                                            <ul class="sub_menu pages">
-                                                <li><a href="blog-details.html">blog details</a></li>
-                                                <li><a href="blog-fullwidth.html">blog fullwidth</a></li>
-                                                <li><a href="blog-sidebar.html">blog sidebar</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="#">pages <i class="fa fa-angle-down"></i></a>
-                                            <ul class="sub_menu pages">
-                                                <li><a href="about.html">About Us</a></li>
-                                                <li><a href="services.html">services</a></li>
-                                                <li><a href="faq.html">Frequently Questions</a></li>
-                                                <li><a href="contact.html">contact</a></li>
-                                                <li><a href="login.html">login</a></li>
-                                                <li><a href="404.html">Error 404</a></li>
-                                            </ul>
-                                        </li> 
-                                        <li><a href="contact.html"> Contact Us</a></li>
+                                        <li><a class="active"  href="about.jsp">회사소개</a></li>
+                                        <li class="mega_items"><a href="shop-fullwidth-list.jsp">메뉴</a></li>
+                                        <li><a href="blog-sidebar.jsp">리뷰</a></li>
+                                        <li><a href="">문의(채팅이 들어갈자리)</a></li> 
                                     </ul>  
                                 </nav> 
                             </div>
@@ -571,7 +468,7 @@
                         </div>
                         <div class="col-lg-3">
                             <div class="call-support">
-                                <p><a href="tel:(08)23456789">(08) 23 456 789</a> Customer Support</p>
+                                <p><a href="tel:(042)82828282">(042)82828282</a> Customer Support</p>
                             </div>
                         </div>
                     </div>
