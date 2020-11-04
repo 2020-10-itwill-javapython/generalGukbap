@@ -1,0 +1,57 @@
+@charset "UTF-8";
+/* body{
+    font-family: -apple-system,BlinkMacSystemFont,"Malgun Gothic","맑은 고딕",helvetica,"Apple SD Gothic Neo",sans-serif;
+} */
+
+#about_main_content svg{
+	display: block;
+	width: 100%;
+	margin-bottom: 2em;
+}
+
+#main_content_row img{
+	width: 350px;
+	height: 300px;
+}
+
+#text_color_modified_head h3{
+	display: inline;
+}
+
+#text_color_modified_head #h3-1{
+	color: red;
+}
+
+#text_color_modified_head #h3-2{
+	color: blue;
+}
+
+#text_color_modified_head p{
+	margin-top: 20px;
+}
+
+#content_bolded h3{
+	display: inline-block;
+}
+
+#content_bolded h3:nth-child(2) {
+	letter-spacing: -5px;
+	font-size: 22px;
+}
+
+#ingredient_content1 {
+	display: inline-block;
+}
+
+#ingredient_content2{
+	display: inline-block;
+	font-size: 20px;
+}
+
+#ingredient_content3{
+	display: inline-block;
+}
+
+#scr_list{
+	margin-left: 10px;
+}
