@@ -1,52 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Safira - login</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
-    
-    <!-- CSS 
-    ========================= -->
-    <!--bootstrap min css-->
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <!--owl carousel min css-->
-    <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
-    <!--slick min css-->
-    <link rel="stylesheet" href="assets/css/slick.css">
-    <!--magnific popup min css-->
-    <link rel="stylesheet" href="assets/css/magnific-popup.css">
-    <!--font awesome css-->
-    <link rel="stylesheet" href="assets/css/font.awesome.css">
-    <!--ionicons css-->
-    <link rel="stylesheet" href="assets/css/ionicons.min.css">
-    <!--linearicons css-->
-    <link rel="stylesheet" href="assets/css/linearicons.css">
-    <!--animate css-->
-    <link rel="stylesheet" href="assets/css/animate.css">
-    <!--jquery ui min css-->
-    <link rel="stylesheet" href="assets/css/jquery-ui.min.css">
-    <!--slinky menu css-->
-    <link rel="stylesheet" href="assets/css/slinky.menu.css">
-    <!--plugins css-->
-    <link rel="stylesheet" href="assets/css/plugins.css">
-    
-    <!-- Main Style CSS -->
-    <link rel="stylesheet" href="assets/css/style.css">
-    
-    <!--modernizr min js here-->
-    <script src="assets/js/vendor/modernizr-3.7.1.min.js"></script>
-
-</head>
-
-<body>
-
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
      <!--header area start-->
-    <jsp:include page="common_header.jsp"/>
+<jsp:include page="common_header.jsp"/>
+<link rel="stylesheet" href="assets/css/custom_css/login_custom.css">
     <!--offcanvas menu area start-->
    
     <!--header area end-->
@@ -57,10 +14,10 @@
             <div class="row">
                 <div class="col-12">
                     <div class="breadcrumb_content">
-                       <h3>Login</h3>
+                       <h3>로그인</h3>
                         <ul>
-                            <li><a href="index.html">home</a></li>
-                            <li>Login</li>
+                            <li><a href="index.jsp">메인</a></li>
+                            <li>로그인</li>
                         </ul>
                     </div>
                 </div>
@@ -77,15 +34,20 @@
                 <div class="col-lg-6 col-md-6">
                     <div class="account_form">
                         <h2>login</h2>
-                        <form action="#">
+                        <form id="login_action_form" action="login_action" method="POST">
                             <p>   
                                 <label>Username or email <span>*</span></label>
-                                <input type="text">
+                                <input id="user_id" name="user_id" type="text"
+                                 		value="${user_id}">
                              </p>
                              <p>   
                                 <label>Passwords <span>*</span></label>
-                                <input type="password">
-                             </p>   
+                                <input id="password" name="password" type="password"
+                                	  >
+                                <c:if test="${empty loginUser}">
+	                            	<span id="login_error_msg">${msg }</span>   
+                                </c:if>
+                             </p>
                             <div class="login_submit">
                                <a href="#">Lost your password?</a>
                                 <label for="remember">
@@ -163,9 +125,10 @@
 <script src="assets/js/plugins.js"></script>
 
 <!-- Main JS -->
+<script src="assets/js/jquery.validate.js"></script>
+<script src="assets/js/additional-methods.js"></script>
 <script src="assets/js/main.js"></script>
-
-
+<script src="assets/js/custom/login_custom.js"></script>
 </body>
 
 </html>
