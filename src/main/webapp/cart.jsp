@@ -93,18 +93,7 @@
                  </div>
                  <!--coupon code area start-->
                 <div class="coupon_area">
-                    <div class="row">
-                        <div class="col-lg-6 col-md-6">
-                            <div class="coupon_code left">
-                                <h3>Coupon</h3>
-                                <div class="coupon_inner">   
-                                    <p>Enter your coupon code if you have one.</p>                                
-                                    <input placeholder="Coupon code" type="text">
-                                    <button type="submit">Apply coupon</button>
-                                </div>    
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-6">
+                         <div class="col-md-6 offset-md-6"></div>
                             <div class="coupon_code right">
                                 <h3>Cart Totals</h3>
                                 <div class="coupon_inner">
@@ -131,9 +120,7 @@
                     </div>
                 </div>
                 <!--coupon code area end-->
-            </form> 
         </div>     
-    </div>
      <!--shopping cart area end -->
     
     <!--footer area start-->
