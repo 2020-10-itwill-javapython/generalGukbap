@@ -21,31 +21,13 @@
                             <div class="footer_menu">
                             
                                 <ul>
-                                    <li><a href="about.html">About Us</a></li>
-                                    <li><a href="#">Delivery Information</a></li>
-                                    <li><a href="#"> Privacy Policy</a></li>
-                                    <li><a href="#"> Terms & Conditions</a></li>
-                                    <li><a href="contact.html"> Contact Us</a></li>
-                                    <li><a href="#"> Site Map</a></li>
+                                    <li><a href="about.html">회사소개</a></li>
+                                    <li><a href="contact.html"> 실시간 문의</a></li>
                                 </ul>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-2 col-md-3 col-sm-4">
-                        <div class="widgets_container widget_menu">
-                            <h3>Extras</h3>
-                            <div class="footer_menu">
-                                <ul>
-                                    <li><a href="#">Brands</a></li>
-                                    <li><a href="#">  Gift Certificates</a></li>
-                                    <li><a href="#">Affiliate</a></li>
-                                    <li><a href="#">Specials</a></li>
-                                    <li><a href="#">Returns</a></li>
-                                    <li><a href="#"> Order History</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+                    
                   
                                 <!-- mailchimp-alerts Start -->
                                 <div class="mailchimp-alerts text-centre">
