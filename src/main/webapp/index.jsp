@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!-- common_header.jsp start -->
 	<jsp:include page="common_header.jsp"/>
     <!--header area end-->
     
