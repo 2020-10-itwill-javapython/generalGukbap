@@ -30,10 +30,10 @@ public class ReviewRepositoryImpl implements ReviewRepository {
 	public ReviewDomain selectReviewByReviewNo(int review_no) {
 		return reviewMapper.selectReviewByReviewNo(review_no);
 	}
-//	@Override
-//	public List<ReviewDomain> selectReviewOnOnePage(int review_no) {
-//		return reviewMapper.selectReviewOnOnePage(review_no);
-//	}
+	@Override
+	public List<ReviewDomain> selectReviewOnOnePage(int review_no) {
+		return reviewMapper.selectReviewOnOnePage(review_no);
+	}
 	@Override
 	public List<ReviewDomain> selectReviewByProductNo(int product_no) {
 		return reviewMapper.selectReviewByProductNo(product_no);

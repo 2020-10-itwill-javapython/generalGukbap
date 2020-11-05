@@ -15,7 +15,7 @@ public interface ReviewService {
 	 ReviewDomain selectReviewByReviewNo(int review_no);
 	 
 	 //한 페이지에 보여주는 후기
-	 //List<ReviewDomain> selectReviewOnOnePage(int review_no);
+	 List<ReviewDomain> selectReviewOnOnePage(int review_no);
 	 
 	 List<ReviewDomain> selectReviewByProductNo(int product_no);
 	 

@@ -32,6 +32,10 @@ public class ReviewServiceImpl implements ReviewService {
 		return reviewRepository.selectReviewByReviewNo(review_no);
 	}
 	@Override
+	public List<ReviewDomain> selectReviewOnOnePage(int review_no) {
+		return reviewRepository.selectReviewOnOnePage(review_no);
+	}
+	@Override
 	public List<ReviewDomain> selectReviewByProductNo(int product_no) {
 		return reviewRepository.selectReviewByProductNo(product_no);
 	}
