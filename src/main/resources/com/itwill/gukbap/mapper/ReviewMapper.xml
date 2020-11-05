@@ -18,11 +18,11 @@
 	<select id="selectReviewByReviewNo" resultType="com.itwill.gukbap.domain.ReviewDomain" parameterType="int">
 		select * from review where review_no=#{review_no}
 	</select>
-	<!--  
+	  
 	<select id="selectReviewOnOnePage" resultType="com.itwill.gukbap.domain.ReviewDomain" parameterType="int">
-		select * from (select * from review where review_no < #{review_no} order by review_no) where rownum <= 10
+		select * from (select * from review where review_no &lt; #{review_no} order by review_no) where rownum &lt;= 3
 	</select>
-	-->
+	
 	<select id="selectReviewByProductNo" resultType="com.itwill.gukbap.domain.ReviewDomain" parameterType="int">
 		select * from review where product_no=#{product_no}
 	</select>

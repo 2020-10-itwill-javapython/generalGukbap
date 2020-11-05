@@ -33,6 +33,8 @@ public class ReviewRepositoryTestMain {
 		//4.후기번호로 후기 하나
 		//System.out.println(reviewDao.selectReviewByReviewNo(1));
 		
+		System.out.println(reviewDao.selectReviewOnOnePage(4));
+		
 		//5.제품번호로 후기 여러 개
 		//System.out.println(reviewDao.selectReviewByProductNo(1));
 		

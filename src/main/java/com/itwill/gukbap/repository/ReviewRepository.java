@@ -15,7 +15,7 @@ public interface ReviewRepository {
 		//하나만
 		public ReviewDomain selectReviewByReviewNo(int review_no);
 		//한 페이지에 보여주는 후기
-		//public List<ReviewDomain> selectReviewOnOnePage(int review_no);
+		public List<ReviewDomain> selectReviewOnOnePage(int review_no);
 		//제품 번호로 여러 개
 		public List<ReviewDomain> selectReviewByProductNo(int product_no);
 
