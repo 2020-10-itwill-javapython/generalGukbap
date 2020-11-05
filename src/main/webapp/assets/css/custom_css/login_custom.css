@@ -1,0 +1,14 @@
+@charset "UTF-8";
+
+label.error {
+	color: red
+}
+
+input.valid {
+	border: 1px solid green
+}
+
+#login_error_msg {
+	color: red;
+	font: italic;
+}
