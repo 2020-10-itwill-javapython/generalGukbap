@@ -60,11 +60,11 @@ public class TestController {
 		return "productCategory_test";
 	}
 	
-	@RequestMapping("product_list")
+	@RequestMapping("shop-fullwidth-list")  
 	public String product_list(HttpServletRequest request) {
 		List<ProductDomain> productList=productService.selectAll();
 		request.setAttribute("productList",productList);
-		return "product_test";
+		return "forward:/shop-fullwidth-list.jsp";
 	}
 	
 	@RequestMapping("guest_list")
