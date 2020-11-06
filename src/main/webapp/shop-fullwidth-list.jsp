@@ -118,8 +118,8 @@
 				        <div class="col-12 ">
                             <div class="single_product">
                                 <div class="product_thumb">
-                                        <a class="primary_img" href="product-details.html"><img src="assets/img/product/productbig1.jpg" alt=""></a>
-                                        <a class="secondary_img" href="product-details.html"><img src="assets/img/product/productbig2.jpg" alt=""></a>
+                                        <a class="primary_img" href="product-details.jsp?product_no=${product.product_no}"><img src="assets/img/product/${product.product_image}" alt=""></a>
+                                        <a class="secondary_img" href="product-details.jsp?product_no=${product.product_no}"><img src="assets/img/product/+${product.product_image}" alt=""></a>
                                         <div class="label_product">
                                             <span class="label_sale">Sale</span>
                                             <span class="label_new">New</span>
@@ -240,18 +240,18 @@
                                         </ul>
                                     </div>    
                                 </div>  
-                            </div> 
+                            </div>                    
                             <div class="col-lg-7 col-md-7 col-sm-12">
                                 <div class="modal_right">
                                     <div class="modal_title mb-10">
                                         <h2>Donec Ac Tempus</h2> 
                                     </div>
                                     <div class="modal_price mb-10">
-                                        <span class="new_price">$64.99</span>    
-                                        <span class="old_price" >$78.99</span>    
+                                        <span class="new_price"></span>    
+                                   
                                     </div>
                                     <div class="modal_description mb-15">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia iste laborum ad impedit pariatur esse optio tempora sint ullam autem deleniti nam in quos qui nemo ipsum numquam, reiciendis maiores quidem aperiam, rerum vel recusandae </p>    
+                                        <p></p>    
                                     </div> 
                                     <div class="variants_selects">
                                         <div class="variants_size">
@@ -292,7 +292,8 @@
                                         </ul>    
                                     </div>      
                                 </div>    
-                            </div>    
+                            </div>  
+                              
                         </div>     
                     </div>
                 </div>    
