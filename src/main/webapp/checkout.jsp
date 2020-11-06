@@ -138,8 +138,6 @@
 
                                 </div> 
                                 <div class="col-12 mb-20">
-                                    <input id="account" type="checkbox" data-target="createp_account" />
-                                    <label for="account" data-toggle="collapse" data-target="#collapseOne" aria-controls="collapseOne">Create an account?</label>
 
                                     <div id="collapseOne" class="collapse one" data-parent="#accordion">
                                         <div class="card-body1">
@@ -267,8 +265,6 @@
                             </div>
                             <div class="payment_method">
                                <div class="panel-default">
-                                    <input id="payment" name="check_method" type="radio" data-target="createp_account" />
-                                    <label for="payment" data-toggle="collapse" data-target="#method" aria-controls="method">Create an account?</label>
 
                                     <div id="method" class="collapse one" data-parent="#accordion">
                                         <div class="card-body1">
@@ -287,7 +283,7 @@
                                     </div>
                                 </div>
                                 <div class="order_button">
-                                    <button  type="submit">Proceed to PayPal</button> 
+                                    <button  type="submit">결제</button> 
                                 </div>    
                             </div> 
                         </form>         

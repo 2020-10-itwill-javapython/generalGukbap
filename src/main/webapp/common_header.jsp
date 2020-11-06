@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!doctype html>
 <html class="no-js" lang="en">
 
@@ -201,9 +202,16 @@
                                 <div class="header_account_area">
                                     <div class="header_account_list register">
                                         <ul>
-                                            <li><a href="login.jsp">Register</a></li>
-                                            <li><span>/</span></li>
-                                            <li><a href="login.jsp">Login</a></li>
+                                        	<c:choose>
+	                                        	<c:when test="${empty loginUser }">
+		                                            <li><a href="login.jsp">Register</a></li>
+		                                            <li><span>/</span></li>
+		                                            <li><a href="login.jsp">Login</a></li>
+	                                        	</c:when>
+	                                        	<c:otherwise>
+	                                        		<li><a href="logout_action">logout</a></li>
+	                                        	</c:otherwise>
+                                        	</c:choose>
                                         </ul>
                                     </div>
                                     <div class="header_account_list header_wishlist">

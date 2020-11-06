@@ -108,31 +108,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="widget_list widget_categories">
-                            <div class="widget_title">
-                                <h3>Categories</h3>
-                            </div>
-                            <ul>
-                                <li><a href="#">Audio</a></li>
-                                <li><a href="#">Company</a></li>
-                                <li><a href="#">Gallery</a></li>
-                                <li><a href="#">Image</a></li>
-                                <li><a href="#">Other</a></li>
-                                <li><a href="#">Travel</a></li>
-                            </ul>
-                        </div>
-                        <div class="widget_list widget_tag">
-                            <div class="widget_title">
-                                <h3>Tag products</h3>
-                            </div>
-                            <div class="tag_widget">
-                                <ul>
-                                    <li><a href="#">asian</a></li>
-                                    <li><a href="#">brown</a></li>
-                                    <li><a href="#">euro</a></li>
-                                </ul>
-                            </div>
-                        </div>
+                        
                     </div>
                 </div>
                 <div class="col-lg-9 col-md-12">
