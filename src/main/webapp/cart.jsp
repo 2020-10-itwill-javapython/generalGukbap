@@ -1,53 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Safira - cart page</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
-    
-    <!-- CSS 
-    ========================= -->
-    <!--bootstrap min css-->
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <!--owl carousel min css-->
-    <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
-    <!--slick min css-->
-    <link rel="stylesheet" href="assets/css/slick.css">
-    <!--magnific popup min css-->
-    <link rel="stylesheet" href="assets/css/magnific-popup.css">
-    <!--font awesome css-->
-    <link rel="stylesheet" href="assets/css/font.awesome.css">
-    <!--ionicons css-->
-    <link rel="stylesheet" href="assets/css/ionicons.min.css">
-    <!--linearicons css-->
-    <link rel="stylesheet" href="assets/css/linearicons.css">
-    <!--animate css-->
-    <link rel="stylesheet" href="assets/css/animate.css">
-    <!--jquery ui min css-->
-    <link rel="stylesheet" href="assets/css/jquery-ui.min.css">
-    <!--slinky menu css-->
-    <link rel="stylesheet" href="assets/css/slinky.menu.css">
-    <!--plugins css-->
-    <link rel="stylesheet" href="assets/css/plugins.css">
-    
-    <!-- Main Style CSS -->
-    <link rel="stylesheet" href="assets/css/style.css">
-    
-    <!--modernizr min js here-->
-    <script src="assets/js/vendor/modernizr-3.7.1.min.js"></script>
-
-</head>
-
+	<jsp:include page="common_header.jsp"/>
 <body>
 
 
    <!--header area start-->
-    <jsp:include page="common_header.jsp"/>
     <!--offcanvas menu area start-->
     
     <!--offcanvas menu area end-->
@@ -136,18 +93,7 @@
                  </div>
                  <!--coupon code area start-->
                 <div class="coupon_area">
-                    <div class="row">
-                        <div class="col-lg-6 col-md-6">
-                            <div class="coupon_code left">
-                                <h3>Coupon</h3>
-                                <div class="coupon_inner">   
-                                    <p>Enter your coupon code if you have one.</p>                                
-                                    <input placeholder="Coupon code" type="text">
-                                    <button type="submit">Apply coupon</button>
-                                </div>    
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-6">
+                         <div class="col-md-6 offset-md-6"></div>
                             <div class="coupon_code right">
                                 <h3>Cart Totals</h3>
                                 <div class="coupon_inner">
@@ -174,9 +120,7 @@
                     </div>
                 </div>
                 <!--coupon code area end-->
-            </form> 
         </div>     
-    </div>
      <!--shopping cart area end -->
     
     <!--footer area start-->

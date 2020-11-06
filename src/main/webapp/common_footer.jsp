@@ -27,8 +27,6 @@
                             </div>
                         </div>
                     </div>
-                    
-                  
                                 <!-- mailchimp-alerts Start -->
                                 <div class="mailchimp-alerts text-centre">
                                     <div class="mailchimp-submitting"></div><!-- mailchimp-submitting end -->

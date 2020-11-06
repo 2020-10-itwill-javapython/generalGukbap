@@ -1,51 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Safira - blog sidebar</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
-    
-   <!-- CSS 
-    ========================= -->
-    <!--bootstrap min css-->
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <!--owl carousel min css-->
-    <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
-    <!--slick min css-->
-    <link rel="stylesheet" href="assets/css/slick.css">
-    <!--magnific popup min css-->
-    <link rel="stylesheet" href="assets/css/magnific-popup.css">
-    <!--font awesome css-->
-    <link rel="stylesheet" href="assets/css/font.awesome.css">
-    <!--ionicons css-->
-    <link rel="stylesheet" href="assets/css/ionicons.min.css">
-    <!--linearicons css-->
-    <link rel="stylesheet" href="assets/css/linearicons.css">
-    <!--animate css-->
-    <link rel="stylesheet" href="assets/css/animate.css">
-    <!--jquery ui min css-->
-    <link rel="stylesheet" href="assets/css/jquery-ui.min.css">
-    <!--slinky menu css-->
-    <link rel="stylesheet" href="assets/css/slinky.menu.css">
-    <!--plugins css-->
-    <link rel="stylesheet" href="assets/css/plugins.css">
-    
-    <!-- Main Style CSS -->
-    <link rel="stylesheet" href="assets/css/style.css">
-    
-    <!--modernizr min js here-->
-    <script src="assets/js/vendor/modernizr-3.7.1.min.js"></script>
-
-</head>
+	<jsp:include page="common_header.jsp"/>
 
 <body>
 
      <!--header area start-->
-    <jsp:include page="common_header.jsp"/>
     <!--offcanvas menu area start-->
   
     <!--offcanvas menu area end-->
@@ -149,31 +108,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="widget_list widget_categories">
-                            <div class="widget_title">
-                                <h3>Categories</h3>
-                            </div>
-                            <ul>
-                                <li><a href="#">Audio</a></li>
-                                <li><a href="#">Company</a></li>
-                                <li><a href="#">Gallery</a></li>
-                                <li><a href="#">Image</a></li>
-                                <li><a href="#">Other</a></li>
-                                <li><a href="#">Travel</a></li>
-                            </ul>
-                        </div>
-                        <div class="widget_list widget_tag">
-                            <div class="widget_title">
-                                <h3>Tag products</h3>
-                            </div>
-                            <div class="tag_widget">
-                                <ul>
-                                    <li><a href="#">asian</a></li>
-                                    <li><a href="#">brown</a></li>
-                                    <li><a href="#">euro</a></li>
-                                </ul>
-                            </div>
-                        </div>
+                        
                     </div>
                 </div>
                 <div class="col-lg-9 col-md-12">
