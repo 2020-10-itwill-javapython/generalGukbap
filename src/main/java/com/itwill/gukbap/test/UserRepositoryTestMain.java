@@ -15,11 +15,11 @@ public class UserRepositoryTestMain {
 		ApplicationContext applicationContext = 
 				new ClassPathXmlApplicationContext("classpath:/spring/application-context.xml");
 		UserRepository userDao = applicationContext.getBean(UserRepository.class);
-//		System.out.println(userDao.selectAll());
+		System.out.println(userDao.selectAll());
 //		System.out.println(userDao.selectUserById("big-test@naver.com"));
-		UserDomain user = userDao.selectUserById("big-test@naver.com");
-		List<OrderDomain> orders = user.getOrders();
-		System.out.println(orders);
+//		UserDomain user = userDao.selectUserById("big-test@naver.com");
+//		List<OrderDomain> orders = user.getOrders();
+//		System.out.println(orders);
 //		System.out.println(userDao.isExistedUser("helprun@naver.com"));
 //		System.out.println(userDao.insertUser(
 //				new UserDomain(
