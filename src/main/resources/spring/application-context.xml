@@ -68,4 +68,8 @@
 	   <property name="mapperInterface" value="com.itwill.gukbap.mapper.ReviewMapper"/>
 	 </bean>
 
+	 <bean id="ChatMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+	   <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+	   <property name="mapperInterface" value="com.itwill.gukbap.mapper.ChatMapper"/>
+	 </bean>
 </beans>
