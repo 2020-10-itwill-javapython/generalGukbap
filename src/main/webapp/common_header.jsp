@@ -199,7 +199,7 @@
                                                 </div>
                                                 <div class="cart_item">
                                                    <div class="cart_img">
-                                                       <a href="#"><img src="assets/img/s-product/product.jpg" alt=""></a>
+                                                       <a href="#"><img src="assets/img/logo/logo.png" alt=""></a>
                                                    </div>
                                                     <div class="cart_info">
                                                         <a href="#">Primis In Faucibus</a>
@@ -249,7 +249,6 @@
                                 </div>
                             </div>
                         </div>
-                       
                     </div>
                 </div>
             </div>
@@ -275,61 +274,14 @@
                                 </div>
                                 <div class="categories_menu_toggle">
                                     <ul>
-                                        <li class="menu_item_children"><a href="#">메인<i class="fa fa-angle-right"></i></a>
+                                        <li class="menu_item_children"><a href="index.jsp">메인</a>
                                         </li>
-                                        <li class="menu_item_children"><a href="#">메뉴  <i class="fa fa-angle-right"></i></a>
-                                            
+                                        <li class="menu_item_children"><a href="#">메뉴</a>
                                         </li>
-                                        <li class="menu_item_children"><a href="#"> Salads<i class="fa fa-angle-right"></i></a>
-                                            <ul class="categories_mega_menu column_2">
-                                                <li class="menu_item_children"><a href="#">Brake Tools</a>
-                                                    <ul class="categorie_sub_menu">
-                                                        <li><a href="">Driveshafts</a></li>
-                                                        <li><a href="">Spools</a></li>
-                                                        <li><a href="">Diesel </a></li>
-                                                        <li><a href="">Gasoline</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li class="menu_item_children"><a href="#">Emergency Brake</a>
-                                                    <ul class="categorie_sub_menu">
-                                                        <li><a href="">Dolls for Girls</a></li>
-                                                        <li><a href="">Girls' Learning Toys</a></li>
-                                                        <li><a href="">Arts and Crafts for Girls</a></li>
-                                                        <li><a href="">Video Games for Girls</a></li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
+                                        <li class="menu_item_children"><a href="#">리뷰</a>
                                         </li>
-                                        <li class="menu_item_children"><a href="#"> Fish & Seafood <i class="fa fa-angle-right"></i></a>
-                                            <ul class="categories_mega_menu column_2">
-                                                <li class="menu_item_children"><a href="#">Check Trousers</a>
-                                                    <ul class="categorie_sub_menu">
-                                                        <li><a href="">Building</a></li>
-                                                        <li><a href="">Electronics</a></li>
-                                                        <li><a href="">action figures </a></li>
-                                                        <li><a href="">specialty & boutique toy</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li class="menu_item_children"><a href="#">Calculators</a>
-                                                    <ul class="categorie_sub_menu">
-                                                        <li><a href="">Dolls for Girls</a></li>
-                                                        <li><a href="">Girls' Learning Toys</a></li>
-                                                        <li><a href="">Arts and Crafts for Girls</a></li>
-                                                        <li><a href="">Video Games for Girls</a></li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
+                                        <li class="menu_item_children"><a href="#">문의</a>
                                         </li>
-                                        <li><a href="#"> Fresh Meat</a></li>
-                                        <li><a href="#"> Butter & Eggs</a></li>
-                                        <li><a href="#">Milk</a></li>
-                                        <li><a href="#">Oil & Vinegars</a></li>
-                                        <li><a href="#"> Bread</a></li>
-                                        <li><a href="#"> Jam & Honey</a></li>
-                                        <li><a href="#"> Frozen Food</a></li>
-                                        <li class="hidden"><a href="shop.html">New Sofas</a></li>
-                                        <li class="hidden"><a href="shop.html">Sleight Sofas</a></li>
-                                        <li><a href="#" id="more-btn"><i class="fa fa-plus" aria-hidden="true"></i> More Categories</a></li>
                                     </ul>
                                 </div>
                             </div>
