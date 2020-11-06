@@ -1,4 +1,3 @@
-DROP TABLE chat_content CASCADE CONSTRAINTS;
 DROP TABLE chat CASCADE CONSTRAINTS;
 DROP TABLE wishlist CASCADE CONSTRAINTS;
 DROP TABLE review CASCADE CONSTRAINTS;
@@ -9,6 +8,7 @@ DROP TABLE address CASCADE CONSTRAINTS;
 DROP TABLE product CASCADE CONSTRAINTS;
 DROP TABLE product_category CASCADE CONSTRAINTS;
 DROP TABLE gukbap_user CASCADE CONSTRAINTS;
+
 
 CREATE TABLE gukbap_user(
 		user_id                       		VARCHAR2(50)		 NULL ,
@@ -140,35 +140,14 @@ DROP SEQUENCE wishlist_wishlist_no_SEQ;
 CREATE SEQUENCE wishlist_wishlist_no_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
 
 
-
 CREATE TABLE chat(
-		chat_no                       		NUMBER(10)		 NULL ,
-		chat_msgSent_date             		DATE		 DEFAULT sysdate		 NULL ,
-		user_id                       		VARCHAR2(50)		 NULL 
+		chatID                        		NUMBER(10)		 	 NOT NULL,
+		chatName                      		VARCHAR2(20)		 NOT NULL,
+		chatContent                   		VARCHAR2(100)		 NOT NULL,
+		chatTime                      		VARCHAR2(30)		 NOT NULL
 );
 
-DROP SEQUENCE chat_chat_no_SEQ;
-
-CREATE SEQUENCE chat_chat_no_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
-
-
-
-CREATE TABLE chat_content(
-		ch_c_no                       		NUMBER(10)		 NULL ,
-		ch_c_msg                      		VARCHAR2(500)		 NULL ,
-		ch_c_date                     		DATE		 DEFAULT sysdate		 NULL ,
-		ch_c_userId                   		VARCHAR2(120)		 NULL ,
-		ch_c_image                    		VARCHAR2(120)		 NULL ,
-		ch_c_read                     		NUMBER(1)		 DEFAULT 1		 NULL ,
-		chat_no                       		NUMBER(10)		 NULL 
-);
-
-DROP SEQUENCE chat_content_ch_c_no_SEQ;
-
-CREATE SEQUENCE chat_content_ch_c_no_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
-
-
-
+CREATE SEQUENCE chat_chatID_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
 
 
 ALTER TABLE gukbap_user ADD CONSTRAINT IDX_gukbap_user_PK PRIMARY KEY (user_id);
@@ -202,8 +181,4 @@ ALTER TABLE wishlist ADD CONSTRAINT IDX_wishlist_FK1 FOREIGN KEY (product_no) RE
 ALTER TABLE chat ADD CONSTRAINT IDX_chat_PK PRIMARY KEY (chat_no);
 ALTER TABLE chat ADD CONSTRAINT IDX_chat_FK0 FOREIGN KEY (user_id) REFERENCES gukbap_user (user_id);
 
-ALTER TABLE chat_content ADD CONSTRAINT IDX_chat_content_PK PRIMARY KEY (ch_c_no);
-ALTER TABLE chat_content ADD CONSTRAINT IDX_chat_content_FK0 FOREIGN KEY (chat_no) REFERENCES chat (chat_no);
-
-
-INSERT INTO product (product_no, product_name, product_price, product_image, product_desc, product_sale_count, product_click_count, category_no, product_order, product_isOnSale, product_discountRate, product_sale_date) VALUES (product_no, product_name, product_price, product_image, product_desc, product_sale_count, product_click_count, category_no, product_order, product_isOnSale, product_discountRate, product_sale_date);
+ALTER TABLE chat ADD CONSTRAINT IDX_chat_PK PRIMARY KEY (chatID);

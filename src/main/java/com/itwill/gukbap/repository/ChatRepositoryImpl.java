@@ -17,19 +17,26 @@ public class ChatRepositoryImpl implements ChatRepository{
 	ChatMapper chatMapper;
 	
 	@Override
+	public ArrayList<ChatDomain> selectAll() {
+		return chatMapper.selectAll();
+	}
+	
+	@Override
 	public ArrayList<ChatDomain> getChatList(String nowTime) {
 		return chatMapper.getChatList(nowTime);
 	}
 	
+	
 	@Override
-	public ArrayList<ChatDomain> getChatListByResent(int number) {
-		return chatMapper.getChatListByResent(number);
+	public ArrayList<ChatDomain> getChatListByResentTen(int number) {
+		return chatMapper.getChatListByResentTen(number);
 	}
 	
 	@Override
-	public ArrayList<ChatDomain> getChatListByResent(String chatID) {
-		return chatMapper.getChatListByResent(chatID);
+	public ArrayList<ChatDomain> getChatListByResentChatID(int chatID) {
+		return chatMapper.getChatListByResentChatID(chatID);
 	}
+	
 	
 	@Override
 	public int submit(String chatName, String chatContent) {
@@ -54,18 +61,18 @@ public class ChatRepositoryImpl implements ChatRepository{
 				Chat chat=new Chat();
 				chat.setChatID(rs.getInt("chatID"));
 				chat.setChatName(rs.getString("chatName"));
-				chat.setChatContent(rs.getString("chatContent").replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\n", "<br>"));
+				*chat.setChatContent(rs.getString("chatContent").replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\n", "<br>"));
 				
-				int chatTime=Integer.parseInt(rs.getString("chatTime").substring(11, 13));
-				String timeType="오전";
-				if(Integer.parseInt(rs.getString("chatTime").substring(11, 13)) >= 12) {
+				*int chatTime=Integer.parseInt(rs.getString("chatTime").substring(11, 13));
+				*String timeType="오전";
+				*if(Integer.parseInt(rs.getString("chatTime").substring(11, 13)) >= 12) {
 					timeType = "오후";
 					chatTime -= 12;
 				}
 				
-				chat.setChatTime(rs.getString("chatTime").substring(0, 11) +  " " +timeType +  " " + chatTime + ":" + rs.getString("chatTime").substring(14, 16));
+				*chat.setChatTime(rs.getString("chatTime").substring(0, 11) +  " " +timeType +  " " + chatTime + ":" + rs.getString("chatTime").substring(14, 16));
 				
-				chatList.add(chat);
+				*chatList.add(chat);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -94,18 +101,18 @@ public class ChatRepositoryImpl implements ChatRepository{
 				Chat chat=new Chat();
 				chat.setChatID(rs.getInt("chatID"));
 				chat.setChatName(rs.getString("chatName"));
-				chat.setChatContent(rs.getString("chatContent").replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\n", "<br>"));
+				*chat.setChatContent(rs.getString("chatContent").replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\n", "<br>"));
 				
-				int chatTime=Integer.parseInt(rs.getString("chatTime").substring(11, 13));
-				String timeType="오전";
-				if(Integer.parseInt(rs.getString("chatTime").substring(11, 13)) >= 12) {
+				*int chatTime=Integer.parseInt(rs.getString("chatTime").substring(11, 13));
+				*String timeType="오전";
+				*if(Integer.parseInt(rs.getString("chatTime").substring(11, 13)) >= 12) {
 					timeType = "오후";
 					chatTime -= 12;
 				}
 				
-				chat.setChatTime(rs.getString("chatTime").substring(0, 11) +  " " +timeType +  " " + chatTime + ":" + rs.getString("chatTime").substring(14, 16));
+				*chat.setChatTime(rs.getString("chatTime").substring(0, 11) +  " " +timeType +  " " + chatTime + ":" + rs.getString("chatTime").substring(14, 16));
 				
-				chatList.add(chat);
+				*chatList.add(chat);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -135,18 +142,18 @@ public class ChatRepositoryImpl implements ChatRepository{
 					Chat chat=new Chat();
 					chat.setChatID(rs.getInt("chatID"));
 					chat.setChatName(rs.getString("chatName"));
-					chat.setChatContent(rs.getString("chatContent").replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\n", "<br>"));
+					*chat.setChatContent(rs.getString("chatContent").replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\n", "<br>"));
 					
-					int chatTime=Integer.parseInt(rs.getString("chatTime").substring(11, 13));
-					String timeType="오전";
-					if(Integer.parseInt(rs.getString("chatTime").substring(11, 13)) >= 12) {
+					*int chatTime=Integer.parseInt(rs.getString("chatTime").substring(11, 13));
+					*String timeType="오전";
+					*if(Integer.parseInt(rs.getString("chatTime").substring(11, 13)) >= 12) {
 						timeType = "오후";
 						chatTime -= 12;
 					}
 					
-					chat.setChatTime(rs.getString("chatTime").substring(0, 11) +  " " +timeType +  " " + chatTime + ":" + rs.getString("chatTime").substring(14, 16));
+					*chat.setChatTime(rs.getString("chatTime").substring(0, 11) +  " " +timeType +  " " + chatTime + ":" + rs.getString("chatTime").substring(14, 16));
 					
-					chatList.add(chat);
+					*chatList.add(chat);
 				}
 			} catch (Exception e) {
 				e.printStackTrace();

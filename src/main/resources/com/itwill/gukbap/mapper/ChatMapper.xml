@@ -1,24 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.itwill.gukbap.mapper.ChatMapper">
+	
     <!-- select -->
-    <select id="getChatList" resultType="com.itwill.gukbap.domain.ChatDomain">
-         SELECT * FROM CHAT WHERE chatTime &lt; #{nowTime} ORDER BY chatTime
+    <select id="selectAll" resultType="com.itwill.gukbap.domain.ChatDomain">
+         SELECT * FROM CHAT ORDER BY chatID
     </select>
-    <!-- nowTime 변경해야 할 것 같은데 -->
+    
+    <select id="getChatList" resultType="com.itwill.gukbap.domain.ChatDomain" parameterType="string">
+         SELECT * FROM CHAT WHERE chatTime &lt; #{nowTime} ORDER BY chatID
+    </select>
 		
-    <select id="getChatListByResent" resultType="com.itwill.gukbap.domain.ChatDomain">
-    	SELECT * FROM CHAT WHERE chatID &gt; (SELECT MAX(chatID) - 10 FROM CHAT) ORDER BY chatTime
+    <select id="getChatListByResentTen" resultType="com.itwill.gukbap.domain.ChatDomain" parameterType="int">
+    	SELECT * FROM CHAT WHERE chatID &gt; (SELECT MAX(chatID) - #{number} FROM CHAT) ORDER BY chatID
     </select>
     
-    <select id="getChatListByResent" resultType="com.itwill.gukbap.domain.AddressDomain">
-    	SELECT * FROM CHAT WHERE chatID > #{chatID} ORDER BY chatTime
+    <select id="getChatListByResentChatID" resultType="com.itwill.gukbap.domain.ChatDomain" parameterType="int">
+    	SELECT * FROM CHAT WHERE chatID > #{chatID} ORDER BY chatID
     </select>
-    
     
     <!-- insert -->
-    <insert id="insertAddress" parameterType="com.itwill.gukbap.domain.AddressDomain">
-    	INSERT INTO CHAT VALUES (chat_chatID_SEQ.nextval, #{chatName}, #{chatContent}, to_char(sysdate, 'yyyy.mm.dd hh24:mi'))
+    <insert id="submit" parameterType="map">
+    	INSERT INTO CHAT 
+    	VALUES (chat_chatID_SEQ.nextval, #{chatName}, #{chatContent}, to_char(sysdate, 'yyyy.mm.dd hh24:mi'))
     </insert>
+	
+	
 
 </mapper>

@@ -31,6 +31,13 @@ public class ChatDomain {
 	public void setChatTime(String chatTime) {
 		this.chatTime = chatTime;
 	}
+	@Override
+	public String toString() {
+		return "ChatDomain [ chatID= " + chatID 
+				+", chatName= " + chatName 
+				+", chatContent= " + chatContent 
+				+", chatTime= " + chatTime +"]"+"\n"; 
+	}
 	
 	
 
