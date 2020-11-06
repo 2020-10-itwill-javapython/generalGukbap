@@ -74,63 +74,28 @@
                         <div id="menu" class="text-left ">
                             <ul class="offcanvas_main_menu">
                                 <li class="menu-item-has-children active">
-                                    <a href="#">메인</a>
-                                    <ul class="sub-menu">
+                                    <a href="index.jsp">메인</a>
                                       
                                        
-                                    </ul>
                                 </li>
                                 <li class="menu-item-has-children">
-                                    <a href="#">메뉴</a>
-                                    <ul class="sub-menu">
-                                        <li class="menu-item-has-children">
-                                            <a href="#">메뉴</a>
-                                            <ul class="sub-menu">
-                                                <li><a href="shop.html">shop</a></li>
-                                                <li><a href="shop-fullwidth.html">Full Width</a></li>
-                                                <li><a href="shop-fullwidth-list.html">Full Width list</a></li>
-                                                <li><a href="shop-right-sidebar.html">Right Sidebar </a></li>
-                                                <li><a href="shop-right-sidebar-list.html"> Right Sidebar list</a></li>
-                                                <li><a href="shop-list.html">List View</a></li>
-                                            </ul>
-                                        </li>
-                                     
-                                    </ul>
+                                    <a href="shop-fullwidth-list.jsp">메뉴</a>
+                                   
                                 </li>
                                 <li class="menu-item-has-children">
-                                    <a href="#">blog</a>
-                                    <ul class="sub-menu">
-                                        <li><a href="blog.html">blog</a></li>
-                                        <li><a href="blog-details.html">blog details</a></li>
-                                        <li><a href="blog-fullwidth.html">blog fullwidth</a></li>
-                                        <li><a href="blog-sidebar.html">blog sidebar</a></li>
-                                    </ul>
+                                    <a href="blog-sidebar.jsp">리뷰</a>
 
                                 </li>
                                 <li class="menu-item-has-children">
-                                    <a href="#">pages </a>
-                                    <ul class="sub-menu">
-                                        <li><a href="about.html">About Us</a></li>
-                                        <li><a href="services.html">services</a></li>
-                                        <li><a href="faq.html">Frequently Questions</a></li>
-                                        <li><a href="contact.html">contact</a></li>
-                                        <li><a href="login.jsp">login</a></li>
-                                        <li><a href="404.html">Error 404</a></li>
-                                    </ul>
+                                    <a href="#">문의</a>
                                 </li>
                                 <li class="menu-item-has-children">
-                                    <a href="my-account.html">my account</a>
-                                </li>
-                                <li class="menu-item-has-children">
-                                    <a href="about.html">about Us</a>
-                                </li>
-                                <li class="menu-item-has-children">
-                                    <a href="contact.html"> Contact Us</a> 
+                                    <a href="about.html">회사소개</a>
                                 </li>
                             </ul>
                         </div>
                         <div class="offcanvas_footer">
-                            <span><a href="#"><i class="fa fa-envelope-o"></i> info@yourdomain.com</a></span>
+                            <span><a href="#"><i class="fa fa-envelope-o"></i> jaeil759@naver.com</a></span>
                         </div>
                     </div>
                 </div>
@@ -295,24 +260,6 @@
                             <div class="search_container">
                                <form action="#">
                                    <div class="hover_category">
-                                        <select class="select_option" name="select" id="categori2">
-                                            <option selected value="1">Select a categories</option>
-                                            <option value="2">Accessories</option>
-                                            <option value="3">Accessories & More</option>
-                                            <option value="4">Butters & Eggs</option>
-                                            <option value="5">Camera & Video </option>
-                                            <option value="6">Mornitors</option>
-                                            <option value="7">Tablets</option>
-                                            <option value="8">Laptops</option>
-                                            <option value="9">Handbags</option>
-                                            <option value="10">Headphone & Speaker</option>
-                                            <option value="11">Herbs & botanicals</option>
-                                            <option value="12">Vegetables</option>
-                                            <option value="13">Shop</option>
-                                            <option value="14">Laptops & Desktops</option>
-                                            <option value="15">Watchs</option>
-                                            <option value="16">Electronic</option>
-                                        </select>                        
                                    </div>
                                     <div class="search_box">
                                         <input placeholder="Search product..." type="text">
@@ -328,69 +275,10 @@
                                 </div>
                                 <div class="categories_menu_toggle">
                                     <ul>
-                                        <li class="menu_item_children"><a href="#">Vegetables<i class="fa fa-angle-right"></i></a>
-                                            <ul class="categories_mega_menu">
-                                                <li class="menu_item_children"><a href="#">Dresses</a>
-                                                    <ul class="categorie_sub_menu">
-                                                        <li><a href="">Sweater</a></li>
-                                                        <li><a href="">Evening</a></li>
-                                                        <li><a href="">Day</a></li>
-                                                        <li><a href="">Sports</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li class="menu_item_children"><a href="#">Handbags</a>
-                                                    <ul class="categorie_sub_menu">
-                                                        <li><a href="">Shoulder</a></li>
-                                                        <li><a href="">Satchels</a></li>
-                                                        <li><a href="">kids</a></li>
-                                                        <li><a href="">coats</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li class="menu_item_children"><a href="#">shoes</a>
-                                                    <ul class="categorie_sub_menu">
-                                                        <li><a href="">Ankle Boots</a></li>
-                                                        <li><a href="">Clog sandals </a></li>
-                                                        <li><a href="">run</a></li>
-                                                        <li><a href="">Books</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li class="menu_item_children"><a href="#">Clothing</a>
-                                                    <ul class="categorie_sub_menu">
-                                                        <li><a href="">Coats  Jackets </a></li>
-                                                        <li><a href="">Raincoats</a></li>
-                                                        <li><a href="">Jackets</a></li>
-                                                        <li><a href="">T-shirts</a></li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
+                                        <li class="menu_item_children"><a href="#">메인<i class="fa fa-angle-right"></i></a>
                                         </li>
-                                        <li class="menu_item_children"><a href="#">Fruits  <i class="fa fa-angle-right"></i></a>
-                                            <ul class="categories_mega_menu column_3">
-                                                <li class="menu_item_children"><a href="#">Chair</a>
-                                                    <ul class="categorie_sub_menu">
-                                                        <li><a href="">Dining room</a></li>
-                                                        <li><a href="">bedroom</a></li>
-                                                        <li><a href=""> Home & Office</a></li>
-                                                        <li><a href="">living room</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li class="menu_item_children"><a href="#">Lighting</a>
-                                                    <ul class="categorie_sub_menu">
-                                                        <li><a href="">Ceiling Lighting</a></li>
-                                                        <li><a href="">Wall Lighting</a></li>
-                                                        <li><a href="">Outdoor Lighting</a></li>
-                                                        <li><a href="">Smart Lighting</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li class="menu_item_children"><a href="#">Sofa</a>
-                                                    <ul class="categorie_sub_menu">
-                                                        <li><a href="">Fabric Sofas</a></li>
-                                                        <li><a href="">Leather Sofas</a></li>
-                                                        <li><a href="">Corner Sofas</a></li>
-                                                        <li><a href="">Sofa Beds</a></li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
+                                        <li class="menu_item_children"><a href="#">메뉴  <i class="fa fa-angle-right"></i></a>
+                                            
                                         </li>
                                         <li class="menu_item_children"><a href="#"> Salads<i class="fa fa-angle-right"></i></a>
                                             <ul class="categories_mega_menu column_2">
