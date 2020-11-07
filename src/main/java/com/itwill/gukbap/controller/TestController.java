@@ -3,10 +3,13 @@ package com.itwill.gukbap.controller;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.itwill.gukbap.domain.AddressDomain;
 import com.itwill.gukbap.domain.OrderDomain;
@@ -60,11 +63,11 @@ public class TestController {
 		return "productCategory_test";
 	}
 	
-	@RequestMapping("shop-fullwidth-list")  
+	@RequestMapping("shop-right-sidebar")  
 	public String product_list(HttpServletRequest request) {
 		List<ProductDomain> productList=productService.selectAll();
 		request.setAttribute("productList",productList);
-		return "forward:/shop-fullwidth-list.jsp";
+		return "forward:/shop-right-sidebar.jsp";
 	}
 	
 	@RequestMapping("guest_list")
@@ -81,6 +84,13 @@ public class TestController {
 		return "wish_test";
 	}
 	
+	@RequestMapping(value = "product_details",method = RequestMethod.POST)
+	public String product_details(@RequestParam String product_no,HttpSession session) {
+		int product = Integer.parseInt(product_no);
+		ProductDomain productDomain= productService.selectProductByProductNo(product);
+		session.setAttribute("product", productDomain);
+		return "forward:/shop-fullwidth-list";
+	}
 	
 	
 	@RequestMapping("main")
@@ -99,10 +109,6 @@ public class TestController {
 		return "shop-fullwidth-list";
 	}
 	
-	@RequestMapping("product_details")
-	public String product_details() {
-		return "product-details";
-	}
 	
 	
 	
