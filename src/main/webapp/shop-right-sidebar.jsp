@@ -7,7 +7,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Safira - shop fullwidth list</title>
+    <title>Safira - shop right sidebar</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Favicon -->
@@ -43,17 +43,15 @@
     
     <!--modernizr min js here-->
     <script src="assets/js/vendor/modernizr-3.7.1.min.js"></script>
-    
-   
 
 </head>
 
 <body>
-       
+
    <!--header area start-->
     <jsp:include page="common_header.jsp"/>
     <!--offcanvas menu area start-->
- 
+   
     <!--offcanvas menu area end-->
     
    
@@ -79,20 +77,20 @@
     <!--breadcrumbs area end-->
     
     <!--shop  area start-->
-    <div class="shop_area shop_fullwidth mt-70 mb-70">
+    <div class="shop_area mt-70 mb-70">
         <div class="container">
             <div class="row">
-                <div class="col-12">
+                <div class="col-lg-9 col-md-12">
                     <!--shop wrapper start-->
                     <!--shop toolbar start-->
                     <div class="shop_toolbar_wrapper">
                         <div class="shop_toolbar_btn">
 
-                            <button data-role="grid_3" type="button" class=" btn-grid-3" data-toggle="tooltip" title="3"></button>
+                            <button data-role="grid_3" type="button" class="active btn-grid-3" data-toggle="tooltip" title="3"></button>
 
                             <button data-role="grid_4" type="button"  class=" btn-grid-4" data-toggle="tooltip" title="4"></button>
 
-                            <button data-role="grid_list" type="button"  class="active btn-list" data-toggle="tooltip" title="List"></button>
+                            <button data-role="grid_list" type="button"  class="btn-list" data-toggle="tooltip" title="List"></button>
                         </div>
                         <div class=" niceselect_option">
                             <form class="select_option" action="#">
@@ -112,57 +110,59 @@
                         </div>
                     </div>
                      <!--shop toolbar end-->
-                     <div class="row shop_wrapper grid_list">
+                     <div class="row shop_wrapper">
                      <c:forEach items="${productList}" var="product">
-                     			
-				        <div class="col-12 ">
+                        <div class="col-lg-4 col-md-4 col-sm-6 col-12 ">
                             <div class="single_product">
                                 <div class="product_thumb">
-                                        <a class="primary_img" href="product-details.jsp?product_no=${product.product_no}"><img src="assets/img/product/${product.product_image}" alt=""></a>
-                                        <a class="secondary_img" href="product-details.jsp?product_no=${product.product_no}"><img src="assets/img/product/+${product.product_image}" alt=""></a>
+                                        <a class="primary_img" href="product-details.jsp"><img src="assets/img/product/${product.product_image}" alt=""></a>
+                                        <a class="secondary_img" href="product-details.jsp"><img src="assets/img/product/${product.product_image}" alt=""></a>
                                         <div class="label_product">
+                                        <!-- 
                                             <span class="label_sale">Sale</span>
                                             <span class="label_new">New</span>
+                                           -->
                                         </div>
                                         <div class="action_links">
                                             <ul>
-                                                <li class="add_to_cart"><a href="cart.html" title="Add to cart"><span class="lnr lnr-cart"></span></a></li>
+                                                <li class="add_to_cart"><a href="cart.jsp" title="Add to cart"><span class="lnr lnr-cart"></span></a></li>
                                                 <li class="quick_button"><a href="#" data-toggle="modal" data-target="#modal_box"  title="quick view"> <span class="lnr lnr-magnifier"></span></a></li>
-                                                 <li class="wishlist"><a href="wishlist.html" title="Add to Wishlist"><span class="lnr lnr-heart"></span></a></li>  
+                                                 <li class="wishlist"><a href="wishlist.jsp" title="Add to Wishlist"><span class="lnr lnr-heart"></span></a></li>  
                                                 <li class="compare"><a href="#" title="Add to Compare"><span class="lnr lnr-sync"></span></a></li>
                                             </ul>
                                         </div>
                                     </div>
                                 <div class="product_content grid_content">
-                                        <h4 class="product_name"><a href="product-details.html">${product.product_name}</a></h4>
+                                        <h4 class="product_name"><a href="product-details.jsp">${product.product_name}</a></h4>
                                         <p><a href="#">Fruits</a></p>
                                         <div class="price_box"> 
                                             <span class="current_price">${product.product_price}원</span>
+                                            
                                         </div>
                                     </div>
                                 <div class="product_content list_content">
-                                    <h4 class="product_name"><a href="product-details.html">${product.product_name}</a></h4>
+                                    <h4 class="product_name"><a href="product-details.jsp">${product.product_name}</a></h4>
                                     <p><a href="#">Fruits</a></p>
                                     <div class="price_box"> 
                                         <span class="current_price">${product.product_price}원</span>
+                                        
                                     </div>
                                     <div class="product_desc">
                                         <p>${product.product_desc}</p>
                                     </div>
                                     <div class="action_links list_action_right">
                                         <ul>
-                                            <li class="add_to_cart"><a href="cart.html" title="Add to cart">Add to Cart</a></li>
+                                            <li class="add_to_cart"><a href="cart.jsp" title="Add to cart">Add to Cart</a></li>
                                             <li class="quick_button"><a href="#" data-toggle="modal" data-target="#modal_box"  title="quick view"> <span class="lnr lnr-magnifier"></span></a></li>
-                                             <li class="wishlist"><a href="wishlist.html" title="Add to Wishlist"><span class="lnr lnr-heart"></span></a></li>  
+                                             <li class="wishlist"><a href="wishlist.jsp" title="Add to Wishlist"><span class="lnr lnr-heart"></span></a></li>  
                                             <li class="compare"><a href="#" title="Add to Compare"><span class="lnr lnr-sync"></span></a></li>
                                         </ul>
                                     </div>
                                 </div>
                             </div>
                         </div>
-			         </c:forEach>
-                       
-                       
+                         </c:forEach>
+                     
                     </div>
 
                     <div class="shop_toolbar t_bottom">
@@ -178,6 +178,47 @@
                     </div>
                     <!--shop toolbar end-->
                     <!--shop wrapper end-->
+                </div>
+                <div class="col-lg-3 col-md-12">
+                   <!--sidebar widget start-->
+                    <aside class="sidebar_widget">
+                        <div class="widget_inner">
+                            <div class="widget_list widget_categories">
+                                <h3>Women</h3>
+                                <ul>
+                                    <li class="widget_sub_categories sub_categories1"><a href="javascript:void(0)">Shoes</a>
+                                        <ul class="widget_dropdown_categories dropdown_categories1">
+                                            <li><a href="#">Document</a></li>
+                                            <li><a href="#">Dropcap</a></li>
+                                            <li><a href="#">Dummy Image</a></li>
+                                            <li><a href="#">Dummy Text</a></li>
+                                            <li><a href="#">Fancy Text</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="widget_sub_categories sub_categories2"><a href="javascript:void(0)">Bags</a>
+                                        <ul class="widget_dropdown_categories dropdown_categories2">
+                                            <li><a href="#">Flickr</a></li>
+                                            <li><a href="#">Flip Box</a></li>
+                                            <li><a href="#">Cocktail</a></li>
+                                            <li><a href="#">Frame</a></li>
+                                            <li><a href="#">Flickrq</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="widget_sub_categories sub_categories3"><a href="javascript:void(0)">Clothing</a>
+                                        <ul class="widget_dropdown_categories dropdown_categories3">
+                                            <li><a href="#">Platform Beds</a></li>
+                                            <li><a href="#">Storage Beds</a></li>
+                                            <li><a href="#">Regular Beds</a></li>
+                                            <li><a href="#">Sleigh Beds</a></li>
+                                            <li><a href="#">Laundry</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                     
+                        </div>
+                    </aside>
+                    <!--sidebar widget end-->
                 </div>
             </div>
         </div>
@@ -240,18 +281,18 @@
                                         </ul>
                                     </div>    
                                 </div>  
-                            </div>                    
+                            </div> 
                             <div class="col-lg-7 col-md-7 col-sm-12">
                                 <div class="modal_right">
                                     <div class="modal_title mb-10">
                                         <h2>Donec Ac Tempus</h2> 
                                     </div>
                                     <div class="modal_price mb-10">
-                                        <span class="new_price"></span>    
-                                   
+                                        <span class="new_price">$64.99</span>    
+                                        <span class="old_price" >$78.99</span>    
                                     </div>
                                     <div class="modal_description mb-15">
-                                        <p></p>    
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia iste laborum ad impedit pariatur esse optio tempora sint ullam autem deleniti nam in quos qui nemo ipsum numquam, reiciendis maiores quidem aperiam, rerum vel recusandae </p>    
                                     </div> 
                                     <div class="variants_selects">
                                         <div class="variants_size">
@@ -292,8 +333,7 @@
                                         </ul>    
                                     </div>      
                                 </div>    
-                            </div>  
-                              
+                            </div>    
                         </div>     
                     </div>
                 </div>    
