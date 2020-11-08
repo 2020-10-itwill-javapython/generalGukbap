@@ -10,10 +10,10 @@
             <div class="row">
                 <div class="col-12">
                     <div class="breadcrumb_content">
-                       <h3>Checkout</h3>
+                       <h3>결제하기</h3>
                         <ul>
-                            <li><a href="index.html">home</a></li>
-                            <li>Checkout</li>
+                            <li><a href="index.html">메인</a></li>
+                            <li>결제하기</li>
                         </ul>
                     </div>
                 </div>
@@ -27,60 +27,13 @@
        <div class="container">
             <div class="row">
                <div class="col-12">
-                    <div class="user-actions">
-                        <h3> 
-                            <i class="fa fa-file-o" aria-hidden="true"></i>
-                            Returning customer?
-                            <a class="Returning" href="#" data-toggle="collapse" data-target="#checkout_login" aria-expanded="true">Click here to login</a>     
-
-                        </h3>
-                         <div id="checkout_login" class="collapse" data-parent="#accordion">
-                            <div class="checkout_info">
-                                <p>If you have shopped with us before, please enter your details in the boxes below. If you are a new customer please proceed to the Billing & Shipping section.</p>  
-                                <form action="#">  
-                                    <div class="form_group">
-                                        <label>Username or email <span>*</span></label>
-                                        <input type="text">     
-                                    </div>
-                                    <div class="form_group">
-                                        <label>Password  <span>*</span></label>
-                                        <input type="text">     
-                                    </div> 
-                                    <div class="form_group group_3 ">
-                                        <button type="submit">Login</button>
-                                        <label for="remember_box">
-                                            <input id="remember_box" type="checkbox">
-                                            <span> Remember me </span>
-                                        </label>     
-                                    </div>
-                                    <a href="#">Lost your password?</a>
-                                </form>          
-                            </div>
-                        </div>    
-                    </div>
-                    <div class="user-actions">
-                        <h3> 
-                            <i class="fa fa-file-o" aria-hidden="true"></i>
-                            Returning customer?
-                            <a class="Returning" href="#" data-toggle="collapse" data-target="#checkout_coupon" aria-expanded="true">Click here to enter your code</a>     
-
-                        </h3>
-                         <div id="checkout_coupon" class="collapse" data-parent="#accordion">
-                            <div class="checkout_info coupon_info">
-                                <form action="#">
-                                    <input placeholder="Coupon code" type="text">
-                                    <button type="submit">Apply coupon</button>
-                                </form>
-                            </div>
-                        </div>    
-                    </div>    
                </div>
             </div>
             <div class="checkout_form">
                 <div class="row">
                     <div class="col-lg-6 col-md-6">
                         <form action="#">
-                            <h3>Billing Details</h3>
+                            <h3>주문 정보</h3>
                             <div class="row">
 
                                 <div class="col-lg-6 mb-20">
@@ -91,8 +44,12 @@
                                     <label>성  <span>*</span></label>
                                     <input type="text"> 
                                 </div>
+                                <div class="col-lg-12 mb-20">
+                                    <label>생년월일  <span>*</span></label>
+                                    <input placeholder="xxxx/xx/xx" type="text"> 
+                                </div>
                                 <div class="col-12 mb-20">
-                                    <label>Company Name</label>
+                                    <label>회사이름(옵션)</label>
                                     <input type="text">     
                                 </div>
                                 <!-- 
@@ -117,40 +74,24 @@
                                     <input placeholder="번지 및 도로명" type="text">     
                                 </div>
                                 <div class="col-12 mb-20">
-                                    <input placeholder="아파트, suite, unit etc. (선택 사항)" type="text">     
+                                    <input placeholder="상세 주소 (선택 사항)" type="text">     
                                 </div>
                                 <div class="col-12 mb-20">
                                     <label>시 / 도시 <span>*</span></label>
                                     <input  type="text">    
                                 </div> 
                                  <div class="col-12 mb-20">
-                                    <label>State / County <span>*</span></label>
+                                    <label>국가 <span>*</span></label>
                                     <input type="text">    
                                 </div> 
-                                <div class="col-lg-6 mb-20">
+                                <div class="col-lg-12 mb-20">
                                     <label>전화번호<span>*</span></label>
                                     <input type="text"> 
 
                                 </div> 
-                                 <div class="col-lg-6 mb-20">
-                                    <label> 이메일 주소   <span>*</span></label>
-                                      <input type="text"> 
-
-                                </div> 
-                                <div class="col-12 mb-20">
-                                    <input id="account" type="checkbox" data-target="createp_account" />
-                                    <label for="account" data-toggle="collapse" data-target="#collapseOne" aria-controls="collapseOne">Create an account?</label>
-
-                                    <div id="collapseOne" class="collapse one" data-parent="#accordion">
-                                        <div class="card-body1">
-                                           <label> Account password   <span>*</span></label>
-                                            <input placeholder="password" type="password">  
-                                        </div>
-                                    </div>
-                                </div>
                                 <div class="col-12 mb-20">
                                     <input id="address" type="checkbox" data-target="createp_account" />
-                                    <label class="righ_0" for="address" data-toggle="collapse" data-target="#collapsetwo" aria-controls="collapseOne">Ship to a different address?</label>
+                                    <label class="righ_0" for="address" data-toggle="collapse" data-target="#collapsetwo" aria-controls="collapseOne">다른 주소로 배송하기</label>
 
                                     <div id="collapsetwo" class="collapse one" data-parent="#accordion">
                                        <div class="row">
@@ -222,7 +163,7 @@
                     </div>
                     <div class="col-lg-6 col-md-6">
                         <form action="#">    
-                            <h3>Your order</h3> 
+                            <h3>주문 상세</h3> 
                             <div class="order_table table-responsive">
                                 <table>
                                     <thead>
@@ -267,9 +208,6 @@
                             </div>
                             <div class="payment_method">
                                <div class="panel-default">
-                                    <input id="payment" name="check_method" type="radio" data-target="createp_account" />
-                                    <label for="payment" data-toggle="collapse" data-target="#method" aria-controls="method">Create an account?</label>
-
                                     <div id="method" class="collapse one" data-parent="#accordion">
                                         <div class="card-body1">
                                            <p>Please send a check to Store Name, Store Street, Store Town, Store State / County, Store Postcode.</p>
@@ -277,7 +215,6 @@
                                     </div>
                                 </div> 
                                <div class="panel-default">
-                                    <input id="payment_defult" name="check_method" type="radio" data-target="createp_account" />
                                     <label for="payment_defult" data-toggle="collapse" data-target="#collapsedefult" aria-controls="collapsedefult">PayPal <img src="assets/img/icon/papyel.png" alt=""></label>
 
                                     <div id="collapsedefult" class="collapse one" data-parent="#accordion">

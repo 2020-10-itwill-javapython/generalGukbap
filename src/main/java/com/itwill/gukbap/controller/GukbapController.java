@@ -1,20 +1,35 @@
 package com.itwill.gukbap.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.lang.UsesSunHttpServer;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.itwill.gukbap.domain.OrderDomain;
 import com.itwill.gukbap.domain.UserDomain;
+import com.itwill.gukbap.service.OrderService;
 import com.itwill.gukbap.service.UserService;
 
 @Controller
 public class GukbapController {
 	@Autowired
 	UserService userService;
+	@Autowired
+	OrderService orderService;
+	
+	@RequestMapping(value = "my-account")
+	public String myAccount(HttpSession session) {
+		UserDomain loginUser = (UserDomain) session.getAttribute("loginUser");
+		List<OrderDomain> orders = orderService.selectOrdersByName(loginUser.getUser_id());
+		session.setAttribute("orders", orders);
+		return "forward:/my-account.jsp";
+	}
 	
 	@RequestMapping(value = "login_action", 
 			method = RequestMethod.GET)

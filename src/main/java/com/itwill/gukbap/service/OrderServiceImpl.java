@@ -73,7 +73,7 @@ public class OrderServiceImpl implements OrderService{
 						"preparing", 
 						order_total_price, 
 						orderDetails.get(0).getProduct().getProduct_name() + "외 "+ (orderDetails.size() - 1) +"개 상품", 
-						"", user_id));
+						"", user_id, null));
 		
     }
 

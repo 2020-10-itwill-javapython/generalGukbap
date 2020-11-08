@@ -1,5 +1,11 @@
+<%@page import="com.itwill.gukbap.service.UserServiceImpl"%>
+<%@page import="com.itwill.gukbap.service.UserService"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%
+	System.out.println(session.getAttribute("orders"));
+%>
 	<jsp:include page="common_header.jsp"/>
 
 <body>
@@ -9,10 +15,10 @@
             <div class="row">
                 <div class="col-12">
                     <div class="breadcrumb_content">
-                       <h3>My Account</h3>
+                       <h3>계정 정보</h3>
                         <ul>
-                            <li><a href="index.html">home</a></li>
-                            <li>My account</li>
+                            <li><a href="index.html">메인</a></li>
+                            <li>계정 정보</li>
                         </ul>
                     </div>
                 </div>
@@ -30,12 +36,11 @@
                         <!-- Nav tabs -->
                         <div class="dashboard_tab_button">
                             <ul role="tablist" class="nav flex-column dashboard-list">
-                                <li><a href="#dashboard" data-toggle="tab" class="nav-link active">Dashboard</a></li>
-                                <li> <a href="#orders" data-toggle="tab" class="nav-link">Orders</a></li>
-                                <li><a href="#downloads" data-toggle="tab" class="nav-link">Downloads</a></li>
-                                <li><a href="#address" data-toggle="tab" class="nav-link">Addresses</a></li>
-                                <li><a href="#account-details" data-toggle="tab" class="nav-link">Account details</a></li>
-                                <li><a href="login.html" class="nav-link">logout</a></li>
+                                <li><a href="#dashboard" data-toggle="tab" class="nav-link active">대시보드</a></li>
+                                <li> <a href="#orders" data-toggle="tab" class="nav-link">주문 확인</a></li>
+                                <li><a href="#address" data-toggle="tab" class="nav-link">주소지 관리</a></li>
+                                <li><a href="#account-details" data-toggle="tab" class="nav-link">계정정보</a></li>
+                                <li><a href="login.html" class="nav-link">로그아웃</a></li>
                             </ul>
                         </div>    
                     </div>
@@ -43,66 +48,33 @@
                         <!-- Tab panes -->
                         <div class="tab-content dashboard_content">
                             <div class="tab-pane fade show active" id="dashboard">
-                                <h3>Dashboard </h3>
-                                <p>From your account dashboard. you can easily check &amp; view your <a href="#">recent orders</a>, manage your <a href="#">shipping and billing addresses</a> and <a href="#">Edit your password and account details.</a></p>
+                                <h3>계정 정보</h3>
+                                <p><a href="#">최근 주문 내역 확인</a>, <a href="#">주소지 관리</a> 및 <a href="#">계정 비밀번호 및 정보수정</a>
+                                을 하실 수 있습니다.</p>
                             </div>
                             <div class="tab-pane fade" id="orders">
-                                <h3>Orders</h3>
+                                <h3>주문 확인</h3>
                                 <div class="table-responsive">
                                     <table class="table">
                                         <thead>
                                             <tr>
-                                                <th>Order</th>
-                                                <th>Date</th>
-                                                <th>Status</th>
-                                                <th>Total</th>
-                                                <th>Actions</th>	 	 	 	
+                                                <th>주문 번호</th>
+                                                <th>날짜</th>
+                                                <th>상태</th>
+                                                <th>가격</th>
+                                                <th>주문상세확인</th>	 	 	 	
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>May 10, 2018</td>
-                                                <td><span class="success">Completed</span></td>
-                                                <td>$25.00 for 1 item </td>
-                                                <td><a href="cart.html" class="view">view</a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>May 10, 2018</td>
-                                                <td>Processing</td>
-                                                <td>$17.00 for 1 item </td>
-                                                <td><a href="cart.html" class="view">view</a></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                            <div class="tab-pane fade" id="downloads">
-                                <h3>Downloads</h3>
-                                <div class="table-responsive">
-                                    <table class="table">
-                                        <thead>
-                                            <tr>
-                                                <th>Product</th>
-                                                <th>Downloads</th>
-                                                <th>Expires</th>
-                                                <th>Download</th>	 	 	 	
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>Shopnovilla - Free Real Estate PSD Template</td>
-                                                <td>May 10, 2018</td>
-                                                <td><span class="danger">Expired</span></td>
-                                                <td><a href="#" class="view">Click Here To Download Your File</a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Organic - ecommerce html template</td>
-                                                <td>Sep 11, 2018</td>
-                                                <td>Never</td>
-                                                <td><a href="#" class="view">Click Here To Download Your File</a></td>
-                                            </tr>
+                                        	<c:forEach items="${orders}" var="order">
+	                                            <tr>
+	                                                <td>${order.order_no }</td>
+	                                                <td>${order.order_date.substring(0, 11) }</td>
+	                                                <td><span class="success">${order.order_status }</span></td>
+	                                                <td>${order.order_total_price}원</td>
+	                                                <td><a href="cart.jsp?o_d_no=" class="view">view</a></td>
+	                                            </tr>
+                                        	</c:forEach>
                                         </tbody>
                                     </table>
                                 </div>
@@ -128,11 +100,6 @@
                                     <div class="login_form_container">
                                         <div class="account_login_form">
                                             <form action="#">
-                                                <p>Already have an account? <a href="#">Log in instead!</a></p>
-                                                <div class="input-radio">
-                                                    <span class="custom-radio"><input type="radio" value="1" name="id_gender"> Mr.</span>
-                                                    <span class="custom-radio"><input type="radio" value="1" name="id_gender"> Mrs.</span>
-                                                </div> <br>
                                                 <label>First Name</label>
                                                 <input type="text" name="first-name">
                                                 <label>Last Name</label>

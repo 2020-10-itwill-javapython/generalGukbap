@@ -35,7 +35,7 @@ public class OrderRepositoryImpl implements OrderRepository{
 		return this.
 				insertOrder(
 						new OrderDomain(0, "", 
-								"preparing", 0, "", "", user_id));
+								"preparing", 0, "", "", user_id, null));
 	}
 	
 	@Override
