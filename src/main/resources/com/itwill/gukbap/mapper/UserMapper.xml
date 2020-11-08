@@ -23,7 +23,7 @@
 			go.order_no,
 			go.order_date, 
 			go.order_status, 
-			go.order_total_pricce, 
+			go.order_total_price, 
 			go.order_desc, 
 			go.order_note from gukbap_user u 
 		full outer join useraddress ua on u.user_id = ua.user_id
@@ -39,7 +39,7 @@
 			go.order_no,
 			go.order_date, 
 			go.order_status, 
-			go.order_total_pricce, 
+			go.order_total_price, 
 			go.order_desc, 
 			go.order_note from gukbap_user u 
 		full outer join useraddress ua on u.user_id = ua.user_id

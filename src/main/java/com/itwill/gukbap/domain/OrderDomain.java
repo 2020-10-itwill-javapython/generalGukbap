@@ -25,10 +25,8 @@ public class OrderDomain {
 		// TODO Auto-generated constructor stub
 	}
 	
-	
-
 	public OrderDomain(int order_no, String order_date, String order_status, int order_total_price, String order_desc,
-			String order_note, String user_id) {
+			String order_note, String user_id, List<OrderDetailDomain> orderDetailList) {
 		super();
 		this.order_no = order_no;
 		this.order_date = order_date;
@@ -37,23 +35,16 @@ public class OrderDomain {
 		this.order_desc = order_desc;
 		this.order_note = order_note;
 		this.user_id = user_id;
+		this.orderDetailList = orderDetailList;
 	}
-	
-	
-
-
 
 	public List<OrderDetailDomain> getOrderDetailList() {
 		return orderDetailList;
 	}
 
-
-
 	public void setOrderDetailList(List<OrderDetailDomain> orderDetailList) {
 		this.orderDetailList = orderDetailList;
 	}
-
-
 
 	public int getOrder_no() {
 		return order_no;
@@ -79,12 +70,12 @@ public class OrderDomain {
 		this.order_status = order_status;
 	}
 
-	public int getOrder_total_pricce() {
+	public int getOrder_total_price() {
 		return order_total_price;
 	}
 
-	public void setOrder_total_pricce(int order_total_pricce) {
-		this.order_total_price = order_total_pricce;
+	public void setOrder_total_price(int order_total_price) {
+		this.order_total_price = order_total_price;
 	}
 
 	public String getOrder_desc() {
@@ -111,12 +102,10 @@ public class OrderDomain {
 		this.user_id = user_id;
 	}
 
-
-
 	@Override
 	public String toString() {
 		return "OrderDomain [order_no=" + order_no + ", order_date=" + order_date + ", order_status=" + order_status
-				+ ", order_total_pricce=" + order_total_price + ", order_desc=" + order_desc + ", order_note="
+				+ ", order_total_price=" + order_total_price + ", order_desc=" + order_desc + ", order_note="
 				+ order_note + ", user_id=" + user_id + ", orderDetailList=" + orderDetailList + "]"+"\n";
 	}
 

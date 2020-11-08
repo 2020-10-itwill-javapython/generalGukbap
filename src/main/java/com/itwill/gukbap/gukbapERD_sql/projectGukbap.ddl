@@ -83,7 +83,7 @@ CREATE TABLE gukbap_order(
 		order_no                      		NUMBER(10)		 NULL ,
 		order_date                    		DATE		 DEFAULT sysdate		 NULL ,
 		order_status                  		VARCHAR2(10)		 NULL ,
-		order_total_pricce            		NUMBER(10)		 NULL ,
+		order_total_price            		NUMBER(10)		 NULL ,
 		order_desc                    		VARCHAR2(1000)		 NULL ,
 		order_note                    		VARCHAR2(50)		 NULL ,
 		user_id                       		VARCHAR2(50)		 NULL 

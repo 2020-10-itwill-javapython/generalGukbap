@@ -51,7 +51,7 @@ public class OrderDetailServiceImpl implements OrderDetailService {
 						order_total_price, 
 						orderItems.get(0).getProduct().getProduct_name() + "외 "+ (orderItems.size() - 1) +"개 상품", 
 						"", 
-						order.getUser_id()));
+						order.getUser_id(), null));
 		
 	}
 }

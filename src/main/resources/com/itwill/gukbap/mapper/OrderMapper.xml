@@ -5,7 +5,7 @@
 		<result property="order_no" column="order_no"/>
 		<result property="order_date" column="order_date"/>
 		<result property="order_status" column="order_status"/>
-		<result property="order_total_pricce" column="order_total_pricce"/>
+		<result property="order_total_price" column="order_total_price"/>
 		<result property="order_desc" column="order_desc"/>
 		<result property="order_note" column="order_note"/>
 		<result property="user_id" column="user_id"/>
@@ -64,16 +64,16 @@
     </select>
     
     <insert id="insertOrder" parameterType="com.itwill.gukbap.domain.OrderDomain">
-		INSERT INTO gukbap_order (order_no, order_date, order_status, order_total_pricce, order_desc, order_note, user_id) 
+		INSERT INTO gukbap_order (order_no, order_date, order_status, order_total_price, order_desc, order_note, user_id) 
 		VALUES (gukbap_order_order_no_SEQ.nextval, to_date(#{order_date}, 'yyyy/MM/dd'), 
-		#{order_status},#{order_total_pricce}, #{order_desc},#{order_note},#{user_id})
+		#{order_status},#{order_total_price}, #{order_desc},#{order_note},#{user_id})
     </insert>
     
     <update id="updateOrder" parameterType="com.itwill.gukbap.domain.OrderDomain">
 	    update gukbap_order set 
 	    	order_status=#{order_status},
 	    	order_date = sysdate,
-	    	order_total_pricce=#{order_total_pricce},
+	    	order_total_price=#{order_total_price},
 	    	order_desc=#{order_desc},
 	    	order_note=#{order_note}
 	    WHERE order_no=#{order_no}
