@@ -73,7 +73,7 @@
                     </div>
                      <!--shop toolbar end-->
                      <div class="row shop_wrapper">
-                     <c:forEach items="${productList}" var="product">
+                      <c:forEach items="${productList}" var="product">
                         <div class="col-lg-4 col-md-4 col-sm-6 col-12 ">
                             <div class="single_product">
                                 <div class="product_thumb">
@@ -97,7 +97,7 @@
                                         </div>
                                     </div>
                                 <div class="product_content grid_content">
-                                        <h4 class="product_name"><a href="product-details.jsp">${product.product_name}</a></h4>
+                                        <h4 class="product_name"><a href="product-details.jsp" id="product_name">${product.product_name}</a></h4>
                                         <p><a href="#">Fruits</a></p>
                                         <div class="price_box"> 
                                             <span class="current_price">${product.product_price}원</span>
@@ -115,10 +115,10 @@
                                         <p>${product.product_desc}</p>
                                     </div>
                                     <div class="action_links list_action_right">
-                                    <%-- <input id="modal_product_no" type="hidden" value="${product.product_no }"/> --%>
+                                    <input id="modal_product_no" type="hidden" value="${product.product_no }"/>
                                         <ul>
                                             <li class="add_to_cart"><a href="cart.jsp" title="Add to cart">Add to Cart</a></li>
-                                            <li class="quick_button"><a href="#"  data-toggle="modal" data-target="#modal_box"  title="quick view"> <span class="lnr lnr-magnifier"></span></a></li>
+                                            <li class="quick_button"><a href="#" product_no="${product.product_no}" data-toggle="modal" data-target="#modal_box"  title="quick view"> <span class="lnr lnr-magnifier"></span></a></li>
                                              <li class="wishlist"><a href="wishlist.jsp" title="Add to Wishlist"><span class="lnr lnr-heart"></span></a></li>  
                                             <li class="compare"><a href="#" title="Add to Compare"><span class="lnr lnr-sync"></span></a></li>
                                         </ul>
@@ -127,6 +127,7 @@
                                 </div>
                             </div>
                         </div>
+                       
                          </c:forEach>
                      
                     </div>
@@ -152,13 +153,12 @@
                             <div class="widget_list widget_categories">
                                 <h3>Women</h3>
                                 <ul>
-                                    <li class="widget_sub_categories sub_categories1"><a href="javascript:void(0)">메인메뉴</a>
+                                    <li class="widget_sub_categories sub_categories1" id="main" ><a href="#">메인메뉴</a>
+                                    </li>
+                                    <li class="widget_sub_categories sub_categories2" id="side"><a href="javascript:void(0)">사이드메뉴</a>
                                       
                                     </li>
-                                    <li class="widget_sub_categories sub_categories2"><a href="javascript:void(0)">사이드메뉴</a>
-                                      
-                                    </li>
-                                    <li class="widget_sub_categories sub_categories3"><a href="javascript:void(0)">주류및음료</a>
+                                    <li class="widget_sub_categories sub_categories3" id="drink"><a href="javascript:void(0)">주류및음료</a>
                                         
                                     </li>
                                 </ul>
@@ -192,7 +192,7 @@
                                     <div class="tab-content product-details-large">
                                         <div class="tab-pane fade show active" id="tab1" role="tabpanel" >
                                             <div class="modal_tab_img">
-                                                <a href="#"><img src="" alt=""></a>    
+                                                <a href="#" id="modal_detail_image"><img src="" alt=""></a>    
                                             </div>
                                         </div>
                                         <div class="tab-pane fade" id="tab2" role="tabpanel">
@@ -211,7 +211,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- 
+                                    
                                     <div class="modal_tab_button">    
                                         <ul class="nav product_navactive owl-carousel" role="tablist">
                                             <li >
@@ -229,7 +229,7 @@
 
                                         </ul>
                                     </div>
-                                     -->    
+                                       
                                 </div>  
                             </div> 
                             <div class="col-lg-7 col-md-7 col-sm-12">
@@ -256,7 +256,7 @@
                                         <div class="modal_add_to_cart">
                                             <form action="#">
                                                 <input min="1" max="100" step="1" value="1" type="number">
-                                                <button type="submit">add to cart</button>
+                                                <button type="submit">장바구니 추가</button>
                                             </form>
                                         </div>   
                                     </div>

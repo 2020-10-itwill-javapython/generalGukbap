@@ -39,6 +39,7 @@ $(function(){
 				$('#modal_detail_title').text(product.product_name);
 				$('#modal_detail_desc').text(product.product_desc);
 				$('#modal_detail_price').text(product.product_price);
+				$('#modal_detail_image ').html("<img src=\"assets/img/product/"+product.product_image+"\" alt=\"\">");
 				
 				//console.log(product.product_no)
 				
@@ -50,5 +51,34 @@ $(function(){
 	$('#modal_box').on('hide.bs.modal', function(e) {
 		$('#modal_detail_title').text("");
 		$('#modal_detail_desc').text("");
+		
 	})
+})
+
+
+
+
+$(function(){
+	
+	$('#main').click(function(e){
+		     console.log("main");
+            var param = 'c_no=' + 1;
+ 			$.ajax({
+	         url:"prodcut_list",
+			 method: "GET",
+             data:param,
+             dataType: "json"
+			})
+			e.preventDefault();
+	});
+	
+	$('#side').click(function(e){
+		    console.log("side");
+			e.preventDefault();
+	});
+	
+	$('#drink').click(function(e){
+		    console.log("drink");
+			e.preventDefault();
+	});
 })
