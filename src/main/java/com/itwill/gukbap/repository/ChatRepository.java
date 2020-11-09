@@ -18,7 +18,7 @@ public interface ChatRepository {
 		
 		//특정 채팅 번호의 이후의 모든 메시지를 가져오는 메소드
 		//chatID --> 특정 채팅 번호
-		public ArrayList<ChatDomain> getChatListByResentChatID(int chatID);
+		public ArrayList<ChatDomain> getChatListByResentChatID(String chatID);
 		
 		//메시지를 전송하는 메소드
 		public int submit(String chatName, String chatContent);

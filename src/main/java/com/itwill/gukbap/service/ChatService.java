@@ -18,7 +18,7 @@ public interface ChatService {
 	
 	//특정 채팅 번호의 이후의 모든 메시지를 가져오는 메소드
 	//chatID --> 특정 채팅 번호
-	ArrayList<ChatDomain> getChatListByResentChatID(int chatID);
+	ArrayList<ChatDomain> getChatListByResentChatID(String chatID);
 	
 	//메시지를 전송하는 메소드
 	int submit(String chatName, String chatContent);	

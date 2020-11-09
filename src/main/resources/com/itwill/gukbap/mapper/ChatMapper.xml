@@ -15,7 +15,7 @@
     	SELECT * FROM CHAT WHERE chatID &gt; (SELECT MAX(chatID) - #{number} FROM CHAT) ORDER BY chatID
     </select>
     
-    <select id="getChatListByResentChatID" resultType="com.itwill.gukbap.domain.ChatDomain" parameterType="int">
+    <select id="getChatListByResentChatID" resultType="com.itwill.gukbap.domain.ChatDomain" parameterType="String">
     	SELECT * FROM CHAT WHERE chatID > #{chatID} ORDER BY chatID
     </select>
     

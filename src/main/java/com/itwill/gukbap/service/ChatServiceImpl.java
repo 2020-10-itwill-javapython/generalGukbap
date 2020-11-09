@@ -30,7 +30,7 @@ public class ChatServiceImpl implements ChatService {
 	}
 	
 	@Override
-	public ArrayList<ChatDomain> getChatListByResentChatID(int chatID) {
+	public ArrayList<ChatDomain> getChatListByResentChatID(String chatID) {
 		return chatRepository.getChatListByResentChatID(chatID);
 	}
 	

@@ -33,7 +33,7 @@ public class ChatRepositoryImpl implements ChatRepository{
 	}
 	
 	@Override
-	public ArrayList<ChatDomain> getChatListByResentChatID(int chatID) {
+	public ArrayList<ChatDomain> getChatListByResentChatID(String chatID) {
 		return chatMapper.getChatListByResentChatID(chatID);
 	}
 	
