@@ -49,14 +49,14 @@
                                         <article class="single_product">
                                             <figure>
                                                 <div class="product_thumb">
-                                                    <a class="oystergukbap.jpg" href="product-details.html"><img src="assets/img/product/oystergukbap.jpg" alt=""></a>
-                                                    <a class="secondary_img" href="product-details.html"><img src="assets/img/product/product2.jpg" alt=""></a>
+                                                	<a class="primary_img" href="product-details.jsp"><img src="assets/img/product/${product.product_image}" alt=""></a>
+                                       				<a class="secondary_img" href="product-details.jsp"><img src="assets/img/product/${product.product_image}" alt=""></a>
                                                     <div class="label_product">
                                                     </div>
                                                     <div class="action_links">
                                                         <ul>
                                                             <li class="add_to_cart"><a href="cart.html" title="Add to cart"><span class="lnr lnr-cart"></span></a></li>
-                                                            <li class="quick_button"><a href="#" data-toggle="modal" data-target="#modal_box"  title="quick view"> <span class="lnr lnr-magnifier"></span></a></li>
+                                                            <li class="quick_button" ><a href="#" product_no="${product.product_no}" data-toggle="modal" data-target="#modal_box" title="quick view"> <span class="lnr lnr-magnifier"></span></a></li>
                                                             <li class="wishlist"><a href="wishlist.html" title="Add to Wishlist"><span class="lnr lnr-heart"></span></a></li>  
                                                         </ul>
                                                     </div>
