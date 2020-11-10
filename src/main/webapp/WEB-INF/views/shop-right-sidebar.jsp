@@ -4,7 +4,10 @@
 <!doctype html>
 <html class="no-js" lang="en">
 
+
     <jsp:include page="common_header.jsp"/>
+    
+
 
 <body>
 
@@ -51,79 +54,63 @@
 
                             <button data-role="grid_list" type="button"  class="btn-list" data-toggle="tooltip" title="List"></button>
                         </div>
-                        <div class=" niceselect_option">
-                            <form class="select_option" action="#">
-                                <select name="orderby" id="short">
-
-                                    <option selected value="1">Sort by average rating</option>
-                                    <option  value="2">Sort by popularity</option>
-                                    <option value="3">Sort by newness</option>
-                                    <option value="4">Sort by price: low to high</option>
-                                    <option value="5">Sort by price: high to low</option>
-                                    <option value="6">Product Name: Z</option>
-                                </select>
-                            </form>
-                        </div>
-                        <div class="page_amount">
-                            <p>Showing 1â9 of 21 results</p>
-                        </div>
+                      
                     </div>
                      <!--shop toolbar end-->
-                     <div class="row shop_wrapper">
+                     <div id="product_List"class="row shop_wrapper">
                      <c:forEach items="${productList}" var="product">
                         <div class="col-lg-4 col-md-4 col-sm-6 col-12 ">
                             <div class="single_product">
                                 <div class="product_thumb">
-                                        <a class="primary_img" href="product-details.jsp"><img src="assets/img/product/${product.product_image}" alt=""></a>
-                                        <a class="secondary_img" href="product-details.jsp"><img src="assets/img/product/${product.product_image}" alt=""></a>
-                                        <div class="label_product">
-                                        <!-- 
-                                            <span class="label_sale">Sale</span>
-                                            <span class="label_new">New</span>
-                                           -->
-                                        </div>
+                                        <a class="primary_img" href="product-details.jsp?product_no=${product.product_no}"><img src="assets/img/product/${product.product_image}" alt=""></a>
+                                        <a class="secondary_img" href="product-details.jsp?product_no=${product.product_no}"><img src="assets/img/product/${product.product_image}" alt=""></a>
+                                  
                                         <div class="action_links">
                                             <ul>
                                                 <li class="add_to_cart"><a href="cart.jsp" title="Add to cart"><span class="lnr lnr-cart"></span></a></li>
-                                                <li class="quick_button"><a href="#" data-toggle="modal" data-target="#modal_box"  title="quick view"> <span class="lnr lnr-magnifier"></span></a></li>
+                                                <li class="quick_button" ><a href="#" product_no="${product.product_no}" data-toggle="modal" data-target="#modal_box"  title="quick view"> <span class="lnr lnr-magnifier"  ></span></a></li>
                                                  <li class="wishlist"><a href="wishlist.jsp" title="Add to Wishlist"><span class="lnr lnr-heart"></span></a></li>  
                                                 <li class="compare"><a href="#" title="Add to Compare"><span class="lnr lnr-sync"></span></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
+                                            </ul>                                   
+                                            </div>
+                                   </div>
+                                        
+                                    
                                 <div class="product_content grid_content">
-                                        <h4 class="product_name"><a href="product-details.jsp">${product.product_name}</a></h4>
-                                        <p><a href="#">Fruits</a></p>
+                                        <h4 class="product_name"><a href="product-details.jsp?product_no=${product.product_no}" id="product_name">${product.product_name}</a></h4>
+
                                         <div class="price_box"> 
-                                            <span class="current_price">${product.product_price}원</span>
-                                            
+                                            <span class="current_price">${product.product_price}원</span> 
                                         </div>
-                                    </div>
+                                  </div>
                                 <div class="product_content list_content">
-                                    <h4 class="product_name"><a href="product-details.jsp">${product.product_name}</a></h4>
-                                    <p><a href="#">Fruits</a></p>
+                                    <h4 class="product_name"><a href="product-details.jsp?product_no=${product.product_no}">${product.product_name}</a></h4>
+                                   
                                     <div class="price_box"> 
                                         <span class="current_price">${product.product_price}원</span>
-                                        
                                     </div>
                                     <div class="product_desc">
                                         <p>${product.product_desc}</p>
                                     </div>
                                     <div class="action_links list_action_right">
+                                    <input id="modal_product_no" type="hidden" value="${product.product_no }"/>
                                         <ul>
                                             <li class="add_to_cart"><a href="cart.jsp" title="Add to cart">Add to Cart</a></li>
-                                            <li class="quick_button"><a href="#" data-toggle="modal" data-target="#modal_box"  title="quick view"> <span class="lnr lnr-magnifier"></span></a></li>
+                                            <li class="quick_button"><a href="#" product_no="${product.product_no}" data-toggle="modal" data-target="#modal_box"  title="quick view"> <span class="lnr lnr-magnifier"></span></a></li>
                                              <li class="wishlist"><a href="wishlist.jsp" title="Add to Wishlist"><span class="lnr lnr-heart"></span></a></li>  
-                                            <li class="compare"><a href="#" title="Add to Compare"><span class="lnr lnr-sync"></span></a></li>
+                                          
                                         </ul>
+                                   
                                     </div>
                                 </div>
+                                </div>
                             </div>
+                            </c:forEach>
                         </div>
-                         </c:forEach>
+                       
                      
-                    </div>
-
+                    
+                  
                     <div class="shop_toolbar t_bottom">
                         <div class="pagination">
                             <ul>
@@ -143,34 +130,15 @@
                     <aside class="sidebar_widget">
                         <div class="widget_inner">
                             <div class="widget_list widget_categories">
-                                <h3>Women</h3>
+                        
                                 <ul>
-                                    <li class="widget_sub_categories sub_categories1"><a href="javascript:void(0)">Shoes</a>
-                                        <ul class="widget_dropdown_categories dropdown_categories1">
-                                            <li><a href="#">Document</a></li>
-                                            <li><a href="#">Dropcap</a></li>
-                                            <li><a href="#">Dummy Image</a></li>
-                                            <li><a href="#">Dummy Text</a></li>
-                                            <li><a href="#">Fancy Text</a></li>
-                                        </ul>
+                                    <li class="widget_sub_categories sub_categories1" id="main" ><a href="#">메인메뉴</a>
                                     </li>
-                                    <li class="widget_sub_categories sub_categories2"><a href="javascript:void(0)">Bags</a>
-                                        <ul class="widget_dropdown_categories dropdown_categories2">
-                                            <li><a href="#">Flickr</a></li>
-                                            <li><a href="#">Flip Box</a></li>
-                                            <li><a href="#">Cocktail</a></li>
-                                            <li><a href="#">Frame</a></li>
-                                            <li><a href="#">Flickrq</a></li>
-                                        </ul>
+                                    <li class="widget_sub_categories sub_categories2" id="side"><a href="javascript:void(0)">사이드메뉴</a>
+                                      
                                     </li>
-                                    <li class="widget_sub_categories sub_categories3"><a href="javascript:void(0)">Clothing</a>
-                                        <ul class="widget_dropdown_categories dropdown_categories3">
-                                            <li><a href="#">Platform Beds</a></li>
-                                            <li><a href="#">Storage Beds</a></li>
-                                            <li><a href="#">Regular Beds</a></li>
-                                            <li><a href="#">Sleigh Beds</a></li>
-                                            <li><a href="#">Laundry</a></li>
-                                        </ul>
+                                    <li class="widget_sub_categories sub_categories3" id="drink"><a href="javascript:void(0)">주류및음료</a>
+                                        
                                     </li>
                                 </ul>
                             </div>
@@ -185,6 +153,7 @@
     <!--shop  area end-->
     
   <!--footer area start-->
+   
     <!--footer area end-->
     
     <!-- modal area start-->
@@ -202,84 +171,75 @@
                                     <div class="tab-content product-details-large">
                                         <div class="tab-pane fade show active" id="tab1" role="tabpanel" >
                                             <div class="modal_tab_img">
-                                                <a href="#"><img src="assets/img/product/productbig1.jpg" alt=""></a>    
+                                                <a href="#" id="modal_detail_image"><img src="" alt=""></a>    
                                             </div>
                                         </div>
                                         <div class="tab-pane fade" id="tab2" role="tabpanel">
                                             <div class="modal_tab_img">
-                                                <a href="#"><img src="assets/img/product/productbig2.jpg" alt=""></a>    
+                                                <a href="#"><img src="" alt=""></a>    
                                             </div>
                                         </div>
                                         <div class="tab-pane fade" id="tab3" role="tabpanel">
                                             <div class="modal_tab_img">
-                                                <a href="#"><img src="assets/img/product/productbig3.jpg" alt=""></a>    
+                                                <a href="#"><img src="" alt=""></a>    
                                             </div>
                                         </div>
                                         <div class="tab-pane fade" id="tab4" role="tabpanel">
                                             <div class="modal_tab_img">
-                                                <a href="#"><img src="assets/img/product/productbig4.jpg" alt=""></a>    
+                                                <a href="#"><img src="" alt=""></a>    
                                             </div>
                                         </div>
                                     </div>
+                                    
                                     <div class="modal_tab_button">    
                                         <ul class="nav product_navactive owl-carousel" role="tablist">
                                             <li >
-                                                <a class="nav-link active" data-toggle="tab" href="#tab1" role="tab" aria-controls="tab1" aria-selected="false"><img src="assets/img/product/product1.jpg" alt=""></a>
+                                                <a class="nav-link active" data-toggle="tab" href="#tab1" role="tab" aria-controls="tab1" aria-selected="false"><img src="" alt=""></a>
                                             </li>
                                             <li>
-                                                 <a class="nav-link" data-toggle="tab" href="#tab2" role="tab" aria-controls="tab2" aria-selected="false"><img src="assets/img/product/product6.jpg" alt=""></a>
+                                                 <a class="nav-link" data-toggle="tab" href="#tab2" role="tab" aria-controls="tab2" aria-selected="false"><img src="" alt=""></a>
                                             </li>
                                             <li>
-                                               <a class="nav-link button_three" data-toggle="tab" href="#tab3" role="tab" aria-controls="tab3" aria-selected="false"><img src="assets/img/product/product2.jpg" alt=""></a>
+                                               <a class="nav-link button_three" data-toggle="tab" href="#tab3" role="tab" aria-controls="tab3" aria-selected="false"><img src="" alt=""></a>
                                             </li>
                                             <li>
-                                               <a class="nav-link" data-toggle="tab" href="#tab4" role="tab" aria-controls="tab4" aria-selected="false"><img src="assets/img/product/product7.jpg" alt=""></a>
+                                               <a class="nav-link" data-toggle="tab" href="#tab4" role="tab" aria-controls="tab4" aria-selected="false"><img src="" alt=""></a>
                                             </li>
 
                                         </ul>
-                                    </div>    
+                                    </div>
+                                       
                                 </div>  
                             </div> 
                             <div class="col-lg-7 col-md-7 col-sm-12">
                                 <div class="modal_right">
                                     <div class="modal_title mb-10">
-                                        <h2>Donec Ac Tempus</h2> 
+                                        <h2 id="modal_detail_title">Donec Ac Tempus</h2> 
                                     </div>
                                     <div class="modal_price mb-10">
-                                        <span class="new_price">$64.99</span>    
-                                        <span class="old_price" >$78.99</span>    
+                                        <span class="new_price" id="modal_detail_price">원</span>
                                     </div>
                                     <div class="modal_description mb-15">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia iste laborum ad impedit pariatur esse optio tempora sint ullam autem deleniti nam in quos qui nemo ipsum numquam, reiciendis maiores quidem aperiam, rerum vel recusandae </p>    
+                                        <p id="modal_detail_desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia iste laborum ad impedit pariatur esse optio tempora sint ullam autem deleniti nam in quos qui nemo ipsum numquam, reiciendis maiores quidem aperiam, rerum vel recusandae </p>    
                                     </div> 
                                     <div class="variants_selects">
                                         <div class="variants_size">
                                            <h2>size</h2>
                                            <select class="select_option">
-                                               <option selected value="1">s</option>
-                                               <option value="1">m</option>
-                                               <option value="1">l</option>
-                                               <option value="1">xl</option>
-                                               <option value="1">xxl</option>
+                                               <option selected value="1">기본</option>
+                                               <option value="1">특</option>
+                                  
                                            </select>
                                         </div>
-                                        <div class="variants_color">
-                                           <h2>color</h2>
-                                           <select class="select_option">
-                                               <option selected value="1">purple</option>
-                                               <option value="1">violet</option>
-                                               <option value="1">black</option>
-                                               <option value="1">pink</option>
-                                               <option value="1">orange</option>
-                                           </select>
-                                        </div>
+                   
                                         <div class="modal_add_to_cart">
                                             <form action="#">
-                                                <input min="1" max="100" step="2" value="1" type="number">
-                                                <button type="submit">add to cart</button>
+                                                <input min="1" max="100" step="1" value="1" type="number">
+                                                <button type="submit">장바구니 추가</button>
                                             </form>
                                         </div>   
                                     </div>
+                                    <!-- 
                                     <div class="modal_social">
                                         <h2>Share this product</h2>
                                         <ul>
@@ -289,7 +249,8 @@
                                             <li class="google-plus"><a href="#"><i class="fa fa-google-plus"></i></a></li>
                                             <li class="linkedin"><a href="#"><i class="fa fa-linkedin"></i></a></li>
                                         </ul>    
-                                    </div>      
+                                    </div>
+                                     -->      
                                 </div>    
                             </div>    
                         </div>     
@@ -298,9 +259,10 @@
             </div>
         </div>
     </div>
-    <jsp:include page="common_footer.jsp"/>
     <!-- modal area end-->
-
+    
+    
+ <jsp:include page="common_footer.jsp"/>
 
 <!-- JS
 ============================================ -->
@@ -335,7 +297,7 @@
 
 <!-- Main JS -->
 <script src="assets/js/main.js"></script>
-
+<script type="text/javascript" src="assets/js/custom/shop-right-sidebar-custom.js"></script>
 
 
 </body>
