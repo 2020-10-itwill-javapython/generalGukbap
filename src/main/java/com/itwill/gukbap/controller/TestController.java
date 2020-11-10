@@ -70,7 +70,7 @@ public class TestController {
 	public String product_list(HttpServletRequest request) {
 		List<ProductDomain> productList=productService.selectAll();
 		request.setAttribute("productList",productList);
-		return "forward:/shop-right-sidebar.jsp";
+		return "shop-right-sidebar";
 	}
 	
 	@RequestMapping("f_product_list")  
@@ -78,7 +78,7 @@ public class TestController {
 		List<ProductDomain> productList=productService.selectProductByCategoryNo(c_no);
 		//request.setAttribute("productList",productList);
 		request.setAttribute("productList",productList);
-		return "forward:/f_product_list.jsp";
+		return "f_product_list";
 	}
 	
 	@RequestMapping("guest_list")
