@@ -2,6 +2,7 @@ package com.itwill.gukbap.domain;
 
 import java.sql.Date;
 
+
 public class ProductDomain {
 	/*
 	 	product_no                    		NUMBER(10)		 NULL ,
