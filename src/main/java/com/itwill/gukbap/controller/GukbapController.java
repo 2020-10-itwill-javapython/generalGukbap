@@ -23,7 +23,11 @@ public class GukbapController {
 	@Autowired
 	OrderService orderService;
 	
-	
+	@RequestMapping("/gukbap_main.do")
+	public String gukbap_main() {
+		return "gukbap_main";
+	}
+
 	@RequestMapping(value = "my-account")
 	public String myAccount(HttpSession session) {
 		UserDomain loginUser = (UserDomain) session.getAttribute("loginUser");
