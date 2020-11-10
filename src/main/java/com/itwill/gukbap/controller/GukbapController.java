@@ -23,7 +23,7 @@ public class GukbapController {
 	@Autowired
 	OrderService orderService;
 	
-	@RequestMapping("/gukbap_main.do")
+	@RequestMapping("/")
 	public String gukbap_main() {
 		return "gukbap_main";
 	}
