@@ -26,7 +26,7 @@
     
     <!--shipping area end-->
     
-    <!--product area start 제품 불러오기-->
+    <!--product area start-->
     <div class="product_area  mb-64">
             <div class="product_container">  
                <div class="row">
