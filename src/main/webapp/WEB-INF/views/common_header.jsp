@@ -52,57 +52,56 @@
     <!--header area start-->
     
     <!--offcanvas menu area start-->
-    <div class="off_canvars_overlay">
-                
-    </div>
-    <div class="offcanvas_menu">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="canvas_open">
-                        <a href="javascript:void(0)"><i class="icon-menu"></i></a>
-                    </div>
-                    <div class="offcanvas_menu_wrapper">
-                        <div class="canvas_close">
-                            <a href="javascript:void(0)"><i class="icon-x"></i></a>  
-                        </div>
-                       
-                      
-                        <div class="call-support">
-                            <p><a href="tel:(042)82828282">(042)82828282</a> 전화문의</p>
-                        </div>
-                        <div id="menu" class="text-left ">
-                            <ul class="offcanvas_main_menu">
-                                <li class="menu-item-has-children active">
-                                    <a href="index.jsp">메인</a>
-                                      
-                                       
-                                </li>
-                                <li class="menu-item-has-children">
-                                    <a href="shop-right-sidebar.jsp">메뉴</a>
-                                   
-                                </li>
-                                <li class="menu-item-has-children">
-                                    <a href="blog-sidebar.jsp">리뷰</a>
+	<div class="off_canvars_overlay"></div>
+	<div class="offcanvas_menu">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<div class="canvas_open">
+						<a href="javascript:void(0)"><i class="icon-menu"></i></a>
+					</div>
+					<div class="offcanvas_menu_wrapper">
+						<div class="canvas_close">
+							<a href="javascript:void(0)"><i class="icon-x"></i></a>
+						</div>
 
+
+						<div class="call-support">
+							<p>
+								<a href="tel:(042)82828282">(042)82828282</a> 전화문의
+							</p>
+						</div>
+						<div id="menu" class="text-left ">
+							<ul class="offcanvas_main_menu">
+								<li class="menu-item-has-children active"><a
+									href="index.jsp">메인</a></li>
+								<li class="menu-item-has-children"><a
+									href="shop-right-sidebar.jsp">메뉴</a></li>
+								<li class="menu-item-has-children"><a
+									href="blog-sidebar.jsp">리뷰</a></li>
+								<li class="menu-item-has-children"><a href="chat.jsp">문의</a>
+								</li>
+									<li class="menu-item-has-children">
+                                    <a href="#">회사소개 </a>
+                                    <ul class="sub-menu">
+                                       <li><a href="about.jsp">about</a></li>
+											<li><a href="contact.jsp">contact</a></li>
+											<li><a href="services.jsp">services</a></li>
+                                    </ul>
                                 </li>
-                                <li class="menu-item-has-children">
-                                    <a href="chat.jsp">문의</a>
-                                </li>
-                                <li class="menu-item-has-children">
-                                    <a href="about.html">회사소개</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="offcanvas_footer">
-                            <span><a href="#"><i class="fa fa-envelope-o"></i> jaeil759@naver.com</a></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--offcanvas menu area end-->
+							
+							</ul>
+						</div>
+						<div class="offcanvas_footer">
+							<span><a href="#"><i class="fa fa-envelope-o"></i>
+									jaeil759@naver.com</a></span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--offcanvas menu area end-->
     
     <header>
         <div class="main_header">
