@@ -48,6 +48,8 @@ public class TestController {
 		return "address_test";
 	}
 	
+	
+	
 	@RequestMapping("order_list")
 	public String order_list(HttpServletRequest request) {
 		List<OrderDomain> orderList=orderService.selectOrdersByName("helprun@naver.com");
@@ -69,6 +71,14 @@ public class TestController {
 		List<ProductDomain> productList=productService.selectAll();
 		request.setAttribute("productList",productList);
 		return "forward:/shop-right-sidebar.jsp";
+	}
+	
+	@RequestMapping("f_product_list")  
+	public String f_product_list(@RequestParam int c_no,HttpServletRequest request) {
+		List<ProductDomain> productList=productService.selectProductByCategoryNo(c_no);
+		//request.setAttribute("productList",productList);
+		request.setAttribute("productList",productList);
+		return "forward:/f_product_list.jsp";
 	}
 	
 	@RequestMapping("guest_list")

@@ -63,6 +63,7 @@ $(function() {
 
 
 $(function() {
+	/*
 	$('#main').click(function(e) {
 		console.log("main");
 		var param = 'c_no=' + 1;
@@ -103,6 +104,21 @@ $(function() {
              
               }); 
             $('#product_List').html(html);
+			}
+		})
+		e.preventDefault();
+	});
+	*/
+	$('#main').click(function(e) {
+		console.log("main");
+		var param = 'c_no=' + 1;
+		$.ajax({
+			url: "f_product_list",
+			method: "GET",
+			data: param,
+			dataType: "html",
+			success: function(html) {
+				$('#product_List').html(html);
 			}
 		})
 		e.preventDefault();
