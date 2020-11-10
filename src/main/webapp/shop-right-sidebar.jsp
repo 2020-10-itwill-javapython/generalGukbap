@@ -72,13 +72,16 @@
                         </div>
                     </div>
                      <!--shop toolbar end-->
-                     <div class="row shop_wrapper">
-                      <c:forEach items="${productList}" var="product">
+                     <div id="product_List"class="row shop_wrapper">
+                     <c:forEach items="${productList}" var="product">
                         <div class="col-lg-4 col-md-4 col-sm-6 col-12 ">
                             <div class="single_product">
                                 <div class="product_thumb">
+                                 
                                         <a class="primary_img" href="product-details.jsp"><img src="assets/img/product/${product.product_image}" alt=""></a>
                                         <a class="secondary_img" href="product-details.jsp"><img src="assets/img/product/${product.product_image}" alt=""></a>
+                                        
+                                        <!-- 
                                         <div class="label_product">
                                         <!-- 
                                             <span class="label_sale">Sale</span>
@@ -103,7 +106,7 @@
                                             <span class="current_price">${product.product_price}원</span>
                                             
                                         </div>
-                                    </div>
+                                  </div>
                                 <div class="product_content list_content">
                                     <h4 class="product_name"><a href="product-details.jsp">${product.product_name}</a></h4>
                                     <p><a href="#">Fruits</a></p>
@@ -126,12 +129,12 @@
                                     </div>
                                 </div>
                             </div>
+                            </c:forEach>
                         </div>
                        
-                         </c:forEach>
                      
-                    </div>
-
+                    
+                  
                     <div class="shop_toolbar t_bottom">
                         <div class="pagination">
                             <ul>

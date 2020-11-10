@@ -32,9 +32,9 @@ public class RESTController {
 	@RequestMapping(value = "prodcut_list",
 			produces = "application/json;charset=UTF-8")
 	public List<ProductDomain> prodcut_list(@RequestParam int c_no,HttpServletRequest request) {
-	List<ProductDomain> productList=productService.selectProductByCategoryNo(c_no);
-	request.setAttribute("productList",productList);
-	return productList;
+		List<ProductDomain> productList=productService.selectProductByCategoryNo(c_no);
+		//request.setAttribute("productList",productList);
+		return productList;
 	}
 	
 	
