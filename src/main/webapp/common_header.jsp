@@ -79,7 +79,7 @@
                                        
                                 </li>
                                 <li class="menu-item-has-children">
-                                    <a href="shop-fullwidth-list.jsp">메뉴</a>
+                                    <a href="shop-right-sidebar.jsp">메뉴</a>
                                    
                                 </li>
                                 <li class="menu-item-has-children">
@@ -87,7 +87,7 @@
 
                                 </li>
                                 <li class="menu-item-has-children">
-                                    <a href="#">문의</a>
+                                    <a href="chat.jsp">문의</a>
                                 </li>
                                 <li class="menu-item-has-children">
                                     <a href="about.html">회사소개</a>
@@ -280,21 +280,37 @@
                                         </li>
                                         <li class="menu_item_children"><a href="#">리뷰</a>
                                         </li>
-                                        <li class="menu_item_children"><a href="#">문의</a>
+                                        <li class="menu_item_children"><a href="chat.jsp">문의</a>
                                         </li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
+                        
                         <div class="col-lg-6">
                             <!--main menu start-->
                             <div class="main_menu menu_position"> 
                                 <nav>  
+                                <!--  <li><a class="active"  href="index.html">home<i class="fa fa-angle-down"></i></a>
+                                            <ul class="sub_menu">
+                                                <li><a href="index.html">Home shop 1</a></li>
+                                                <li><a href="index-2.html">Home shop 2</a></li>
+                                                <li><a href="index-3.html">Home shop 3</a></li>
+                                                <li><a href="index-4.html">Home shop 4</a></li>
+                                                <li><a href="index-5.html">Home shop 5</a></li>
+                                            </ul>
+                                        </li>-->
                                     <ul>
-                                        <li><a class="active"  href="about.jsp">회사소개</a></li>
-                                        <li class="mega_items"><a href="shop-fullwidth-list.jsp">메뉴</a></li>
+                                        <li><a class="active"  href="about.jsp">회사소개<i class="fa fa-angle-down"></i></a>
+                                         <ul class="sub_menu">
+                                                <li><a href="about.jsp">about</a></li>
+                                                <li><a href="contact.jsp">contact</a></li>
+                                                <li><a href="services.jsp">services</a></li>
+                                            </ul>
+                                            </li>
+                                        <li class="mega_items"><a href="shop-right-sidebar.jsp">메뉴</a></li>
                                         <li><a href="blog-sidebar.jsp">리뷰</a></li>
-                                        <li><a href="">문의(채팅이 들어갈자리)</a></li> 
+                                        <li><a href="chat.jsp">문의</a></li> 
                                     </ul>  
                                 </nav> 
                             </div>

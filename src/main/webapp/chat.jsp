@@ -1,13 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
+<jsp:include page="common_header.jsp"/>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1"><!-- 반응형 -->
 		<link rel="stylesheet" href="css/bootstrap.css"><!-- css -->
 		<link rel="stylesheet" href="css/custom.css"><!-- chat-box(https://www.bootdey.com/) custom에 넣어서 사용 -->
-		<title>JSP AJAX 실시간 익명 채팅 사이트</title>
+		<title>국밥부장관</title>
 		<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script><!-- jquery -->
 		<script src="js/bootstrap.js"></script><!-- js -->
 		<script type="text/javascript">
@@ -98,7 +96,6 @@
 				
 
 		</script>
-</head>
 <body>
 		<div class="container"><!-- 틀 // 서버작동확인 -->
 			<div class="container bootstrap snippet">
@@ -135,6 +132,7 @@
 					</div>
 				</div>
 			</div>
+		</div>
 			<div class="alert alert-success" id="successMessage" style="display: none;">
 				<strong>메시지 전송에 성공하였습니다.</strong>
 			</div>

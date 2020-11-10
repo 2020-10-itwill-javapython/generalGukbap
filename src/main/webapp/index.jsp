@@ -14,7 +14,7 @@
                                 <p>
 								Widest range of farm-fresh Vegetables, Fruits & seasonal produce
 							     </p> 
-                                <a href="shop.html">Read more </a>
+                                <a href="index.jsp">Read more </a>
                             </div>
                         </div>
                     </div>
@@ -1590,7 +1590,6 @@
     <!--brand area end-->
 
     <!--footer area start-->
-   <jsp:include page="common_footer.jsp"/>
     <!--footer area end-->
    
     <!-- modal area start-->
@@ -1746,6 +1745,7 @@
 <script src="assets/js/main.js"></script>
 
 
+   <jsp:include page="common_footer.jsp"/>
 
 </body>
 
