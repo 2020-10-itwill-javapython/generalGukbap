@@ -98,7 +98,7 @@
                                             <li class="add_to_cart"><a href="cart.jsp" title="Add to cart">Add to Cart</a></li>
                                             <li class="quick_button"><a href="#" product_no="${product.product_no}" data-toggle="modal" data-target="#modal_box"  title="quick view"> <span class="lnr lnr-magnifier"></span></a></li>
                                              <li class="wishlist"><a href="wishlist.jsp" title="Add to Wishlist"><span class="lnr lnr-heart"></span></a></li>  
-                                            <li class="compare"><a href="#" title="Add to Compare"><span class="lnr lnr-sync"></span></a></li>
+                                          
                                         </ul>
                                    
                                     </div>
