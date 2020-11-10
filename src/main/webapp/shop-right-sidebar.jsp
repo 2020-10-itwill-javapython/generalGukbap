@@ -57,9 +57,8 @@
                         <div class=" niceselect_option">
                             <form class="select_option" action="#">
                                 <select name="orderby" id="short">
-
                                     <option selected value="1">Sort by average rating</option>
-                                    <option  value="2">Sort by popularity</option>
+                                    <option value="2">Sort by popularity</option>
                                     <option value="3">Sort by newness</option>
                                     <option value="4">Sort by price: low to high</option>
                                     <option value="5">Sort by price: high to low</option>
@@ -68,10 +67,11 @@
                             </form>
                         </div>
                         <div class="page_amount">
-                            <p>Showing 1â9 of 21 results</p>
+                            <p>Showing 1 of 21 results</p>
                         </div>
                     </div>
                      <!--shop toolbar end-->
+                     
                      <div id="product_List"class="row shop_wrapper">
                      <c:forEach items="${productList}" var="product">
                         <div class="col-lg-4 col-md-4 col-sm-6 col-12 ">
