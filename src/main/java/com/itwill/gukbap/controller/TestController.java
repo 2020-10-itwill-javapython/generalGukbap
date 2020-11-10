@@ -95,13 +95,6 @@ public class TestController {
 		return "wish_test";
 	}
 	
-	@RequestMapping(value = "product_details",method = RequestMethod.POST)
-	public String product_details(@RequestParam String product_no,HttpSession session) {
-		int product = Integer.parseInt(product_no);
-		ProductDomain productDomain= productService.selectProductByProductNo(product);
-		session.setAttribute("product", productDomain);
-		return "forward:/shop-fullwidth-list";
-	}
 	
 	
 	@RequestMapping("main")

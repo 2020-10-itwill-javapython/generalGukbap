@@ -62,8 +62,8 @@
                         <div class="col-lg-4 col-md-4 col-sm-6 col-12 ">
                             <div class="single_product">
                                 <div class="product_thumb">
-                                        <a class="primary_img" href="product-details.jsp?product_no=${product.product_no}"><img src="assets/img/product/${product.product_image}" alt=""></a>
-                                        <a class="secondary_img" href="product-details.jsp?product_no=${product.product_no}"><img src="assets/img/product/${product.product_image}" alt=""></a>
+                                        <a class="primary_img" href="product-details?product_no=${product.product_no}"><img src="assets/img/product/${product.product_image}" alt=""></a>
+                                        <a class="secondary_img" href="product-details?product_no=${product.product_no}"><img src="assets/img/product/${product.product_image}" alt=""></a>
                                   
                                         <div class="action_links">
                                             <ul>
@@ -77,14 +77,14 @@
                                         
                                     
                                 <div class="product_content grid_content">
-                                        <h4 class="product_name"><a href="product-details.jsp?product_no=${product.product_no}" id="product_name">${product.product_name}</a></h4>
+                                        <h4 class="product_name"><a href="product-details?product_no=${product.product_no}" id="product_name">${product.product_name}</a></h4>
 
                                         <div class="price_box"> 
                                             <span class="current_price">${product.product_price}원</span> 
                                         </div>
                                   </div>
                                 <div class="product_content list_content">
-                                    <h4 class="product_name"><a href="product-details.jsp?product_no=${product.product_no}">${product.product_name}</a></h4>
+                                    <h4 class="product_name"><a href="product-details?product_no=${product.product_no}">${product.product_name}</a></h4>
                                    
                                     <div class="price_box"> 
                                         <span class="current_price">${product.product_price}원</span>
