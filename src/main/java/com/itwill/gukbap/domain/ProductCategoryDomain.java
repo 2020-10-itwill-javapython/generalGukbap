@@ -1,10 +1,6 @@
 package com.itwill.gukbap.domain;
 
 public class ProductCategoryDomain {
-	/*
-	 C_NO	NUMBER(10,0)
-	 C_NAME	VARCHAR2(20 BYTE)
-	 */
 	
 	private int c_no;
 	private String c_name;

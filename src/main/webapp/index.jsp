@@ -4,7 +4,7 @@
 	<jsp:include page="common_header.jsp"/>
     <!--header area end-->
     
-    <!--slider area start-->
+    <!--slider area start-->  
             <div class="single_slider d-flex align-items-center" data-bgimg="assets/img/slider/slider2.jpg">
                 <div class="container">
                     <div class="row">
@@ -50,14 +50,14 @@
                                         <article class="single_product">
                                             <figure>
                                                 <div class="product_thumb">
-                                                	<a class="primary_img" href="product-details.jsp"><img src="assets/img/product/${product.product_image}" alt=""></a>
-                                       				<a class="secondary_img" href="product-details.jsp"><img src="assets/img/product/${product.product_image}" alt=""></a>
+                                                	<a class="primary_img" href="product-details.jsp"><img src="assets/img/product/oystergukbap.jpg" alt=""></a>
+                                                	<a class="secondary_img" href="product-details.html"><img src="assets/img/product/oystergukbap.jpg" alt=""></a>
                                                     <div class="label_product">
                                                     </div>
                                                     <div class="action_links">
                                                         <ul>
                                                             <li class="add_to_cart"><a href="cart.html" title="Add to cart"><span class="lnr lnr-cart"></span></a></li>
-                                                            <li class="quick_button" ><a href="#" product_no="${product.product_no}" data-toggle="modal" data-target="#modal_box" title="quick view"> <span class="lnr lnr-magnifier"></span></a></li>
+                                                            <li class="quick_button"><a href="#" data-toggle="modal" data-target="#modal_box"  title="quick view"> <span class="lnr lnr-magnifier"></span></a></li>
                                                             <li class="wishlist"><a href="wishlist.html" title="Add to Wishlist"><span class="lnr lnr-heart"></span></a></li>  
                                                         </ul>
                                                     </div>
@@ -79,8 +79,8 @@
                                         <article class="single_product">
                                             <figure>
                                                 <div class="product_thumb">
-                                                    <a class="porkgukbap.jpg" href="product-details.html"><img src="assets/img/product/porkgukbap.jpg" alt=""></a>
-                                                    <a class="secondary_img" href="product-details.html"><img src="assets/img/product/product4.jpg" alt=""></a>
+                                                    <a class="primary_img" href="product-details.html"><img src="assets/img/product/porkgukbap.jpg" alt=""></a>
+                                                    <a class="secondary_img" href="product-details.html"><img src="assets/img/product/porkgukbap.jpg" alt=""></a>
                                                     <div class="label_product">
                                                     </div>
                                                     <div class="action_links">
@@ -108,8 +108,8 @@
                                     	<article class="single_product">
                                             <figure>
                                                 <div class="product_thumb">
-                                                    <a class="cowgukbap.jpg" href="product-details.html"><img src="assets/img/product/cowgukbap.jpg" alt=""></a>
-                                                    <a class="secondary_img" href="product-details.html"><img src="assets/img/product/product4.jpg" alt=""></a>
+                                                    <a class="primary_img" href="product-details.html"><img src="assets/img/product/cowgukbap.jpg" alt=""></a>
+                                                    <a class="secondary_img" href="product-details.html"><img src="assets/img/product/cowgukbap.jpg" alt=""></a>
                                                     <div class="label_product">
                                                     </div>
                                                     <div class="action_links">
@@ -137,8 +137,8 @@
                                         <article class="single_product">
                                             <figure>
                                                 <div class="product_thumb">
-                                                    <a class="sundaogukbap.jpg" href="product-details.html"><img src="assets/img/product/sundaogukbap.jpg" alt=""></a>
-                                                    <a class="secondary_img" href="product-details.html"><img src="assets/img/product/product8.jpg" alt=""></a>
+                                                    <a class="primary_img" href="product-details.html"><img src="assets/img/product/sundaogukbap.jpg" alt=""></a>
+                                                    <a class="secondary_img" href="product-details.html"><img src="assets/img/product/sundaogukbap.jpg" alt=""></a>
                                                     <div class="label_product">
                                                     </div>
                                                     <div class="action_links">
@@ -159,6 +159,36 @@
                                             </figure>
                                         </article>
                                     </div>
+                                    
+                                    <!-- 다섯번째 열 -->
+                                    <div class="product_items">
+                                        <!-- 다섯번째 메뉴 -->
+                                        <article class="single_product">
+                                            <figure>
+                                                <div class="product_thumb">
+                                                    <a class="primary_img" href="product-details.html"><img src="assets/img/product/beangukbap.PNG" alt=""></a>
+                                                    <a class="secondary_img" href="product-details.html"><img src="assets/img/product/beangukbap.PNG" alt=""></a>
+                                                    <div class="label_product">
+                                                    </div>
+                                                    <div class="action_links">
+                                                        <ul>
+                                                            <li class="add_to_cart"><a href="cart.html" title="Add to cart"><span class="lnr lnr-cart"></span></a></li>
+                                                            <li class="quick_button"><a href="#" data-toggle="modal" data-target="#modal_box"  title="quick view"> <span class="lnr lnr-magnifier"></span></a></li>
+                                                            <li class="wishlist"><a href="wishlist.html" title="Add to Wishlist"><span class="lnr lnr-heart"></span></a></li>  
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <figcaption class="product_content">
+                                                    <h4 class="product_name"><a href="product-details.html">콩나물국밥</a></h4>
+                                                   	<p><a href="#">국밥</a></p>
+                                                    <div class="price_box"> 
+                                                        <span class="current_price">7000</span>
+                                                    </div>
+                                                </figcaption>
+                                            </figure>
+                                        </article>
+                                    </div>
+                                    
 								</div>  
 							</div>
 						</div>
@@ -196,30 +226,26 @@
                             <article class="single_product">
                                 <figure>
                                     <div class="product_thumb">
-                                        <a class="primary_img" href="product-details.html"><img src="assets/img/product/product14.jpg" alt=""></a>
-                                        <a class="secondary_img" href="product-details.html"><img src="assets/img/product/product15.jpg" alt=""></a>
+                                        <a class="primary_img" href="product-details.html"><img src="assets/img/product/product_image" alt=""></a>
+                                        <a class="secondary_img" href="product-details.html"><img src="assets/img/product/product_image" alt=""></a>
                                         <div class="label_product">
                                             <span class="label_sale">할인</span>
-                                            <!--  <span class="label_new">New</span> -->
                                         </div>
-                                        <div class="product_timing">
-                                            <div data-countdown="2021/12/15"></div>
-                                        </div>
+                                        
                                         <div class="action_links">
                                             <ul>
                                                 <li class="add_to_cart"><a href="cart.html" title="Add to cart"><span class="lnr lnr-cart"></span></a></li>
                                                 <li class="quick_button"><a href="#" data-toggle="modal" data-target="#modal_box"  title="quick view"> <span class="lnr lnr-magnifier"></span></a></li>
                                                 <li class="wishlist"><a href="wishlist.html" title="Add to Wishlist"><span class="lnr lnr-heart"></span></a></li>  
-                                                <!-- <li class="compare"><a href="#" title="Add to Compare"><span class="lnr lnr-sync"></span></a></li> -->
                                             </ul>
                                         </div>
                                     </div>
                                     <figcaption class="product_content">
-                                        <h4 class="product_name"><a href="product-details.html">국밥 이름</a></h4>
-                                        <p><a href="#">국밥</a></p>
+                                        <h4 class="product_name"><a href="product-details.html">product_name</a></h4>
+                                        <p><a href="#">c_name</a></p>
                                         <div class="price_box"> 
-                                            <span class="current_price">할인된 가격</span>
-                                            <span class="old_price">원래 가격</span>
+                                            <span class="current_price">product_price*0.7</span>
+                                            <span class="old_price">product_price</span>
                                         </div>
                                     </figcaption>
                                 </figure>
@@ -263,111 +289,23 @@
                             <article class="single_product">
                                 <figure>
                                     <div class="product_thumb">
-                                        <a class="primary_img" href="product-details.html"><img src="assets/img/product/product20.jpg" alt=""></a>
-                                        <a class="secondary_img" href="product-details.html"><img src="assets/img/product/product21.jpg" alt=""></a>
+                                        <a class="primary_img" href="product-details.html"><img src="assets/img/product/product_image" alt=""></a>
+                                        <a class="secondary_img" href="product-details.html"><img src="assets/img/product/product_image" alt=""></a>
                                         <div class="label_product">
-                                            <span class="label_sale">할인</span>
-                                            <!-- <span class="label_new">New</span> -->
                                         </div>
                                         <div class="action_links">
                                             <ul>
                                                 <li class="add_to_cart"><a href="cart.html" title="Add to cart"><span class="lnr lnr-cart"></span></a></li>
                                                 <li class="quick_button"><a href="#" data-toggle="modal" data-target="#modal_box"  title="quick view"> <span class="lnr lnr-magnifier"></span></a></li>
                                                 <li class="wishlist"><a href="wishlist.html" title="Add to Wishlist"><span class="lnr lnr-heart"></span></a></li>  
-                                                <!-- <li class="compare"><a href="#" title="Add to Compare"><span class="lnr lnr-sync"></span></a></li> -->
                                             </ul>
                                         </div>
                                     </div>
                                     <figcaption class="product_content">
-                                        <h4 class="product_name"><a href="product-details.html">제품명</a></h4>
-                                        <p><a href="#">카테고리</a></p>
+                                        <h4 class="product_name"><a href="product-details.html">product_name</a></h4>
+                                        <p><a href="#">c_name</a></p>
                                         <div class="price_box"> 
-                                            <span class="current_price">할인된 가격</span>
-                                            <span class="old_price">원래 가격</span>
-                                        </div>
-                                    </figcaption>
-                                </figure>
-                            </article>
-                            <article class="single_product">
-                                <figure>
-                                    <div class="product_thumb">
-                                        <a class="primary_img" href="product-details.html"><img src="assets/img/product/product20.jpg" alt=""></a>
-                                        <a class="secondary_img" href="product-details.html"><img src="assets/img/product/product21.jpg" alt=""></a>
-                                        <div class="label_product">
-                                            <span class="label_sale">할인</span>
-                                            <!-- <span class="label_new">New</span> -->
-                                        </div>
-                                        <div class="action_links">
-                                            <ul>
-                                                <li class="add_to_cart"><a href="cart.html" title="Add to cart"><span class="lnr lnr-cart"></span></a></li>
-                                                <li class="quick_button"><a href="#" data-toggle="modal" data-target="#modal_box"  title="quick view"> <span class="lnr lnr-magnifier"></span></a></li>
-                                                <li class="wishlist"><a href="wishlist.html" title="Add to Wishlist"><span class="lnr lnr-heart"></span></a></li>  
-                                                <!-- <li class="compare"><a href="#" title="Add to Compare"><span class="lnr lnr-sync"></span></a></li> -->
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <figcaption class="product_content">
-                                        <h4 class="product_name"><a href="product-details.html">제품명</a></h4>
-                                        <p><a href="#">카테고리</a></p>
-                                        <div class="price_box"> 
-                                            <span class="current_price">할인된 가격</span>
-                                            <span class="old_price">원래 가격</span>
-                                        </div>
-                                    </figcaption>
-                                </figure>
-                            </article>
-                            <article class="single_product">
-                                <figure>
-                                    <div class="product_thumb">
-                                        <a class="primary_img" href="product-details.html"><img src="assets/img/product/product20.jpg" alt=""></a>
-                                        <a class="secondary_img" href="product-details.html"><img src="assets/img/product/product21.jpg" alt=""></a>
-                                        <div class="label_product">
-                                            <span class="label_sale">할인</span>
-                                            <!-- <span class="label_new">New</span> -->
-                                        </div>
-                                        <div class="action_links">
-                                            <ul>
-                                                <li class="add_to_cart"><a href="cart.html" title="Add to cart"><span class="lnr lnr-cart"></span></a></li>
-                                                <li class="quick_button"><a href="#" data-toggle="modal" data-target="#modal_box"  title="quick view"> <span class="lnr lnr-magnifier"></span></a></li>
-                                                <li class="wishlist"><a href="wishlist.html" title="Add to Wishlist"><span class="lnr lnr-heart"></span></a></li>  
-                                                <!-- <li class="compare"><a href="#" title="Add to Compare"><span class="lnr lnr-sync"></span></a></li> -->
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <figcaption class="product_content">
-                                        <h4 class="product_name"><a href="product-details.html">제품명</a></h4>
-                                        <p><a href="#">카테고리</a></p>
-                                        <div class="price_box"> 
-                                            <span class="current_price">할인된 가격</span>
-                                            <span class="old_price">원래 가격</span>
-                                        </div>
-                                    </figcaption>
-                                </figure>
-                            </article>
-                            <article class="single_product">
-                                <figure>
-                                    <div class="product_thumb">
-                                        <a class="primary_img" href="product-details.html"><img src="assets/img/product/product20.jpg" alt=""></a>
-                                        <a class="secondary_img" href="product-details.html"><img src="assets/img/product/product21.jpg" alt=""></a>
-                                        <div class="label_product">
-                                            <span class="label_sale">할인</span>
-                                            <!-- <span class="label_new">New</span> -->
-                                        </div>
-                                        <div class="action_links">
-                                            <ul>
-                                                <li class="add_to_cart"><a href="cart.html" title="Add to cart"><span class="lnr lnr-cart"></span></a></li>
-                                                <li class="quick_button"><a href="#" data-toggle="modal" data-target="#modal_box"  title="quick view"> <span class="lnr lnr-magnifier"></span></a></li>
-                                                <li class="wishlist"><a href="wishlist.html" title="Add to Wishlist"><span class="lnr lnr-heart"></span></a></li>  
-                                                <!-- <li class="compare"><a href="#" title="Add to Compare"><span class="lnr lnr-sync"></span></a></li> -->
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <figcaption class="product_content">
-                                        <h4 class="product_name"><a href="product-details.html">제품명</a></h4>
-                                        <p><a href="#">카테고리</a></p>
-                                        <div class="price_box"> 
-                                            <span class="current_price">할인된 가격</span>
-                                            <span class="old_price">원래 가격</span>
+                                            <span class="current_price">product_price</span>
                                         </div>
                                     </figcaption>
                                 </figure>
@@ -403,15 +341,15 @@
                         <article class="single_blog">
                             <figure>
                                 <div class="blog_thumb">
-                                    <a href="blog-details.html"><img src="assets/img/blog/blog1.jpg" alt=""></a>
+                                    <a href="blog-details.html"><img src="assets/img/blog/review_image" alt=""></a>
                                 </div>
                                 <figcaption class="blog_content">
                                    <div class="articles_date">
-                                         <p>후기 쓴 날짜 <a href="#">이 자리 뭐야??</a> </p>
+                                         <p>review_upload_date<a href="#">이 자리 뭐야??</a></p>
                                     </div>
-                                    <h4 class="post_title"><a href="blog-details.html">후기 이름</a></h4>
+                                    <h4 class="post_title"><a href="blog-details.html">review_title</a></h4>
                                     <footer class="blog_footer">
-                                        <a href="blog-details.html">후기 내용</a>
+                                        <a href="blog-details.html">review_content</a>
                                     </footer>
                                 </figcaption>
                             </figure>

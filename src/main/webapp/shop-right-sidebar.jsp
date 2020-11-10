@@ -5,7 +5,7 @@
 <html class="no-js" lang="en">
 
 
-    <!--<jsp:include page="common_header.jsp"/>-->
+   <jsp:include page="common_header.jsp"/>
     
 
 
