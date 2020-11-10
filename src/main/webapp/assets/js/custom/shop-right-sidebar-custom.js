@@ -81,11 +81,31 @@ $(function() {
 
 	$('#side').click(function(e) {
 		console.log("side");
+		var param = 'c_no=' + 2;
+		$.ajax({
+			url: "f_product_list",
+			method: "GET",
+			data: param,
+			dataType: "html",
+			success: function(html) {
+				$('#product_List').html(html);
+			}
+		})
 		e.preventDefault();
 	});
 
 	$('#drink').click(function(e) {
 		console.log("drink");
+		var param = 'c_no=' + 3;
+		$.ajax({
+			url: "f_product_list",
+			method: "GET",
+			data: param,
+			dataType: "html",
+			success: function(html) {
+				$('#product_List').html(html);
+			}
+		})
 		e.preventDefault();
 	});
 })
