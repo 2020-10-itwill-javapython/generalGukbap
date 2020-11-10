@@ -63,6 +63,7 @@ public class TestController {
 		return "productCategory_test";
 	}
 	
+	
 	@RequestMapping("shop-right-sidebar")  
 	public String product_list(HttpServletRequest request) {
 		List<ProductDomain> productList=productService.selectAll();
