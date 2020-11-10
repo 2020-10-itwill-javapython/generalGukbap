@@ -6,17 +6,10 @@
 		<div class="single_product">
 			<div class="product_thumb">
 
-				<a class="primary_img" href="product-details.jsp"><img
+				<a class="primary_img" href="product-details.jsp?product_no=${product.product_no}"><img
 					src="assets/img/product/${product.product_image}" alt=""></a> <a
-					class="secondary_img" href="product-details.jsp"><img
+					class="secondary_img" href="product-details.jsp?product_no=${product.product_no}"><img
 					src="assets/img/product/${product.product_image}" alt=""></a>
-
-				<!-- 
-                                        <div class="label_product">
-                                        <!-- 
-                                            <span class="label_sale">Sale</span>
-                                            <span class="label_new">New</span>
-                                           -->
 			</div>
 			<div class="action_links">
 
@@ -37,11 +30,8 @@
 		</div>
 		<div class="product_content grid_content">
 			<h4 class="product_name">
-				<a href="product-details.jsp" id="product_name">${product.product_name}</a>
+				<a href="product-details.jsp?product_no=${product.product_no}" id="product_name">${product.product_name}</a>
 			</h4>
-			<p>
-				<a href="#">Fruits</a>
-			</p>
 			<div class="price_box">
 				<span class="current_price">${product.product_price}원</span>
 
@@ -49,11 +39,9 @@
 		</div>
 		<div class="product_content list_content">
 			<h4 class="product_name">
-				<a href="product-details.jsp">${product.product_name}</a>
+				<a href="product-details.jsp?product_no=${product.product_no}">${product.product_name}</a>
 			</h4>
-			<p>
-				<a href="#">Fruits</a>
-			</p>
+		
 			<div class="price_box">
 				<span class="current_price">${product.product_price}원</span>
 

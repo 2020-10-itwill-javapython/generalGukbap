@@ -54,22 +54,7 @@
 
                             <button data-role="grid_list" type="button"  class="btn-list" data-toggle="tooltip" title="List"></button>
                         </div>
-                        <div class=" niceselect_option">
-                            <form class="select_option" action="#">
-                                <select name="orderby" id="short">
-
-                                    <option selected value="1">Sort by average rating</option>
-                                    <option  value="2">Sort by popularity</option>
-                                    <option value="3">Sort by newness</option>
-                                    <option value="4">Sort by price: low to high</option>
-                                    <option value="5">Sort by price: high to low</option>
-                                    <option value="6">Product Name: Z</option>
-                                </select>
-                            </form>
-                        </div>
-                        <div class="page_amount">
-                            <p>Showing 1â9 of 21 results</p>
-                        </div>
+                      
                     </div>
                      <!--shop toolbar end-->
                      <div id="product_List"class="row shop_wrapper">
@@ -77,42 +62,32 @@
                         <div class="col-lg-4 col-md-4 col-sm-6 col-12 ">
                             <div class="single_product">
                                 <div class="product_thumb">
-                                 
-                                        <a class="primary_img" href="product-details.jsp"><img src="assets/img/product/${product.product_image}" alt=""></a>
-                                        <a class="secondary_img" href="product-details.jsp"><img src="assets/img/product/${product.product_image}" alt=""></a>
-                                        
-                                        <!-- 
-                                        <div class="label_product">
-                                        <!-- 
-                                            <span class="label_sale">Sale</span>
-                                            <span class="label_new">New</span>
-                                           -->
-                                        </div>
+                                        <a class="primary_img" href="product-details.jsp?product_no=${product.product_no}"><img src="assets/img/product/${product.product_image}" alt=""></a>
+                                        <a class="secondary_img" href="product-details.jsp?product_no=${product.product_no}"><img src="assets/img/product/${product.product_image}" alt=""></a>
+                                  
                                         <div class="action_links">
-                                     
                                             <ul>
                                                 <li class="add_to_cart"><a href="cart.jsp" title="Add to cart"><span class="lnr lnr-cart"></span></a></li>
                                                 <li class="quick_button" ><a href="#" product_no="${product.product_no}" data-toggle="modal" data-target="#modal_box"  title="quick view"> <span class="lnr lnr-magnifier"  ></span></a></li>
                                                  <li class="wishlist"><a href="wishlist.jsp" title="Add to Wishlist"><span class="lnr lnr-heart"></span></a></li>  
                                                 <li class="compare"><a href="#" title="Add to Compare"><span class="lnr lnr-sync"></span></a></li>
-                                            </ul>
-                                            
-                                        </div>
-                                    </div>
+                                            </ul>                                   
+                                            </div>
+                                   </div>
+                                        
+                                    
                                 <div class="product_content grid_content">
-                                        <h4 class="product_name"><a href="product-details.jsp" id="product_name">${product.product_name}</a></h4>
-                                        <p><a href="#">Fruits</a></p>
+                                        <h4 class="product_name"><a href="product-details.jsp?product_no=${product.product_no}" id="product_name">${product.product_name}</a></h4>
+
                                         <div class="price_box"> 
-                                            <span class="current_price">${product.product_price}원</span>
-                                            
+                                            <span class="current_price">${product.product_price}원</span> 
                                         </div>
                                   </div>
                                 <div class="product_content list_content">
-                                    <h4 class="product_name"><a href="product-details.jsp">${product.product_name}</a></h4>
-                                    <p><a href="#">Fruits</a></p>
+                                    <h4 class="product_name"><a href="product-details.jsp?product_no=${product.product_no}">${product.product_name}</a></h4>
+                                   
                                     <div class="price_box"> 
                                         <span class="current_price">${product.product_price}원</span>
-                                        
                                     </div>
                                     <div class="product_desc">
                                         <p>${product.product_desc}</p>
@@ -127,6 +102,7 @@
                                         </ul>
                                    
                                     </div>
+                                </div>
                                 </div>
                             </div>
                             </c:forEach>
@@ -154,7 +130,7 @@
                     <aside class="sidebar_widget">
                         <div class="widget_inner">
                             <div class="widget_list widget_categories">
-                                <h3>Women</h3>
+                        
                                 <ul>
                                     <li class="widget_sub_categories sub_categories1" id="main" ><a href="#">메인메뉴</a>
                                     </li>
@@ -326,5 +302,4 @@
 
 </body>
 
->>>>>>> refs/heads/hyunwoo
 </html>
