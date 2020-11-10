@@ -9,7 +9,7 @@
                            <div class="footer_logo">
                                <a href="index.html"><img src="assets/img/logo/logo.png" alt=""></a>
                            </div>
-                           <p class="footer_desc">fucking weak</p>
+                           <p class="footer_desc"></p>
                             <p><span>Address:</span> 서울 강남구 테헤란로 124 4층</p>
                             <p><span>Email:</span> <a href="#">jaeil759@itwill.com</a></p>
                             <p><span>Call us:</span> <a href="tel:(042)82828282">(042)82828282</a> </p>
@@ -22,7 +22,7 @@
                             
                                 <ul>
                                     <li><a href="about.html">회사소개</a></li>
-                                    <li><a href="contact.html"> 실시간 문의</a></li>
+                                    <li><a href="contact.html">실시간 문의</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -45,7 +45,8 @@
                 <div class="row align-items-center">
                     <div class="col-lg-6 col-md-7">
                         <div class="copyright_area">
-                            <p>Copyright  Â© 2020  <a href="#">국밥부장관</a>  . All Rights Reserved.Design by  <a href="#">국밥부장관</a></p>
+                            <p>Copyright © <a href="#">국밥부장관</a>. All Rights Reserved.<br> 
+                               Design by © <a href="#">국밥부장관</a></p>
                         </div>
                     </div>    
                     <div class="col-lg-6 col-md-5">    
