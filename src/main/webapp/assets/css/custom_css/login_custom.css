@@ -12,3 +12,11 @@ input.valid {
 	color: red;
 	font: italic;
 }
+
+.account_form button {
+    margin-left: 1px;
+}
+
+.account_form label {
+    margin-right: 10px;
+}

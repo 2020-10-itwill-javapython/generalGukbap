@@ -1,13 +1,8 @@
-<%@page import="com.itwill.gukbap.service.UserServiceImpl"%>
-<%@page import="com.itwill.gukbap.service.UserService"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%
-	System.out.println(session.getAttribute("orders"));
-%>
 	<jsp:include page="common_header.jsp"/>
-
+<link rel="stylesheet" href="assets/css/custom_css/my_account_custom.css">
 <body>
     <!--breadcrumbs area start-->
     <div class="breadcrumbs_area">
@@ -36,11 +31,11 @@
                         <!-- Nav tabs -->
                         <div class="dashboard_tab_button">
                             <ul role="tablist" class="nav flex-column dashboard-list">
-                                <li><a href="#dashboard" data-toggle="tab" class="nav-link active">대시보드</a></li>
-                                <li> <a href="#orders" data-toggle="tab" class="nav-link">주문 확인</a></li>
-                                <li><a href="#address" data-toggle="tab" class="nav-link">주소지 관리</a></li>
-                                <li><a href="#account-details" data-toggle="tab" class="nav-link">계정정보</a></li>
-                                <li><a href="login.html" class="nav-link">로그아웃</a></li>
+                                <li><a href="#dashboard" id="default_tab" data-toggle="tab" class="nav-link active">대시보드</a></li>
+                                <li> <a href="#orders" id="orders_tab" user_id="${loginUser.user_id }" data-toggle="tab" class="nav-link">주문 확인</a></li>
+                                <li><a href="#address" id="user_address_tab" user_id="${loginUser.user_id }" data-toggle="tab" class="nav-link">주소지 관리</a></li>
+                                <li><a href="#account-details" id="user_info_tab" user_id="${loginUser.user_id }" data-toggle="tab" class="nav-link">계정정보</a></li>
+                                <li><a href="logout_action" class="nav-link">로그아웃</a></li>
                             </ul>
                         </div>    
                     </div>
@@ -72,7 +67,7 @@
 	                                                <td>${order.order_date.substring(0, 11) }</td>
 	                                                <td><span class="success">${order.order_status }</span></td>
 	                                                <td>${order.order_total_price}원</td>
-	                                                <td><a href="cart.jsp?o_d_no=" class="view">view</a></td>
+	                                                <td><a href="cart?o_d_no=${order.order_no }" class="view">view</a></td>
 	                                            </tr>
                                         	</c:forEach>
                                         </tbody>
@@ -80,50 +75,69 @@
                                 </div>
                             </div>
                             <div class="tab-pane" id="address">
-                               <p>The following addresses will be used on the checkout page by default.</p>
-                                <h4 class="billing-address">Billing address</h4>
-                                <a href="#" class="view">Edit</a>
-                                <p><strong>Bobby Jackson</strong></p>
-                                <address>
-                                    House #15<br>
-                                    Road #1<br>
-                                    Block #C <br>
-                                    Banasree <br>
-                                    Dhaka <br>
-                                    1212
-                                </address>
-                                <p>Bangladesh</p>   
+                                <h4 class="billing-address">배송지 정보</h4>
+                                <div class="row">
+                                <c:forEach var="address" items="${addresses }">
+                                <div class="col-md-6">
+                                <form id="address_update_form_${address.address_no }" action="">
+	                                <address>
+	                                	<label>회사 이름</label><br/>
+	                                	<input type="text" value="${address.address_company_name }" name="address_company_name"><br/>
+	                                	<label>주소</label><br/>
+	                                	<input type="text" value=" ${address.address_street }" name="address_street"><br/>
+	                                	<label>주소지 추가 정보</label><br/>
+	                                	<input type="text" value=" ${address.address_street_optional }" name="address_street_optional"><br/>
+	                                	<label>도시</label><br/>
+	                                	<input type="text" value="${address.address_city } " name="address_city"><br/>
+	                                	<label>국가</label><br/>
+	                                	<input type="text" value="${address.address_state }" name="address_state"><br/>
+		                                <br/> 
+                                        <button class="btn btn-danger" address_no=${address.address_no } type="submit">수정</button>
+                                        <br/>
+	                                </address>
+                                </form>
+                                </div>
+                                </c:forEach>
+                                </div>
                             </div>
                             <div class="tab-pane fade" id="account-details">
-                                <h3>Account details </h3>
+                                <h3>계정 정보</h3>
                                 <div class="login">
                                     <div class="login_form_container">
                                         <div class="account_login_form">
-                                            <form action="#">
-                                                <label>First Name</label>
-                                                <input type="text" name="first-name">
-                                                <label>Last Name</label>
-                                                <input type="text" name="last-name">
-                                                <label>Email</label>
-                                                <input type="text" name="email-name">
-                                                <label>Password</label>
-                                                <input type="password" name="user-password">
-                                                <label>Birthdate</label>
-                                                <input type="text" placeholder="MM/DD/YYYY" value="" name="birthday">
+                                            <form id="user_update_form" method="POST" action="">
+                                                <label>이름</label>
+                                                <input type="text" value="${loginUser.user_first_name }" name="user_first_name">
+                                                <br/>
+                                                <label>성</label>
+                                                <input type="text" value="${loginUser.user_last_name }" name="user_last_name">
+                                                <br/>
+                                                <label>이메일(아이디)</label>
+                                                <input type="text" id="user_id_input" value="${loginUser.user_id }" name="user_id" readonly>
+                                                <br/>
+                                                <label>비밀번호</label>
+                                                <input type="password" value="${loginUser.user_password }" name="user_password">
+                                                <br/>
+                                                <label>비밀번호 확인</label>
+                                                <input type="password" id="user_password_check" name="user_password_check">
+                                                <br/>
+                                                <label>생일</label>
+                                                <input type="text" 
+                                                placeholder="YYYY/MM/DD" 
+                                                value="${loginUser.user_birthdate.replaceAll('-', '/').substring(0,11)}" name="user_birthdate">
                                                 <span class="example">
-                                                  (E.g.: 05/31/1970)
+                                                  (E.g.: 1970/05/31)
                                                 </span>
-                                                <br>
+                                                <br/>
+                                                <label>전화번호</label>
+                                                <input type="text" placeholder="'-'는 생략" value="${loginUser.user_phone }" name="user_phone">
+                                            `    <br>
                                                 <span class="custom_checkbox">
                                                     <input type="checkbox" value="1" name="optin">
-                                                    <label>Receive offers from our partners</label>
+                                                    <label>뉴스레터 수신 동의</label>
                                                 </span>
                                                 <br>
-                                                <span class="custom_checkbox">
-                                                    <input type="checkbox" value="1" name="newsletter">
-                                                    <label>Sign up for our newsletter<br><em>You may unsubscribe at any moment. For that purpose, please find our contact info in the legal notice.</em></label>
-                                                </span>
-                                                <div class="save_button primary_btn default_button">
+                                                <div id="save_button" class="btn btn-danger">
                                                    <button type="submit">Save</button>
                                                 </div>
                                             </form>
@@ -131,7 +145,22 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+							<div id="user_info_update_notice_modal" class="modal fade" tabindex="-1" role="dialog">
+								<div class="modal-dialog" role="document">
+									<div class="modal-content">
+										<div class="modal-header">
+											<h5 class="modal-title">계정 정보 수정 완료</h5>
+										</div>
+										<div class="modal-body">
+											<p>계정 정보가 성공적으로 수정됬습니다.</p>
+										</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-primary" data-dismiss="modal">확인</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
                     </div>
                 </div>
             </div>  
@@ -175,7 +204,10 @@
 <script src="assets/js/plugins.js"></script>
 
 <!-- Main JS -->
+<script src="assets/js/jquery.validate.js"></script>
+<script src="assets/js/additional-methods.js"></script>
 <script src="assets/js/main.js"></script>
+<script src="assets/js/custom/my_account_custom.js"></script>
 
 
 

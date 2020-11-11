@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+#submit_button, #submit_button button {
+	float: right;
+	color: white;
+	margin-top: 2px;
+}
+
+.error {
+	color: red;
+}
+
+.isMandatory {
+	color: red;
+}
+
+.account_login_form form input {
+    margin-bottom: 5px;
+}
+
+#user_register_form .valid{
+    border: 1px solid green;
+}
