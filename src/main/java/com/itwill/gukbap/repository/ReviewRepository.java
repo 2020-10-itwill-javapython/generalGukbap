@@ -10,6 +10,8 @@ public interface ReviewRepository {
 		public List<ReviewDomain> selectAllReview();
 		//최신 후기순으로 정렬
 		public List<ReviewDomain> selectAllReviewArrangeInTheLatestReview();
+		//최신 후기 5개
+		public List<ReviewDomain> selectAllReviewArrangeInTheLatestFive();
 		//사진 있는 후기만
 		public List<ReviewDomain> selectReviewWithPhoto();
 		//하나만

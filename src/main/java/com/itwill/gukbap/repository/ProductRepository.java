@@ -16,6 +16,8 @@ public interface ProductRepository {
 	
 	public ProductDomain selectProductIsOnSale(String sysdate);
 	
+	public List<ProductDomain> selectProductOrderByClickCount();
+	
 	public int insertProduct(ProductDomain product);
 	
 	public int updateProduct(ProductDomain product);

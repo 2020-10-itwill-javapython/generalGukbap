@@ -45,6 +45,11 @@ public class ProductRepositoryImpl implements ProductRepository {
 	}
 	
 	@Override
+	public List<ProductDomain> selectProductOrderByClickCount() {
+		return productMapper.selectProductOrderByClickCount();
+	}
+	
+	@Override
 	public int updateProduct(ProductDomain product) {
 		return productMapper.updateProduct(product);
 	}

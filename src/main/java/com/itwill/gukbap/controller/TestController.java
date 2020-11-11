@@ -73,6 +73,20 @@ public class TestController {
 		return "forward:/shop-right-sidebar.jsp";
 	}
 	
+	@RequestMapping("gukbap_main")  
+	public String index_product_list(HttpServletRequest request) {
+		List<ProductDomain> indexProductList=productService.selectProductByCategoryNo(1);
+		request.setAttribute("indexProductList", indexProductList);
+		return "gukbap_main";
+	}
+	
+//	@RequestMapping("gukbap_main2")  
+//	public String index_count_list(HttpServletRequest request) {
+//		List<ProductDomain> indexCountList=productService.selectProductOrderByClickCount();
+//		request.setAttribute("indexCountList", indexCountList);
+//		return "gukbap_main";
+//	}
+	
 	@RequestMapping("f_product_list")  
 	public String f_product_list(@RequestParam int c_no,HttpServletRequest request) {
 		List<ProductDomain> productList=productService.selectProductByCategoryNo(c_no);

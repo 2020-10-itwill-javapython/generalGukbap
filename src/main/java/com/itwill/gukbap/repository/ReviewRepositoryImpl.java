@@ -23,6 +23,10 @@ public class ReviewRepositoryImpl implements ReviewRepository {
 		return reviewMapper.selectAllReviewArrangeInTheLatestReview();
 	}
 	@Override
+	public List<ReviewDomain> selectAllReviewArrangeInTheLatestFive() {
+		return reviewMapper.selectAllReviewArrangeInTheLatestFive();
+	}
+	@Override
 	public List<ReviewDomain> selectReviewWithPhoto() {
 		return reviewMapper.selectReviewWithPhoto();
 	}

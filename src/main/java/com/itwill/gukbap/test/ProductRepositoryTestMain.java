@@ -17,7 +17,7 @@ public class ProductRepositoryTestMain {
 		ProductRepository productDao=applicationContext.getBean(ProductRepository.class);
 		
 		//1.모든 제품 찾기
-		System.out.println(productDao.selectAll());
+		//System.out.println(productDao.selectAll());
 		
 		//2.제품명으로 제품 하나 찾기
 		//System.out.println(productDao.selectProductByProductName("테스트국밥"));
@@ -35,12 +35,14 @@ public class ProductRepositoryTestMain {
 		//System.out.println(productDao.insertProduct(
 //				new ProductDomain(17,"테스트국밥2",7000,"사진","테스트국밥2",0,0,1,0,"false",0,"20/10/22")));
 				
-				
 		//6.제품명으로 제품 하나 삭제
 		//System.out.println(productDao.deleteProductByProductName("테스트국밥2"));
 		
 		//7.제품번호로 제품 하나 삭제
 		//System.out.println(productDao.deleteProductByProductNo(39));
+		
+		//8.클릭 수 많은 제품 5개 뽑기
+		System.out.println(productDao.selectProductOrderByClickCount());
 	}
 
 }

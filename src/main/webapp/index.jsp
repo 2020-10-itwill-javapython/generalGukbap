@@ -44,6 +44,7 @@
                         <div class="tab-content">
                             <div class="tab-pane fade show active" id="plant1" role="tabpanel">
                                 <div class="product_carousel product_column5 owl-carousel">
+                                	
                                 	<!-- 첫번째 열 -->
                                     <div class="product_items">
                                     	<!-- 첫번째 메뉴 -->
@@ -226,8 +227,8 @@
                             <article class="single_product">
                                 <figure>
                                     <div class="product_thumb">
-                                        <a class="primary_img" href="product-details.html"><img src="assets/img/product/product_image" alt=""></a>
-                                        <a class="secondary_img" href="product-details.html"><img src="assets/img/product/product_image" alt=""></a>
+                                        <a class="primary_img" href="product-details.html"><img src="assets/img/product/sundaogukbap.jpg" alt=""></a>
+                                        <a class="secondary_img" href="product-details.html"><img src="assets/img/product/sundaogukbap.jpg" alt=""></a>
                                         <div class="label_product">
                                             <span class="label_sale">할인</span>
                                         </div>
@@ -241,11 +242,11 @@
                                         </div>
                                     </div>
                                     <figcaption class="product_content">
-                                        <h4 class="product_name"><a href="product-details.html">product_name</a></h4>
-                                        <p><a href="#">c_name</a></p>
+                                        <h4 class="product_name"><a href="product-details.html">순대국밥/product_name</a></h4>
+                                        <p><a href="#">국밥/c_name</a></p>
                                         <div class="price_box"> 
-                                            <span class="current_price">product_price*0.7</span>
-                                            <span class="old_price">product_price</span>
+                                            <span class="current_price">5600/product_price*0.7</span>
+                                            <span class="old_price">8000/product_price</span>
                                         </div>
                                     </figcaption>
                                 </figure>
@@ -345,7 +346,7 @@
                                 </div>
                                 <figcaption class="blog_content">
                                    <div class="articles_date">
-                                         <p>review_upload_date<a href="#">이 자리 뭐야??</a></p>
+                                         <p>review_upload_date</p>
                                     </div>
                                     <h4 class="post_title"><a href="blog-details.html">review_title</a></h4>
                                     <footer class="blog_footer">
@@ -370,7 +371,7 @@
     <!--custom product area end-->
     
     <!--brand area start-->
-     <!--brand area start-->
+    <!--brand area start-->
     
     <!--brand area end-->
     <!--brand area end-->
@@ -491,7 +492,7 @@
     </div>
     <!-- modal area end-->
     
-     <!--news letter popup start-->
+    <!--news letter popup start-->
     <!--news letter popup start-->
     
 

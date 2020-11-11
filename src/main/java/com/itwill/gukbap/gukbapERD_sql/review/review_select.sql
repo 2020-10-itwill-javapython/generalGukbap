@@ -5,6 +5,13 @@ select * from review;
 --최근순으로 모든 후기 불러오기
 select * from review order by review_upload_date desc;
 
+--최근 후기 5개 뽑기 
+select *
+from ( select * 
+       from review
+       order by REVIEW_UPLOAD_DATE desc )
+where rownum <= 5;
+
 --사진 있는 후기만 불러오기
 select * from review where review_image is not null;
 

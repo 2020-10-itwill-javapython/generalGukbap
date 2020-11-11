@@ -16,6 +16,8 @@ public interface ProductService {
 	
 	ProductDomain selectProductIsOnSale(String sysdate);
 	
+	List<ProductDomain> selectProductOrderByClickCount();
+	
 	int insertProduct(ProductDomain product);
 	
 	int updateProduct(ProductDomain product);

@@ -7,6 +7,10 @@
 		select * from product
 	</select>
 	
+	<select id="selectProductOrderByClickCount" resultType="com.itwill.gukbap.domain.ProductDomain">
+		select * from ( select * from product order by product_click_count desc ) where rownum &lt;= 5
+	</select>
+	
 	<select id="selectProductByProductName" resultType="com.itwill.gukbap.domain.ProductDomain" parameterType="string">
 		select * from product where product_name= #{product_name}
 	</select>

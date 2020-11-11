@@ -23,11 +23,15 @@ select * from product where c_no=2 order by product_sale_count desc;
 --주문량이 적은 순서대로, 
 select * from product where c_no=2 order by product_sale_count asc;
 
---클릭수가 많은 순서대로, 
-select * from product where c_no=2 order by product_click_count asc;
+--클릭수가 많은 순서대로 5개 뽑기 
+select *
+from ( select * 
+       from product
+       order by product_click_count desc )
+where rownum <= 5;
 
 --클릭수가 적은 순서대로, 
-select * from product where c_no=2 order by product_click_count desc;
+select * from product where c_no=2 order by product_click_count asc;
 
 --세일하고 있는 사이드만 불러오기
 select * from product where c_no=2 and product_isonsale='true';
