@@ -3,17 +3,19 @@ package com.itwill.gukbap.service;
 import java.util.List;
 
 import com.itwill.gukbap.domain.AddressDomain;
+import com.itwill.gukbap.domain.UserAddressDomain;
 
 public interface AddressService {
 
-	List<AddressDomain> selectAll();
+	public List<AddressDomain> selectAll();
 
-	AddressDomain selectAddressByNo(int address_no);
+	public AddressDomain selectAddressByNo(int address_no);
 
-	int insertAddress(AddressDomain address);
+	public int insertAddress(AddressDomain address, UserAddressDomain userAddressDomain);
 
-	int updateAddress(AddressDomain address);
+	public int updateAddress(AddressDomain address);
 
-	int deleteAddress(int address_no, String user_id);
-
+	public int deleteAddress(int address_no, String user_id);
+	
+	public List<AddressDomain> select_addresses_by_id(String user_id);
 }

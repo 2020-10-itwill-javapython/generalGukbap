@@ -22,7 +22,7 @@
                             
                                 <ul>
                                     <li><a href="about.html">회사소개</a></li>
-                                    <li><a href="contact.html"> 실시간 문의</a></li>
+                                    <li><a href="contact.html">실시간 문의</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -36,13 +36,17 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
         
         <div class="footer_bottom">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-lg-6 col-md-7">
                         <div class="copyright_area">
-                            <p>Copyright  Â© 2020  <a href="#">국밥부장관</a>  . All Rights Reserved.Design by  <a href="#">국밥부장관</a></p>
+                            <p>Copyright © <a href="#">국밥부장관</a>. All Rights Reserved.<br> 
+                               Design by © <a href="#">국밥부장관</a></p>
                         </div>
                     </div>    
                     <div class="col-lg-6 col-md-5">    

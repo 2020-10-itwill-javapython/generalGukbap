@@ -5,7 +5,8 @@ $(function(){
 	$("#login_action_form").validate({
 		rules:{
 			user_id: {
-				required: true
+				required: true,
+				email: true
 			},
 			password: {
 				required: true
@@ -13,7 +14,8 @@ $(function(){
 		},
 		messages: {
 			user_id: {
-				required: '아이디를 입력하세요'
+				required: '아이디를 입력하세요',
+				email: '올바른 이메일 형식이 아닙니다'
 			},
 			password: {
 				required: '비밀번호를 입력하세요'

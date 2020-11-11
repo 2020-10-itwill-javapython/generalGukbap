@@ -7,6 +7,14 @@
 		VALUES (userAddress_userAddress_no_SEQ.nextval, #{user_id}, #{address_no})
 	</insert>
 	
+	<!-- SELECT -->
+	<select id="select_addresses_by_id" parameterType="string" resultType="com.itwill.gukbap.domain.AddressDomain">
+		select a.* from useraddress ua 
+		join address a
+		on ua.address_no = a.address_no
+		where user_id = #{user_id}
+	</select>
+	
 	<!-- DELETE -->
 	<delete id="deleteUserAddress" parameterType="com.itwill.gukbap.domain.UserAddressDomain">
 		delete useraddress where user_id = #{user_id} and address_no = #{address_no}

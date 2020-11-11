@@ -4,20 +4,6 @@ import java.sql.Date;
 
 
 public class ProductDomain {
-	/*
-	 	product_no                    		NUMBER(10)		 NULL ,
-		product_name                  		VARCHAR2(50)		 NULL ,
-		product_price                 		NUMBER(10)		 NULL ,
-		product_image                 		VARCHAR2(500)		 NULL ,
-		product_desc                  		VARCHAR2(2000)		 NULL ,
-		product_sale_count            		NUMBER(10)		 NULL ,
-		product_click_count           		NUMBER(10)		 NULL ,
-		c_no                   		NUMBER(10)		 NULL ,
-		product_order                 		NUMBER(10)		 NULL ,
-		product_isOnSale              		VARCHAR2(10)		 DEFAULT 'false'		 NULL ,
-		product_discountRate          		NUMBER(10)		 DEFAULT 0		 NULL, 
-		product_sale_date             		DATE		 NULL 
-	 */
 	
 	private int product_no;
 	private String product_name;
