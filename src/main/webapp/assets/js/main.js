@@ -34,11 +34,12 @@
         $slider.owlCarousel({
             animateOut: 'fadeOut',
             loop: true,
-            nav: false,
+            nav: true,
             autoplay: false,
             autoplayTimeout: 8000,
             items: 1,
-            dots:true,
+            dots:true
+ 			
         });
     }
     
@@ -47,10 +48,11 @@
     if($porductColumn5.length > 0){
         $porductColumn5.on('changed.owl.carousel initialized.owl.carousel', function (event) {
             $(event.target).find('.owl-item').removeClass('last').eq(event.item.index + event.page.size - 1).addClass('last')}).owlCarousel({
-            loop: true,
-            nav: true,
+            loop: false,
+            nav: false,
             autoplay: false,
             autoplayTimeout: 8000,
+
             items: 5,
             margin: 20,
             dots:false,
@@ -77,7 +79,7 @@
         });
     }
     
-    /*---product column4 activation---*/
+    /*---product column4 activation---
         var $productColumn4 =  $('.product_column4');
         if($productColumn4.length > 0){
            $productColumn4.on('changed.owl.carousel initialized.owl.carousel', function (event) {
@@ -108,8 +110,8 @@
               }
         });
     }
-    
-    /*---productpage column4 activation---*/
+    */
+    /*---productpage column4 activation---
     var $productPageColumn4 = $('.productpage_column4');
     if($productPageColumn4.length > 0){
         $productPageColumn4.on('changed.owl.carousel initialized.owl.carousel', function (event) {
@@ -140,7 +142,8 @@
               }
         });
     } 
-    /*---product column3 activation---*/
+*/
+    /*---product column3 activation---
     var $productColumn3 = $('.product_column3');
     if($productColumn3.length > 0){
         $productColumn3.on('changed.owl.carousel initialized.owl.carousel', function (event) {
@@ -167,7 +170,8 @@
               }
         });
     }
-    /*---product3 column3 activation---*/
+*/
+    /*---product3 column3 activation---
     var $product3Column3 = $('.product3_column3');
     if($product3Column3.length > 0){
         $product3Column3.on('changed.owl.carousel initialized.owl.carousel', function (event) {
@@ -197,7 +201,8 @@
               }
         });
     }
-    /*---product column2 activation---*/
+	*/
+    /*---product column2 activation---
        var $productColumn2 = $('.product_column2');
         if($productColumn2.length > 0){
            $productColumn2.on('changed.owl.carousel initialized.owl.carousel', function (event) {
@@ -223,7 +228,8 @@
               }
         });
     }
-    /*---smallp column2 activation---*/
+*/
+    /*---smallp column2 activation---
     var $smallpColumn2 = $('.smallp_column2');
        if($smallpColumn2.length > 0){
            $('.smallp_column2').on('changed.owl.carousel initialized.owl.carousel', function (event) {
@@ -250,7 +256,8 @@
               }
         });
     }
-    /*---product column1 activation---*/
+ */
+    /*---product column1 activation---
     var $productColumn1 = $('.product_column1');
        if($productColumn1.length > 0){
            $('.product_column1').on('changed.owl.carousel initialized.owl.carousel', function (event) {
@@ -276,8 +283,9 @@
                 },
               }
         });
-    }       
-    /*---deals3 column1 activation---*/
+    }
+    */   
+    /*---deals3 column1 activation---
      var $deals3Column1 = $('.deals3_column1');
        if($deals3Column1.length > 0){
        $('.deals3_column1').on('changed.owl.carousel initialized.owl.carousel', function (event) {
@@ -307,7 +315,8 @@
 		  }
     });
     }
-     /*---smallp4 left column1 activation---*/
+*/
+     /*---smallp4 left column1 activation--
        var $smallp4LeftColumn1 = $('.smallp4_left_column1');
         if($smallp4LeftColumn1.length > 0){
            $('.smallp4_left_column1').on('changed.owl.carousel initialized.owl.carousel', function (event) {
@@ -334,6 +343,7 @@
               }
         });
     }
+*/
     /*---blog column3 activation---*/
     var $blogColumn3 = $('.blog_column3');
         if($blogColumn3.length > 0){
@@ -470,7 +480,7 @@
               }
         });
     }
-   
+  
     /*---product navactive activation---*/
     var $productNavactive = $('.product_navactive');
         if($productNavactive.length > 0){

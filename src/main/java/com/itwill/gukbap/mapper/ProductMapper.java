@@ -16,6 +16,11 @@ public interface ProductMapper {
 	
 	public ProductDomain selectProductIsOnSale(String sysdate);
 	
+	/*
+	--클릭수가 많은 순서대로, 
+	 */
+	public List<ProductDomain> selectProductOrderByClickCount();
+	
 	public int insertProduct(ProductDomain product);
 	
 	public int updateProduct(ProductDomain product);

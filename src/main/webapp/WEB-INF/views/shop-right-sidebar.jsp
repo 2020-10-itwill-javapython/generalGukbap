@@ -174,6 +174,7 @@
                                                 <a href="#" id="modal_detail_image"><img src="" alt=""></a>    
                                             </div>
                                         </div>
+                                        
                                         <div class="tab-pane fade" id="tab2" role="tabpanel">
                                             <div class="modal_tab_img">
                                                 <a href="#"><img src="" alt=""></a>    

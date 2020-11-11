@@ -24,6 +24,10 @@ public class ReviewServiceImpl implements ReviewService {
 		return reviewRepository.selectAllReviewArrangeInTheLatestReview();
 	}
 	@Override
+	public List<ReviewDomain> selectAllReviewArrangeInTheLatestFive() {
+		return reviewRepository.selectAllReviewArrangeInTheLatestFive();
+	}
+	@Override
 	public List<ReviewDomain> selectReviewWithPhoto() {
 		return reviewRepository.selectReviewWithPhoto();
 	}

@@ -40,6 +40,11 @@ public class ProductServiceImpl implements ProductService {
 	}
 	
 	@Override
+	public List<ProductDomain> selectProductOrderByClickCount() {
+		return productRepository.selectProductOrderByClickCount();
+	}
+	
+	@Override
 	public int insertProduct(ProductDomain product) {
 		return productRepository.insertProduct(product);
 	}

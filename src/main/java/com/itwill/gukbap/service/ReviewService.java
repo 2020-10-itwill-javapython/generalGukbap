@@ -10,6 +10,8 @@ public interface ReviewService {
 	 
 	 List<ReviewDomain> selectAllReviewArrangeInTheLatestReview();
 	 
+	 List<ReviewDomain> selectAllReviewArrangeInTheLatestFive();
+	 
 	 List<ReviewDomain> selectReviewWithPhoto();
 	 
 	 ReviewDomain selectReviewByReviewNo(int review_no);
