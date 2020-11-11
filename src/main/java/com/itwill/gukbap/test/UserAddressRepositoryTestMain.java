@@ -21,6 +21,7 @@ public class UserAddressRepositoryTestMain {
 //				userAddressRepository.
 //				delete_userAddress(new UserAddressDomain("helprun@naver.com", 18)));
 //		System.out.println(userAddressRepository.delete_all_address("helprun@naver.com"));
+//		System.out.println(userAddressRepository.select_addresses_by_id("OMG_mim@naver.com"));
 	}
 
 }

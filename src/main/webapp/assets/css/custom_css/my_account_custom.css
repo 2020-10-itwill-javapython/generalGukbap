@@ -1,0 +1,81 @@
+@charset "UTF-8";
+
+#submit_button, #submit_button button {
+	float: right;
+	color: white;
+	margin-top: 2px;
+}
+
+.error {
+	color: red;
+}
+
+.account_login_form form input {
+    margin-bottom: 5px;
+}
+
+#save_button, #save_button button {
+	float: right;
+	color: white;
+	margin-top: 2px;
+}
+
+#user_id_input {
+	background-color: #cfcecc;
+}
+
+.modal-title {
+	font-size: 25px;
+	font: bolder;
+}
+
+.modal-footer button{
+	color: white;
+	background-color: #0d6efd;
+    border-color: #0d6efd;
+}
+
+.dashboard_content address {
+    display: inline;
+}
+
+form[name=address_update_form] input {
+    border: 1px solid #ddd;
+    background: none;
+    height: 40px;
+    margin-bottom: 20px;
+    width: 100%;
+    padding: 0 20px;
+    color: #222222;
+}
+
+
+.dashboard_content button {
+    color: white;
+    background-color: #dc3545;
+    border-color: #dc3545;
+    float: right;
+    margin-left: 20em;
+}
+
+form {
+    margin-top: 10px;
+}
+
+#address > div > div > form {
+	display: inline-block;
+}
+
+#address .col-md-6 input {
+    border: 1px solid #ddd;
+    background: none;
+    height: 40px;
+    margin-bottom: 20px;
+    width: 100%;
+    padding: 0 20px;
+    color: #222222;
+}
+
+#add_new_address_btn {
+	float: right;
+}

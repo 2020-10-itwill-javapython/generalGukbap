@@ -32,8 +32,9 @@ public class AddressServiceImpl implements  AddressService {
 	
 
 	@Override
-	public int insertAddress(AddressDomain address) {
-		return addressRepository.insertAddress(address);
+	public int insertAddress(AddressDomain address, UserAddressDomain userAddressDomain) {
+		addressRepository.insertAddress(address);
+		return userAddressRepository.map_user_with_address(userAddressDomain);
 	}
 	
 
@@ -48,6 +49,12 @@ public class AddressServiceImpl implements  AddressService {
 		UserAddressDomain userAddressDomain=new UserAddressDomain(user_id, address_no);
 	    userAddressRepository.delete_single_userAddress(userAddressDomain);
 		return addressRepository.deleteAddress(address_no);
+	}
+
+
+	@Override
+	public List<AddressDomain> select_addresses_by_id(String user_id) {
+		return userAddressRepository.select_addresses_by_id(user_id);
 	}    
 
 }
