@@ -5,8 +5,8 @@
 <html class="no-js" lang="en">
 
 
-    <jsp:include page="common_header.jsp"/>
-    
+<jsp:include page="common_header.jsp"/>
+<link rel="stylesheet" href="assets/css/custom_css/shop-right-sidebar-custom.css">    
 
 
 <body>
@@ -67,7 +67,8 @@
                                   
                                         <div class="action_links">
                                             <ul>
-                                                <li class="add_to_cart"><a href="cart.jsp" title="Add to cart"><span class="lnr lnr-cart"></span></a></li>
+                                               <li class="add_to_cart"><a title="Add to cart" p_no="${product.product_no}"><span class="lnr lnr-cart"></span></a></li>
+                                              
                                                 <li class="quick_button" ><a href="#" product_no="${product.product_no}" data-toggle="modal" data-target="#modal_box"  title="quick view"> <span class="lnr lnr-magnifier"  ></span></a></li>
                                                  <li class="wishlist"><a href="wishlist.jsp" title="Add to Wishlist"><span class="lnr lnr-heart"></span></a></li>  
                                                 <li class="compare"><a href="#" title="Add to Compare"><span class="lnr lnr-sync"></span></a></li>
@@ -95,8 +96,15 @@
                                     <div class="action_links list_action_right">
                                     <input id="modal_product_no" type="hidden" value="${product.product_no }"/>
                                         <ul>
-                                            <li class="add_to_cart"><a href="cart.jsp" title="Add to cart">Add to Cart</a></li>
-                                            <li class="quick_button"><a href="#" product_no="${product.product_no}" data-toggle="modal" data-target="#modal_box"  title="quick view"> <span class="lnr lnr-magnifier"></span></a></li>
+                                          
+                                            <li class="add_to_cart" >
+                                            <form action="add_to_cart" method="POST">
+                                            	<button type="submit" name="product_no" value="${product.product_no }" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Add to cart">장바구니 추가</button>
+                                            </form>
+                                            </li>
+                                            <li class="quick_button">
+                                            <a href="#" product_no="${product.product_no}" data-toggle="modal" data-target="#modal_box"  title="quick view"> <span class="lnr lnr-magnifier"></span></a>
+                                            </li>
                                              <li class="wishlist"><a href="wishlist.jsp" title="Add to Wishlist"><span class="lnr lnr-heart"></span></a></li>  
                                           
                                         </ul>

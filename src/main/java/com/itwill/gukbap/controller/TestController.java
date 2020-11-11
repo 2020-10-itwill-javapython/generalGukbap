@@ -3,6 +3,7 @@ package com.itwill.gukbap.controller;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.itwill.gukbap.domain.AddressDomain;
+import com.itwill.gukbap.domain.OrderDetailDomain;
 import com.itwill.gukbap.domain.OrderDomain;
 import com.itwill.gukbap.domain.ProductCategoryDomain;
 import com.itwill.gukbap.domain.ProductDomain;
@@ -81,6 +83,37 @@ public class TestController {
 		return "f_product_list";
 	}
 	
+	@RequestMapping(value = "add_to_cart",method = RequestMethod.GET)
+	private String get_product_GET(HttpServletRequest request,HttpServletResponse response,@RequestParam String product_no)throws Exception {
+		return "redirect:/cart";
+	}
+	
+	@RequestMapping(value = "add_to_cart",method = RequestMethod.POST)
+	private void get_product_POST(HttpServletRequest request,HttpServletResponse response,@RequestParam String product_no)throws Exception {
+		ProductDomain product=productService.selectProductByProductNo(Integer.parseInt(product_no));
+		UserDomain user = (UserDomain) request.getSession().getAttribute("loginUser");
+		//user.getUser_id()
+//		orderService.insertOrder(
+//		"big-test@naver.com", 
+//		new OrderDetailDomain(0, 20, 1, productService.selectProductByProductNo(2)));
+		orderService.insertOrder("helprun@naver.com",new OrderDetailDomain(0,0,1,product));
+		response.sendRedirect("cart");
+	}
+	
+	@RequestMapping(value = "a_add_to_cart",method = RequestMethod.POST)
+	private void a_get_product_POST(HttpServletRequest request,HttpServletResponse response,@RequestParam String product_no)throws Exception {
+		ProductDomain product=productService.selectProductByProductNo(Integer.parseInt(product_no));
+		UserDomain user = (UserDomain) request.getSession().getAttribute("loginUser");
+		//user.getUser_id()
+//		orderService.insertOrder(
+//		"big-test@naver.com", 
+//		new OrderDetailDomain(0, 20, 1, productService.selectProductByProductNo(2)));
+		orderService.insertOrder("helprun@naver.com",new OrderDetailDomain(0,0,1,product));
+		response.sendRedirect("cart");
+	}
+	
+	
+	
 	@RequestMapping("guest_list")
 	public String guest_list(HttpServletRequest request) {
 		UserDomain user = userService.selectUserById("helprun@naver.com");
@@ -97,6 +130,7 @@ public class TestController {
 	
 	
 	
+	
 	@RequestMapping("main")
 	public String main() {
 		return "index";
@@ -105,6 +139,11 @@ public class TestController {
 	@RequestMapping("login")
 	public String login() {
 		return "login";
+	}
+	
+	@RequestMapping("cart")
+	public String cart() {
+		return "cart";
 	}
 	
 	
