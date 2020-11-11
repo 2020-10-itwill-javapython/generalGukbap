@@ -9,7 +9,7 @@
                            <div class="footer_logo">
                                <a href="index.html"><img src="assets/img/logo/logo.png" alt=""></a>
                            </div>
-                           <p class="footer_desc">fucking weak</p>
+                           <p class="footer_desc"></p>
                             <p><span>Address:</span> 서울 강남구 테헤란로 124 4층</p>
                             <p><span>Email:</span> <a href="#">jaeil759@itwill.com</a></p>
                             <p><span>Call us:</span> <a href="tel:(042)82828282">(042)82828282</a> </p>
@@ -36,9 +36,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
         
         <div class="footer_bottom">
             <div class="container">
