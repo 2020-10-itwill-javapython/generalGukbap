@@ -27,6 +27,10 @@ public class GukbapController {
 	public String gukbap_main() {
 		return "gukbap_main";
 	}
+	@RequestMapping("/about")
+	public String about() {
+		return "about";
+	}
 
 	@RequestMapping(value = "my-account")
 	public String myAccount(HttpSession session) {
@@ -39,7 +43,7 @@ public class GukbapController {
 	@RequestMapping(value = "login_action", 
 			method = RequestMethod.GET)
 	public String loginByGET() {
-		return "redirect:/index.jsp";
+		return "redirect:/gukbap_main";
 	}
 	
 	@RequestMapping(value = "login_action", 
@@ -56,10 +60,11 @@ public class GukbapController {
 		} catch (Exception e) {
 			session.setAttribute("msg", e.getMessage());
 			session.setAttribute("user_id", user_id);
-			result = "forward:/login.jsp";
+			result = "forward:/login";
 			e.printStackTrace();
 		}
 		return result;
 	}
+	
 	
 }
