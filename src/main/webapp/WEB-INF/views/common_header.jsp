@@ -52,7 +52,6 @@
     <!--header area start-->
     
     <!--offcanvas menu area start-->
-	<div class="off_canvars_overlay"></div>
 	<div class="offcanvas_menu">
 		<div class="container">
 			<div class="row">
@@ -74,9 +73,9 @@
 						<div id="menu" class="text-left ">
 							<ul class="offcanvas_main_menu">
 								<li class="menu-item-has-children active"><a
-									href="index.jsp">메인</a></li>
+									href="gukbap_main">메인</a></li>
 								<li class="menu-item-has-children"><a
-									href="shop-right-sidebar.jsp">메뉴</a></li>
+									href="shop-right-sidebar">메뉴</a></li>
 								<li class="menu-item-has-children"><a
 									href="blog-sidebar.jsp">리뷰</a></li>
 								<li class="menu-item-has-children"><a href="chat.jsp">문의</a>
@@ -85,8 +84,8 @@
                                     <a href="#">회사소개 </a>
                                     <ul class="sub-menu">
                                        <li><a href="about.jsp">about</a></li>
-											<li><a href="contact.jsp">contact</a></li>
-											<li><a href="services.jsp">services</a></li>
+											<li><a href="contact">contact</a></li>
+											<li><a href="services">services</a></li>
                                     </ul>
                                 </li>
 							
@@ -147,7 +146,7 @@
                     <div class="row align-items-center">
                         <div class="col-lg-2 col-md-3 col-sm-3 col-3">
                             <div class="logo">
-                                <a href="index.jsp"><img src="assets/img/logo/logo.png" alt=""></a>
+                                <a href="gukbap_main"><img src="assets/img/logo/logo.png" alt=""></a>
                             </div>
                         </div>
                         <div class="col-lg-10 col-md-6 col-sm-7 col-8">
@@ -169,9 +168,9 @@
 
                                         	<c:choose>
 	                                        	<c:when test="${empty loginUser }">
-		                                            <li><a href="login.jsp">Register</a></li>
+		                                            <li><a href="login">Register</a></li>
 		                                            <li><span>/</span></li>
-		                                            <li><a href="login.jsp">Login</a></li>
+		                                            <li><a href="login">Login</a></li>
 	                                        	</c:when>
 	                                        	<c:otherwise>
 	                                        		<li><a href="logout_action">logout</a></li>
@@ -184,65 +183,9 @@
                                         <a href="wishlist.html"><span class="lnr lnr-heart"></span> <span class="item_count"></span> </a>
                                     </div>
                                     <div class="header_account_list  mini_cart_wrapper">
-                                       <a href="javascript:void(0)"><span class="lnr lnr-cart"></span><span class="item_count"></span></a>
+                                       <a href="cart"><span class="lnr lnr-cart"></span><span class="item_count"></span></a>
                                         <!--mini cart-->
-                                        <div class="mini_cart">
-                                            <div class="cart_gallery">
-                                                <div class="cart_close">
-                                                	<div class="cart_text">
-                                                		<h3>cart</h3>
-                                                	</div>
-                                                	<div class="mini_cart_close">
-                                                		<a href="javascript:void(0)"><i class="icon-x"></i></a>
-                                                	</div>
-                                                </div>
-                                                <div class="cart_item">
-                                                   <div class="cart_img">
-                                                       <a href="#"><img src="assets/img/logo/logo.png" alt=""></a>
-                                                   </div>
-                                                    <div class="cart_info">
-                                                        <a href="#">Primis In Faucibus</a>
-                                                        <p>1 x <span> $65.00 </span></p>    
-                                                    </div>
-                                                    <div class="cart_remove">
-                                                        <a href="#"><i class="icon-x"></i></a>
-                                                    </div>
-                                                </div>
-                                                <div class="cart_item">
-                                                   <div class="cart_img">
-                                                       <a href="#"><img src="assets/img/s-product/product2.jpg" alt=""></a>
-                                                   </div>
-                                                    <div class="cart_info">
-                                                        <a href="#">Letraset Sheets</a>
-                                                        <p>1 x <span> $60.00 </span></p>    
-                                                    </div>
-                                                    <div class="cart_remove">
-                                                        <a href="#"><i class="icon-x"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="mini_cart_table">
-                                                <div class="cart_table_border">
-                                                    <div class="cart_total">
-                                                        <span>Sub total:</span>
-                                                        <span class="price">$125.00</span>
-                                                    </div>
-                                                    <div class="cart_total mt-10">
-                                                        <span>total:</span>
-                                                        <span class="price">$125.00</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="mini_cart_footer">
-                                               <div class="cart_button">
-                                                    <a href="cart.html"><i class="fa fa-shopping-cart"></i> View cart</a>
-                                                </div>
-                                                <div class="cart_button">
-                                                    <a href="checkout.html"><i class="fa fa-sign-in"></i> Checkout</a>
-                                                </div>
-
-                                            </div>
-                                        </div>
+                                        
                                         <!--mini cart end-->
                                    </div>
                                 </div>
@@ -273,13 +216,13 @@
                                 </div>
                                 <div class="categories_menu_toggle">
                                     <ul>
-                                        <li class="menu_item_children"><a href="index.jsp">메인</a>
+                                        <li class="menu_item_children"><a href="gukbap_main">메인</a>
                                         </li>
                                         <li class="menu_item_children"><a href="#">메뉴</a>
                                         </li>
                                         <li class="menu_item_children"><a href="#">리뷰</a>
                                         </li>
-                                        <li class="menu_item_children"><a href="chat.jsp">문의</a>
+                                        <li class="menu_item_children"><a href="chat">문의</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -302,14 +245,14 @@
                                     <ul>
                                         <li><a class="active"  href="about.jsp">회사소개<i class="fa fa-angle-down"></i></a>
                                          <ul class="sub_menu">
-                                                <li><a href="about.jsp">about</a></li>
-                                                <li><a href="contact.jsp">contact</a></li>
-                                                <li><a href="services.jsp">services</a></li>
+                                                <li><a href="about">about</a></li>
+                                                <li><a href="contact">contact</a></li>
+                                                <li><a href="services">services</a></li>
                                             </ul>
                                             </li>
-                                        <li class="mega_items"><a href="shop-right-sidebar.jsp">메뉴</a></li>
-                                        <li><a href="blog-sidebar.jsp">리뷰</a></li>
-                                        <li><a href="chat.jsp">문의</a></li> 
+                                        <li class="mega_items"><a href="shop-right-sidebar">메뉴</a></li>
+                                        <li><a href="blog-sidebar">리뷰</a></li>
+                                        <li><a href="chat">문의</a></li> 
                                     </ul>  
                                 </nav> 
                             </div>
