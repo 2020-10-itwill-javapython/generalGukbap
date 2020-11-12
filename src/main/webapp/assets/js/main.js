@@ -369,10 +369,11 @@
                 }, 
               }
         });
-    }        
+    }
+        
         
     
-    /*---brand container activation---*/
+    /*---brand container activation---
      var $brandContainer = $('.brand_container');
         if($brandContainer.length > 0){
          $('.brand_container').on('changed.owl.carousel initialized.owl.carousel', function (event) {
@@ -406,7 +407,7 @@
               }
         });
     }
-    
+    */
     /*---testimonial column1 activation---*/
     var $testimonialColumn1 = $('.testimonial_column1');
         if($testimonialColumn1.length > 0){

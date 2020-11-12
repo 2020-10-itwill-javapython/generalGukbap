@@ -42,7 +42,11 @@ public class ProductRepositoryTestMain {
 		//System.out.println(productDao.deleteProductByProductNo(39));
 		
 		//8.클릭 수 많은 제품 5개 뽑기
-		System.out.println(productDao.selectProductOrderByClickCount());
+		//System.out.println(productDao.selectProductOrderByClickCount());
+		
+		//9.할인 중인 제품 찾기
+		//System.out.println(productDao.selectProductIsOnSale());
+		
 	}
 
 }

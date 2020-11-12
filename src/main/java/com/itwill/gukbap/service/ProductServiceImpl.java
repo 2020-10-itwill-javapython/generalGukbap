@@ -35,8 +35,8 @@ public class ProductServiceImpl implements ProductService {
 	}
 	
 	@Override
-	public ProductDomain selectProductIsOnSale(String sysdate) {
-		return productRepository.selectProductIsOnSale(sysdate);
+	public ProductDomain selectProductIsOnSale() {
+		return productRepository.selectProductIsOnSale();
 	}
 	
 	@Override
