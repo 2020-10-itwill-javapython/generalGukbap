@@ -13,27 +13,26 @@
     <!--header area end-->
     
     <!--breadcrumbs area start-->
-    <div class="breadcrumbs_area">
-        <div class="container">   
-            <div class="row">
-                <div class="col-12">
-                    <div class="breadcrumb_content">
-                       <h3>Cart</h3>
-                        <ul>
-                            <li><a href="index.html">home</a></li>
-                            <li>Shopping Cart</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>         
-    </div>
-    <!--breadcrumbs area end-->
+	<div class="breadcrumbs_area">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<div class="breadcrumb_content">
+						<h3>Cart</h3>
+						<ul>
+							<li><a href="index.html">home</a></li>
+							<li>Shopping Cart</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--breadcrumbs area end-->
     
      <!--shopping cart area start -->
     <div class="shopping_cart_area mt-70">
         <div class="container">  
-            <form action="#"> 
                 <div class="row">
                     <div class="col-12">
                         <div class="table_desc">
@@ -112,7 +111,7 @@
                                        <p class="cart_amount">Â£215.00</p>
                                    </div>
                                    <div class="checkout_btn">
-                                       <a href="#">Proceed to Checkout</a>
+                                       <a href="cart">Proceed to Checkout</a>
                                    </div>
                                 </div>
                             </div>
@@ -120,7 +119,6 @@
                     </div>
                 </div>
                 <!--coupon code area end-->
-        </div>     
      <!--shopping cart area end -->
     
     <!--footer area start-->
