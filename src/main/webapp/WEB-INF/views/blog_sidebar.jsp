@@ -44,70 +44,7 @@
                                 <button type="submit">search</button>
                             </form>
                         </div>
-                        <div class="widget_list comments">
-                           <div class="widget_title">
-                                <h3>Recent Comments</h3>
-                            </div>
-                            <div class="post_wrapper">
-                                <div class="post_thumb">
-                                    <a href="blog-details.html"><img src="assets/img/blog/comment2.png.jpg" alt=""></a>
-                                </div>
-                                <div class="post_info">
-                                    <span> <a href="#">demo</a> says:</span>
-                                    <a href="blog-details.html">Quisque semper nunc</a>
-                                </div>
-                            </div>
-                             <div class="post_wrapper">
-                                <div class="post_thumb">
-                                    <a href="blog-details.html"><img src="assets/img/blog/comment2.png.jpg" alt=""></a>
-                                </div>
-                                <div class="post_info">
-                                    <span><a href="#">admin</a> says:</span>
-                                    <a href="blog-details.html">Quisque orci porta...</a>
-                                </div>
-                            </div>
-                            <div class="post_wrapper">
-                                <div class="post_thumb">
-                                    <a href="blog-details.html"><img src="assets/img/blog/comment2.png.jpg" alt=""></a>
-                                </div>
-                                <div class="post_info">
-                                    <span><a href="#">demo</a> says:</span>
-                                    <a href="blog-details.html">Quisque semper nunc</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="widget_list widget_post">
-                            <div class="widget_title">
-                                <h3>Recent Posts</h3>
-                            </div>
-                            <div class="post_wrapper">
-                                <div class="post_thumb">
-                                    <a href="blog-details.html"><img src="assets/img/blog/blogs1.jpg" alt=""></a>
-                                </div>
-                                <div class="post_info">
-                                    <h4><a href="blog-details.html">Blog image post</a></h4>
-                                    <span>March 16, 2018 </span>
-                                </div>
-                            </div>
-                             <div class="post_wrapper">
-                                <div class="post_thumb">
-                                    <a href="blog-details.html"><img src="assets/img/blog/blogs2.jpg" alt=""></a>
-                                </div>
-                                <div class="post_info">
-                                    <h4><a href="blog-details.html">Post with Gallery</a></h4>
-                                    <span>March 16, 2018 </span>
-                                </div>
-                            </div>
-                             <div class="post_wrapper">
-                                <div class="post_thumb">
-                                    <a href="blog-details.html"><img src="assets/img/blog/blogs3.jpg" alt=""></a>
-                                </div>
-                                <div class="post_info">
-                                    <h4><a href="blog-details.html">Post with Audio</a></h4>
-                                    <span>March 16, 2018 </span>
-                                </div>
-                            </div>
-                        </div>
+                        
                         
                     </div>
                 </div>
@@ -118,7 +55,7 @@
                                 <article class="single_blog">
                                     <figure>
                                         <div class="blog_thumb">
-                                            <a href="blog-details.html"><img src="assets/img/blog/blog1.jpg" alt=""></a>
+                                            <a href="blog_details"><img src="assets/img/blog/blog1.jpg" alt=""></a>
                                         </div>
                                         <figcaption class="blog_content">
                                             <h4 class="post_title"><a href="blog-details.html">Lorem ipsum dolor sit amet,  elit. Impedit, aliquam animi, saepe ex.</a></h4>

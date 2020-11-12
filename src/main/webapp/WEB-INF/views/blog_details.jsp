@@ -57,23 +57,7 @@
                                         <p>Suspendisse turpis ipsum, tempus in nulla eu, posuere pharetra nibh. In dignissim vitae lorem non mollis. Praesent pretium tellus in tortor viverra condimentum. Nullam dignissim facilisis nisl, accumsan placerat justo ultricies vel. Vivamus finibus mi a neque pretium, ut convallis dui lacinia. Morbi a rutrum velit. Curabitur sagittis quam quis consectetur mattis. Aenean sit amet quam vel turpis interdum sagittis et eget neque. Nunc ante quam, luctus et neque a, interdum iaculis metus. Aliquam vel ante mattis, placerat orci id, vehicula quam. Suspendisse quis eros cursus, viverra urna sed, commodo mauris. Cras diam arcu, fringilla a sem condimentum, viverra facilisis nunc. Curabitur vitae orci id nulla maximus maximus. Nunc pulvinar sollicitudin molestie.</p>
                                     </div>
                                     <div class="entry_content">
-                                        <div class="post_meta">
-                                            <span>Tags: </span>
-                                            <span><a href="#">, fashion</a></span>
-                                            <span><a href="#">, t-shirt</a></span>
-                                            <span><a href="#">, white</a></span>
-                                        </div>
 
-                                        <div class="social_sharing">
-                                            <p>share this post:</p>
-                                            <ul>
-                                                <li><a href="#" title="facebook"><i class="fa fa-facebook"></i></a></li>
-                                                <li><a href="#" title="twitter"><i class="fa fa-twitter"></i></a></li>
-                                                <li><a href="#" title="pinterest"><i class="fa fa-pinterest"></i></a></li>
-                                                <li><a href="#" title="google+"><i class="fa fa-google-plus"></i></a></li>
-                                                <li><a href="#" title="linkedin"><i class="fa fa-linkedin"></i></a></li>
-                                            </ul>
-                                        </div>
                                     </div>
                                </figcaption>
                             </figure>
@@ -220,95 +204,7 @@
                                 <button type="submit">search</button>
                             </form>
                         </div>
-                        <div class="widget_list comments">
-                           <div class="widget_title">
-                                <h3>Recent Comments</h3>
-                            </div>
-                            <div class="post_wrapper">
-                                <div class="post_thumb">
-                                    <a href="blog-details.html"><img src="assets/img/blog/comment2.png.jpg" alt=""></a>
-                                </div>
-                                <div class="post_info">
-                                    <span> <a href="#">demo</a> says:</span>
-                                    <a href="blog-details.html">Quisque semper nunc</a>
-                                </div>
-                            </div>
-                             <div class="post_wrapper">
-                                <div class="post_thumb">
-                                    <a href="blog-details.html"><img src="assets/img/blog/comment2.png.jpg" alt=""></a>
-                                </div>
-                                <div class="post_info">
-                                    <span><a href="#">admin</a> says:</span>
-                                    <a href="blog-details.html">Quisque orci porta...</a>
-                                </div>
-                            </div>
-                            <div class="post_wrapper">
-                                <div class="post_thumb">
-                                    <a href="blog-details.html"><img src="assets/img/blog/comment2.png.jpg" alt=""></a>
-                                </div>
-                                <div class="post_info">
-                                    <span><a href="#">demo</a> says:</span>
-                                    <a href="blog-details.html">Quisque semper nunc</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="widget_list widget_post">
-                            <div class="widget_title">
-                                <h3>Recent Posts</h3>
-                            </div>
-                            <div class="post_wrapper">
-                                <div class="post_thumb">
-                                    <a href="blog-details.html"><img src="assets/img/blog/blogs1.jpg" alt=""></a>
-                                </div>
-                                <div class="post_info">
-                                    <h4><a href="blog-details.html">Blog image post</a></h4>
-                                    <span>March 16, 2018 </span>
-                                </div>
-                            </div>
-                             <div class="post_wrapper">
-                                <div class="post_thumb">
-                                    <a href="blog-details.html"><img src="assets/img/blog/blogs2.jpg" alt=""></a>
-                                </div>
-                                <div class="post_info">
-                                    <h4><a href="blog-details.html">Post with Gallery</a></h4>
-                                    <span>March 16, 2018 </span>
-                                </div>
-                            </div>
-                             <div class="post_wrapper">
-                                <div class="post_thumb">
-                                    <a href="blog-details.html"><img src="assets/img/blog/blogs3.jpg" alt=""></a>
-                                </div>
-                                <div class="post_info">
-                                    <h4><a href="blog-details.html">Post with Audio</a></h4>
-                                    <span>March 16, 2018 </span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="widget_list widget_categories">
-                            <div class="widget_title">
-                                <h3>Categories</h3>
-                            </div>
-                            <ul>
-                                <li><a href="#">Audio</a></li>
-                                <li><a href="#">Company</a></li>
-                                <li><a href="#">Gallery</a></li>
-                                <li><a href="#">Image</a></li>
-                                <li><a href="#">Other</a></li>
-                                <li><a href="#">Travel</a></li>
-                            </ul>
-                        </div>
-                        <div class="widget_list widget_tag">
-                            <div class="widget_title">
-                                <h3>Tag products</h3>
-                            </div>
-                            <div class="tag_widget">
-                                <ul>
-                                    <li><a href="#">asian</a></li>
-                                    <li><a href="#">brown</a></li>
-                                    <li><a href="#">euro</a></li>
-                                </ul>
-                            </div>
-                        </div>
+                        
                     </div>
                 </div>
             </div>

@@ -184,7 +184,7 @@
                                         </li>
                                         <li class="menu_item_children"><a href="shop-right-sidebar">메뉴</a>
                                         </li>
-                                        <li class="menu_item_children"><a href="blog-sidebar">리뷰</a>
+                                        <li class="menu_item_children"><a href="blog_sidebar">리뷰</a>
                                         </li>
                                         <li class="menu_item_children"><a href="chat">문의</a>
                                         </li>
@@ -206,7 +206,7 @@
                                             </ul>
                                             </li>
                                         <li class="mega_items"><a href="shop-right-sidebar">메뉴</a></li>
-                                        <li><a href="blog-sidebar">리뷰</a></li>
+                                        <li><a href="blog_sidebar">리뷰</a></li>
                                         <li><a href="chat">문의</a></li> 
                                     </ul>  
                                 </nav> 
