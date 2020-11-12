@@ -14,7 +14,7 @@ public interface ProductService {
 	
 	List<ProductDomain> selectProductByCategoryNo(int c_no);
 	
-	ProductDomain selectProductIsOnSale(String sysdate);
+	ProductDomain selectProductIsOnSale();
 	
 	List<ProductDomain> selectProductOrderByClickCount();
 	

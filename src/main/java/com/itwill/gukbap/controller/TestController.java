@@ -15,12 +15,14 @@ import com.itwill.gukbap.domain.AddressDomain;
 import com.itwill.gukbap.domain.OrderDomain;
 import com.itwill.gukbap.domain.ProductCategoryDomain;
 import com.itwill.gukbap.domain.ProductDomain;
+import com.itwill.gukbap.domain.ReviewDomain;
 import com.itwill.gukbap.domain.UserDomain;
 import com.itwill.gukbap.domain.WishListDomain;
 import com.itwill.gukbap.service.AddressService;
 import com.itwill.gukbap.service.OrderService;
 import com.itwill.gukbap.service.ProductCategoryService;
 import com.itwill.gukbap.service.ProductService;
+import com.itwill.gukbap.service.ReviewService;
 import com.itwill.gukbap.service.UserService;
 import com.itwill.gukbap.service.WishListService;
 
@@ -39,7 +41,9 @@ public class TestController {
 	@Autowired
 	private UserService userService;
 	@Autowired
-	private WishListService wishListService; 
+	private WishListService wishListService;
+	@Autowired
+	private ReviewService reviewService;
 	
 	@RequestMapping("address_list")
 	public String address_list(HttpServletRequest request) {
@@ -47,45 +51,35 @@ public class TestController {
 		request.setAttribute("addressList",addressList);
 		return "address_test";
 	}
-	
-	
-	
 	@RequestMapping("order_list")
 	public String order_list(HttpServletRequest request) {
 		List<OrderDomain> orderList=orderService.selectOrdersByName("helprun@naver.com");
 		request.setAttribute("orderList",orderList);
 		return "order_test";
 	}
-	
-	
 	@RequestMapping("productCategory_list")
 	public String productCategory_list(HttpServletRequest request) {
 		List<ProductCategoryDomain> productCategoryList= productCategoryService.selectAll();
 		request.setAttribute("productCategoryList",productCategoryList);
 		return "productCategory_test";
 	}
-	
-	
 	@RequestMapping("shop-right-sidebar")  
 	public String product_list(HttpServletRequest request) {
 		List<ProductDomain> productList=productService.selectAll();
 		request.setAttribute("productList",productList);
 		return "forward:/shop-right-sidebar.jsp";
 	}
-	
 	@RequestMapping("gukbap_main")  
 	public String index_product_list(HttpServletRequest request) {
 		List<ProductDomain> indexProductList=productService.selectProductByCategoryNo(1);
 		request.setAttribute("indexProductList", indexProductList);
+		List<ProductDomain> indexCountList=productService.selectProductOrderByClickCount();
+		request.setAttribute("indexCountList", indexCountList);
+		List<ReviewDomain> indexReviewList=reviewService.selectAllReviewArrangeInTheLatestFive();
+		request.setAttribute("indexReviewList", indexReviewList);
 		return "gukbap_main";
 	}
 	
-//	@RequestMapping("gukbap_main2")  
-//	public String index_count_list(HttpServletRequest request) {
-//		List<ProductDomain> indexCountList=productService.selectProductOrderByClickCount();
-//		request.setAttribute("indexCountList", indexCountList);
-//		return "gukbap_main";
-//	}
 	
 	@RequestMapping("f_product_list")  
 	public String f_product_list(@RequestParam int c_no,HttpServletRequest request) {

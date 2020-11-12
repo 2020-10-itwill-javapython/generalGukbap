@@ -51,7 +51,7 @@ public class ReviewRepositoryTestMain {
 		//System.out.println(reviewDao.deleteReviewByReviewNo(6));
 		
 		//9.최신 후기 5개
-		//System.out.println(reviewDao.selectAllReviewArrangeInTheLatestFive());
+		System.out.println(reviewDao.selectAllReviewArrangeInTheLatestFive());
 	
 		
 	}

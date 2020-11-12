@@ -40,15 +40,14 @@ public class ProductRepositoryImpl implements ProductRepository {
 	}
 	
 	@Override
-	public ProductDomain selectProductIsOnSale(String sysdate) {
-		return productMapper.selectProductIsOnSale(sysdate);
-	}
-	
-	@Override
 	public List<ProductDomain> selectProductOrderByClickCount() {
 		return productMapper.selectProductOrderByClickCount();
 	}
 	
+	@Override
+	public ProductDomain selectProductIsOnSale() {
+		return productMapper.selectProductIsOnSale();
+	}
 	@Override
 	public int updateProduct(ProductDomain product) {
 		return productMapper.updateProduct(product);
@@ -63,6 +62,8 @@ public class ProductRepositoryImpl implements ProductRepository {
 	public int deleteProductByProductNo(int product_no) {
 		return productMapper.deleteProductByProductNo(product_no);
 	}
+	
+
 
 
 

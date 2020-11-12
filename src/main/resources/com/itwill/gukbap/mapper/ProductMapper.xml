@@ -8,7 +8,7 @@
 	</select>
 	
 	<select id="selectProductOrderByClickCount" resultType="com.itwill.gukbap.domain.ProductDomain">
-		select * from ( select * from product order by product_click_count desc ) where rownum &lt;= 5
+		select * from product order by product_click_count desc
 	</select>
 	
 	<select id="selectProductByProductName" resultType="com.itwill.gukbap.domain.ProductDomain" parameterType="string">
@@ -23,15 +23,9 @@
 		select * from product where c_no= #{c_no}
 	</select>
 	
-	<!-- 수정해야 함 -->
-	<select id="selectProductIsOnSale" resultType="com.itwill.gukbap.domain.ProductDomain" parameterType="string">
-		select product_no, product_name, product_price*0.7 as product_price, 
-	   		   product_image, product_desc, product_sale_count, product_click_count, 
-	   		   c_no, product_order, product_isOnSale, product_discountRate, product_sale_date
-		from product
-		where product_sale_date= #{product_sale_date}
+	<select id="selectProductIsOnSale" resultType="com.itwill.gukbap.domain.ProductDomain">
+		select * from product where product_isonsale='true'
 	</select>
-	
 		
 	<!-- INSERT -->
 	<insert id="insertProduct" parameterType="com.itwill.gukbap.domain.ProductDomain">
