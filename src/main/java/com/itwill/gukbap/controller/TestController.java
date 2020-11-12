@@ -142,6 +142,7 @@ public class TestController {
 	
 	/*
 	
+<<<<<<< HEAD
 	
 	@RequestMapping("main")
 	public String main() {
@@ -165,6 +166,9 @@ public class TestController {
 	}
 	
 	
+=======
+
+>>>>>>> refs/heads/kim
 	
 	
 	
