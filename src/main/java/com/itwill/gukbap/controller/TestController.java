@@ -140,7 +140,7 @@ public class TestController {
 		return "wish_test";
 	}
 	
-	
+	/*
 	
 	
 	@RequestMapping("main")
@@ -168,7 +168,7 @@ public class TestController {
 	
 	
 	
-	
+	*/
 	
 	
 	

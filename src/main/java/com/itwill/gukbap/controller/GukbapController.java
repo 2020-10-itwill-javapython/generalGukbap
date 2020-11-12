@@ -55,7 +55,7 @@ public class GukbapController {
 			result = "redirect:/login.jsp";
 		} catch (ExistedUserExecption e) {
 			e.printStackTrace();
-			result = "redirect:/404.jsp";
+			result = "redirect:/error.jsp";
 		}
 		return result;
 	}
