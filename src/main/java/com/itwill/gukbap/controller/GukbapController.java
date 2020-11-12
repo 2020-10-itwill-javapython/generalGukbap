@@ -100,7 +100,10 @@ public class GukbapController {
 	public String chat() {
 		return "chat";
 	}
-
+	@RequestMapping("/error")
+	public String error() {
+		return "error";
+	}
 	@RequestMapping(value = "my-account")
 	public String myAccount(HttpSession session) {
 		String user_id = this.get_user_id_from_session(session);

@@ -78,7 +78,7 @@
 
 .portlet-green,
 .portlet-green>.portlet-heading {
-    border-color: #16a085;
+    border-color: #d40000;
 }
 
 .portlet-green>.portlet-heading {
@@ -136,7 +136,7 @@
 .portlet-default>.portlet-heading,
 .portlet-dark-blue>.portlet-heading {
     color: #fff;
-    background-color: #34495e;
+    background-color: #d40000;
 }
 
 .portlet-basic,
@@ -162,7 +162,7 @@ height:40px;
 }
 
 .text-green {
-    color: #16a085;
+    color: #fff;
 }
 
 .text-orange {
