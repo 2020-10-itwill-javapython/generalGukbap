@@ -11,7 +11,7 @@ public interface AddressService {
 
 	public AddressDomain selectAddressByNo(int address_no);
 
-	public int insertAddress(AddressDomain address, UserAddressDomain userAddressDomain);
+	public int insertAddress(AddressDomain address, String user_id);
 
 	public int updateAddress(AddressDomain address);
 

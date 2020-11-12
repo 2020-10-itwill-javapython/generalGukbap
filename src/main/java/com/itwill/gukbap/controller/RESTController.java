@@ -2,11 +2,9 @@ package com.itwill.gukbap.controller;
 
 import java.util.List;
 
-
 import javax.servlet.http.HttpServletRequest;
 
 import javax.servlet.http.HttpSession;
-
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
@@ -27,7 +25,7 @@ import com.itwill.gukbap.service.UserService;
 
 @RestController
 public class RESTController {
-	
+
 	@Autowired
 	UserService userService;
 	@Autowired
@@ -36,37 +34,42 @@ public class RESTController {
 	OrderService orderService;
 	@Autowired
 	AddressService addressService;
-
-	@RequestMapping(value = "modal_prodcut_detail",
-					produces = "application/json;charset=UTF-8")
+	
+	@RequestMapping(value = "delete_address_action",
+					method = RequestMethod.POST)
+	public void delete_address_action(@RequestParam String address_no, HttpSession session) {
+		addressService.
+		deleteAddress(Integer.parseInt(address_no), 
+					  GukbapController.get_user_id_from_session(session));
+	}
+	
+	@RequestMapping(value = "add_new_address", method = RequestMethod.POST)
+	public void add_new_address(@ModelAttribute AddressDomain address, HttpSession session) {
+		String user_id = GukbapController.get_user_id_from_session(session);
+		addressService.insertAddress(address, user_id);
+	}
+	
+	@RequestMapping(value = "modal_prodcut_detail", produces = "application/json;charset=UTF-8")
 	public ProductDomain get_product_detail(@RequestParam String product_no) {
 		ProductDomain product = productService.selectProductByProductNo(Integer.parseInt(product_no));
 		return product;
 	}
-	
-	@RequestMapping(value = "prodcut_list",
-			produces = "application/json;charset=UTF-8")
-	public List<ProductDomain> prodcut_list(@RequestParam int c_no,HttpServletRequest request) {
-		List<ProductDomain> productList=productService.selectProductByCategoryNo(c_no);
-		//request.setAttribute("productList",productList);
+
+	@RequestMapping(value = "prodcut_list", produces = "application/json;charset=UTF-8")
+	public List<ProductDomain> prodcut_list(@RequestParam int c_no, HttpServletRequest request) {
+		List<ProductDomain> productList = productService.selectProductByCategoryNo(c_no);
+		// request.setAttribute("productList",productList);
 		return productList;
 	}
-	
-	
 
-		
-
-	@RequestMapping(value = "update_user_info",
-					method = RequestMethod.POST)
+	@RequestMapping(value = "update_user_info", method = RequestMethod.POST)
 	public void update_user_info(@ModelAttribute UserDomain update_user, HttpSession session) {
 		userService.updateUserInfo(update_user);
 		UserDomain user = userService.selectUserById(update_user.getUser_id());
 		session.setAttribute("loginUser", user);
 	}
-	
-	@RequestMapping(value = "user_existed_id_check", 
-					method = RequestMethod.POST,
-					produces = "text/plain;charset=UTF-8")
+
+	@RequestMapping(value = "user_existed_id_check", method = RequestMethod.POST, produces = "text/plain;charset=UTF-8")
 	public String user_exist_check(@RequestParam String user_id) {
 		String isExist = "false";
 		UserDomain user = userService.selectUserById(user_id);

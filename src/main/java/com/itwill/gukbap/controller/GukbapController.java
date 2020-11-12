@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.itwill.gukbap.domain.AddressDomain;
 import com.itwill.gukbap.domain.OrderDomain;
+import com.itwill.gukbap.domain.UserAddressDomain;
 import com.itwill.gukbap.domain.UserDomain;
 import com.itwill.gukbap.exception.ExistedUserExecption;
 import com.itwill.gukbap.service.AddressService;
@@ -31,6 +32,13 @@ public class GukbapController {
 	OrderService orderService;
 	@Autowired
 	AddressService addressService;
+	
+	@RequestMapping(value = "update_address_info",
+					method = RequestMethod.POST)
+	public String update_address_info(@ModelAttribute AddressDomain address) {
+		addressService.updateAddress(address);
+		return "redirect:/my-account";
+	}
 	
 	@RequestMapping(value = "logout_action")
 	public String logout_action(HttpSession session) {
@@ -95,8 +103,7 @@ public class GukbapController {
 
 	@RequestMapping(value = "my-account")
 	public String myAccount(HttpSession session) {
-		UserDomain loginUser = (UserDomain) session.getAttribute("loginUser");
-		String user_id = loginUser.getUser_id();
+		String user_id = this.get_user_id_from_session(session);
 		List<AddressDomain> addresses = addressService.select_addresses_by_id(user_id);
 		List<OrderDomain> orders = orderService.selectOrdersByName(user_id);
 		session.setAttribute("addresses", addresses);
@@ -135,6 +142,11 @@ public class GukbapController {
 		}
 		return result;
 	}
-	
+
+	protected static String get_user_id_from_session(HttpSession session) {
+		UserDomain user = (UserDomain) session.getAttribute("loginUser");
+		return user.getUser_id();
+	}
+
 	
 }

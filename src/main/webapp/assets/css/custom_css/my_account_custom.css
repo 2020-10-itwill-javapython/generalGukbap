@@ -11,13 +11,14 @@
 }
 
 .account_login_form form input {
-    margin-bottom: 5px;
+	margin-bottom: 5px;
 }
 
 #save_button, #save_button button {
 	float: right;
 	color: white;
 	margin-top: 2px;
+	margin-left: 0em;
 }
 
 #user_id_input {
@@ -29,53 +30,107 @@
 	font: bolder;
 }
 
-.modal-footer button{
+.modal-footer button {
 	color: white;
 	background-color: #0d6efd;
-    border-color: #0d6efd;
+	border-color: #0d6efd;
 }
 
 .dashboard_content address {
-    display: inline;
+	display: inline;
 }
 
 form[name=address_update_form] input {
-    border: 1px solid #ddd;
-    background: none;
-    height: 40px;
-    margin-bottom: 20px;
-    width: 100%;
-    padding: 0 20px;
-    color: #222222;
+	border: 1px solid #ddd;
+	background: none;
+	height: 40px;
+	margin-bottom: 20px;
+	width: 100%;
+	padding: 0 20px;
+	color: #222222;
 }
 
-
 .dashboard_content button {
-    color: white;
-    background-color: #dc3545;
-    border-color: #dc3545;
-    float: right;
-    margin-left: 20em;
+	color: white;
+	background-color: #dc3545;
+	border-color: #dc3545;
+	float: right;
+	margin-left: 20em;
 }
 
 form {
-    margin-top: 10px;
+	margin-top: 10px;
 }
 
-#address > div > div > form {
+#address>div>div>form {
 	display: inline-block;
 }
 
 #address .col-md-6 input {
-    border: 1px solid #ddd;
-    background: none;
-    height: 40px;
-    margin-bottom: 20px;
-    width: 100%;
-    padding: 0 20px;
-    color: #222222;
+	border: 1px solid #ddd;
+	background: none;
+	height: 40px;
+	margin-bottom: 1px;
+	width: 100%;
+	padding: 0 20px;
+	color: #222222;
 }
 
 #add_new_address_btn {
-	float: right;
+    display: inline;
+    float: none;
+    margin-left: 73%;
+}
+
+#address .col-md-6 input[name=address_state] {
+	background-color: #cfcecc;
+}
+
+.billing-address {
+	display: inline;
+}
+
+#address_create_form input {
+	border: 1px solid #ddd;
+	background: none;
+	height: 40px;
+	margin-bottom: 1px;
+	width: 100%;
+	padding: 0 20px;
+	color: #222222;
+}
+
+#address_create_form input[name=address_state] {
+	background-color: #cfcecc;
+}
+
+#btn1, #btn2 {
+	display: inline-block;
+	float: none;
+	margin-left: 0px;
+}
+
+.dashboard_content .address_update_btn {
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    border-radius: .25rem;
+    display: inline;
+    margin-left: 17em;
+    float: none;
+    margin-right: 25px;
+}
+
+.dashboard_content .address_delete_btn {
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    border-radius: .25rem;
+    display: inline;
+    margin-left: -13px;
+    float: none;
+}
+
+#delete_address_btn1, #delete_address_btn2 {
+	display: inline-block;
+	float: none;
+	margin-left: 0px;
 }

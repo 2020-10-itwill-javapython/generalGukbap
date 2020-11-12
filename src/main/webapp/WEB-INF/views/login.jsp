@@ -32,17 +32,25 @@
         <div class="container">
             <div class="row">
                <!--login area start-->
-                <div class="col-lg-6 col-md-6">
+                <div class="offset-md-3 col-md-6 offset-md-3">
                     <div class="account_form">
-                        <h2>login</h2>
+                        <h2>로그인</h2>
                         <form id="login_action_form" action="login_action" method="POST">
                             <p>   
-                                <label>Username or email <span>*</span></label>
-                                <input id="user_id" name="user_id" type="text"
-                                 		value="${user_id}">
+                                <label>아이디(이메일)<span>*</span></label>
+                                <c:choose>
+                                <c:when test="${empty user_id }">
+                                	<input id="user_id" name="user_id" type="text"
+                                 	value="${cookie['saved_id'].value}">
+                                </c:when>
+                                <c:otherwise>
+                                	<input id="user_id" name="user_id" type="text"
+                                 	value="${user_id}">
+                                </c:otherwise>
+                                </c:choose>
                              </p>
                              <p>   
-                                <label>Passwords <span>*</span></label>
+                                <label>비밀번호 <span>*</span></label>
                                 <input id="password" name="password" type="password"
                                 	  >
                                 <c:if test="${empty loginUser}">
@@ -50,12 +58,21 @@
                                 </c:if>
                              </p>
                             <div class="login_submit">
-                               <a href="#">Lost your password?</a>
+                               <a href="#">비밀번호 찾기</a>
                                 <label for="remember">
-                                    <input id="remember" type="checkbox">
-                                    Remember me
-                                </label>
-                                <button type="submit">login</button>
+                                <c:choose>
+	                                <c:when test="${empty cookie['saved_id'].value}">
+	                                    <input id="remember" name="save_id_check" type="checkbox">
+	                                    아이디 저장
+	                                </c:when>
+	                                <c:otherwise>
+	                                    <input id="remember" checked name="save_id_check" type="checkbox">
+	                                    아이디 저장
+	                                </c:otherwise>
+                                </c:choose>
+	                             </label>
+                                <button type="submit">로그인</button>
+                                <button type="button">회원가입</button>
                                 
                             </div>
 
@@ -65,24 +82,6 @@
                 <!--login area start-->
 
                 <!--register area start-->
-                <div class="col-lg-6 col-md-6">
-                    <div class="account_form register">
-                        <h2>Register</h2>
-                        <form action="#">
-                            <p>   
-                                <label>Email address  <span>*</span></label>
-                                <input type="text">
-                             </p>
-                             <p>   
-                                <label>Passwords <span>*</span></label>
-                                <input type="password">
-                             </p>
-                            <div class="login_submit">
-                                <button type="submit">Register</button>
-                            </div>
-                        </form>
-                    </div>    
-                </div>
                 <!--register area end-->
             </div>
         </div>    

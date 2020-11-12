@@ -32,8 +32,10 @@ public class AddressServiceImpl implements  AddressService {
 	
 
 	@Override
-	public int insertAddress(AddressDomain address, UserAddressDomain userAddressDomain) {
+	public int insertAddress(AddressDomain address, String user_id) {
 		addressRepository.insertAddress(address);
+		int address_no = addressRepository.selectCurrentNo();
+		UserAddressDomain userAddressDomain = new UserAddressDomain(user_id, address_no);
 		return userAddressRepository.map_user_with_address(userAddressDomain);
 	}
 	
