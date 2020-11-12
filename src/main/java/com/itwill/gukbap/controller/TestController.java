@@ -67,7 +67,7 @@ public class TestController {
 		return "productCategory_test";
 	}
 	
-	
+	/********************************************************************/
 	@RequestMapping("shop-right-sidebar")  
 	public String product_list(HttpServletRequest request) {
 		List<ProductDomain> productList=productService.selectAll();
@@ -82,37 +82,37 @@ public class TestController {
 		request.setAttribute("productList",productList);
 		return "f_product_list";
 	}
-	
+	/*
 	@RequestMapping(value = "add_to_cart",method = RequestMethod.GET)
 	private String get_product_GET(HttpServletRequest request,HttpServletResponse response,@RequestParam String product_no)throws Exception {
 		return "redirect:/cart";
 	}
+	*/
 	
 	@RequestMapping(value = "add_to_cart",method = RequestMethod.POST)
-	private void get_product_POST(HttpServletRequest request,HttpServletResponse response,@RequestParam String product_no)throws Exception {
+	private String add_to_cart(HttpServletRequest request,@RequestParam String product_no,@RequestParam String pty) {
 		ProductDomain product=productService.selectProductByProductNo(Integer.parseInt(product_no));
-		UserDomain user = (UserDomain) request.getSession().getAttribute("loginUser");
+		//UserDomain user = (UserDomain) request.getSession().getAttribute("loginUser");
 		//user.getUser_id()
 //		orderService.insertOrder(
 //		"big-test@naver.com", 
 //		new OrderDetailDomain(0, 20, 1, productService.selectProductByProductNo(2)));
 		orderService.insertOrder("helprun@naver.com",new OrderDetailDomain(0,0,1,product));
-		response.sendRedirect("cart");
-	}
-	
-	@RequestMapping(value = "a_add_to_cart",method = RequestMethod.POST)
-	private void a_get_product_POST(HttpServletRequest request,HttpServletResponse response,@RequestParam String product_no)throws Exception {
-		ProductDomain product=productService.selectProductByProductNo(Integer.parseInt(product_no));
-		UserDomain user = (UserDomain) request.getSession().getAttribute("loginUser");
-		//user.getUser_id()
-//		orderService.insertOrder(
-//		"big-test@naver.com", 
-//		new OrderDetailDomain(0, 20, 1, productService.selectProductByProductNo(2)));
-		orderService.insertOrder("helprun@naver.com",new OrderDetailDomain(0,0,1,product));
-		response.sendRedirect("cart");
+		return "cart";
 	}
 	
 	
+	
+	@RequestMapping(value = "add_wishlist",method = RequestMethod.POST)
+	private String add_wishlist(@RequestParam String product_no,HttpServletRequest request) {
+		//UserDomain user = (UserDomain) request.getSession().getAttribute("loginUser");
+		//String user_id=user.getUser_id();	
+		wishListService.addToWishList("helprun@naver.com",Integer.parseInt(product_no));
+		return "wishlist";
+	}
+
+
+	/********************************************************************/
 	
 	@RequestMapping("guest_list")
 	public String guest_list(HttpServletRequest request) {

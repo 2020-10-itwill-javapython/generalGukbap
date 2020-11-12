@@ -66,12 +66,10 @@
                                         <a class="secondary_img" href="product-details?product_no=${product.product_no}"><img src="assets/img/product/${product.product_image}" alt=""></a>
                                   
                                         <div class="action_links">
-                                            <ul>
-                                               <li class="add_to_cart"><a title="Add to cart" p_no="${product.product_no}"><span class="lnr lnr-cart"></span></a></li>
-                                              
-                                                <li class="quick_button" ><a href="#" product_no="${product.product_no}" data-toggle="modal" data-target="#modal_box"  title="quick view"> <span class="lnr lnr-magnifier"  ></span></a></li>
-                                                 <li class="wishlist"><a href="wishlist.jsp" title="Add to Wishlist"><span class="lnr lnr-heart"></span></a></li>  
-                                                <li class="compare"><a href="#" title="Add to Compare"><span class="lnr lnr-sync"></span></a></li>
+                                            <ul>                                             
+                                               <button style="border: none; background: transparent;" name="add_to_cart_button" value="${product.product_no }" ><li class="add_to_cart"><a type="button" title="카트추가"><span class="lnr lnr-cart"></span></a></li></button>                                                                              
+                                                <li class="quick_button" ><a href="cart" product_no="${product.product_no}" data-toggle="modal" data-target="#modal_box"  title="quick view"> <span class="lnr lnr-magnifier"  ></span></a></li>
+                                                 <button style="border: none; background: transparent;" name="wishlist_button" value="${product.product_no }" ><li class="wishlist"><a title="찜 하기"><span class="lnr lnr-heart"></span></a></li></button>                                                 
                                             </ul>                                   
                                             </div>
                                    </div>
@@ -98,14 +96,12 @@
                                         <ul>
                                           
                                             <li class="add_to_cart" >
-                                            <form action="add_to_cart" method="POST">
-                                            	<button type="submit" name="product_no" value="${product.product_no }" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Add to cart">장바구니 추가</button>
-                                            </form>
+     
+                                            	<button type="submit" name="add_to_cart_button" value="${product.product_no }" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Add to cart">장바구니 추가</button>
+
                                             </li>
-                                            <li class="quick_button">
-                                            <a href="#" product_no="${product.product_no}" data-toggle="modal" data-target="#modal_box"  title="quick view"> <span class="lnr lnr-magnifier"></span></a>
-                                            </li>
-                                             <li class="wishlist"><a href="wishlist.jsp" title="Add to Wishlist"><span class="lnr lnr-heart"></span></a></li>  
+                                            <li class="quick_button"><a href="#" product_no="${product.product_no}" data-toggle="modal" data-target="#modal_box"  title="quick view"> <span class="lnr lnr-magnifier"></span></a></li>
+                                            <button style="border: none; background: transparent;" name="wishlist_button" value="${product.product_no }" ><li class="wishlist"><a title="Add to Wishlist"><span class="lnr lnr-heart"></span></a></li></button>   
                                           
                                         </ul>
                                    
@@ -119,17 +115,7 @@
                      
                     
                   
-                    <div class="shop_toolbar t_bottom">
-                        <div class="pagination">
-                            <ul>
-                                <li class="current">1</li>
-                                <li><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li class="next"><a href="#">next</a></li>
-                                <li><a href="#">>></a></li>
-                            </ul>
-                        </div>
-                    </div>
+              
                     <!--shop toolbar end-->
                     <!--shop wrapper end-->
                 </div>
@@ -235,15 +221,14 @@
                                            <h2>size</h2>
                                            <select class="select_option">
                                                <option selected value="1">기본</option>
-                                               <option value="1">특</option>
-                                  
+                                               <option value="2">특</option>                                  
                                            </select>
                                         </div>
                    
                                         <div class="modal_add_to_cart">
-                                            <form action="#">
-                                                <input min="1" max="100" step="1" value="1" type="number">
-                                                <button type="submit">장바구니 추가</button>
+                                            <form action="add_to_cart" method="post">
+                                                <input min="1" max="100" step="1" value="1" type="number" name="pty">
+                                                <button id="modal_button_p_no" type="submit" name="product_no" value="">장바구니 추가</button>
                                             </form>
                                         </div>   
                                     </div>
