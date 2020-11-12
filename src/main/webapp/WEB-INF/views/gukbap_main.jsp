@@ -4,17 +4,11 @@
     <!--header area end-->
     
     <!--slider area start-->
-            <div class="single_slider d-flex align-items-center" data-bgimg="assets/img/slider/slider2.jpg">
+            <div class="single_slider d-flex align-items-center" data-bgimg="assets/img/slider/cauldron.jpg">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="slider_content">
-                                <h1>Fresh Vegetables</h1>
-                                <h2>Natural Farm Products</h2>
-                                <p>
-								Widest range of farm-fresh Vegetables, Fruits & seasonal produce
-							     </p> 
-                                <a href="index.jsp">Read more </a>
                             </div>
                         </div>
                     </div>
@@ -79,7 +73,7 @@
                                                     </div>
                                                     <div class="action_links">
                                                         <ul>
-                                                            <li class="add_to_cart"><a href="cart.html" title="Add to cart"><span class="lnr lnr-cart"></span></a></li>
+                                                            <li class="add_to_cart"><a href="cart" title="Add to cart"><span class="lnr lnr-cart"></span></a></li>
                                                             <li class="quick_button"><a href="#" data-toggle="modal" data-target="#modal_box"  title="quick view"> <span class="lnr lnr-magnifier"></span></a></li>
                                                              <li class="wishlist"><a href="wishlist.html" title="Add to Wishlist"><span class="lnr lnr-heart"></span></a></li>  
                                                             <li class="compare"><a href="#" title="Add to Compare"><span class="lnr lnr-sync"></span></a></li>

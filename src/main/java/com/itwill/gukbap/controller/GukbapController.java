@@ -35,7 +35,7 @@ public class GukbapController {
 	@RequestMapping(value = "logout_action")
 	public String logout_action(HttpSession session) {
 		session.invalidate();
-		return "redirect:/index.jsp";
+		return "redirect:/gukbap_main";
 	}
 	
 	@RequestMapping(value = "register_user", 
@@ -59,6 +59,38 @@ public class GukbapController {
 	@RequestMapping("/about")
 	public String about() {
 		return "about";
+	}
+	@RequestMapping("/cart")
+	public String cart() {
+		return "cart";
+	}
+	@RequestMapping("/wishlist")
+	public String wishlist() {
+		return "wishlist";
+	}
+	@RequestMapping("/contact")
+	public String contact() {
+		return "contact";
+	}
+	@RequestMapping("/services")
+	public String services() {
+		return "services";
+	}
+	@RequestMapping("/blog_sidebar")
+	public String blog_sidebar() {
+		return "blog_sidebar";
+	}
+	@RequestMapping("/blog_details")
+	public String blog_details() {
+		return "blog_details";
+	}
+	@RequestMapping("/checkout")
+	public String checkout() {
+		return "checkout";
+	}
+	@RequestMapping("/chat")
+	public String chat() {
+		return "chat";
 	}
 
 	@RequestMapping(value = "my-account")
@@ -94,7 +126,7 @@ public class GukbapController {
 			if (save_id_check) {
 				response.addCookie(new Cookie("saved_id", user_id));
 			}
-			result = "forward:/index.jsp";
+			result = "forward:/gukbap_main";
 		} catch (Exception e) {
 			session.setAttribute("msg", e.getMessage());
 			session.setAttribute("user_id", user_id);
