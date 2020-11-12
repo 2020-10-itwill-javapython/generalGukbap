@@ -117,24 +117,7 @@ public class TestController {
 		return "forward:/shop-fullwidth-list";
 	}
 	
-	
-	@RequestMapping("main")
-	public String main() {
-		return "index";
-	}
-	
-	@RequestMapping("login")
-	public String login() {
-		return "login";
-	}
-	
-	
-	@RequestMapping("shop_list")
-	public String shop_list() {
-		return "shop-fullwidth-list";
-	}
-	
-	
+
 	
 	
 	
