@@ -3,6 +3,7 @@ package com.itwill.gukbap.controller;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.itwill.gukbap.domain.AddressDomain;
+import com.itwill.gukbap.domain.OrderDetailDomain;
 import com.itwill.gukbap.domain.OrderDomain;
 import com.itwill.gukbap.domain.ProductCategoryDomain;
 import com.itwill.gukbap.domain.ProductDomain;
@@ -63,11 +65,15 @@ public class TestController {
 		request.setAttribute("productCategoryList",productCategoryList);
 		return "productCategory_test";
 	}
+
+	
+	/********************************************************************/
+
 	@RequestMapping("shop-right-sidebar")  
 	public String product_list(HttpServletRequest request) {
 		List<ProductDomain> productList=productService.selectAll();
 		request.setAttribute("productList",productList);
-		return "forward:/shop-right-sidebar.jsp";
+		return "shop-right-sidebar";
 	}
 	@RequestMapping("gukbap_main")  
 	public String index_product_list(HttpServletRequest request) {
@@ -86,8 +92,39 @@ public class TestController {
 		List<ProductDomain> productList=productService.selectProductByCategoryNo(c_no);
 		//request.setAttribute("productList",productList);
 		request.setAttribute("productList",productList);
-		return "forward:/f_product_list.jsp";
+		return "f_product_list";
 	}
+	/*
+	@RequestMapping(value = "add_to_cart",method = RequestMethod.GET)
+	private String get_product_GET(HttpServletRequest request,HttpServletResponse response,@RequestParam String product_no)throws Exception {
+		return "redirect:/cart";
+	}
+	*/
+	
+	@RequestMapping(value = "add_to_cart",method = RequestMethod.POST)
+	private String add_to_cart(HttpServletRequest request,@RequestParam String product_no,@RequestParam String pty) {
+		ProductDomain product=productService.selectProductByProductNo(Integer.parseInt(product_no));
+		//UserDomain user = (UserDomain) request.getSession().getAttribute("loginUser");
+		//user.getUser_id()
+//		orderService.insertOrder(
+//		"big-test@naver.com", 
+//		new OrderDetailDomain(0, 20, 1, productService.selectProductByProductNo(2)));
+		orderService.insertOrder("helprun@naver.com",new OrderDetailDomain(0,0,1,product));
+		return "cart";
+	}
+	
+	
+	
+	@RequestMapping(value = "add_wishlist",method = RequestMethod.POST)
+	private String add_wishlist(@RequestParam String product_no,HttpServletRequest request) {
+		//UserDomain user = (UserDomain) request.getSession().getAttribute("loginUser");
+		//String user_id=user.getUser_id();	
+		wishListService.addToWishList("helprun@naver.com",Integer.parseInt(product_no));
+		return "wishlist";
+	}
+
+
+	/********************************************************************/
 	
 	@RequestMapping("guest_list")
 	public String guest_list(HttpServletRequest request) {
@@ -103,13 +140,7 @@ public class TestController {
 		return "wish_test";
 	}
 	
-	@RequestMapping(value = "product_details",method = RequestMethod.POST)
-	public String product_details(@RequestParam String product_no,HttpSession session) {
-		int product = Integer.parseInt(product_no);
-		ProductDomain productDomain= productService.selectProductByProductNo(product);
-		session.setAttribute("product", productDomain);
-		return "forward:/shop-fullwidth-list";
-	}
+	
 	
 	
 	@RequestMapping("main")
@@ -120,6 +151,11 @@ public class TestController {
 	@RequestMapping("login")
 	public String login() {
 		return "login";
+	}
+	
+	@RequestMapping("cart")
+	public String cart() {
+		return "cart";
 	}
 	
 	

@@ -1,0 +1,21 @@
+@charset "UTF-8";
+
+.list_action_right ul li.add_to_cart button {
+    padding: 0 30px;
+    height: 42px;
+    line-height: 40px;
+    background: #222;
+    color: #fff;
+    border-radius: 30px;
+    width: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: capitalize;
+    border-color: #222;
+}
+
+.list_action_right ul li.add_to_cart button:hover {
+	background: #d40000;
+	border-color: #d40000;
+	transition: all 0.3s ease 0s;
+}
