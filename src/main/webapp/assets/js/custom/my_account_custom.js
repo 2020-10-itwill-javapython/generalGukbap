@@ -74,4 +74,102 @@ $(function() {
 			})
 		}
 	});
-})
+	
+	$("#address form").validate({
+		rules: {
+			address_street: {
+				required: true,
+			},
+			address_street_optional: {
+				required: true,
+			},
+			address_city: {
+				required: true,
+			}
+		},
+		messages: {
+			address_street: {
+				required: '주소지를 입력하세요'
+			},
+			address_street_optional: {
+				required: '주소지를 입력하세요'
+			},
+			address_city: {
+				required: '도시를 입력하세요'
+			}
+		}
+	});
+	
+	$('#address_create_form').validate({
+		rules: {
+			address_street: {
+				required: true,
+			},
+			address_street_optional: {
+				required: true,
+			},
+			address_city: {
+				required: true,
+			}
+		},
+		messages: {
+			address_street: {
+				required: '주소지를 입력하세요'
+			},
+			address_street_optional: {
+				required: '주소지를 입력하세요'
+			},
+			address_city: {
+				required: '도시를 입력하세요'
+			}
+		},
+		submitHandler: function(e) {
+			$('#add_new_address_confirm').modal();
+			$('#btn1').on('click', function() {
+				$('#add_new_address_success_notice').modal();
+				/*$('#address_create_form').submit();*/
+			});
+			
+			$('#add_new_address_success_notice_btn').on('click', function(e) {
+				$.ajax({
+					url: 'add_new_address',
+					data: $('#address_create_form').serialize(),
+					method: 'POST',
+					dataType: 'text'
+				});
+				location.reload();
+			});
+		}
+	});
+	
+	$('#add_new_address_btn').on('click', function(e) {
+			$('#add_new_address_modal').modal();
+	});
+	
+	$('#address form address .address_update_btn').on('click', function(e) {
+		e.preventDefault();
+		$('#address_info_update_notice_modal').modal();
+		$('#address_info_update_notice_modal .modal-footer button').on('click', function(){
+			$(e.target).parent().parent().submit();
+		})
+	});
+	
+	$('#address form address .address_delete_btn').on('click', function(e) {
+		e.preventDefault();
+		$('#delete_address_confirm').modal();
+		$('#delete_address_btn1').on('click', function(){
+			$.ajax({
+				url: 'delete_address_action',
+				data: $(e.target).parent().parent().serialize(),
+				dataType: 'text',
+				method: 'POST',
+				success: function() {
+					$('#delete_address_confirm_notice_btn').on('click', function() {
+						location.reload();
+					})
+				}
+			})
+		})
+	});
+	
+}) 

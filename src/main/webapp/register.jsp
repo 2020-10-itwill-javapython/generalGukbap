@@ -72,7 +72,7 @@
                                                 <input type="text" name="address_city">
                                                 <br/>
                                                 <label>국가<span class="isMandatory">* </span></label>
-                                                <input type="text" name="address_state">
+                                                <input type="text" value="대한민국" readonly name="address_state">
                                                 <br/>
                                                 <span class="custom_checkbox">
                                                     <input type="checkbox" value="1" name="newsletter">

@@ -76,23 +76,27 @@
                             </div>
                             <div class="tab-pane" id="address">
                                 <h4 class="billing-address">배송지 정보</h4>
+                                <button id="add_new_address_btn" class="btn btn-danger" type="submit">주소지 추가</button>
+                                <br/>
                                 <div class="row">
                                 <c:forEach var="address" items="${addresses }">
                                 <div class="col-md-6">
-                                <form id="address_update_form_${address.address_no }" action="">
+                                <form id="address_update_form_${address.address_no }", method="POST" action="update_address_info">
 	                                <address>
+	                                	<input type="hidden" value="${address.address_no }"  name="address_no">
 	                                	<label>회사 이름</label><br/>
-	                                	<input type="text" value="${address.address_company_name }" name="address_company_name"><br/>
+	                                	<input type="text" value="${address.address_company_name.trim() }" name="address_company_name"><br/>
 	                                	<label>주소</label><br/>
-	                                	<input type="text" value=" ${address.address_street }" name="address_street"><br/>
+	                                	<input type="text" value=" ${address.address_street.trim() }" name="address_street"><br/>
 	                                	<label>주소지 추가 정보</label><br/>
-	                                	<input type="text" value=" ${address.address_street_optional }" name="address_street_optional"><br/>
+	                                	<input type="text" value=" ${address.address_street_optional.trim() }" name="address_street_optional"><br/>
 	                                	<label>도시</label><br/>
-	                                	<input type="text" value="${address.address_city } " name="address_city"><br/>
+	                                	<input type="text" value="${address.address_city.trim() } " name="address_city"><br/>
 	                                	<label>국가</label><br/>
-	                                	<input type="text" value="${address.address_state }" name="address_state"><br/>
+	                                	<input type="text" value="${address.address_state.trim() }" readonly name="address_state"><br/>
 		                                <br/> 
-                                        <button class="btn btn-danger" address_no=${address.address_no } type="submit">수정</button>
+                                        <button class="address_update_btn" class="btn btn-danger" type="submit">수정</button>
+                                        <button class="address_delete_btn" class="btn btn-danger" type="button">삭제</button>
                                         <br/>
 	                                </address>
                                 </form>
@@ -149,13 +153,104 @@
 								<div class="modal-dialog" role="document">
 									<div class="modal-content">
 										<div class="modal-header">
-											<h5 class="modal-title">계정 정보 수정 완료</h5>
+											<h5 class="modal-title">수정 완료</h5>
 										</div>
 										<div class="modal-body">
-											<p>계정 정보가 성공적으로 수정됬습니다.</p>
+											<p>유저 정보가 성공적으로 수정됬습니다.</p>
 										</div>
 										<div class="modal-footer">
 											<button type="button" class="btn btn-primary" data-dismiss="modal">확인</button>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div id="address_info_update_notice_modal" class="modal fade" tabindex="-1" role="dialog">
+								<div class="modal-dialog" role="document">
+									<div class="modal-content">
+										<div class="modal-header">
+											<h5 class="modal-title">수정 완료</h5>
+										</div>
+										<div class="modal-body">
+											<p>주소지 정보가 성공적으로 수정됬습니다.</p>
+										</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-primary" data-dismiss="modal">확인</button>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div id="add_new_address_modal" class="modal fade" tabindex="-1" role="dialog">
+								<div class="modal-dialog" role="document">
+									<div class="modal-content">
+										<div class="modal-header">
+											<h5 class="modal-title">주소지 추가</h5>
+										</div>
+										<div class="modal-body">
+											<form id="address_create_form", method="POST" action="">
+				                                	<label>회사 이름</label><br/>
+				                                	<input type="text" value="" name="address_company_name"><br/>
+				                                	<label>주소</label><br/>
+				                                	<input type="text" value="" name="address_street"><br/>
+				                                	<label>주소지 추가 정보</label><br/>
+				                                	<input type="text" value="" name="address_street_optional"><br/>
+				                                	<label>도시</label><br/>
+				                                	<input type="text" value="" name="address_city"><br/>
+				                                	<label>국가</label><br/>
+				                                	<input type="text" value="대한민국" readonly name="address_state"><br/>
+					                                <br/> 
+													<button type="submit" class="btn btn-primary">추가</button>
+			                                </form>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div id="add_new_address_confirm" class="modal fade" tabindex="-1" role="dialog">
+								<div class="modal-dialog" role="document">
+									<div class="modal-content">
+										<div class="modal-body">
+											<p>새로운 주소지를 추가하시겠습니까?</p>
+										</div>
+										<div class="modal-footer">
+											<button id="btn1" type="button" class="btn btn-primary" >예</button>
+											<button id="btn2" type="button" class="btn btn-primary" data-dismiss="modal">아니요</button>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div id="add_new_address_success_notice" class="modal fade" tabindex="-1" role="dialog">
+								<div class="modal-dialog" role="document">
+									<div class="modal-content">
+										<div class="modal-body">
+											<p>새로운 주소지가 추가되었습니다.</p>
+										</div>
+										<div class="modal-footer">
+											<button id="add_new_address_success_notice_btn" type="button" class="btn btn-primary" data-dismiss="modal">확인</button>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div id="delete_address_confirm" class="modal fade" tabindex="-1" role="dialog">
+								<div class="modal-dialog" role="document">
+									<div class="modal-content">
+										<div class="modal-body">
+											<p>주소지를 삭제하시겠습니까?</p>
+										</div>
+										<div class="modal-footer">
+											<button id="delete_address_btn1" type="button" 
+											data-toggle='modal' data-target='#delete_address_confirm_notice' class="btn btn-primary" >예</button>
+											<button id="delete_address_btn2" type="button" class="btn btn-primary" data-dismiss="modal">아니요</button>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div id="delete_address_confirm_notice" class="modal fade" tabindex="-1" role="dialog">
+								<div class="modal-dialog" role="document">
+									<div class="modal-content">
+										<div class="modal-body">
+											<p>주소지가 삭제 되었습니다</p>
+										</div>
+										<div class="modal-footer">
+											<button id="delete_address_confirm_notice_btn" type="button" class="btn btn-primary" data-dismiss="modal">확인</button>
 										</div>
 									</div>
 								</div>

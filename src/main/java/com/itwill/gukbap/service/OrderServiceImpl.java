@@ -43,9 +43,11 @@ public class OrderServiceImpl implements OrderService{
     	if (userOrders.size() == 1) {
 			latestOrder = userOrders.get(0);
 		} else {
-			for (int i = 0; i < userOrders.size() - 1; i++) {
+    		for (int i = 0; i < userOrders.size() - 1; i++) {
 				if (userOrders.get(i).getOrder_no() > userOrders.get(i+1).getOrder_no()) {
 					latestOrder = userOrders.get(i);
+				} else {
+					latestOrder = userOrders.get(i + 1);
 				}
 			}
 		}

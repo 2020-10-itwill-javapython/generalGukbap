@@ -23,7 +23,7 @@
     <!-- update -->
     <update id="updateAddress" parameterType="com.itwill.gukbap.domain.AddressDomain">
      update address set ADDRESS_COMPANY_NAME=#{address_company_name},ADDRESS_STREET=#{address_street},ADDRESS_STREET_OPTIONAL=#{address_street_optional},ADDRESS_CITY=#{address_city},
-     ADDRESS_STATE=#{address_city} WHERE ADDRESS_NO=#{address_no}
+     ADDRESS_STATE=#{address_state} WHERE ADDRESS_NO=#{address_no}
     </update>
     
     <!-- delete -->
