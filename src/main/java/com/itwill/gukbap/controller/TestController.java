@@ -104,12 +104,14 @@ public class TestController {
 	@RequestMapping(value = "add_to_cart",method = RequestMethod.POST)
 	private String add_to_cart(HttpServletRequest request,@RequestParam String product_no,@RequestParam String pty) {
 		ProductDomain product=productService.selectProductByProductNo(Integer.parseInt(product_no));
+		System.out.println(pty);
+		System.out.println(product_no);
 		//UserDomain user = (UserDomain) request.getSession().getAttribute("loginUser");
 		//user.getUser_id()
 //		orderService.insertOrder(
 //		"big-test@naver.com", 
 //		new OrderDetailDomain(0, 20, 1, productService.selectProductByProductNo(2)));
-		orderService.insertOrder("helprun@naver.com",new OrderDetailDomain(0,0,1,product));
+		//orderService.insertOrder("akiratksk@naver.com",new OrderDetailDomain(0,0,Integer.parseInt(pty),product));
 		return "cart";
 	}
 	

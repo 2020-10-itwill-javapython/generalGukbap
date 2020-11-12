@@ -5,8 +5,8 @@ $(function() {
      $("button[name=add_to_cart_button]").click(function(e) {
         var product_no = $(this).val();
 		var param = 'product_no=' + product_no;
-		var pty='pty=1';
-		var allData = { "product_no": product_no, "pty": '1' };
+		var pty='1';
+		var allData = { "product_no": product_no, "pty": pty };
 		 console.log(param); 
 		 console.log(pty); 
 			$.ajax({
