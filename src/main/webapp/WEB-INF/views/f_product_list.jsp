@@ -15,7 +15,7 @@
                                                 <li class="quick_button" ><a href="cart" product_no="${product.product_no}" data-toggle="modal" data-target="#modal_box"  title="quick view"> <span class="lnr lnr-magnifier"  ></span></a></li>
                                                  <button style="border: none; background: transparent;" name="wishlist_button" value="${product.product_no }" ><li class="wishlist"><a title="찜 하기"><span class="lnr lnr-heart"></span></a></li></button>                                                 
                                             </ul>                                   
-                                            </div>
+                                        </div>
                                    </div>
                                         
                                     

@@ -64,7 +64,16 @@
                                 <div class="product_thumb">
                                         <a class="primary_img" href="product-details?product_no=${product.product_no}"><img src="assets/img/product/${product.product_image}" alt=""></a>
                                         <a class="secondary_img" href="product-details?product_no=${product.product_no}"><img src="assets/img/product/${product.product_image}" alt=""></a>
-                                  
+                                  		<c:choose>
+                                  			<c:when test="${product.product_isOnSale}">
+												<div class="label_product">
+													<span class="label_sale">할인</span>
+												</div>
+											</c:when>
+											<c:otherwise>
+											</c:otherwise>
+										</c:choose>
+														
                                         <div class="action_links">
                                             <ul>                                             
                                                <button style="border: none; background: transparent;" name="add_to_cart_button" value="${product.product_no }" ><li class="add_to_cart"><a type="button" title="카트추가"><span class="lnr lnr-cart"></span></a></li></button>                                                                              
@@ -77,17 +86,19 @@
                                     
                                 <div class="product_content grid_content">
                                         <h4 class="product_name"><a href="product-details?product_no=${product.product_no}" id="product_name">${product.product_name}</a></h4>
-
-                                        <div class="price_box"> 
-                                            <span class="current_price">${product.product_price}원</span> 
-                                        </div>
-                                  </div>
+                                        <div class="price_box">
+											<span class="current_price">${product.product_price*0.7}원</span>
+											<span class="old_price">${product.product_price}원</span>
+										</div>
+                                </div>
                                 <div class="product_content list_content">
                                     <h4 class="product_name"><a href="product-details?product_no=${product.product_no}">${product.product_name}</a></h4>
+                                    <div class="price_box">
+										<span class="current_price">${product.product_price*0.7}원</span>
+										<span class="old_price">${product.product_price}원</span>
+									</div>
                                    
-                                    <div class="price_box"> 
-                                        <span class="current_price">${product.product_price}원</span>
-                                    </div>
+                                    
                                     <div class="product_desc">
                                         <p>${product.product_desc}</p>
                                     </div>
