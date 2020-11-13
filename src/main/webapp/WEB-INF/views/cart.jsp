@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>	    
 	<jsp:include page="common_header.jsp"/>
+
 <body>
 
 
@@ -40,53 +42,33 @@
                                 <table>
                             <thead>
                                 <tr>
-                                    <th class="product_remove">Delete</th>
-                                    <th class="product_thumb">Image</th>
-                                    <th class="product_name">Product</th>
-                                    <th class="product-price">Price</th>
-                                    <th class="product_quantity">Quantity</th>
-                                    <th class="product_total">Total</th>
+                                    <th class="product_remove">삭제</th>
+                                    <th class="product_thumb">이미지</th>
+                                    <th class="product_name">제품</th>
+                                    <th class="product-price">가격</th>
+                                    <th class="product_quantity">수량</th>
+                                    <th class="product_total">합계</th>
                                 </tr>
                             </thead>
+                          <c:forEach items="${orderDetailList}" var="orderDetail">  
                             <tbody>
                                 <tr>
-                                   <td class="product_remove"><a href="#"><i class="fa fa-trash-o"></i></a></td>
-                                    <td class="product_thumb"><a href="#"><img src="assets/img/product/productbig1.jpg" alt=""></a></td>
-                                    <td class="product_name"><a href="#">Handbag fringilla</a></td>
-                                    <td class="product-price">Â£65.00</td>
-                                    <td class="product_quantity"><label>Quantity</label> <input min="1" max="100" value="1" type="number"></td>
-                                    <td class="product_total">Â£130.00</td>
-
-
+                                   <td class="product_remove"><a><i class="fa fa-trash-o"></i></a></td>
+                                    <td class="product_thumb"><a><img src="assets/img/product/${orderDetail.product.product_image}"></a></td>
+                                    <td class="product_name"><a>${orderDetail.product.product_name}</a></td>
+                                    <td class="product-price">${orderDetail.product.product_price}</td>
+                                    <td class="product_quantity"><label>${orderDetail.o_d_product_count}</label></td>
+                                    <td class="product_total">${orderDetail.product.product_price*orderDetail.o_d_product_count}</td>
                                 </tr>
-
-                                <tr>
-                                   <td class="product_remove"><a href="#"><i class="fa fa-trash-o"></i></a></td>
-                                    <td class="product_thumb"><a href="#"><img src="assets/img/product/productbig2.jpg" alt=""></a></td>
-                                    <td class="product_name"><a href="#">Handbags justo</a></td>
-                                    <td class="product-price">Â£90.00</td>
-                                    <td class="product_quantity"><label>Quantity</label> <input min="1" max="100" value="1" type="number"></td>
-                                    <td class="product_total">Â£180.00</td>
-
-
-                                </tr>
-                                <tr>
-                                   <td class="product_remove"><a href="#"><i class="fa fa-trash-o"></i></a></td>
-                                    <td class="product_thumb"><a href="#"><img src="assets/img/product/productbig3.jpg" alt=""></a></td>
-                                    <td class="product_name"><a href="#">Handbag elit</a></td>
-                                    <td class="product-price">Â£80.00</td>
-                                    <td class="product_quantity"><label>Quantity</label> <input min="1" max="100" value="1" type="number"></td>
-                                    <td class="product_total">Â£160.00</td>
-
-
-                                </tr>
-
                             </tbody>
+                            </c:forEach>
                         </table>   
                             </div>  
+                            <!-- 
                             <div class="cart_submit">
                                 <button type="submit">update cart</button>
-                            </div>      
+                            </div> 
+                              -->   
                         </div>
                      </div>
                  </div>

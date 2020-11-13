@@ -34,6 +34,25 @@ public class OrderServiceImpl implements OrderService{
     	return orderRepository.selectOrderByNo(order_no);
     }
     
+    @Override
+    public int highOrderNo(String user_id) {
+    	List<OrderDomain> orders = orderRepository.selectOrdersByName(user_id);
+    	OrderDomain higest_order = new OrderDomain();
+    	
+    	if (orders.size() == 1) {
+			higest_order = orders.get(0);
+		} else {
+			for (int i = 0; i < orders.size() - 1; i++) {
+				if (orders.get(i).getOrder_no() > orders.get(i + 1).getOrder_no()) {
+					higest_order = orders.get(i);
+				} else {
+					higest_order = orders.get(i + 1);
+				}
+			}
+		}
+    	
+    	return higest_order.getOrder_no(); 
+    }
     
     @Override
     public void insertOrder(String user_id, OrderDetailDomain orderDetailDomain) {

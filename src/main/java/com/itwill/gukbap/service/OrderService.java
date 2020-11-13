@@ -18,4 +18,6 @@ public interface OrderService {
 	public List<OrderDomain> selectOrdersByName(String user_id);
 	
 	public int createEmptyOrder(String user_id);
+	
+	public int highOrderNo(String user_id);
 }

@@ -86,6 +86,19 @@ public class TestController {
 		return "gukbap_main";
 	}
 	
+	@RequestMapping("cart")
+	public String cart(HttpServletRequest request) {
+		//UserDomain user = (UserDomain) request.getSession().getAttribute("loginUser");
+        UserDomain user=userService.selectUserById("akiratksk@hotmail.com");
+        int order_no=orderService.highOrderNo(user.getUser_id());
+        OrderDomain order= orderService.selectOrderByNo(order_no);
+        List<OrderDetailDomain> orderDetailList= order.getOrderDetailList();
+        request.setAttribute("order",order);
+        request.setAttribute("orderDetailList",orderDetailList);
+		return "cart";
+	}
+	
+	
 	
 	@RequestMapping("f_product_list")  
 	public String f_product_list(@RequestParam int c_no,HttpServletRequest request) {
@@ -111,7 +124,7 @@ public class TestController {
 //		orderService.insertOrder(
 //		"big-test@naver.com", 
 //		new OrderDetailDomain(0, 20, 1, productService.selectProductByProductNo(2)));
-		//orderService.insertOrder("akiratksk@naver.com",new OrderDetailDomain(0,0,Integer.parseInt(pty),product));
+		orderService.insertOrder("akiratksk@hotmail.com",new OrderDetailDomain(0,0,Integer.parseInt(pty),product));
 		return "cart";
 	}
 	

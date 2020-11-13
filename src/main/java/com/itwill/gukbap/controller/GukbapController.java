@@ -68,10 +68,7 @@ public class GukbapController {
 	public String about() {
 		return "about";
 	}
-	@RequestMapping("/cart")
-	public String cart() {
-		return "cart";
-	}
+	
 	@RequestMapping("/wishlist")
 	public String wishlist() {
 		return "wishlist";
