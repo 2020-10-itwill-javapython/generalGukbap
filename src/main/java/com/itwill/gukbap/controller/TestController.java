@@ -1,5 +1,6 @@
 package com.itwill.gukbap.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -80,9 +81,16 @@ public class TestController {
 	public String cart(HttpServletRequest request) {
 		//UserDomain user = (UserDomain) request.getSession().getAttribute("loginUser");
         UserDomain user=userService.selectUserById("jaeil@naver.com");
+
         int order_no=orderService.highOrderNo(user.getUser_id());
+        System.out.println(order_no);
         OrderDomain order= orderService.selectOrderByNo(order_no);
+        System.out.println(order);
         List<OrderDetailDomain> orderDetailList= order.getOrderDetailList();
+        System.out.println(orderDetailList);
+        if (orderDetailList == null) {
+			orderDetailList = new ArrayList<OrderDetailDomain>();
+		}
         request.setAttribute("order",order);
         request.setAttribute("orderDetailList",orderDetailList);
 		return "cart";
@@ -140,13 +148,7 @@ public class TestController {
 		return "gukbap_main";
 	}
 	
-	@RequestMapping(value = "add_wishlist",method = RequestMethod.POST)
-	private String add_wishlist(@RequestParam String product_no,HttpServletRequest request) {
-		//UserDomain user = (UserDomain) request.getSession().getAttribute("loginUser");
-		//String user_id=user.getUser_id();	
-		wishListService.addToWishList("jaeil@naver.com",Integer.parseInt(product_no));
-		return "wishlist";
-	}
+
 	
 	@RequestMapping("f_wishlist")  
 	public String f_wishlist(@RequestParam String wishlist_no,HttpServletRequest request) {
@@ -169,6 +171,14 @@ public class TestController {
 		return "wishlist";
 	}
 	
+	@RequestMapping(value = "add_wishlist",method = RequestMethod.POST)
+	private String add_wishlist(@RequestParam String product_no,HttpServletRequest request) {
+		//UserDomain user = (UserDomain) request.getSession().getAttribute("loginUser");
+		//String user_id=user.getUser_id();	
+		wishListService.addToWishList("jaeil@naver.com",Integer.parseInt(product_no));
+		return "wishlist";
+	}
+
 
 
 	/********************************************************************/
