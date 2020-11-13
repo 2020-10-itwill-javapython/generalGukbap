@@ -1,5 +1,6 @@
 package com.itwill.gukbap.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -89,10 +90,17 @@ public class TestController {
 	@RequestMapping("cart")
 	public String cart(HttpServletRequest request) {
 		//UserDomain user = (UserDomain) request.getSession().getAttribute("loginUser");
-        UserDomain user=userService.selectUserById("akiratksk@hotmail.com");
+        UserDomain user=userService.selectUserById("jaeil@naver.com");
+        System.out.println(user);
         int order_no=orderService.highOrderNo(user.getUser_id());
+        System.out.println(order_no);
         OrderDomain order= orderService.selectOrderByNo(order_no);
+        System.out.println(order);
         List<OrderDetailDomain> orderDetailList= order.getOrderDetailList();
+        System.out.println(orderDetailList);
+        if (orderDetailList == null) {
+			orderDetailList = new ArrayList<OrderDetailDomain>();
+		}
         request.setAttribute("order",order);
         request.setAttribute("orderDetailList",orderDetailList);
 		return "cart";
@@ -125,7 +133,7 @@ public class TestController {
 //		orderService.insertOrder(
 //		"big-test@naver.com", 
 //		new OrderDetailDomain(0, 20, 1, productService.selectProductByProductNo(2)));
-		orderService.insertOrder("akiratksk@hotmail.com",new OrderDetailDomain(0,0,Integer.parseInt(pty),product));
+		orderService.insertOrder("jaeil@naver.com",new OrderDetailDomain(0,0,Integer.parseInt(pty),product));
 		return "cart";
 	}
 	
@@ -142,7 +150,7 @@ public class TestController {
 		//UserDomain user = (UserDomain) request.getSession().getAttribute("loginUser");
 		//user.getUser_id()
 		//wishlistService.getWishListItems(user_id);
-		List<WishListDomain> wishlist=wishListService.getWishListItems("helprun@naver.com");
+		List<WishListDomain> wishlist=wishListService.getWishListItems("jaeil@naver.com");
 		request.setAttribute("wishlist", wishlist);
 		return "wishlist";
 	}
@@ -152,7 +160,7 @@ public class TestController {
 	private String add_wishlist(@RequestParam String product_no,HttpServletRequest request) {
 		//UserDomain user = (UserDomain) request.getSession().getAttribute("loginUser");
 		//String user_id=user.getUser_id();	
-		wishListService.addToWishList("helprun@naver.com",Integer.parseInt(product_no));
+		wishListService.addToWishList("jaeil@naver.com",Integer.parseInt(product_no));
 		return "wishlist";
 	}
 

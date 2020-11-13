@@ -53,7 +53,7 @@
                           <c:forEach items="${orderDetailList}" var="orderDetail">  
                             <tbody>
                                 <tr>
-                                   <td class="product_remove"><a><i class="fa fa-trash-o"></i></a></td>
+                                   <td class="product_remove"><button style="border: none; background: transparent;" name="cart_delete" value="${orderDetail}" ><a><i class="fa fa-trash-o"></i></a></button></td>
                                     <td class="product_thumb"><a><img src="assets/img/product/${orderDetail.product.product_image}"></a></td>
                                     <td class="product_name"><a>${orderDetail.product.product_name}</a></td>
                                     <td class="product-price">${orderDetail.product.product_price}</td>
@@ -79,21 +79,21 @@
                                 <h3>Cart Totals</h3>
                                 <div class="coupon_inner">
                                    <div class="cart_subtotal">
-                                       <p>Subtotal</p>
-                                       <p class="cart_amount">Â£215.00</p>
+                                       <p>소계</p>
+                                       <p class="cart_amount">총합:${order.order_total_price}원</p>
                                    </div>
                                    <div class="cart_subtotal ">
-                                       <p>Shipping</p>
-                                       <p class="cart_amount"><span>Flat Rate:</span> Â£255.00</p>
+                                       <p>배송비</p>
+                                       <p class="cart_amount">3000원</p>
                                    </div>
-                                   <a href="#">Calculate shipping</a>
+                                   <a ></a>
 
                                    <div class="cart_subtotal">
-                                       <p>Total</p>
-                                       <p class="cart_amount">Â£215.00</p>
+                                       <p>주문금액</p>
+                                       <p class="cart_amount">${order.order_total_price+3000}원</p>
                                    </div>
                                    <div class="checkout_btn">
-                                       <a href="cart">Proceed to Checkout</a>
+                                       <a href="cart">주문하기</a>
                                    </div>
                                 </div>
                             </div>
