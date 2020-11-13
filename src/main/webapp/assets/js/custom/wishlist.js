@@ -20,18 +20,14 @@ $(function() {
 	$("button[name=wishlist_to_cart_button]").click(function(e) {
         var product_no="product_no="+$(this).val();
 		console.log(product_no);
-		/*
+		var pty='1';
+		var allData = { "product_no": product_no, "pty": pty };
 		$.ajax({
-			url: "f_wishlist",
+			url: "wishlist_to_cart",
 			method: "GET",
-			data: product_no,
-			dataType: "html",
-			success: function(html) {
-				$('#wishlist_list').html(html);
-			}
+			data: allData,
 		})
-		*/
-		
+		alert("장바구니에 메뉴를 추가했습니다.")
 		e.preventDefault();
 	});
 	
