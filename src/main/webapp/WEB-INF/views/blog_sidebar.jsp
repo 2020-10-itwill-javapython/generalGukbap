@@ -13,20 +13,6 @@
     <!--header area end-->
 
     <!--breadcrumbs area start-->
-    <div class="breadcrumbs_area">
-        <div class="container">   
-            <div class="row">
-                <div class="col-12">
-                    <div class="breadcrumb_content">
-                        <ul>
-                            <li><a href="index.html">home</a></li>
-                            <li>blog sidebar</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>         
-    </div>
     <!--breadcrumbs area end-->
     
     <!--blog area start-->

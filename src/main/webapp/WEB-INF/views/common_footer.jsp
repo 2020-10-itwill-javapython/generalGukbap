@@ -42,7 +42,7 @@
                 <div class="row align-items-center">
                     <div class="col-lg-6 col-md-7">
                         <div class="copyright_area">
-                            <p>Copyright  Â© 2020  <a href="#">국밥부장관</a>  . All Rights Reserved.Design by  <a href="#">국밥부장관</a></p>
+                            <p>Copyright 2020  <a href="#">국밥부장관</a>  . All Rights Reserved.Design by  <a href="#">국밥부장관</a></p>
                         </div>
                     </div>    
                     <div class="col-lg-6 col-md-5">    

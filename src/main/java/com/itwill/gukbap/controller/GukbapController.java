@@ -104,6 +104,11 @@ public class GukbapController {
 	public String error() {
 		return "error";
 	}
+	@RequestMapping("/login")
+	public String login() {
+		return "login";
+	}
+
 	@RequestMapping(value = "my-account")
 	public String myAccount(HttpSession session) {
 		String user_id = this.get_user_id_from_session(session);
