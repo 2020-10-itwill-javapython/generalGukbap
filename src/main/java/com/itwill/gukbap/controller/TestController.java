@@ -37,7 +37,7 @@ public class TestController {
 	@Autowired
 	private OrderService orderService;
 	@Autowired
-	private  ProductCategoryService productCategoryService;
+	private ProductCategoryService productCategoryService;
 	@Autowired
 	private ProductService productService;
 	@Autowired
@@ -100,6 +100,7 @@ public class TestController {
 	
 	
 	
+	
 	@RequestMapping("f_product_list")  
 	public String f_product_list(@RequestParam int c_no,HttpServletRequest request) {
 		List<ProductDomain> productList=productService.selectProductByCategoryNo(c_no);
@@ -128,6 +129,23 @@ public class TestController {
 		return "cart";
 	}
 	
+	@RequestMapping("f_wishlist")  
+	public String f_wishlist(@RequestParam String wishlist_no,HttpServletRequest request) {
+			
+		//request.setAttribute("productList",productList);
+		return "f_wishlist";
+	}
+	
+	
+	@RequestMapping(value="wishlist", method=RequestMethod.GET)
+	public String show_wishlist(HttpServletRequest request) {
+		//UserDomain user = (UserDomain) request.getSession().getAttribute("loginUser");
+		//user.getUser_id()
+		//wishlistService.getWishListItems(user_id);
+		List<WishListDomain> wishlist=wishListService.getWishListItems("helprun@naver.com");
+		request.setAttribute("wishlist", wishlist);
+		return "wishlist";
+	}
 	
 	
 	@RequestMapping(value = "add_wishlist",method = RequestMethod.POST)
@@ -157,6 +175,7 @@ public class TestController {
 	
 	/*
 	
+<<<<<<< HEAD
 	
 	@RequestMapping("main")
 	public String main() {
@@ -180,6 +199,9 @@ public class TestController {
 	}
 	
 	
+=======
+
+>>>>>>> refs/heads/kim
 	
 	
 	

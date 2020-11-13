@@ -9,9 +9,11 @@ public interface WishListMapper {
 	
 	public List<WishListDomain> selectWishListById(String user_id);
 	
+	public WishListDomain selectItemByWishListNo(int wishilist_no);
+	
 	public int clearWishList(String user_id);
 	
-	public int removeItemFromWishList(Map<String, Object> user_id_product_no_to_delete );
+	public int removeItemFromWishList(int wishilist_no);
 	
 	public int insertItemIntoWishList(Map<String, Object> wishListProperty);
 	

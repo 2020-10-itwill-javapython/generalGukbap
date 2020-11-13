@@ -83,19 +83,23 @@
 														src="assets/img/product/${product.product_image}" alt=""></a>
 													<div class="label_product"></div>
 													<!-- product.product_isonsale이 true이면 할인 노출 -->
-													<div class="label_product">
-														<span class="label_sale">할인</span>
-													</div>
-													
+													<c:choose>
+														<c:when test="${product.product_isOnSale}">
+															<div class="label_product">
+																<span class="label_sale">할인</span>
+															</div>
+														</c:when>
+														<c:otherwise>
+														</c:otherwise>
+													</c:choose>
 													
 													<div class="action_links">
 														<ul>
-															<li class="add_to_cart"><a href="cart.html"
-																title="Add to cart"><span class="lnr lnr-cart"></span></a></li>
-															<li class="quick_button"><a href="#"
-																product_no="${product.product_no}" data-toggle="modal"
-																data-target="#modal_box" title="quick view"><span
-																	class="lnr lnr-magnifier"></span></a></li>
+															<li class="add_to_cart"><a href="cart.html" title="Add to cart">
+																<span class="lnr lnr-cart"></span></a></li>
+															<li class="quick_button"><a href="#" product_no="${product.product_no}" data-toggle="modal"
+																data-target="#modal_box" title="quick view">
+																<span class="lnr lnr-magnifier"></span></a></li>
 															<li class="wishlist"><a href="wishlist.html"
 																title="Add to Wishlist"><span class="lnr lnr-heart"></span></a></li>
 														</ul>
@@ -105,11 +109,21 @@
 													<h4 class="product_name">
 														<a href="product-details.html">${product.product_name}</a>
 													</h4>
-													<div class="price_box">
-														<!-- product.product_isonsale이 true이면 current_price ${product.product_price*0.7}원 노출 -->
-														<span class="current_price">${product.product_price*0.7}원</span>
-														<span class="old_price">${product.product_price}원</span>
-													</div>
+													<!-- product.product_isonsale이 true이면 current_price ${product.product_price*0.7}원 노출 -->
+													<c:choose>
+														<c:when test="${product.product_isOnSale}">
+															<div class="price_box">
+																<span class="current_price">${product.product_price*0.7}원</span>
+																<span class="old_price">${product.product_price}원</span>
+															</div>
+														</c:when>
+														<c:otherwise>
+															<div class="price_box">
+																<span class="current_price">${product.product_price}원</span>
+																<span class="old_price">${product.product_price}원</span>
+															</div>
+														</c:otherwise>
+													</c:choose>
 												</figcaption>
 											</figure>
 										</article>
@@ -166,6 +180,16 @@
 										<a class="secondary_img" href="product-details.html"><img
 											src="assets/img/product/${product.product_image}" alt=""></a>
 										<div class="label_product"></div>
+										<!-- product.product_isonsale이 true이면 할인 노출 -->
+													<c:choose>
+														<c:when test="${product.product_isOnSale}">
+															<div class="label_product">
+																<span class="label_sale">할인</span>
+															</div>
+														</c:when>
+														<c:otherwise>
+														</c:otherwise>
+													</c:choose>
 
 										<div class="action_links">
 											<ul>
@@ -184,10 +208,20 @@
 										<h4 class="product_name">
 											<a href="product-details.html">${product.product_name}</a>
 										</h4>
-										<div class="price_box">
-											<span class="current_price">${product.product_price*0.7}원</span>
-											<span class="old_price">${product.product_price}원</span>
-										</div>
+										<c:choose>
+														<c:when test="${product.product_isOnSale}">
+															<div class="price_box">
+																<span class="current_price">${product.product_price*0.7}원</span>
+																<span class="old_price">${product.product_price}원</span>
+															</div>
+														</c:when>
+														<c:otherwise>
+															<div class="price_box">
+																<span class="current_price">${product.product_price}원</span>
+																<span class="old_price">${product.product_price}원</span>
+															</div>
+														</c:otherwise>
+													</c:choose>
 									</figcaption>
 								</figure>
 							</article>

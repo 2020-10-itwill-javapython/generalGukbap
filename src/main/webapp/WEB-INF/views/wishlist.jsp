@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 	<jsp:include page="common_header.jsp"/>
 <body>
     <!--breadcrumbs area start-->
@@ -8,9 +9,9 @@
             <div class="row">
                 <div class="col-12">
                     <div class="breadcrumb_content">
-                       <h3>Wishlist</h3>
+                       <h3>찜한 메뉴</h3>
                         <ul>
-                            <li><a href="index.html">home</a></li>
+                            <li><a href="gukbap_main">home</a></li>
                             <li>Wishlist</li>
                         </ul>
                     </div>
@@ -32,48 +33,25 @@
                                 <table>
                                     <thead>
                                         <tr>
-                                            <th class="product_remove">Delete</th>
-                                            <th class="product_thumb">Image</th>
-                                            <th class="product_name">Product</th>
-                                            <th class="product-price">Price</th>
-                                            <th class="product_quantity">Stock Status</th>
-                                            <th class="product_total">Add To Cart</th>
+                                            <th class="product_remove">삭제</th>
+                                            <th class="product_thumb">이미지</th>
+                                            <th class="product_name">메뉴</th>
+                                            <th class="product-price">가격</th>
+                                            <th class="product_total">장바구니 담기</th>
                                         </tr>
                                     </thead>
+                                    
+                                    <c:forEach items="${wishlist}" var="wishlist">
                                     <tbody>
                                         <tr>
-                                           <td class="product_remove"><a href="#">X</a></td>
-                                            <td class="product_thumb"><a href="#"><img src="assets/img/product/productbig1.jpg" alt=""></a></td>
-                                            <td class="product_name"><a href="#">Handbag fringilla</a></td>
-                                            <td class="product-price">Â£65.00</td>
-                                            <td class="product_quantity">In Stock</td>
-                                            <td class="product_total"><a href="#">Add To Cart</a></td>
-
-
+                                            <td class="product_remove"><button style="border: none; background: transparent;" name="wishlist_button" value="${wishlist.wishlist_no}" ><a>X</a></button></td>
+                                            <td class="product_thumb"><a href="product-details"><img src="assets/img/product/${wishlist.product.product_image}" alt=""></a></td>
+                                            <td class="product_name"><a href="product-details">${wishlist.product.product_name}</a></td>
+                                            <td class="product-price">${wishlist.product.product_price}</td>
+                                            <td class="product_total"><a href="#">장바구니 담기</a></td>
                                         </tr>
-
-                                        <tr>
-                                           <td class="product_remove"><a href="#">X</a></td>
-                                            <td class="product_thumb"><a href="#"><img src="assets/img/product/productbig2.jpg" alt=""></a></td>
-                                            <td class="product_name"><a href="#">Handbags justo</a></td>
-                                            <td class="product-price">Â£90.00</td>
-                                            <td class="product_quantity">In Stock</td>
-                                            <td class="product_total"><a href="#">Add To Cart</a></td>
-
-
-                                        </tr>
-                                        <tr>
-                                           <td class="product_remove"><a href="#">X</a></td>
-                                            <td class="product_thumb"><a href="#"><img src="assets/img/product/productbig3.jpg" alt=""></a></td>
-                                            <td class="product_name"><a href="#">Handbag elit</a></td>
-                                            <td class="product-price">Â£80.00</td>
-                                            <td class="product_quantity">In Stock</td>
-                                            <td class="product_total"><a href="#">Add To Cart</a></td>
-
-
-                                        </tr>
-
                                     </tbody>
+                                    </c:forEach>
                                 </table>   
                             </div>  
 
@@ -82,22 +60,7 @@
                  </div>
 
             </form> 
-            <!-- 
-            <div class="row">
-                <div class="col-12">
-                     <div class="wishlist_share">
-                        <h4>Share on:</h4>
-                        <ul>
-                            <li><a href="#"><i class="fa fa-rss"></i></a></li>           
-                            <li><a href="#"><i class="fa fa-vimeo"></i></a></li>           
-                            <li><a href="#"><i class="fa fa-tumblr"></i></a></li>           
-                            <li><a href="#"><i class="fa fa-pinterest"></i></a></li>        
-                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>        
-                        </ul>      
-                    </div>
-                </div> 
-            </div>
-            -->
+            
         </div>
     </div>
     <!--wishlist area end -->
@@ -141,7 +104,7 @@
 <!-- Main JS -->
 <script src="assets/js/main.js"></script>
 
-
+<script type="text/javascript" src="assets/js/custom/wishlist.js"></script>
 
 </body>
 

@@ -16,6 +16,11 @@
 	   where w.user_id = #{user_id}
 	</select>
 	
+	<select id="selectItemByWishListNo" resultType="com.itwill.gukbap.domain.WishListDomain" parameterType="int">
+		select * from wishlist where wishlist_no= #{wishlist_no}
+	</select>
+	
+	
 	<!-- INSERT -->
 	<insert id="insertItemIntoWishList" parameterType="java.util.Map">
 		INSERT INTO wishlist (wishlist_no, user_id, product_no) 
@@ -28,6 +33,6 @@
 	</delete>
 	
 	<delete id="removeItemFromWishList" parameterType="java.util.Map">
-		delete wishlist where user_id = #{user_id} and product_no = #{product_no}
+		delete wishlist where wishlist_no = #{wishlist_no}
 	</delete>
 </mapper>

@@ -22,13 +22,18 @@ public class WishListRepositoryImpl implements WishListRepository {
 	}
 
 	@Override
+	public WishListDomain selectItemByWishListNo(int wishilist_no) {
+		return wishListMapper.selectItemByWishListNo(wishilist_no);
+	}
+	
+	@Override
 	public int clearWishList(String user_id) {
 		return wishListMapper.clearWishList(user_id);
 	}
 
 	@Override
-	public int removeItemFromWishList(WishListDomain wishListDomain) {
-		return wishListMapper.removeItemFromWishList(this.convertDomainIntoMap(wishListDomain));
+	public int removeItemFromWishList(int wishilist_no) {
+		return wishListMapper.removeItemFromWishList(wishilist_no);
 	}
 
 	@Override

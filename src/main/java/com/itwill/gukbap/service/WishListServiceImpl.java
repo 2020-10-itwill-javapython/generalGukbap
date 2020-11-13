@@ -22,17 +22,18 @@ public class WishListServiceImpl implements WishListService {
 	}
 	
 	@Override
+	public WishListDomain getItemByWishListNo(int wishilist_no) {
+		return wishListRepository.selectItemByWishListNo(wishilist_no);
+	}
+	
+	@Override
 	public int clearWishList(String user_id) {
 		return wishListRepository.clearWishList(user_id);
 	}
 	
 	@Override
-	public int removeItemFromWishList(String user_id, int product_no) {
-		return wishListRepository.
-				removeItemFromWishList(
-						new WishListDomain(0, 
-										   user_id, 
-										   productRepository.selectProductByProductNo(product_no)));
+	public int removeItemFromWishList(int wishlist_no) {
+		return wishListRepository.removeItemFromWishList(wishlist_no);
 	}
 	
 	@Override

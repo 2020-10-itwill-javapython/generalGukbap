@@ -16,6 +16,7 @@ public class WishListRepositoryTestMain {
 		ProductRepository productRepository = applicationContext.getBean(ProductRepository.class);
 		
 //		System.out.println(wishListRepository.selectWishList("helprun@naver.com"));
+//		System.out.println(wishListRepository.removeItemFromWishList(151));
 //		System.out.println(wishListRepository.
 //				removeItemFromWishList(
 //						new WishListDomain(0, 
