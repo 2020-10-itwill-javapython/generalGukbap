@@ -197,39 +197,6 @@ public class TestController {
 		return "wish_test";
 	}
 	
-	/*
-	
-<<<<<<< HEAD
-	
-	@RequestMapping("main")
-	public String main() {
-		return "index";
-	}
-	
-	@RequestMapping("login")
-	public String login() {
-		return "login";
-	}
-	
-	@RequestMapping("cart")
-	public String cart() {
-		return "cart";
-	}
-	
-	
-	@RequestMapping("shop_list")
-	public String shop_list() {
-		return "shop-fullwidth-list";
-	}
-	
-	
-=======
-
->>>>>>> refs/heads/kim
-	
-	
-	
-	*/
 	
 	
 	

@@ -97,6 +97,18 @@
 
 		</script>
 <body>
+ <div class="single_slider d-flex align-items-center">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-6">
+				<div class="slider_content">
+				<img class="media-object img-circle" src="images/givecall.jpg" width = "1920px" height = "200px"  alt=""/>
+				
+ 				</div>
+			</div>
+		</div>
+	</div>
+</div>
 		<div class="container"><!-- 틀 // 서버작동확인 -->
 			<div class="container bootstrap snippet">
 				<div class="row">

@@ -81,11 +81,10 @@
 								<li class="menu-item-has-children"><a href="chat">문의</a>
 								</li>
 									<li class="menu-item-has-children">
-                                    <a href="#">회사소개 </a>
+                                    <a href="about">회사소개 </a>
                                     <ul class="sub-menu">
-                                       <li><a href="about">about</a></li>
-											<li><a href="contact">contact</a></li>
-											<li><a href="services">services</a></li>
+                                       
+									
                                     </ul>
                                 </li>
 							
@@ -144,10 +143,10 @@
                                         </ul>
                                     </div>
                                     <div class="header_account_list header_wishlist">
-                                        <a href="wishlist"><span class="lnr lnr-heart"></span> <span class="item_count"></span> </a>
+                                        <a href="wishlist"><span class="lnr lnr-heart"></span></a>
                                     </div>
                                     <div class="header_account_list  mini_cart_wrapper">
-                                       <a href="cart"><span class="lnr lnr-cart"></span><span class="item_count"></span></a>
+                                       <a href="cart"><span class="lnr lnr-cart"></span></a>
                                         <!--mini cart-->
                                         
                                         <!--mini cart end-->
@@ -186,8 +185,9 @@
                                         </li>
                                         <li class="menu_item_children"><a href="blog_sidebar">리뷰</a>
                                         </li>
-                                        <li class="menu_item_children"><a href="chat">문의</a>
-                                        </li>
+                                        <li class="menu_item_children"><a href="chat">문의</a></li>
+                                        <li class="menu_item_children"><a href="chat">내정보</a></li>
+                                        	
                                     </ul>
                                 </div>
                             </div>
@@ -198,16 +198,24 @@
                             <div class="main_menu menu_position"> 
                                 <nav>  
                                     <ul>
-                                        <li><a class="active"  href="about">회사소개<i class="fa fa-angle-down"></i></a>
-                                         <ul class="sub_menu">
-                                                <li><a href="about">about</a></li>
-                                                <li><a href="contact">contact</a></li>
-                                                <li><a href="services">services</a></li>
-                                            </ul>
+                                        <li><a class="active"  href="about">회사소개</a>
+                                         
                                             </li>
                                         <li class="mega_items"><a href="shop-right-sidebar">메뉴</a></li>
                                         <li><a href="blog_sidebar">리뷰</a></li>
                                         <li><a href="chat">문의</a></li> 
+                                        <c:choose>
+	                                        	<c:when test="${empty loginUser }">
+		                                            <li><a href=""></a></li>
+		                                            <li><span></span></li>
+		                                            <li><a href=""></a></li>
+	                                        	</c:when>
+	                                        	<c:otherwise>
+	                                        		<li><a href="my-account">내정보</a></li>
+	                                        	</c:otherwise>
+                                        	</c:choose>
+
+                                        
                                     </ul>  
                                 </nav> 
                             </div>

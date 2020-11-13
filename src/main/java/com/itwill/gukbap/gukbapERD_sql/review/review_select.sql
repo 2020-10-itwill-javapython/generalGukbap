@@ -24,9 +24,8 @@ select * from (select * from review where review_no<4 order by review_no) where 
 --제품번호로 후기 여러 개 불러오기
 select * from review where product_no=1;
 
+select * from review where product_no = 1 and rownum <=2 order by review_title;  
 
 
-
-
-
+SELECT * FROM(SELECT A.*, ROWNUM AS RNUM FROM(SELECT * FROM review ORDER BY review_title) A WHERE ROWNUM <= 10)WHERE RNUM > 20;
 

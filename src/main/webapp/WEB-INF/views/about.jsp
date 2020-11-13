@@ -3,21 +3,7 @@
 <jsp:include page="common_header.jsp" />
 <link rel="stylesheet" href="assets/css/custom_css/about_custom.css">
 	<!--breadcrumbs area start-->
-	<div class="breadcrumbs_area">
-		<div class="container">
-			<div class="row">
-				<div class="col-12">
-					<div class="breadcrumb_content">
-						<h3>회사소개</h3>
-						<ul>
-							<li><a href="index.html">메인</a></li>
-							<li>회사소개</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+	
 	<!--breadcrumbs area end-->
 
 	<!--about section area -->
