@@ -29,7 +29,7 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="table_desc wishlist">
-                            <div class="cart_page">
+                            <div class="cart_page" id="wishlist_list">
                                 <table>
                                     <thead>
                                         <tr>
@@ -45,10 +45,16 @@
                                     <tbody>
                                         <tr>
                                             <td class="product_remove"><button style="border: none; background: transparent;" name="wishlist_button" value="${wishlist.wishlist_no}" ><a>X</a></button></td>
-                                            <td class="product_thumb"><a href="product-details"><img src="assets/img/product/${wishlist.product.product_image}" alt=""></a></td>
-                                            <td class="product_name"><a href="product-details">${wishlist.product.product_name}</a></td>
+                                            <td class="product_thumb"><img src="assets/img/product/${wishlist.product.product_image}" alt=""></td>
+                                            <td class="product_name">${wishlist.product.product_name}</td>
                                             <td class="product-price">${wishlist.product.product_price}</td>
-                                            <td class="product_total"><a href="#">장바구니 담기</a></td>
+                                            <td class="product_total">
+                                            <button style="border: none; background: transparent;" name="wishlist_to_cart_button" value="${wishlist.product.product_no}" > 
+                                            <a href="#">장바구니 담기</a>  
+                                            </button>
+                                            </td>
+                                            
+                                            
                                         </tr>
                                     </tbody>
                                     </c:forEach>

@@ -76,11 +76,16 @@
 														
                                         <div class="action_links">
                                             <ul>                                             
-                                               <button style="border: none; background: transparent;" name="add_to_cart_button" value="${product.product_no }" ><li class="add_to_cart"><a type="button" title="카트추가"><span class="lnr lnr-cart"></span></a></li></button>                                                                              
-                                                <li class="quick_button" ><a href="cart" product_no="${product.product_no}" data-toggle="modal" data-target="#modal_box"  title="quick view"> <span class="lnr lnr-magnifier"  ></span></a></li>
-                                                 <button style="border: none; background: transparent;" name="wishlist_button" value="${product.product_no }" ><li class="wishlist"><a title="찜 하기"><span class="lnr lnr-heart"></span></a></li></button>                                                 
+                                               <button style="border: none; background: transparent;" name="add_to_cart_button" value="${product.product_no}" >
+                                               <li class="add_to_cart"><a type="button" title="카트추가"><span class="lnr lnr-cart"></span></a></li></button>
+                                                                                                                             
+                                               <li class="quick_button" ><a href="cart" product_no="${product.product_no}" data-toggle="modal" data-target="#modal_box"  title="quick view"> 
+                                               <span class="lnr lnr-magnifier"  ></span></a></li>
+                                               
+                                               <button style="border: none; background: transparent;" name="wishlist_button" value="${product.product_no }" >
+                                               <li class="wishlist"><a title="찜 하기"><span class="lnr lnr-heart"></span></a></li></button>                                                 
                                             </ul>                                   
-                                            </div>
+                                         </div>
                                    </div>
                                         
                                     
@@ -142,7 +147,7 @@
                                     <li class="widget_sub_categories sub_categories2" id="side"><a href="javascript:void(0)">사이드메뉴</a>
                                       
                                     </li>
-                                    <li class="widget_sub_categories sub_categories3" id="drink"><a href="javascript:void(0)">주류및음료</a>
+                                    <li class="widget_sub_categories sub_categories3" id="drink"><a href="javascript:void(0)">주류 및 음료</a>
                                         
                                     </li>
                                 </ul>
