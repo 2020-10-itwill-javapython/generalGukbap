@@ -81,7 +81,6 @@
                                 <article class="single_blog">
                                     <figure>
                                         <div class="blog_thumb">
-                                            <a href="blog_details"><img src="assets/img/blog/blog1.jpg" alt=""></a>
                                             <a href="blog_details?review_no=${review.review_no }"><img src="assets/img/review/${review.review_image }" alt=""></a>
                                         </div>
                                         <figcaption class="blog_content">
