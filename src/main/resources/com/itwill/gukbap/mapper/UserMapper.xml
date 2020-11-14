@@ -45,7 +45,7 @@
 		full outer join useraddress ua on u.user_id = ua.user_id
 		full outer join address a on ua.address_no = a.address_no
         full outer join gukbap_order go on u.user_id = go.user_id
-		where u.user_level != 'admin' and u.user_id = #{user_id}
+		where u.user_id = #{user_id}
 	</select>
 	
 	<select id="isExistedUser" resultType="_int" parameterType="String">

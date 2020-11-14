@@ -72,7 +72,7 @@
                                 </c:choose>
 	                             </label>
                                 <button type="submit">로그인</button>
-                                <button type="button">회원가입</button>
+                                <button id="register_button" type="button"><a href="register">회원가입</a></button>
                                 
                             </div>
 

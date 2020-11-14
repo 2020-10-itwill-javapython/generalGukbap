@@ -217,6 +217,30 @@ public class TestController {
 		return "wish_test";
 	}
 	
+	@RequestMapping(value = "product_details",method = RequestMethod.GET)
+	public String product_details(@RequestParam String product_no, HttpServletRequest request) {
+		int product = Integer.parseInt(product_no);
+		ProductDomain productDomain= productService.selectProductByProductNo(product);
+		request.setAttribute("product", productDomain);
+		return "forward:/shop-fullwidth-list";
+	}
+	
+	
+	@RequestMapping("main")
+	public String main() {
+		return "index";
+	}
+	
+	@RequestMapping("login")
+	public String login() {
+		return "login";
+	}
+	
+	
+	@RequestMapping("shop_list")
+	public String shop_list() {
+		return "shop-fullwidth-list";
+	}
 	
 	
 	

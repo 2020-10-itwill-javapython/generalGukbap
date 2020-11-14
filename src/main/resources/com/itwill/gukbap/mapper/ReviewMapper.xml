@@ -1,51 +1,104 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.itwill.gukbap.mapper.ReviewMapper">
-	
+
 	<!-- SELECT -->
-	<select id="selectAllReview" resultType="com.itwill.gukbap.domain.ReviewDomain">
-		select * from review
+	<select id="selectAllReview"
+		resultType="com.itwill.gukbap.domain.ReviewDomain">
+		select * from review where review_step = 1 
+		order by review_upload_date desc
 	</select>
-	
-	<select id="selectAllReviewArrangeInTheLatestReview" resultType="com.itwill.gukbap.domain.ReviewDomain">
-		select * from review order by review_upload_date desc
+
+	<select id="selectAllReviewArrangeInTheLatestReview"
+		resultType="com.itwill.gukbap.domain.ReviewDomain">
+		select * from review 
+		where review_step = 1
+		order by review_upload_date desc	
 	</select>
-	
-	<select id="selectAllReviewArrangeInTheLatestFive" resultType="com.itwill.gukbap.domain.ReviewDomain">
-		select * from ( select * from review order by REVIEW_UPLOAD_DATE desc ) where rownum &lt;= 5
+
+	<select id="selectAllReviewArrangeInTheLatestFive"
+		resultType="com.itwill.gukbap.domain.ReviewDomain">
+		select * from ( select * from review order by
+		REVIEW_UPLOAD_DATE desc ) where rownum &lt;= 5
 	</select>
-	
-	<select id="selectReviewWithPhoto" resultType="com.itwill.gukbap.domain.ReviewDomain">
+
+	<select id="selectReviewWithPhoto"
+		resultType="com.itwill.gukbap.domain.ReviewDomain">
 		select * from review where review_image is not null
 	</select>
-	
-	<select id="selectReviewByReviewNo" resultType="com.itwill.gukbap.domain.ReviewDomain" parameterType="int">
+
+	<select id="selectReviewByReviewNo"
+		resultType="com.itwill.gukbap.domain.ReviewDomain" parameterType="int">
 		select * from review where review_no=#{review_no}
 	</select>
-	  
-	<select id="selectReviewOnOnePage" resultType="com.itwill.gukbap.domain.ReviewDomain" parameterType="int">
-		select * from (select * from review where review_no &lt; #{review_no} order by review_no) where rownum &lt;= 3
+
+	<select id="selectReviewOnOnePage"
+		resultType="com.itwill.gukbap.domain.ReviewDomain" parameterType="int">
+		select * from (select * from review where review_no &lt; #{review_no}
+		order by review_no) where rownum &lt;= 3
+	</select>
+
+	<select id="selectReviewByProductNo"
+		resultType="com.itwill.gukbap.domain.ReviewDomain" parameterType="int">
+		select * from review 
+		where product_no=#{product_no}
+		and review_step = 1
+	</select>
+
+	<select id="select_review_and_replies" parameterType="int"
+			resultType="com.itwill.gukbap.domain.ReviewDomain">
+		select * from review
+		where review_group_no = #{review_group_no}
+		order by review_step
 	</select>
 	
-	<select id="selectReviewByProductNo" resultType="com.itwill.gukbap.domain.ReviewDomain" parameterType="int">
-		select * from review where product_no=#{product_no}
+	<select id="select_latest_replies" resultType="com.itwill.gukbap.domain.ReviewDomain">
+		select * from review 
+		where review_step &gt; 1
+		order by review_upload_date desc
 	</select>
-		
+
 	<!-- INSERT -->
-	<insert id="insertReview" parameterType="com.itwill.gukbap.domain.ReviewDomain">
-		insert into review 
-		values (#{review_no}, #{review_image}, #{review_title}, #{review_content}, #{review_upload_date},
-		#{review_group_no}, #{review_step}, #{review_depth}, #{product_no}, #{o_d_no})
+	<insert id="insertReview"
+		parameterType="com.itwill.gukbap.domain.ReviewDomain">
+		insert into review
+		values (review_review_no_SEQ.nextval , #{review_image}, #{review_title}, #{review_content},
+		sysdate,
+		review_review_no_SEQ.currval, 1, 1, #{product_no}, #{o_d_no})
 	</insert>
 	
+	<insert id="insert_reply" parameterType="com.itwill.gukbap.domain.ReviewDomain">
+		INSERT INTO review 
+			(review_no, 
+			review_content, 
+			review_upload_date, 
+			review_group_no, 
+			review_step, 
+			review_depth, 
+			product_no, 
+			o_d_no)
+		VALUES 
+			(review_review_no_SEQ.nextval, 
+			#{review_content} , 
+			sysdate, 
+			#{review_group_no}, 
+			#{review_step} + 1, 
+			#{review_depth} + 1, 
+			#{product_no}, 
+			#{o_d_no})
+	</insert>
+
 	<!-- update -->
-	<update id="updateReview" parameterType="com.itwill.gukbap.domain.ReviewDomain">
-		update review set review_title=#{review_title}, review_content=#{review_content} where review_no=#{review_no}
+	<update id="updateReview"
+		parameterType="com.itwill.gukbap.domain.ReviewDomain">
+		update review set review_title=#{review_title},
+		review_content=#{review_content} where review_no=#{review_no}
 	</update>
-	
+
 	<!-- DELETE -->
 	<delete id="deleteReviewByReviewNo" parameterType="int">
-		delete from review where review_no=#{review_no}
+		delete from
+		review where review_no=#{review_no}
 	</delete>
 
 </mapper>

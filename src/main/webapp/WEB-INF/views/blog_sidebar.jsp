@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 	<jsp:include page="common_header.jsp"/>
-
 <body>
 
      <!--header area start-->
@@ -13,6 +13,20 @@
     <!--header area end-->
 
     <!--breadcrumbs area start-->
+    <div class="breadcrumbs_area">
+        <div class="container">   
+            <div class="row">
+                <div class="col-12">
+                    <div class="breadcrumb_content">
+                        <ul>
+                            <li><a href="gukbap_main">메인</a></li>
+                            <li>회원 리뷰</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>         
+    </div>
     <!--breadcrumbs area end-->
     
     <!--blog area start-->
@@ -21,14 +35,39 @@
             <div class="row">
                 <div class="col-lg-3 col-md-12">
                     <div class="blog_sidebar_widget">
-                        <div class="widget_list widget_search">
+                    	<div class="widget_list widget_post">
                             <div class="widget_title">
-                                <h3>Search</h3>
+                                <h3>최근 리뷰</h3>
                             </div>
-                            <form action="#">
-                                <input placeholder="Search..." type="text">
-                                <button type="submit">search</button>
-                            </form>
+                            <c:forEach items="${latestReviews }" var="latestReview"
+                            		   begin="0" end="2">
+                            <div class="post_wrapper">
+                                <div class="post_thumb">
+                                    <a href="blog_details?review_no=${latestReview.review_no }"><img src="assets/img/review/${latestReview.review_image }" alt=""></a>
+                                </div>
+                                <div class="post_info">
+                                    <h4><a href="blog_details?review_no=${latestReview.review_no }">${latestReview.review_title }</a></h4>
+                                    <span>${latestReview.review_upload_date.substring(0,11) }</span>
+                                </div>
+                            </div>
+                            </c:forEach>
+                        </div>
+                        <div class="widget_list comments">
+                           <div class="widget_title">
+                                <h3>최근 답글</h3>
+                            </div>
+                            <c:forEach items="${latest_replies }" var="replies"
+                            		   begin="0" end="2">
+                            <div class="post_wrapper">
+                                <div class="post_thumb">
+                                    <a href="blog_details"><img src="assets/img/blog/comment2.png.jpg" alt=""></a>
+                                </div>
+                                <div class="post_info">
+                                    <span><a>사장님</a> 댓글:</span>
+                                    ${replies.review_content}
+                                </div>
+                            </div>
+                            </c:forEach>
                         </div>
                         
                         
@@ -37,141 +76,26 @@
                 <div class="col-lg-9 col-md-12">
                     <div class="blog_wrapper blog_wrapper_sidebar">
                         <div class="row">
+                        <c:forEach var="review" items="${reviews }">
                             <div class="col-lg-4 col-md-4 col-sm-6">
                                 <article class="single_blog">
                                     <figure>
                                         <div class="blog_thumb">
                                             <a href="blog_details"><img src="assets/img/blog/blog1.jpg" alt=""></a>
+                                            <a href="blog_details?review_no=${review.review_no }"><img src="assets/img/review/${review.review_image }" alt=""></a>
                                         </div>
                                         <figcaption class="blog_content">
-                                            <h4 class="post_title"><a href="blog-details.html">Lorem ipsum dolor sit amet,  elit. Impedit, aliquam animi, saepe ex.</a></h4>
+                                            <h4 class="post_title"><a href="blog_details?review_no=${review.review_no }">${review.review_title }</a></h4>
                                             <div class="articles_date">
-                                                 <p>18/01/2019 | <a href="#">eCommerce</a> </p>
+                                            	<c:set var="review_no" value="${review.review_no}"/>
+                                                 <p>${review.review_upload_date.substring(0,11) } | 
+                                                 <a href="shop-right-sidebar">${reviewed_products[review_no].product_name}</a> </p>
                                             </div>
                                         </figcaption>
                                     </figure>
                                 </article>
                             </div>
-                            <div class="col-lg-4 col-md-4 col-sm-6">
-                                <article class="single_blog">
-                                    <figure>
-                                        <div class="blog_thumb">
-                                            <a href="blog-details.html"><img src="assets/img/blog/blog2.jpg" alt=""></a>
-                                        </div>
-                                        <figcaption class="blog_content">
-                                            <h4 class="post_title"><a href="blog-details.html"> dolor sit amet, elit. Illo iste sed animi quaerat  nobis odit  nulla.</a></h4>
-                                            <div class="articles_date">
-                                                 <p>18/01/2019 | <a href="#">eCommerce</a> </p>
-                                            </div>
-                                        </figcaption>
-                                    </figure>
-                                </article>
-                            </div>
-                            <div class="col-lg-4 col-md-4 col-sm-6">
-                                <article class="single_blog">
-                                    <figure>
-                                        <div class="blog_thumb">
-                                            <a href="blog-details.html"><img src="assets/img/blog/blog3.jpg" alt=""></a>
-                                        </div>
-                                        <figcaption class="blog_content">
-                                            <h4 class="post_title"><a href="blog-details.html">maxime laborum voluptas minus, est, unde eaque esse tenetur.</a></h4>
-                                            <div class="articles_date">
-                                                 <p>18/01/2019 | <a href="#">eCommerce</a> </p>
-                                            </div>
-                                        </figcaption>
-                                    </figure>
-                                </article>
-                            </div>
-                            <div class="col-lg-4 col-md-4 col-sm-6">
-                                <article class="single_blog">
-                                    <figure>
-                                        <div class="blog_thumb">
-                                            <a href="blog-details.html"><img src="assets/img/blog/blog2.jpg" alt=""></a>
-                                        </div>
-                                        <figcaption class="blog_content">
-                                            <h4 class="post_title"><a href="blog-details.html">Lorem ipsum dolor sit amet,  elit. Impedit, aliquam animi, saepe ex.</a></h4>
-                                            <div class="articles_date">
-                                                 <p>18/01/2019 | <a href="#">eCommerce</a> </p>
-                                            </div>
-                                        </figcaption>
-                                    </figure>
-                                </article>
-                            </div>
-                            <div class="col-lg-4 col-md-4 col-sm-6">
-                                <article class="single_blog">
-                                    <figure>
-                                        <div class="blog_thumb">
-                                            <a href="blog-details.html"><img src="assets/img/blog/blog1.jpg" alt=""></a>
-                                        </div>
-                                        <figcaption class="blog_content">
-                                            <h4 class="post_title"><a href="blog-details.html">dolor sit amet, elit. Illo iste sed animi quaerat  nobis odit  nulla.</a></h4>
-                                            <div class="articles_date">
-                                                 <p>18/01/2019 | <a href="#">eCommerce</a> </p>
-                                            </div>
-                                        </figcaption>
-                                    </figure>
-                                </article>
-                            </div>
-                            <div class="col-lg-4 col-md-4 col-sm-6">
-                                <article class="single_blog">
-                                    <figure>
-                                        <div class="blog_thumb">
-                                            <a href="blog-details.html"><img src="assets/img/blog/blog3.jpg" alt=""></a>
-                                        </div>
-                                        <figcaption class="blog_content">
-                                            <h4 class="post_title"><a href="blog-details.html">maxime laborum voluptas minus, est, unde eaque esse tenetur.</a></h4>
-                                            <div class="articles_date">
-                                                 <p>18/01/2019 | <a href="#">eCommerce</a> </p>
-                                            </div>
-                                        </figcaption>
-                                    </figure>
-                                </article>
-                            </div>
-                            <div class="col-lg-4 col-md-4 col-sm-6">
-                                <article class="single_blog">
-                                    <figure>
-                                        <div class="blog_thumb">
-                                            <a href="blog-details.html"><img src="assets/img/blog/blog2.jpg" alt=""></a>
-                                        </div>
-                                        <figcaption class="blog_content">
-                                            <h4 class="post_title"><a href="blog-details.html">Lorem ipsum dolor sit amet,  elit. Impedit, aliquam animi, saepe ex.</a></h4>
-                                            <div class="articles_date">
-                                                 <p>18/01/2019 | <a href="#">eCommerce</a> </p>
-                                            </div>
-                                        </figcaption>
-                                    </figure>
-                                </article>
-                            </div>
-                            <div class="col-lg-4 col-md-4 col-sm-6">
-                                <article class="single_blog">
-                                    <figure>
-                                        <div class="blog_thumb">
-                                            <a href="blog-details.html"><img src="assets/img/blog/blog1.jpg" alt=""></a>
-                                        </div>
-                                        <figcaption class="blog_content">
-                                            <h4 class="post_title"><a href="blog-details.html">dolor sit amet, elit. Illo iste sed animi quaerat  nobis odit  nulla.</a></h4>
-                                            <div class="articles_date">
-                                                 <p>18/01/2019 | <a href="#">eCommerce</a> </p>
-                                            </div>
-                                        </figcaption>
-                                    </figure>
-                                </article>
-                            </div>
-                            <div class="col-lg-4 col-md-4 col-sm-6">
-                                <article class="single_blog">
-                                    <figure>
-                                        <div class="blog_thumb">
-                                            <a href="blog-details.html"><img src="assets/img/blog/blog3.jpg" alt=""></a>
-                                        </div>
-                                        <figcaption class="blog_content">
-                                            <h4 class="post_title"><a href="blog-details.html">maxime laborum voluptas minus, est, unde eaque esse tenetur.</a></h4>
-                                            <div class="articles_date">
-                                                 <p>18/01/2019 | <a href="#">eCommerce</a> </p>
-                                            </div>
-                                        </figcaption>
-                                    </figure>
-                                </article>
-                            </div>
+                        </c:forEach>
                         </div>
                     </div>
                 </div>  

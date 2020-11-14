@@ -12,6 +12,11 @@ public interface ReviewRepository {
 		public List<ReviewDomain> selectAllReviewArrangeInTheLatestReview();
 		//최신 후기 5개
 		public List<ReviewDomain> selectAllReviewArrangeInTheLatestFive();
+		
+		public List<ReviewDomain> select_review_and_replies(int review_group_no);
+		
+		public List<ReviewDomain> select_latest_replies();
+		
 		//사진 있는 후기만
 		public List<ReviewDomain> selectReviewWithPhoto();
 		//하나만
@@ -22,6 +27,8 @@ public interface ReviewRepository {
 		public List<ReviewDomain> selectReviewByProductNo(int product_no);
 
 		public int insertReview(ReviewDomain review);
+		
+		public int insert_reply(ReviewDomain review);
 		
 		public int updateReview(ReviewDomain review);
 		

@@ -7,7 +7,7 @@
                     <div class="col-lg-4 col-md-12 col-sm-7">
                         <div class="widgets_container contact_us">
                            <div class="footer_logo">
-                               <a href="index.html"><img src="assets/img/logo/logo.png" alt=""></a>
+                               <a href="gukbap_main"><img src="assets/img/logo/logo.png" alt=""></a>
                            </div>
                            <p class="footer_desc"></p>
                             <p><span>Address:</span> 서울 강남구 테헤란로 124 4층</p>

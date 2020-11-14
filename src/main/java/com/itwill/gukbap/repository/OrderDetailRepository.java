@@ -9,6 +9,8 @@ public interface OrderDetailRepository {
 
 	public List<OrderDetailDomain> selectOrderItems(int order_no);
 	
+	public OrderDetailDomain selectOrderDetailByO_d_no(int o_d_no);
+	
 	public void addItemIntoOrder(OrderDetailDomain orderDetail);
 	
 	public boolean isAddedProduct(OrderDetailDomain orderDetail);

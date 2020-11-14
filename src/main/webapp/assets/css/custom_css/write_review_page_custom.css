@@ -1,0 +1,63 @@
+@charset "UTF-8";
+
+.isMandatory {
+	color: red;
+}
+
+
+#submit_button, #submit_button button {
+	float: right;
+	color: white;
+	margin-top: 2px;
+}
+
+
+
+.write_review_form form input {
+    border: 1px solid #ddd;
+    background: none;
+    height: 40px;
+    margin-bottom: 4px;
+    width: 100%;
+    padding: 4px 20px;
+    color: #222222;
+}
+
+.input-group-text {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: .375rem .75rem;
+    margin-bottom: 0;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.63;
+    color: #495057;
+    text-align: center;
+    white-space: nowrap;
+    background-color: #e9ecef;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+}
+
+#inputGroupFile02{
+	width: 164%;
+}
+
+.error {
+	color: red;
+}
+
+label{
+	display: block;
+}
+
+textarea {
+	width: 100%;
+	resize: none;
+	border: 1px solid #ddd;
+    background: none;
+    margin-bottom: 4px;
+    padding: 4px 20px;
+}
