@@ -20,7 +20,7 @@ public class OrderServiceImplTestMain {
 			//	"helprun@naver.com", 
 				//new OrderDetailDomain(0, 0, 1, productService.selectProductByProductNo(2)));
 		//System.out.println(orderService.selectOrdersByName("jaeil@naver.com"));
-		System.out.println(orderService.selectOrderByNo(5));
+//		System.out.println(orderService.selectOrderByNo(5));
 //		System.out.println(orderService.deleteOrder(6));
 		//System.out.println(orderService.highOrderNo("akiratksk@hotmail.com"));
 	}

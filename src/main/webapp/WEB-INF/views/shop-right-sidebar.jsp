@@ -91,29 +91,48 @@
                                     
                                 <div class="product_content grid_content">
                                         <h4 class="product_name"><a href="product-details?product_no=${product.product_no}" id="product_name">${product.product_name}</a></h4>
-                                        <div class="price_box">
-											<span class="current_price">${product.product_price*0.7}원</span>
-											<span class="old_price">${product.product_price}원</span>
-										</div>
-                                </div>
+										<c:choose>
+											<c:when test="${product.product_isOnSale}">
+												<div class="price_box">
+													<span class="current_price">${product.product_price*0.7}원</span>
+													<span class="old_price">${product.product_price}원</span>
+												</div>
+											</c:when>
+											<c:otherwise>
+												<div class="price_box">
+													<span class="current_price">${product.product_price}원</span>
+													<span class="old_price">${product.product_price}원</span>
+												</div>
+											</c:otherwise>
+										</c:choose>
+									</div>
                                 <div class="product_content list_content">
                                     <h4 class="product_name"><a href="product-details?product_no=${product.product_no}">${product.product_name}</a></h4>
-                                    <div class="price_box">
-										<span class="current_price">${product.product_price*0.7}원</span>
-										<span class="old_price">${product.product_price}원</span>
-									</div>
-                                   
-                                    
-                                    <div class="product_desc">
+										<c:choose>
+											<c:when test="${product.product_isOnSale}">
+												<div class="price_box">
+													<span class="current_price">${product.product_price*0.7}원</span>
+													<span class="old_price">${product.product_price}원</span>
+												</div>
+											</c:when>
+											<c:otherwise>
+												<div class="price_box">
+													<span class="current_price">${product.product_price}원</span>
+													<span class="old_price">${product.product_price}원</span>
+												</div>
+											</c:otherwise>
+										</c:choose>
+
+
+										<div class="product_desc">
                                         <p>${product.product_desc}</p>
                                     </div>
                                     <div class="action_links list_action_right">
                                     <input id="modal_product_no" type="hidden" value="${product.product_no }"/>
                                         <ul>
                                           
-                                            <li class="add_to_cart" >
-     
-                                            	<button type="submit" name="add_to_cart_button" value="${product.product_no }" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Add to cart">장바구니 추가</button>
+                                            <li class="add_to_cart" ><button type="submit" name="add_to_cart_button" value="${product.product_no }" 
+                                            class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Add to cart">장바구니 추가</button>
 
                                             </li>
                                             <li class="quick_button"><a href="#" product_no="${product.product_no}" data-toggle="modal" data-target="#modal_box"  title="quick view"> <span class="lnr lnr-magnifier"></span></a></li>

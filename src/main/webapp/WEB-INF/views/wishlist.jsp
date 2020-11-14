@@ -49,9 +49,12 @@
                                             <td class="product_name">${wishlist.product.product_name}</td>
                                             <td class="product-price">${wishlist.product.product_price}</td>
                                             <td class="product_total">
-                                            <button style="border: none; background: transparent;" name="wishlist_to_cart_button" value="${wishlist.product.product_no}" > 
-                                            <a href="#">장바구니 담기</a>  
-                                            </button>
+
+                                            
+                                            <button style="border: none; background: transparent;" type="submit" name="wishlist_to_cart_button" value="${wishlist.product.product_no}" 
+                                            class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Add to cart">
+                                            <a href="#">장바구니 담기</a></button>
+                                            
                                             </td>
                                             
                                             

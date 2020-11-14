@@ -127,13 +127,13 @@ public class TestController {
 		return "cart";
 	}
 	
-	@RequestMapping(value = "wishlist_to_cart",method = RequestMethod.GET)
-	private String wishlist_to_cart(@RequestParam String product_no, HttpServletRequest request) {
+	@RequestMapping(value = "wishlist_to_cart",method = RequestMethod.POST)
+	private String wishlist_to_cart(@RequestParam String product_no, @RequestParam String pty, HttpServletRequest request) {
 		ProductDomain product=productService.selectProductByProductNo(Integer.parseInt(product_no));
-		int pty=1;
+		
 		//UserDomain user = (UserDomain) request.getSession().getAttribute("loginUser");
 		//String user_id=user.getUser_id();	
-		orderService.insertOrder("jaeil@naver.com", new OrderDetailDomain(0,0,pty,product));
+		orderService.insertOrder("jaeil@naver.com", new OrderDetailDomain(0,0,1,product));
 		return "wishlist";
 	}
 	
