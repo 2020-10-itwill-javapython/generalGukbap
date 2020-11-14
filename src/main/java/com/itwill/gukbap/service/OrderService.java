@@ -14,6 +14,8 @@ public interface OrderService {
 	public int deleteOrder(int order_no);
 
 	public OrderDomain selectOrderByNo(int order_no);
+	
+	public OrderDomain selectOrderBy_o_d_no(int o_d_no);
 
 	public List<OrderDomain> selectOrdersByName(String user_id);
 	

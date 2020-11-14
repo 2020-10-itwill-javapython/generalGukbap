@@ -9,6 +9,8 @@ public interface OrderDetailMapper {
 	
 	public List<OrderDetailDomain> selectOrderItems(int order_no);
 	
+	public OrderDetailDomain select_orderDetail_by_o_d_no(int o_d_no);
+	
 	public int insertOrderDetail(Map<String, Object> orderDetailMap);
 	
 	public int product_exist_check(Map<String, Object> product_exist_check_map);
@@ -18,4 +20,6 @@ public interface OrderDetailMapper {
 	public int deleteOrderItem(Map<String, Object> orderDetailMap);
 	
 	public int clearOrderItems(int order_no);
+	
+	
 }

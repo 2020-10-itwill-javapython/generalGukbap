@@ -34,6 +34,12 @@ public class OrderServiceImpl implements OrderService{
     	return orderRepository.selectOrderByNo(order_no);
     }
     
+	@Override
+	public OrderDomain selectOrderBy_o_d_no(int o_d_no) {
+		OrderDetailDomain od = orderDetailRepository.selectOrderDetailByO_d_no(o_d_no);
+		OrderDomain order = orderRepository.selectOrderByNo(od.getOrder_no());
+		return order;
+	}
     
     @Override
     public void insertOrder(String user_id, OrderDetailDomain orderDetailDomain) {
@@ -94,5 +100,6 @@ public class OrderServiceImpl implements OrderService{
     	orderDetailRepository.clearOrderList(order_no);
     	return orderRepository.deleteOrder(order_no);
     }
+
 
 }

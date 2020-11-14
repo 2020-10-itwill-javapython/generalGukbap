@@ -16,12 +16,13 @@ public class OrderServiceImplTestMain {
 		OrderService orderService= applicationContext.getBean(OrderService.class);
 		ProductService productService= applicationContext.getBean(ProductService.class);
 		
-		orderService.insertOrder(
-				"helprun@naver.com", 
-				new OrderDetailDomain(0, 0, 1, productService.selectProductByProductNo(2)));
+//		orderService.insertOrder(
+//				"helprun@naver.com", 
+//				new OrderDetailDomain(0, 0, 1, productService.selectProductByProductNo(2)));
 //		System.out.println(orderService.selectOrdersByName("helprun@naver.com"));
 //		System.out.println(orderService.selectOrderByNo(20));
 //		System.out.println(orderService.deleteOrder(6));
+		System.out.println(orderService.selectOrderBy_o_d_no(1));
 	}
 
 }

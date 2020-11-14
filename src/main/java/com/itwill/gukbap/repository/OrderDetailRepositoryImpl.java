@@ -21,6 +21,11 @@ public class OrderDetailRepositoryImpl implements OrderDetailRepository {
 	}
 	
 	@Override
+	public OrderDetailDomain selectOrderDetailByO_d_no(int o_d_no) {
+		return orderDetailMapper.select_orderDetail_by_o_d_no(o_d_no);
+	}
+	
+	@Override
 	public void addItemIntoOrder(OrderDetailDomain orderDetail) {
 		if (this.isAddedProduct(orderDetail)) { //존재하는 상품이면
 			int currentProductCount = 0;
@@ -80,6 +85,8 @@ public class OrderDetailRepositoryImpl implements OrderDetailRepository {
 		
 		return orderDetailMap;
 	}
+
+	
 
 	
 

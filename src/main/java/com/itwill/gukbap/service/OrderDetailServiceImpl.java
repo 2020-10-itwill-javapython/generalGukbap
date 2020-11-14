@@ -20,16 +20,16 @@ public class OrderDetailServiceImpl implements OrderDetailService {
 	@Override
 	public void updateProductCount(OrderDetailDomain orderDetail) {
 		orderDetailRepository.updateProductCount(orderDetail);
-		renewOrderDesc(orderDetail.getOrder_no());
-		
+		this.renewOrderDesc(orderDetail.getOrder_no());
 	}
 	
+	@Override
 	public void deleteOrderDetail(OrderDetailDomain orderDetail) {
 		orderDetailRepository.deleteItemFromOrder(orderDetail);
-		renewOrderDesc(orderDetail.getOrder_no());
+		this.renewOrderDesc(orderDetail.getOrder_no());
 	}
 	
-	public void renewOrderDesc(int order_no) {
+	private void renewOrderDesc(int order_no) {
 		OrderDomain order = 
 				orderRepository.selectOrderByNo(order_no);
 		List<OrderDetailDomain> orderItems = order.getOrderDetailList();

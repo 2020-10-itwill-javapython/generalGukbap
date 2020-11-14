@@ -36,7 +36,7 @@ public class ReviewRepositoryTestMain {
 		//System.out.println(reviewDao.selectReviewOnOnePage(4));
 		
 		//5.제품번호로 후기 여러 개
-		//System.out.println(reviewDao.selectReviewByProductNo(1));
+		System.out.println(reviewDao.selectReviewByProductNo(1));
 		
 		//6.후기 추가
 		//System.out.println(reviewDao.insertReview(
@@ -53,7 +53,8 @@ public class ReviewRepositoryTestMain {
 		//9.최신 후기 5개
 		//System.out.println(reviewDao.selectAllReviewArrangeInTheLatestFive());
 	
-		
+//		System.out.println(reviewDao.select_review_and_replies(1));
+//		System.out.println(reviewDao.select_latest_replies());
 	}
 
 }

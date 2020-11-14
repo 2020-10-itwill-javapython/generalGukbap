@@ -70,7 +70,7 @@ public class TestController {
 	public String product_list(HttpServletRequest request) {
 		List<ProductDomain> productList=productService.selectAll();
 		request.setAttribute("productList",productList);
-		return "forward:/shop-right-sidebar.jsp";
+		return "shop-right-sidebar";
 	}
 	
 	@RequestMapping("gukbap_main")  
@@ -109,11 +109,11 @@ public class TestController {
 		return "wish_test";
 	}
 	
-	@RequestMapping(value = "product_details",method = RequestMethod.POST)
-	public String product_details(@RequestParam String product_no,HttpSession session) {
+	@RequestMapping(value = "product_details",method = RequestMethod.GET)
+	public String product_details(@RequestParam String product_no, HttpServletRequest request) {
 		int product = Integer.parseInt(product_no);
 		ProductDomain productDomain= productService.selectProductByProductNo(product);
-		session.setAttribute("product", productDomain);
+		request.setAttribute("product", productDomain);
 		return "forward:/shop-fullwidth-list";
 	}
 	
