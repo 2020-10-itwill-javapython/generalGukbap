@@ -95,13 +95,17 @@
 													
 													<div class="action_links">
 														<ul>
-															<li class="add_to_cart"><a href="cart.html" title="Add to cart">
-																<span class="lnr lnr-cart"></span></a></li>
+															
+															<button style="border: none; background: transparent;" name="main_to_cart_button" value="${product.product_no}" >
+                                                				<li class="add_to_cart"><a title="장바구니 담기"><span class="lnr lnr-cart"></span></a></li></button>	
+																
 															<li class="quick_button"><a href="#" product_no="${product.product_no}" data-toggle="modal"
 																data-target="#modal_box" title="quick view">
 																<span class="lnr lnr-magnifier"></span></a></li>
-															<li class="wishlist"><a href="wishlist.html"
-																title="Add to Wishlist"><span class="lnr lnr-heart"></span></a></li>
+														
+															<button style="border: none; background: transparent;" name="main_to_wishlist_button" value="${product.product_no }">
+																<li class="wishlist"><a title="찜 하기"><span class="lnr lnr-heart"></span></a></li></button> 
+															
 														</ul>
 													</div>
 												</div>
@@ -193,14 +197,25 @@
 
 										<div class="action_links">
 											<ul>
-												<li class="add_to_cart"><a href="cart.html"
-													title="Add to cart"><span class="lnr lnr-cart"></span></a></li>
+
+												<button style="border: none; background: transparent;"
+													name="main_to_cart_button" value="${product.product_no}">
+													<li class="add_to_cart"><a title="장바구니 담기"><span
+															class="lnr lnr-cart"></span></a></li>
+												</button>
+
 												<li class="quick_button"><a href="#"
 													product_no="${product.product_no}" data-toggle="modal"
-													data-target="#modal_box" title="quick view"><span
+													data-target="#modal_box" title="quick view"> <span
 														class="lnr lnr-magnifier"></span></a></li>
-												<li class="wishlist"><a href="wishlist.html"
-													title="Add to Wishlist"><span class="lnr lnr-heart"></span></a></li>
+
+												<button style="border: none; background: transparent;"
+													name="main_to_wishlist_button"
+													value="${product.product_no }">
+													<li class="wishlist"><a title="찜 하기"><span
+															class="lnr lnr-heart"></span></a></li>
+												</button>
+
 											</ul>
 										</div>
 									</div>
