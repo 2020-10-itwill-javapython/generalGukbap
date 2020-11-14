@@ -80,7 +80,7 @@
                                 <div class="coupon_inner">
                                    <div class="cart_subtotal">
                                        <p>소계</p>
-                                       <p class="cart_amount">총합:${order.order_total_price}원</p>
+                                     <!--  -->  <p class="cart_amount">총합:${order.order_total_price}원</p>
                                    </div>
                                    <div class="cart_subtotal ">
                                        <p>배송비</p>
@@ -90,7 +90,9 @@
 
                                    <div class="cart_subtotal">
                                        <p>주문금액</p>
+                                       <c:if test="${order.order_total_price>0}">
                                        <p class="cart_amount">${order.order_total_price+3000}원</p>
+                                       </c:if>
                                    </div>
                                    <div class="checkout_btn">
                                        <a href="cart">주문하기</a>

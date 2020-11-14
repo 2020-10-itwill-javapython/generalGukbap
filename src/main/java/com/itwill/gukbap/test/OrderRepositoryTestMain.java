@@ -16,7 +16,7 @@ public class OrderRepositoryTestMain {
 		
 //		System.out.println(orderDao.selectOrdersByName("helprun@naver.com"));
 		
-//		System.out.println(orderDao.selectOrderByNo(5));
+		System.out.println(orderDao.selectOrderByNo(5));
 //		OrderDomain order = orderDao.selectOrderByNo(20);
 //		System.out.println(order.getOrderDetailList());
 		 //System.out.println(addressDao.selectOrderByName("helprun@naver.com"));
