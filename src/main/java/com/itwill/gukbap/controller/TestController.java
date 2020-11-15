@@ -21,7 +21,9 @@ import com.itwill.gukbap.domain.ProductDomain;
 import com.itwill.gukbap.domain.ReviewDomain;
 import com.itwill.gukbap.domain.UserDomain;
 import com.itwill.gukbap.domain.WishListDomain;
+import com.itwill.gukbap.repository.OrderDetailRepository;
 import com.itwill.gukbap.service.AddressService;
+import com.itwill.gukbap.service.OrderDetailService;
 import com.itwill.gukbap.service.OrderService;
 import com.itwill.gukbap.service.ProductCategoryService;
 import com.itwill.gukbap.service.ProductService;
@@ -47,6 +49,10 @@ public class TestController {
 	private WishListService wishListService;
 	@Autowired
 	private ReviewService reviewService;
+	@Autowired
+	private OrderDetailService orderDetailService; 
+    @Autowired
+    OrderDetailRepository orderDetailRepository;
 	
 	@RequestMapping("address_list")
 	public String address_list(HttpServletRequest request) {
@@ -79,19 +85,35 @@ public class TestController {
 	
 	@RequestMapping("cart")
 	public String cart(HttpServletRequest request) {
-		//UserDomain user = (UserDomain) request.getSession().getAttribute("loginUser");
-        UserDomain user=userService.selectUserById("jaeil@naver.com");
-        
-        int order_no=orderService.highOrderNo(user.getUser_id());
-        System.out.println(order_no);
-        if(orderService.selectOrderByNo(order_no)!=null) {
-        	OrderDomain order= orderService.selectOrderByNo(order_no);
-        	List<OrderDetailDomain> orderDetailList= order.getOrderDetailList();
-        	request.setAttribute("orderDetailList",orderDetailList);
-        	request.setAttribute("order",order);	
-        }
-                
-		return "cart";
+		//if((UserDomain) request.getSession().getAttribute("loginUser")!=null) {
+			
+			//UserDomain user = (UserDomain) request.getSession().getAttribute("loginUser");
+			UserDomain user=userService.selectUserById("jaeil@naver.com");
+			 int order_no=orderService.highOrderNo(user.getUser_id());			 
+		        if(orderService.selectOrderByNo(order_no)!=null) {
+		        	OrderDomain order= orderService.selectOrderByNo(order_no);
+		        	List<OrderDetailDomain> orderDetailList= order.getOrderDetailList();
+		        	request.setAttribute("orderDetailList",orderDetailList);
+		        	request.setAttribute("order",order);	
+		        }	
+		        
+				return "cart";
+		//}else {
+			//return "login";
+	//	}		          
+	}
+	
+	@RequestMapping("cart_delete")
+	public String cart_delete(@RequestParam String o_d_no,HttpServletRequest request) {
+		OrderDetailDomain orderDetail= orderDetailRepository.selectOrderDetailByO_d_no(Integer.parseInt(o_d_no));
+		System.out.println(orderDetail);
+	    orderDetailService.deleteOrderDetail(orderDetail);
+	    UserDomain user=userService.selectUserById("jaeil@naver.com");
+	    int order_no=orderService.highOrderNo(user.getUser_id());
+	    OrderDomain order= orderService.selectOrderByNo(order_no);
+	    List<OrderDetailDomain> orderDetailList= order.getOrderDetailList();
+	    request.setAttribute("orderDetailList",orderDetailList);
+		return "f_cart";
 	}
 	
 	

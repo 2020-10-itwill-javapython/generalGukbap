@@ -8,5 +8,9 @@ public interface OrderDetailService {
 	public void updateProductCount(OrderDetailDomain orderDetail);
 	
 	public void deleteOrderDetail(OrderDetailDomain orderDetail);
+
+	public OrderDetailDomain selectOrderDetailByO_d_no(int o_d_no);
+	
+
 	
 }

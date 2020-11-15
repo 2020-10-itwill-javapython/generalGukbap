@@ -2,18 +2,17 @@
 $(function() {
 
 	 $("button[name=cart_delete]").click(function(e) {
-        var wishlist_no="wishlist_no="+$(this).val();
-		console.log(wishlist_no);
+        var o_d_no="o_d_no="+$(this).val();
+		console.log(o_d_no);
 		$.ajax({
-			url: "f_wishlist",
+			url: "cart_delete",
 			method: "GET",
-			data: wishlist_no,
+			data: o_d_no,
 			dataType: "html",
 			success: function(html) {
-				$('#product_List').html(html);
+				$('#cart_delete').html(html);
 			}
 		})
-		
 		e.preventDefault();
 	});
 	

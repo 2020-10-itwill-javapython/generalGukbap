@@ -23,10 +23,16 @@ public class OrderDetailServiceImpl implements OrderDetailService {
 		this.renewOrderDesc(orderDetail.getOrder_no());
 	}
 	
+	
 	@Override
 	public void deleteOrderDetail(OrderDetailDomain orderDetail) {
 		orderDetailRepository.deleteItemFromOrder(orderDetail);
 		this.renewOrderDesc(orderDetail.getOrder_no());
+	}
+	
+	@Override
+	public OrderDetailDomain selectOrderDetailByO_d_no(int o_d_no) {
+		return orderDetailRepository.selectOrderDetailByO_d_no(o_d_no);
 	}
 	
 	private void renewOrderDesc(int order_no) {

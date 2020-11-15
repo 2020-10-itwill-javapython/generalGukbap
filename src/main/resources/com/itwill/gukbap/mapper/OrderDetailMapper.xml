@@ -23,7 +23,7 @@
 	</select>
 
 	<select id="select_orderDetail_by_o_d_no" parameterType="int"
-			resultType="com.itwill.gukbap.domain.OrderDetailDomain">
+			resultMap="orderDetailMap">
 		select * from order_detail
 		where o_d_no = #{o_d_no}
 	</select>

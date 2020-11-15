@@ -16,7 +16,8 @@ public class OrderDetailServiceImplTestMain {
 		ProductService pService = applicationContext.getBean(ProductService.class);
 		
 //		service.updateProductCount(new OrderDetailDomain(0, 21, 3, pService.selectProductByProductNo(2)));
-		service.deleteOrderDetail(new OrderDetailDomain(0, 21, 0, pService.selectProductByProductNo(2)));
+		//service.deleteOrderDetail(new OrderDetailDomain(0, 21, 0, pService.selectProductByProductNo(2)));
+		System.out.println(service.selectOrderDetailByO_d_no(50));
 	}
 
 }

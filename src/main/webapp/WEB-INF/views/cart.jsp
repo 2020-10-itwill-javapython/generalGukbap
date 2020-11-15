@@ -38,7 +38,7 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="table_desc">
-                            <div class="cart_page">
+                            <div class="cart_page" id="cart_delete">
                                 <table>
                             <thead>
                                 <tr>
@@ -53,7 +53,7 @@
                           <c:forEach items="${orderDetailList}" var="orderDetail">  
                             <tbody>
                                 <tr>
-                                   <td class="product_remove"><button style="border: none; background: transparent;" name="cart_delete" value="${orderDetail}" ><a><i class="fa fa-trash-o"></i></a></button></td>
+                                   <td class="product_remove"><a><button style="border: none; background: transparent;" name="cart_delete" value="${orderDetail.o_d_no}"><i class="fa fa-trash-o"></i></button></a></td>
                                     <td class="product_thumb"><a><img src="assets/img/product/${orderDetail.product.product_image}"></a></td>
                                     <td class="product_name"><a>${orderDetail.product.product_name}</a></td>
                                     <td class="product-price">${orderDetail.product.product_price}</td>
@@ -95,7 +95,7 @@
                                        </c:if>
                                    </div>
                                    <div class="checkout_btn">
-                                       <a href="cart">주문하기</a>
+                                       <a href="checkout">주문하기</a>
                                    </div>
                                 </div>
                             </div>
@@ -143,7 +143,7 @@
 <!-- Main JS -->
 <script src="assets/js/main.js"></script>
 
-
+<script type="text/javascript" src="assets/js/custom/cart.js"></script>
 
 </body>
 
