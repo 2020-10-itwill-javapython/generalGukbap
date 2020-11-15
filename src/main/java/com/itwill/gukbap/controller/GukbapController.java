@@ -368,10 +368,19 @@ public class GukbapController {
 	
 	@RequestMapping(value = "add_to_cart",method = RequestMethod.POST)
 	private String add_to_cart(HttpServletRequest request,@RequestParam String product_no,@RequestParam String pty) {
+		
 		ProductDomain product=productService.selectProductByProductNo(Integer.parseInt(product_no));
 		UserDomain user = (UserDomain) request.getSession().getAttribute("loginUser");
 		//user.getUser_id()
 		orderService.insertOrder(user.getUser_id(),new OrderDetailDomain(0,0,Integer.parseInt(pty),product));
 		return "cart";
+	}
+	
+	@RequestMapping(value = "add_wishlist",method = RequestMethod.POST)
+	private String add_wishlist(@RequestParam String product_no,HttpServletRequest request) {
+		UserDomain user = (UserDomain) request.getSession().getAttribute("loginUser");
+		//String user_id=user.getUser_id();	
+		wishListService.addToWishList(user.getUser_id(),Integer.parseInt(product_no));
+		return "wishlist";
 	}
 }
