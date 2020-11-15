@@ -81,18 +81,16 @@ public class TestController {
 	public String cart(HttpServletRequest request) {
 		//UserDomain user = (UserDomain) request.getSession().getAttribute("loginUser");
         UserDomain user=userService.selectUserById("jaeil@naver.com");
-
+        
         int order_no=orderService.highOrderNo(user.getUser_id());
         System.out.println(order_no);
-        OrderDomain order= orderService.selectOrderByNo(order_no);
-        System.out.println(order);
-        List<OrderDetailDomain> orderDetailList= order.getOrderDetailList();
-        System.out.println(orderDetailList);
-        if (orderDetailList == null) {
-			orderDetailList = new ArrayList<OrderDetailDomain>();
-		}
-        request.setAttribute("order",order);
-        request.setAttribute("orderDetailList",orderDetailList);
+        if(orderService.selectOrderByNo(order_no)!=null) {
+        	OrderDomain order= orderService.selectOrderByNo(order_no);
+        	List<OrderDetailDomain> orderDetailList= order.getOrderDetailList();
+        	request.setAttribute("orderDetailList",orderDetailList);
+        	request.setAttribute("order",order);	
+        }
+                
 		return "cart";
 	}
 	
