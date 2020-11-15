@@ -51,8 +51,7 @@ public class TestController {
 	private ReviewService reviewService;
 	@Autowired
 	private OrderDetailService orderDetailService; 
-    @Autowired
-    OrderDetailRepository orderDetailRepository;
+  
 	
 	@RequestMapping("address_list")
 	public String address_list(HttpServletRequest request) {
@@ -105,14 +104,33 @@ public class TestController {
 	
 	@RequestMapping("cart_delete")
 	public String cart_delete(@RequestParam String o_d_no,HttpServletRequest request) {
-		OrderDetailDomain orderDetail= orderDetailRepository.selectOrderDetailByO_d_no(Integer.parseInt(o_d_no));
-		System.out.println(orderDetail);
-	    orderDetailService.deleteOrderDetail(orderDetail);
-	    UserDomain user=userService.selectUserById("jaeil@naver.com");
-	    int order_no=orderService.highOrderNo(user.getUser_id());
-	    OrderDomain order= orderService.selectOrderByNo(order_no);
-	    List<OrderDetailDomain> orderDetailList= order.getOrderDetailList();
-	    request.setAttribute("orderDetailList",orderDetailList);
+		if(orderDetailService.selectOrderDetailByO_d_no(Integer.parseInt(o_d_no))!=null) {
+			OrderDetailDomain orderDetail= orderDetailService.selectOrderDetailByO_d_no(Integer.parseInt(o_d_no));		
+			orderDetailService.deleteOrderDetail(orderDetail);	
+		}
+		UserDomain user=userService.selectUserById("jaeil@naver.com");
+		 int order_no=orderService.highOrderNo(user.getUser_id());			 
+	        if(orderService.selectOrderByNo(order_no)!=null) {
+	        	OrderDomain order= orderService.selectOrderByNo(order_no);
+	        	if(order.getOrderDetailList()!=null) {
+	        		List<OrderDetailDomain> orderDetailList= order.getOrderDetailList();
+		        	request.setAttribute("orderDetailList",orderDetailList);
+		        	request.setAttribute("order",order);
+	        	}
+	        	
+	        }	
+		/*
+		UserDomain user=userService.selectUserById("jaeil@naver.com");
+		int order_no=orderService.highOrderNo(user.getUser_id());
+		if(orderService.selectOrderByNo(order_no)!=null) {
+	     OrderDomain order= orderService.selectOrderByNo(order_no);
+		if(order.getOrderDetailList()!=null) {
+		    	List<OrderDetailDomain> orderDetailList= order.getOrderDetailList();
+				request.setAttribute("orderDetailList",orderDetailList);
+		    }
+      
+		}
+        */
 		return "f_cart";
 	}
 	
@@ -136,8 +154,8 @@ public class TestController {
 	@RequestMapping(value = "add_to_cart",method = RequestMethod.POST)
 	private String add_to_cart(HttpServletRequest request,@RequestParam String product_no,@RequestParam String pty) {
 		ProductDomain product=productService.selectProductByProductNo(Integer.parseInt(product_no));
-		System.out.println(pty);
-		System.out.println(product_no);
+		//System.out.println(pty);
+		//System.out.println(product_no);
 		//UserDomain user = (UserDomain) request.getSession().getAttribute("loginUser");
 		//user.getUser_id()
 //		orderService.insertOrder(

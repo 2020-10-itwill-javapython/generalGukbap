@@ -33,12 +33,12 @@
 	<!--breadcrumbs area end-->
     
      <!--shopping cart area start -->
-    <div class="shopping_cart_area mt-70">
+    <div class="shopping_cart_area mt-70" id="cart_delete">
         <div class="container">  
                 <div class="row">
                     <div class="col-12">
                         <div class="table_desc">
-                            <div class="cart_page" id="cart_delete">
+                            <div class="cart_page">
                                 <table>
                             <thead>
                                 <tr>
@@ -50,6 +50,7 @@
                                     <th class="product_total">합계</th>
                                 </tr>
                             </thead>
+                            <c:if test="${orderDetailList!=null}">
                           <c:forEach items="${orderDetailList}" var="orderDetail">  
                             <tbody>
                                 <tr>
@@ -62,6 +63,7 @@
                                 </tr>
                             </tbody>
                             </c:forEach>
+                            </c:if>
                         </table>   
                             </div>  
                             <!-- 

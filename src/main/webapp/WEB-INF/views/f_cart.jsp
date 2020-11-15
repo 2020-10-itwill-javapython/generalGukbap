@@ -2,7 +2,12 @@
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
- <table>
+<div class="container">  
+                <div class="row">
+                    <div class="col-12">
+                        <div class="table_desc">
+                            <div class="cart_page">
+                                <table>
                             <thead>
                                 <tr>
                                     <th class="product_remove">삭제</th>
@@ -13,6 +18,7 @@
                                     <th class="product_total">합계</th>
                                 </tr>
                             </thead>
+                            <c:if test="${orderDetailList!=null}">
                           <c:forEach items="${orderDetailList}" var="orderDetail">  
                             <tbody>
                                 <tr>
@@ -25,6 +31,45 @@
                                 </tr>
                             </tbody>
                             </c:forEach>
-                        </table>
+                            </c:if>
+                        </table>   
+                            </div>  
+                            <!-- 
+                            <div class="cart_submit">
+                                <button type="submit">update cart</button>
+                            </div> 
+                              -->   
+                        </div>
+                     </div>
+                 </div>
+                 <!--coupon code area start-->
+                <div class="coupon_area">
+                         <div class="col-md-6 offset-md-6"></div>
+                            <div class="coupon_code right">
+                                <h3>Cart Totals</h3>
+                                <div class="coupon_inner">
+                                   <div class="cart_subtotal">
+                                       <p>소계</p>
+                                     <!--  -->  <p class="cart_amount">총합:${order.order_total_price}원</p>
+                                   </div>
+                                   <div class="cart_subtotal ">
+                                       <p>배송비</p>
+                                       <p class="cart_amount">3000원</p>
+                                   </div>
+                                   <a ></a>
+
+                                   <div class="cart_subtotal">
+                                       <p>주문금액</p>
+                                       <c:if test="${order.order_total_price>0}">
+                                       <p class="cart_amount">${order.order_total_price+3000}원</p>
+                                       </c:if>
+                                   </div>
+                                   <div class="checkout_btn">
+                                       <a href="checkout">주문하기</a>
+                                   </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
              
 <script type="text/javascript" src="assets/js/custom/cart.js"></script>
