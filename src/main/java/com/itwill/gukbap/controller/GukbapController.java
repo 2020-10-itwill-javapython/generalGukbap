@@ -33,6 +33,7 @@ import com.itwill.gukbap.domain.UserDomain;
 import com.itwill.gukbap.domain.WishListDomain;
 import com.itwill.gukbap.exception.ExistedUserExecption;
 import com.itwill.gukbap.service.AddressService;
+import com.itwill.gukbap.service.OrderDetailService;
 import com.itwill.gukbap.service.OrderService;
 import com.itwill.gukbap.service.ProductCategoryService;
 import com.itwill.gukbap.service.ProductService;
@@ -56,7 +57,8 @@ public class GukbapController {
 	private WishListService wishListService;
 	@Autowired
 	private ReviewService reviewService;
-	
+	@Autowired
+	private OrderDetailService orderDetailService;
 	@RequestMapping(value = "write_reply", 
 					method = RequestMethod.POST)
 	public String write_reply(@ModelAttribute ReviewDomain reply, HttpServletRequest request) {
@@ -296,4 +298,80 @@ public class GukbapController {
 	}
 	
 	/************************** 김미영 ********************************/
+
+	@RequestMapping("shop-right-sidebar")  
+	public String product_list(HttpServletRequest request) {
+		List<ProductDomain> productList=productService.selectAll();
+		request.setAttribute("productList",productList);
+		return "shop-right-sidebar";
+	}
+	
+	@RequestMapping("cart")
+	public String cart(HttpServletRequest request) {
+		if((UserDomain) request.getSession().getAttribute("loginUser")!=null) {
+			
+			UserDomain user = (UserDomain) request.getSession().getAttribute("loginUser");
+			//UserDomain user=userService.selectUserById("jaeil@naver.com");
+			 int order_no=orderService.highOrderNo(user.getUser_id());			 
+		        if(orderService.selectOrderByNo(order_no)!=null) {
+		        	OrderDomain order= orderService.selectOrderByNo(order_no);
+		        	List<OrderDetailDomain> orderDetailList= order.getOrderDetailList();
+		        	request.setAttribute("orderDetailList",orderDetailList);
+		        	request.setAttribute("order",order);	
+		        }	
+		        
+				return "cart";
+		}else {
+			return "login";
+		}		          
+	}
+	
+	@RequestMapping("cart_delete")
+	public String cart_delete(@RequestParam String o_d_no,HttpServletRequest request) {
+		if(orderDetailService.selectOrderDetailByO_d_no(Integer.parseInt(o_d_no))!=null) {
+			OrderDetailDomain orderDetail= orderDetailService.selectOrderDetailByO_d_no(Integer.parseInt(o_d_no));		
+			orderDetailService.deleteOrderDetail(orderDetail);	
+		}
+		UserDomain user = (UserDomain) request.getSession().getAttribute("loginUser");
+		//UserDomain user=userService.selectUserById("jaeil@naver.com");
+		 int order_no=orderService.highOrderNo(user.getUser_id());			 
+	        if(orderService.selectOrderByNo(order_no)!=null) {
+	        	OrderDomain order= orderService.selectOrderByNo(order_no);
+	        	if(order.getOrderDetailList()!=null) {
+	        		List<OrderDetailDomain> orderDetailList= order.getOrderDetailList();
+		        	request.setAttribute("orderDetailList",orderDetailList);
+		        	request.setAttribute("order",order);
+	        	}
+	        	
+	        }	
+		/*
+		UserDomain user=userService.selectUserById("jaeil@naver.com");
+		int order_no=orderService.highOrderNo(user.getUser_id());
+		if(orderService.selectOrderByNo(order_no)!=null) {
+	     OrderDomain order= orderService.selectOrderByNo(order_no);
+		if(order.getOrderDetailList()!=null) {
+		    	List<OrderDetailDomain> orderDetailList= order.getOrderDetailList();
+				request.setAttribute("orderDetailList",orderDetailList);
+		    }
+      
+		}
+        */
+		return "f_cart";
+	}
+	@RequestMapping("f_product_list")  
+	public String f_product_list(@RequestParam int c_no,HttpServletRequest request) {
+		List<ProductDomain> productList=productService.selectProductByCategoryNo(c_no);
+		//request.setAttribute("productList",productList);
+		request.setAttribute("productList",productList);
+		return "f_product_list";
+	}
+	
+	@RequestMapping(value = "add_to_cart",method = RequestMethod.POST)
+	private String add_to_cart(HttpServletRequest request,@RequestParam String product_no,@RequestParam String pty) {
+		ProductDomain product=productService.selectProductByProductNo(Integer.parseInt(product_no));
+		UserDomain user = (UserDomain) request.getSession().getAttribute("loginUser");
+		//user.getUser_id()
+		orderService.insertOrder(user.getUser_id(),new OrderDetailDomain(0,0,Integer.parseInt(pty),product));
+		return "cart";
+	}
 }

@@ -73,8 +73,8 @@ public class TestController {
 	}
 
 	
-	/********************************************************************/
-
+	/********************************************************************
+ /*
 	@RequestMapping("shop-right-sidebar")  
 	public String product_list(HttpServletRequest request) {
 		List<ProductDomain> productList=productService.selectAll();
@@ -130,7 +130,7 @@ public class TestController {
 		    }
       
 		}
-        */
+        
 		return "f_cart";
 	}
 	@RequestMapping("f_product_list")  
@@ -162,8 +162,8 @@ public class TestController {
 		wishListService.addToWishList("jaeil@naver.com",Integer.parseInt(product_no));
 		return "wishlist";
 	}
-	/********************************************************************/
-	
+	********************************************************************/
+
 	@RequestMapping("guest_list")
 	public String guest_list(HttpServletRequest request) {
 		UserDomain user = userService.selectUserById("helprun@naver.com");
