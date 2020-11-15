@@ -24,30 +24,38 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.itwill.gukbap.domain.AddressDomain;
+import com.itwill.gukbap.domain.OrderDetailDomain;
 import com.itwill.gukbap.domain.OrderDomain;
 import com.itwill.gukbap.domain.ProductDomain;
 import com.itwill.gukbap.domain.ReviewDomain;
 import com.itwill.gukbap.domain.UserAddressDomain;
 import com.itwill.gukbap.domain.UserDomain;
+import com.itwill.gukbap.domain.WishListDomain;
 import com.itwill.gukbap.exception.ExistedUserExecption;
 import com.itwill.gukbap.service.AddressService;
 import com.itwill.gukbap.service.OrderService;
+import com.itwill.gukbap.service.ProductCategoryService;
 import com.itwill.gukbap.service.ProductService;
 import com.itwill.gukbap.service.ReviewService;
 import com.itwill.gukbap.service.UserService;
+import com.itwill.gukbap.service.WishListService;
 
 @Controller
 public class GukbapController {
 	@Autowired
-	UserService userService;
+	private AddressService addressService;
 	@Autowired
-	OrderService orderService;
+	private OrderService orderService;
 	@Autowired
-	AddressService addressService;
+	private ProductCategoryService productCategoryService;
 	@Autowired
-	ReviewService reviewService;
+	private ProductService productService;
 	@Autowired
-	ProductService productService;
+	private UserService userService;
+	@Autowired
+	private WishListService wishListService;
+	@Autowired
+	private ReviewService reviewService;
 	
 	@RequestMapping(value = "write_reply", 
 					method = RequestMethod.POST)
@@ -222,5 +230,70 @@ public class GukbapController {
 		UserDomain user = userService.selectUserById(order.getUser_id());
 		return user;
 	}
+	/************************** 김미영 ********************************/
+	@RequestMapping("gukbap_main")  
+	public String index_product_list(HttpServletRequest request) {
+		List<ProductDomain> indexProductList=productService.selectProductByCategoryNo(1);
+		request.setAttribute("indexProductList", indexProductList);
+		List<ProductDomain> indexCountList=productService.selectProductOrderByClickCount();
+		request.setAttribute("indexCountList", indexCountList);
+		List<ReviewDomain> indexReviewList=reviewService.selectAllReviewArrangeInTheLatestFive();
+		request.setAttribute("indexReviewList", indexReviewList);
+		return "gukbap_main";
+	}
 	
+	@RequestMapping(value = "main_to_wishlist",method = RequestMethod.POST)
+	private String main_to_wishlist(@RequestParam String product_no,HttpServletRequest request) {
+		//UserDomain user = (UserDomain) request.getSession().getAttribute("loginUser");
+		//String user_id=user.getUser_id();	
+		wishListService.addToWishList("jaeil@naver.com",Integer.parseInt(product_no));
+		return "wishlist";
+	}
+	
+	@RequestMapping(value = "main_to_cart",method = RequestMethod.POST)
+	private String main_to_cart(HttpServletRequest request, @RequestParam String product_no, @RequestParam String pty) {
+		ProductDomain product=productService.selectProductByProductNo(Integer.parseInt(product_no));
+		System.out.println(pty);
+		System.out.println(product_no);
+		//UserDomain user = (UserDomain) request.getSession().getAttribute("loginUser");
+		//user.getUser_id()
+//		orderService.insertOrder(
+//		"big-test@naver.com", 
+//		new OrderDetailDomain(0, 20, 1, productService.selectProductByProductNo(2)));
+		orderService.insertOrder("jaeil@naver.com",new OrderDetailDomain(0,0,Integer.parseInt(pty),product));
+		return "cart";
+	}
+	
+	@RequestMapping(value="wishlist", method=RequestMethod.GET)
+	public String show_wishlist(HttpServletRequest request) {
+		//UserDomain user = (UserDomain) request.getSession().getAttribute("loginUser");
+		//user.getUser_id()
+		//wishlistService.getWishListItems(user_id);
+		List<WishListDomain> wishlist=wishListService.getWishListItems("jaeil@naver.com");
+		request.setAttribute("wishlist", wishlist);
+		return "wishlist";
+	}
+	
+	@RequestMapping(value = "wishlist_to_cart",method = RequestMethod.POST)
+	private String wishlist_to_cart(@RequestParam String product_no, @RequestParam String pty, HttpServletRequest request) {
+		ProductDomain product=productService.selectProductByProductNo(Integer.parseInt(product_no));
+		
+		//UserDomain user = (UserDomain) request.getSession().getAttribute("loginUser");
+		//String user_id=user.getUser_id();	
+		orderService.insertOrder("jaeil@naver.com", new OrderDetailDomain(0,0,1,product));
+		return "wishlist";
+	}
+	
+	@RequestMapping("f_wishlist")  
+	public String f_wishlist(@RequestParam String wishlist_no,HttpServletRequest request) {
+		wishListService.removeItemFromWishList(Integer.parseInt(wishlist_no));
+		//UserDomain user = (UserDomain) request.getSession().getAttribute("loginUser");
+		//user.getUser_id()
+		//request.setAttribute("productList",productList);
+		List<WishListDomain> wishlist=wishListService.getWishListItems("jaeil@naver.com");
+		request.setAttribute("wishlist",wishlist);
+		return "f_wishlist";
+	}
+	
+	/************************** 김미영 ********************************/
 }
