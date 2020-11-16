@@ -38,14 +38,13 @@
 										<c:choose>
 											<c:when test="${product.product_isOnSale}">
 												<div class="price_box">
-													<span class="current_price">${product.product_price*0.7}원</span>
-													<span class="old_price">${product.product_price}원</span>
+													<span class="current_price">${product.product_price}원</span>
+													<span class="old_price">8500원</span>
 												</div>
 											</c:when>
 											<c:otherwise>
 												<div class="price_box">
 													<span class="current_price">${product.product_price}원</span>
-													<!-- <span class="old_price">${product.product_price}원 </span> -->
 												</div>
 											</c:otherwise>
 										</c:choose>
@@ -55,14 +54,13 @@
 										<c:choose>
 											<c:when test="${product.product_isOnSale}">
 												<div class="price_box">
-													<span class="current_price">${product.product_price*0.7}원</span>
-													<span class="old_price">${product.product_price}원</span>
+													<span class="current_price">${product.product_price}원</span>
+													<span class="old_price">8500원</span>
 												</div>
 											</c:when>
 											<c:otherwise>
 												<div class="price_box">
 													<span class="current_price">${product.product_price}원</span>
-													<!-- <span class="old_price">${product.product_price}원 </span> -->
 												</div>
 											</c:otherwise>
 										</c:choose>
