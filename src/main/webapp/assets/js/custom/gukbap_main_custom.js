@@ -55,7 +55,7 @@ $(function() {
 				$('#modal_detail_desc').text(product.product_desc);
 				$('#modal_detail_price').text(product.product_price);
 				$('#modal_detail_image ').html("<img src=\"assets/img/product/" + product.product_image + "\" alt=\"\">");
-
+				$('#modal_button_p_no').val(product.product_no);
 			}
 		})
 		

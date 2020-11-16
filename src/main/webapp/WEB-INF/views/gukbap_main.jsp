@@ -198,22 +198,15 @@
 										<div class="action_links">
 											<ul>
 
-												<button style="border: none; background: transparent;"
-													name="main_to_cart_button" value="${product.product_no}">
-													<li class="add_to_cart"><a title="장바구니 담기"><span
-															class="lnr lnr-cart"></span></a></li>
+												<button style="border: none; background: transparent;" name="main_to_cart_button" value="${product.product_no}">
+													<li class="add_to_cart"><a title="장바구니 담기"><span class="lnr lnr-cart"></span></a></li>
 												</button>
 
-												<li class="quick_button"><a href="#"
-													product_no="${product.product_no}" data-toggle="modal"
-													data-target="#modal_box" title="quick view"> <span
-														class="lnr lnr-magnifier"></span></a></li>
+												<li class="quick_button"><a href="#" product_no="${product.product_no}" data-toggle="modal"
+													data-target="#modal_box" title="quick view"> <span class="lnr lnr-magnifier"></span></a></li>
 
-												<button style="border: none; background: transparent;"
-													name="main_to_wishlist_button"
-													value="${product.product_no }">
-													<li class="wishlist"><a title="찜 하기"><span
-															class="lnr lnr-heart"></span></a></li>
+												<button style="border: none; background: transparent;" name="main_to_wishlist_button" value="${product.product_no }">
+													<li class="wishlist"><a title="찜 하기"><span class="lnr lnr-heart"></span></a></li>
 												</button>
 
 											</ul>
@@ -382,9 +375,11 @@
 								<div class="modal_title mb-10">
 									<h2 id="modal_detail_title">Donec Ac Tempus</h2>
 								</div>
+								
 								<div class="modal_price mb-10">
 									<span class="new_price" id="modal_detail_price">원</span>
 								</div>
+								
 								<div class="modal_description mb-15">
 									<p id="modal_detail_desc">Lorem ipsum dolor sit amet,
 										consectetur adipisicing elit. Mollitia iste laborum ad impedit
@@ -392,24 +387,12 @@
 										quos qui nemo ipsum numquam, reiciendis maiores quidem
 										aperiam, rerum vel recusandae</p>
 								</div>
-								<!--  
-								<div class="variants_selects">
-									<div class="variants_size">
-										<h2>size</h2>
-										<select class="select_option">
-											<option selected value="1">기본</option>
-											<option value="1">특</option>
 
-										</select>
-									</div>
-								-->
-
-									<div class="modal_add_to_cart">
-										<form action="#">
-											<input min="1" max="100" step="1" value="1" type="number">
-											<button type="submit">장바구니 추가</button>
-										</form>
-									</div>
+								<div class="modal_add_to_cart">
+									<form action="add_to_cart" method="post">
+										<input min="1" max="100" step="1" value="1" type="number" name="pty">
+										<button id="modal_button_p_no" type="submit" name="product_no" value="">장바구니 추가</button>
+									</form>
 								</div>
 							</div>
 						</div>
