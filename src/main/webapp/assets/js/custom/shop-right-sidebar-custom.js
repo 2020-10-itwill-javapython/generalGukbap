@@ -8,11 +8,19 @@ $(function() {
 		 console.log(param); 
 		 console.log(pty); 
 			$.ajax({
-			url:"add_to_cart",
+			url:"add_cart",
 			method:"POST",
 			data:allData,
+			success: function(login_cart) {
+				if(login_cart == 'login') {
+					alert('로그인이 필요한 서비스입니다.');
+					location.href = 'login';
+				} else{
+					alert('추가완료');
+				}
+			}
+
 		})
-		alert("카트 추가완료");
 		e.preventDefault();
 	});
 	
@@ -23,9 +31,16 @@ $(function() {
 		$.ajax({
 			url:"add_wishlist",
 			method:"POST",			
-			data:param,		
+			data:param,
+			success: function(result) {
+				if(result == 'false') {
+					alert('로그인이 필요한 서비스입니다.');
+					location.href = 'login';
+				} else if(result == 'true') {
+					alert('찜 완료');
+				}
+			}
 		})
-		alert("찜 완료");
 		e.preventDefault();
 	});
    

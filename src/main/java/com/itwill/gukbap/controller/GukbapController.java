@@ -247,6 +247,21 @@ public class GukbapController {
 		orderService.insertOrder(user.getUser_id(), new OrderDetailDomain(0,0,Integer.parseInt(pty),product));
 		return "wishlist";
 	}
+	
+	@RequestMapping(value = "add_to_cart",method = RequestMethod.POST)
+	private String add_to_cart(HttpServletRequest request,@RequestParam String product_no,@RequestParam String pty,HttpServletResponse response)throws Exception {
+		String login_cart="login";
+		if((UserDomain) request.getSession().getAttribute("loginUser")!=null) {
+		ProductDomain product=productService.selectProductByProductNo(Integer.parseInt(product_no));
+		UserDomain user = (UserDomain) request.getSession().getAttribute("loginUser");
+		orderService.insertOrder(user.getUser_id(),new OrderDetailDomain(0,0,Integer.parseInt(pty),product));
+		response.sendRedirect("cart");
+		login_cart="cart";
+		return login_cart;
+		}else {
+			return login_cart;
+		}
+	}
 
 	@RequestMapping("f_wishlist")  
 	public String f_wishlist(@RequestParam String wishlist_no, HttpServletRequest request) {
@@ -327,26 +342,7 @@ public class GukbapController {
 		return "f_product_list";
 	}
 	
-	@RequestMapping(value = "add_to_cart",method = RequestMethod.POST)
-	private String add_to_cart(HttpServletRequest request,@RequestParam String product_no,@RequestParam String pty,HttpServletResponse response)throws Exception {
-		if((UserDomain) request.getSession().getAttribute("loginUser")!=null) {
-		ProductDomain product=productService.selectProductByProductNo(Integer.parseInt(product_no));
-		UserDomain user = (UserDomain) request.getSession().getAttribute("loginUser");
-		orderService.insertOrder(user.getUser_id(),new OrderDetailDomain(0,0,Integer.parseInt(pty),product));
-		response.sendRedirect("cart");
-		}else {
-			return "login";
-		}
-		return "cart";
-		
-		
-	}
 	
-	@RequestMapping(value = "add_wishlist",method = RequestMethod.POST)
-	private String add_wishlist(@RequestParam String product_no,HttpServletRequest request) {
-		UserDomain user = (UserDomain) request.getSession().getAttribute("loginUser");
-		//String user_id=user.getUser_id();	
-		wishListService.addToWishList(user.getUser_id(),Integer.parseInt(product_no));
-		return "wishlist";
-	}
+	
+	
 }
