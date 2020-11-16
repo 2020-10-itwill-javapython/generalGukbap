@@ -1,7 +1,5 @@
 
 $(function() {
-
-
      $("button[name=add_to_cart_button]").click(function(e) {
         var product_no = $(this).val();
 		var param = 'product_no=' + product_no;
