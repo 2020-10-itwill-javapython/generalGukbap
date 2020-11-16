@@ -16,14 +16,18 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.itwill.gukbap.domain.AddressDomain;
+import com.itwill.gukbap.domain.OrderDetailDomain;
+import com.itwill.gukbap.domain.OrderDomain;
 import com.itwill.gukbap.domain.ProductDomain;
 import com.itwill.gukbap.domain.ReviewDomain;
 import com.itwill.gukbap.domain.UserDomain;
+import com.itwill.gukbap.domain.WishListDomain;
 import com.itwill.gukbap.service.AddressService;
 import com.itwill.gukbap.service.OrderService;
 import com.itwill.gukbap.service.ProductService;
 import com.itwill.gukbap.service.ReviewService;
 import com.itwill.gukbap.service.UserService;
+import com.itwill.gukbap.service.WishListService;
 
 @RestController
 public class RESTController {
@@ -38,7 +42,46 @@ public class RESTController {
 	AddressService addressService;
 	@Autowired
 	ReviewService reviewService;
-
+	@Autowired
+	WishListService wishListService;
+	
+	
+	@RequestMapping(value = "main_to_wishlist",method = RequestMethod.POST)
+	private String main_to_wishlist(@RequestParam String product_no,HttpServletRequest request) {
+		//메인에 있는 메뉴 위시리스트에 담기(찜 하기)
+		String result = "false";
+		UserDomain user = (UserDomain) request.getSession().getAttribute("loginUser");
+		if (user == null) {
+					
+		} else {
+			String user_id=user.getUser_id();	
+			wishListService.addToWishList(user_id,Integer.parseInt(product_no));
+			result = "true";
+		}
+		return result;
+	}
+	
+	@RequestMapping(value = "main_to_cart",method = RequestMethod.POST)
+	private String main_to_cart(HttpServletRequest request, @RequestParam String product_no, @RequestParam String pty) {
+		//메인에 있는 메뉴 카트에 담기
+		String result = "false";
+		UserDomain user = (UserDomain) request.getSession().getAttribute("loginUser");
+		if (user == null) {
+			
+		} else {
+			String user_id=user.getUser_id();	
+			ProductDomain product=productService.selectProductByProductNo(Integer.parseInt(product_no));
+			orderService.insertOrder(user_id,new OrderDetailDomain(0,0,Integer.parseInt(pty),product));
+			result = "true";
+		}
+		
+		return result;
+	}
+	
+	
+	
+	
+	
 	@RequestMapping(value = "write_review", method = RequestMethod.POST)
 	public void write_review(@RequestParam MultipartFile image_file,
 							 @RequestParam String review_title, @RequestParam String review_content,
