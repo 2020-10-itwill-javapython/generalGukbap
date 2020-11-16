@@ -5,6 +5,7 @@ import java.io.InputStream;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,6 +46,34 @@ public class RESTController {
 	@Autowired
 	WishListService wishListService;
 	
+	@RequestMapping(value = "add_cart",method = RequestMethod.POST)
+	private String add_to_cart(HttpServletRequest request,@RequestParam String product_no,@RequestParam String pty,HttpServletResponse response)throws Exception {
+		String login_cart="login";
+		if((UserDomain) request.getSession().getAttribute("loginUser")!=null) {
+		ProductDomain product=productService.selectProductByProductNo(Integer.parseInt(product_no));
+		UserDomain user = (UserDomain) request.getSession().getAttribute("loginUser");
+		orderService.insertOrder(user.getUser_id(),new OrderDetailDomain(0,0,Integer.parseInt(pty),product));
+		response.sendRedirect("cart");
+		login_cart="cart";
+		return login_cart;
+		}else {
+			login_cart="login";
+			return login_cart;
+		}
+	}
+	
+	@RequestMapping(value = "add_wishlist",method = RequestMethod.POST)
+	private String add_wishlist(@RequestParam String product_no,HttpServletRequest request) {
+		String result = "false";
+		if((UserDomain) request.getSession().getAttribute("loginUser")!=null) {
+		UserDomain user = (UserDomain) request.getSession().getAttribute("loginUser");
+		//String user_id=user.getUser_id();	
+		wishListService.addToWishList(user.getUser_id(),Integer.parseInt(product_no));
+		result = "true";
+		}
+		
+		return result;
+	}
 	
 	@RequestMapping(value = "main_to_wishlist",method = RequestMethod.POST)
 	private String main_to_wishlist(@RequestParam String product_no,HttpServletRequest request) {
