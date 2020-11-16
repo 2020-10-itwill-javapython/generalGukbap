@@ -1,12 +1,8 @@
 package com.itwill.gukbap.controller;
 
-import java.io.File;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -14,21 +10,17 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpRequest;
-import org.springframework.lang.UsesSunHttpServer;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.itwill.gukbap.domain.AddressDomain;
 import com.itwill.gukbap.domain.OrderDetailDomain;
 import com.itwill.gukbap.domain.OrderDomain;
 import com.itwill.gukbap.domain.ProductDomain;
 import com.itwill.gukbap.domain.ReviewDomain;
-import com.itwill.gukbap.domain.UserAddressDomain;
 import com.itwill.gukbap.domain.UserDomain;
 import com.itwill.gukbap.domain.WishListDomain;
 import com.itwill.gukbap.exception.ExistedUserExecption;
@@ -268,10 +260,10 @@ public class GukbapController {
 	
 	@RequestMapping(value="wishlist", method=RequestMethod.GET)
 	public String show_wishlist(HttpServletRequest request) {
-		//UserDomain user = (UserDomain) request.getSession().getAttribute("loginUser");
-		//user.getUser_id()
+		UserDomain user = (UserDomain) request.getSession().getAttribute("loginUser");
+		
 		//wishlistService.getWishListItems(user_id);
-		List<WishListDomain> wishlist=wishListService.getWishListItems("jaeil@naver.com");
+		List<WishListDomain> wishlist=wishListService.getWishListItems(user.getUser_id());
 		request.setAttribute("wishlist", wishlist);
 		return "wishlist";
 	}
@@ -318,8 +310,7 @@ public class GukbapController {
 		        	List<OrderDetailDomain> orderDetailList= order.getOrderDetailList();
 		        	request.setAttribute("orderDetailList",orderDetailList);
 		        	request.setAttribute("order",order);	
-		        }	
-		        
+		        }			        
 				return "cart";
 		}else {
 			return "login";
@@ -367,13 +358,18 @@ public class GukbapController {
 	}
 	
 	@RequestMapping(value = "add_to_cart",method = RequestMethod.POST)
-	private String add_to_cart(HttpServletRequest request,@RequestParam String product_no,@RequestParam String pty) {
-		
+	private String add_to_cart(HttpServletRequest request,@RequestParam String product_no,@RequestParam String pty,HttpServletResponse response)throws Exception {
+		if((UserDomain) request.getSession().getAttribute("loginUser")!=null) {
 		ProductDomain product=productService.selectProductByProductNo(Integer.parseInt(product_no));
 		UserDomain user = (UserDomain) request.getSession().getAttribute("loginUser");
-		//user.getUser_id()
 		orderService.insertOrder(user.getUser_id(),new OrderDetailDomain(0,0,Integer.parseInt(pty),product));
+		response.sendRedirect("cart");
+		}else {
+			return "login";
+		}
 		return "cart";
+		
+		
 	}
 	
 	@RequestMapping(value = "add_wishlist",method = RequestMethod.POST)

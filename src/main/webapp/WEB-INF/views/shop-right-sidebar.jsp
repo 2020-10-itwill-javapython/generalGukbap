@@ -253,14 +253,17 @@
                                         <p id="modal_detail_desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia iste laborum ad impedit pariatur esse optio tempora sint ullam autem deleniti nam in quos qui nemo ipsum numquam, reiciendis maiores quidem aperiam, rerum vel recusandae </p>    
                                     </div> 
                                     <div class="variants_selects">
+                                    
                                         <div class="variants_size">
+                                        <!-- 
                                            <h2>size</h2>
                                            <select class="select_option">
                                                <option selected value="1">기본</option>
                                                <option value="2">특</option>                                  
                                            </select>
+                                            -->
                                         </div>
-                   
+                                     
                                         <div class="modal_add_to_cart">
                                             <form action="add_to_cart" method="post">
                                                 <input min="1" max="100" step="1" value="1" type="number" name="pty">
