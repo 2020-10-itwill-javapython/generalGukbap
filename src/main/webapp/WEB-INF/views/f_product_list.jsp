@@ -1,8 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
-   <c:forEach items="${productList}" var="product">
+<c:forEach items="${productList}" var="product">
                         <div class="col-lg-4 col-md-4 col-sm-6 col-12 ">
                             <div class="single_product">
                                 <div class="product_thumb">
@@ -90,4 +89,4 @@
                             </div>
                             </c:forEach>
 
-<script type="text/javascript" src="assets/js/custom/f_produt_list.js"></script>
+<script type="text/javascript" src="assets/js/custom/f_produt_list_f.js"></script>
