@@ -45,7 +45,7 @@
 											<c:otherwise>
 												<div class="price_box">
 													<span class="current_price">${product.product_price}원</span>
-													<span class="old_price">${product.product_price}원</span>
+													<!-- <span class="old_price">${product.product_price}원 </span> -->
 												</div>
 											</c:otherwise>
 										</c:choose>
@@ -62,7 +62,7 @@
 											<c:otherwise>
 												<div class="price_box">
 													<span class="current_price">${product.product_price}원</span>
-													<span class="old_price">${product.product_price}원</span>
+													<!-- <span class="old_price">${product.product_price}원 </span> -->
 												</div>
 											</c:otherwise>
 										</c:choose>

@@ -124,7 +124,7 @@
 														<c:otherwise>
 															<div class="price_box">
 																<span class="current_price">${product.product_price}원</span>
-																<span class="old_price">${product.product_price}원</span>
+																<!-- <span class="old_price">${product.product_price}원 </span> -->
 															</div>
 														</c:otherwise>
 													</c:choose>
@@ -224,19 +224,20 @@
 											<a href="product-details.html">${product.product_name}</a>
 										</h4>
 										<c:choose>
-														<c:when test="${product.product_isOnSale}">
-															<div class="price_box">
-																<span class="current_price">${product.product_price*0.7}원</span>
-																<span class="old_price">${product.product_price}원</span>
-															</div>
-														</c:when>
-														<c:otherwise>
-															<div class="price_box">
-																<span class="current_price">${product.product_price}원</span>
-																<span class="old_price">${product.product_price}원</span>
-															</div>
-														</c:otherwise>
-													</c:choose>
+											<c:when test="${product.product_isOnSale}">
+												<div class="price_box">
+													<span class="current_price">${product.product_price*0.7}원</span>
+													<span class="old_price">${product.product_price}원</span>
+												</div>
+											</c:when>
+											<c:otherwise>
+												<div class="price_box">
+													<span class="current_price">${product.product_price}원</span>
+													<!-- <span class="old_price">${product.product_price}원 </span> -->
+												</div>
+											</c:otherwise>
+										</c:choose>
+
 									</figcaption>
 								</figure>
 							</article>

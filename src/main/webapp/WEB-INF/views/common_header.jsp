@@ -119,10 +119,12 @@
                                        <div class="hover_category">
                                                      
                                        </div>
+                                       
                                         <div class="search_box">
                                             <input placeholder="Search product..." type="text">
-                                             <button type="submit"><span class="lnr lnr-magnifier"></span></button>
+                                            <button type="submit"><span class="lnr lnr-magnifier"></span></button>
                                         </div>
+                                        
                                     </form>
                                 </div>
                                 <div class="header_account_area">

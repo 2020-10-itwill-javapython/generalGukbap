@@ -10,7 +10,7 @@ $(function() {
 			$.ajax({
 			url:"add_to_cart",
 			method:"POST",
-			data:allData
+			data:allData,
 		})
 		alert("카트 추가완료");
 		e.preventDefault();

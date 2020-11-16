@@ -257,36 +257,6 @@ public class GukbapController {
 		request.setAttribute("wishlist",wishlist);
 		return "f_wishlist";
 	}
-//	@RequestMapping(value="wishlist", method=RequestMethod.GET)
-//	public String show_wishlist(HttpServletRequest request) {
-//		//UserDomain user = (UserDomain) request.getSession().getAttribute("loginUser");
-//		//user.getUser_id()
-//		//wishlistService.getWishListItems(user_id);
-//		List<WishListDomain> wishlist=wishListService.getWishListItems("jaeil@naver.com");
-//		request.setAttribute("wishlist", wishlist);
-//		return "wishlist";
-//	}
-	
-//	@RequestMapping(value = "wishlist_to_cart",method = RequestMethod.POST)
-//	private String wishlist_to_cart(@RequestParam String product_no, @RequestParam String pty, HttpServletRequest request) {
-//		ProductDomain product=productService.selectProductByProductNo(Integer.parseInt(product_no));
-//		
-//		//UserDomain user = (UserDomain) request.getSession().getAttribute("loginUser");
-//		//String user_id=user.getUser_id();	
-//		orderService.insertOrder("jaeil@naver.com", new OrderDetailDomain(0,0,1,product));
-//		return "wishlist";
-//	}
-	
-//	@RequestMapping("f_wishlist")  
-//	public String f_wishlist(@RequestParam String wishlist_no, HttpServletRequest request) {
-//		wishListService.removeItemFromWishList(Integer.parseInt(wishlist_no));
-//		//UserDomain user = (UserDomain) request.getSession().getAttribute("loginUser");
-//		//user.getUser_id()
-//		//request.setAttribute("productList",productList);
-//		List<WishListDomain> wishlist=wishListService.getWishListItems("jaeil@naver.com");
-//		request.setAttribute("wishlist",wishlist);
-//		return "f_wishlist";
-//	}
 	
 	/************************** 끝 ********************************/
 	
