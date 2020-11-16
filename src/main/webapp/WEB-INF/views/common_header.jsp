@@ -114,19 +114,6 @@
                         </div>
                         <div class="col-lg-10 col-md-6 col-sm-7 col-8">
                             <div class="header_right_info">
-                                <div class="search_container mobail_s_none">
-                                   <form action="#">
-                                       <div class="hover_category">
-                                                     
-                                       </div>
-                                       
-                                        <div class="search_box">
-                                            <input placeholder="Search product..." type="text">
-                                            <button type="submit"><span class="lnr lnr-magnifier"></span></button>
-                                        </div>
-                                        
-                                    </form>
-                                </div>
                                 <div class="header_account_area">
                                     <div class="header_account_list register">
                                         <ul>
