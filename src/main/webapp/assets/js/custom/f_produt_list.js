@@ -26,7 +26,7 @@ $(function() {
 			method:"POST",
 			data:allData
 		})
-		alert("카트 추가완료");
+		alert("카트 추가 완료");
 		e.preventDefault();
 	});
 
