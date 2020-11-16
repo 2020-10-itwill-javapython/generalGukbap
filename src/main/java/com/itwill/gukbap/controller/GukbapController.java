@@ -168,16 +168,6 @@ public class GukbapController {
 	public String error() {
 		return "error";
 	}
-	
-	@RequestMapping("/register")
-	public String register() {
-		return "register";
-	}
-	
-	@RequestMapping("/write_review_page")
-	public String write_review_page() {
-		return "write_review_page";
-	}
 
 	@RequestMapping(value = "my-account")
 	public String myAccount(HttpSession session) {
