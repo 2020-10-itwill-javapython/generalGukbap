@@ -60,6 +60,11 @@ public class ReviewRepositoryImpl implements ReviewRepository {
 	}
 	
 	@Override
+	public ReviewDomain select_review_with_o_d_no(int o_d_no) {
+		return reviewMapper.select_review_with_o_d_no(o_d_no);
+	}
+	
+	@Override
 	public int insertReview(ReviewDomain review) {
 		return reviewMapper.insertReview(review);
 	}
@@ -78,6 +83,7 @@ public class ReviewRepositoryImpl implements ReviewRepository {
 	public int deleteReviewByReviewNo(int product_no) {
 		return reviewMapper.deleteReviewByReviewNo(product_no);
 	}
+
 
 	
 

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>	    
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 	<jsp:include page="common_header.jsp"/>
 
 <body>
@@ -22,8 +22,8 @@
 					<div class="breadcrumb_content">
 						<h3>Cart</h3>
 						<ul>
-							<li><a href="index.html">home</a></li>
-							<li>Shopping Cart</li>
+							<li><a href="index.html">메인</a></li>
+							<li>카트</li>
 						</ul>
 					</div>
 				</div>
@@ -42,24 +42,52 @@
                                 <table>
                             <thead>
                                 <tr>
-                                    <th class="product_remove">삭제</th>
+                                	<c:choose>
+                                		<c:when test="${order.order_status == 'shipped' || order.order_status == 'complete' }">
+                                		</c:when>
+                                		<c:otherwise>
+		                                    <th class="product_remove">삭제</th>
+                                		</c:otherwise>
+                                	</c:choose>
                                     <th class="product_thumb">이미지</th>
                                     <th class="product_name">제품</th>
                                     <th class="product-price">가격</th>
                                     <th class="product_quantity">수량</th>
                                     <th class="product_total">합계</th>
+                                    <c:if test="${order.order_status == 'shipped' || order.order_status == 'complete' }">
+                                    	<th class="write_review">리뷰 작성</th>
+                                    </c:if>
                                 </tr>
                             </thead>
                             <c:if test="${orderDetailList!=null}">
                           <c:forEach items="${orderDetailList}" var="orderDetail">  
                             <tbody>
                                 <tr>
-                                   <td class="product_remove"><a><button style="border: none; background: transparent;" name="cart_delete" value="${orderDetail.o_d_no}"><i class="fa fa-trash-o"></i></button></a></td>
+                                	<c:choose>
+                                		<c:when test="${order.order_status == 'shipped' || order.order_status == 'complete' }">
+                                		</c:when>
+                                		<c:otherwise>
+		                                   <td class="product_remove"><a><button style="border: none; background: transparent;" name="cart_delete" value="${orderDetail.o_d_no}"><i class="fa fa-trash-o"></i></button></a></td>
+                                		</c:otherwise>
+                                	</c:choose>
                                     <td class="product_thumb"><a><img src="assets/img/product/${orderDetail.product.product_image}"></a></td>
                                     <td class="product_name"><a>${orderDetail.product.product_name}</a></td>
-                                    <td class="product-price">${orderDetail.product.product_price}</td>
+                                    <td class="product-price">${orderDetail.product.product_price} 원</td>
                                     <td class="product_quantity"><label>${orderDetail.o_d_product_count}</label></td>
-                                    <td class="product_total">${orderDetail.product.product_price*orderDetail.o_d_product_count}</td>
+                                    <td class="product_total">${orderDetail.product.product_price*orderDetail.o_d_product_count} 원 </td>
+                                    <c:set var="key" value="${orderDetail.o_d_no }"/>
+                                    	<c:choose>
+                                    		<c:when test="${order.order_status == 'preparing' }">
+                                    		</c:when>
+                                    		<c:otherwise>
+			                                    <c:if test="${isReviewExist[key] == 'exist' }">
+			                                    	<td>리뷰 작성 완료</td>
+			                                    </c:if>
+			                                    <c:if test="${isReviewExist[key] == 'none exist' }">
+					                                <td class="write_review"><a href="write_review_page?o_d_no=${orderDetail.o_d_no }">작성하기${isReviewExist['o_d_no'] }</a></td>
+			                                    </c:if>
+                                    		</c:otherwise>
+                                    	</c:choose>
                                 </tr>
                             </tbody>
                             </c:forEach>
@@ -82,23 +110,29 @@
                                 <div class="coupon_inner">
                                    <div class="cart_subtotal">
                                        <p>소계</p>
-                                     <!--  -->  <p class="cart_amount">총합:${order.order_total_price}원</p>
+                                     <!--  -->  <p class="cart_amount">총합: ${order.order_total_price}원</p>
                                    </div>
                                    <div class="cart_subtotal ">
                                        <p>배송비</p>
-                                       <p class="cart_amount">3000원</p>
+                                       <p class="cart_amount">3,000 원</p>
                                    </div>
                                    <a ></a>
 
                                    <div class="cart_subtotal">
                                        <p>주문금액</p>
                                        <c:if test="${order.order_total_price>0}">
-                                       <p class="cart_amount">${order.order_total_price+3000}원</p>
+                                       <p class="cart_amount">${order.order_total_price + 3000} 원</p>
                                        </c:if>
                                    </div>
-                                   <div class="checkout_btn">
-                                       <a href="checkout">주문하기</a>
-                                   </div>
+                                   <c:choose>
+                                		<c:when test="${order.order_status == 'shipped' || order.order_status == 'complete' }">
+                                		</c:when>
+                                		<c:otherwise>
+		                                   <div class="checkout_btn">
+		                                       <a href="checkout">주문하기</a>
+		                                   </div>
+                                		</c:otherwise>
+                                	</c:choose>
                                 </div>
                             </div>
                         </div>

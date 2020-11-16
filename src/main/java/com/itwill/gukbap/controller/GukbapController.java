@@ -59,6 +59,13 @@ public class GukbapController {
 	private ReviewService reviewService;
 	@Autowired
 	private OrderDetailService orderDetailService;
+	
+	@RequestMapping(value = "confirm_purchase")
+	public String confirm_purchase(@RequestParam String order_no) {
+		orderService.update_order_status_to_complete(Integer.parseInt(order_no));
+		return "redirect:/my-account";
+	}
+	
 	@RequestMapping(value = "write_reply", 
 					method = RequestMethod.POST)
 	public String write_reply(@ModelAttribute ReviewDomain reply, HttpServletRequest request) {
@@ -96,10 +103,13 @@ public class GukbapController {
 	
 	@RequestMapping("/")
 	public String gukbap_main() {
-		return "gukbap_main";
+		return "redirect:/gukbap_main";
 	}
+	
 	@RequestMapping("/about")
-	public String about() {
+	public String about(HttpServletRequest request) {
+		List<ReviewDomain> reviews = reviewService.selectAllReviewArrangeInTheLatestReview();
+		request.setAttribute("reviews", reviews);
 		return "about";
 	}
 	
@@ -107,10 +117,12 @@ public class GukbapController {
 	public String wishlist() {
 		return "wishlist";
 	}
+	
 	@RequestMapping("/contact")
 	public String contact() {
 		return "contact";
 	}
+	
 	@RequestMapping("/services")
 	public String services() {
 		return "services";
@@ -138,6 +150,10 @@ public class GukbapController {
 	
 	@RequestMapping("/blog_details")
 	public String blog_details(@RequestParam String review_no, HttpServletRequest request) {
+		if (review_no == null || review_no.equals("")) {
+			return "blog_sidebar";
+		}
+		
 		ReviewDomain detailed_review =  reviewService.selectReviewByReviewNo(new Integer(review_no));
 		
 		List<ReviewDomain> review_with_replies = 
@@ -156,14 +172,36 @@ public class GukbapController {
 		return "blog_details";
 	}
 	
-	@RequestMapping("/checkout")
-	public String checkout() {
+	@RequestMapping(value = "/checkout")
+	public String checkoutPOST(HttpServletRequest request) {
+		UserDomain loginUser = (UserDomain) request.getSession().getAttribute("loginUser");
+		List<OrderDomain> orderList = orderService.selectOrdersByName(loginUser.getUser_id());
+		OrderDomain latestOrder = new OrderDomain();
+		
+		if (orderList.size() == 1) {
+			latestOrder = orderList.get(0);
+		} else {
+			for (int i = 0; i < orderList.size() -1; i++) {
+				if (orderList.get(i).getOrder_no() > orderList.get(i + 1).getOrder_no()) {
+					latestOrder = orderList.get(i);
+				} else {
+					latestOrder = orderList.get(i + 1);
+				} 
+					
+			}
+		}
+		
+		request.setAttribute("order", latestOrder);
+		
+		
 		return "checkout";
 	}
+	
 	@RequestMapping("/chat")
 	public String chat() {
 		return "chat";
 	}
+	
 	@RequestMapping("/error")
 	public String error() {
 		return "error";
@@ -175,18 +213,38 @@ public class GukbapController {
 	}
 	
 	@RequestMapping("/write_review_page")
-	public String write_review_page() {
+	public String write_review_page(@RequestParam String o_d_no, HttpServletRequest request) {
+		if (o_d_no.equals("") || o_d_no == null) {
+			return "gukbap_main";
+		}
+		
+		OrderDetailDomain orderDetail = 
+				orderDetailService.selectOrderDetailByO_d_no(Integer.parseInt(o_d_no));
+		
+		request.setAttribute("orderDetail", orderDetail);
 		return "write_review_page";
 	}
 
 	@RequestMapping(value = "my-account")
-	public String myAccount(HttpSession session) {
+	public String myAccount(HttpSession session, HttpServletRequest request) {
+		String result = "";
 		String user_id = GukbapController.get_user_id_from_session(session);
-		List<AddressDomain> addresses = addressService.select_addresses_by_id(user_id);
-		List<OrderDomain> orders = orderService.selectOrdersByName(user_id);
-		session.setAttribute("addresses", addresses);
-		session.setAttribute("orders", orders);
-		return "my-account";
+		
+		if (user_id.equals("") || user_id == null) {
+			request.setAttribute("msg", "로그인이 필요한 서비스입니다.");
+			result = "redirect:/login";
+		} else {
+			List<AddressDomain> addresses = addressService.select_addresses_by_id(user_id);
+			List<OrderDomain> orders = orderService.selectOrdersByName(user_id);
+			
+			session.setAttribute("addresses", addresses);
+			session.setAttribute("orders", orders);
+			
+			result = "my-account";
+		}
+		
+		return result;
+		
 	}
 	
 	@RequestMapping(value = "login_action", 
@@ -223,6 +281,10 @@ public class GukbapController {
 
 	//------------------------------------------------------
 	protected static String get_user_id_from_session(HttpSession session) {
+		if (session.getAttribute("loginUser") == null || session.getAttribute("loginUser").equals("")) {
+			return "";
+		} 
+		
 		UserDomain user = (UserDomain) session.getAttribute("loginUser");
 		return user.getUser_id();
 	}
@@ -239,7 +301,7 @@ public class GukbapController {
 		request.setAttribute("indexProductList", indexProductList);
 		List<ProductDomain> indexCountList=productService.selectProductOrderByClickCount();
 		request.setAttribute("indexCountList", indexCountList);
-		List<ReviewDomain> indexReviewList=reviewService.selectAllReviewArrangeInTheLatestFive();
+		List<ReviewDomain> indexReviewList=reviewService.selectAllReviewArrangeInTheLatestReview();
 		request.setAttribute("indexReviewList", indexReviewList);
 		return "gukbap_main";
 	}
@@ -268,10 +330,8 @@ public class GukbapController {
 	
 	@RequestMapping(value="wishlist", method=RequestMethod.GET)
 	public String show_wishlist(HttpServletRequest request) {
-		//UserDomain user = (UserDomain) request.getSession().getAttribute("loginUser");
-		//user.getUser_id()
-		//wishlistService.getWishListItems(user_id);
-		List<WishListDomain> wishlist=wishListService.getWishListItems("jaeil@naver.com");
+		String user_id = this.get_user_id_from_session(request.getSession());
+		List<WishListDomain> wishlist=wishListService.getWishListItems(user_id);
 		request.setAttribute("wishlist", wishlist);
 		return "wishlist";
 	}
@@ -307,17 +367,34 @@ public class GukbapController {
 	}
 	
 	@RequestMapping("cart")
-	public String cart(HttpServletRequest request) {
+	public String cart(HttpServletRequest request, @RequestParam String order_no) {
 		if((UserDomain) request.getSession().getAttribute("loginUser")!=null) {
 			
 			UserDomain user = (UserDomain) request.getSession().getAttribute("loginUser");
-			//UserDomain user=userService.selectUserById("jaeil@naver.com");
-			 int order_no=orderService.highOrderNo(user.getUser_id());			 
-		        if(orderService.selectOrderByNo(order_no)!=null) {
-		        	OrderDomain order= orderService.selectOrderByNo(order_no);
+		        if(orderService.selectOrderByNo(Integer.parseInt(order_no))!=null) {
+		        	OrderDomain order= orderService.selectOrderByNo(Integer.parseInt(order_no));
 		        	List<OrderDetailDomain> orderDetailList= order.getOrderDetailList();
 		        	request.setAttribute("orderDetailList",orderDetailList);
-		        	request.setAttribute("order",order);	
+		        	request.setAttribute("order",order);
+		        	
+		        	Map<Integer, String> isReviewExist = new HashMap<Integer, String>();
+		        	
+		        	for (OrderDetailDomain orderDetailDomain : orderDetailList) {
+						ReviewDomain review = 
+								reviewService.select_review_with_o_d_no(orderDetailDomain.getO_d_no());
+						
+						String result = "";
+						
+						if (review == null) {
+							result = "none exist";
+						} else {
+							result = "exist";
+						}
+						
+						isReviewExist.put(new Integer(orderDetailDomain.getO_d_no()), result);
+					}
+		        	
+		        	request.setAttribute("isReviewExist", isReviewExist);
 		        }	
 		        
 				return "cart";

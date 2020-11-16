@@ -109,7 +109,7 @@
                     <div class="row align-items-center">
                         <div class="col-lg-2 col-md-3 col-sm-3 col-3">
                             <div class="logo">
-                                <a href="/gukbap"><img src="assets/img/logo/logo.png" alt=""></a>
+                                <a href="gukbap_main"><img src="assets/img/logo/logo.png" alt=""></a>
                             </div>
                         </div>
                         <div class="col-lg-10 col-md-6 col-sm-7 col-8">
@@ -186,7 +186,13 @@
                                         <li class="menu_item_children"><a href="blog_sidebar">리뷰</a>
                                         </li>
                                         <li class="menu_item_children"><a href="chat">문의</a></li>
-                                        <li class="menu_item_children"><a href="chat">내정보</a></li>
+	                                    <c:choose>
+	                                    	<c:when test="${empty loginUser }">
+	                                    	</c:when>
+	                                    	<c:otherwise>
+			                                    <li class="menu_item_children"><a href="my-account">내정보</a></li>
+	                                    	</c:otherwise>
+	                                    </c:choose>
                                         	
                                     </ul>
                                 </div>

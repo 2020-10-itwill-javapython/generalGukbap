@@ -16,6 +16,8 @@ public interface ReviewMapper {
 	
 	public List<ReviewDomain> select_latest_replies();
 	
+	public ReviewDomain select_review_with_o_d_no(int o_d_no);
+	
 	//사진 있는 후기만
 	public List<ReviewDomain> selectReviewWithPhoto();
 	//하나만

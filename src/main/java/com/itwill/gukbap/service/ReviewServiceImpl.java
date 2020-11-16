@@ -58,6 +58,11 @@ public class ReviewServiceImpl implements ReviewService {
 	public List<ReviewDomain> select_latest_reviews() {
 		return reviewRepository.select_latest_replies();
 	}
+	
+	@Override
+	public ReviewDomain select_review_with_o_d_no(int o_d_no) {
+		return reviewRepository.select_review_with_o_d_no(o_d_no);
+	}
 
 	@Override
 	public int insertReview(ReviewDomain review) {
@@ -78,6 +83,7 @@ public class ReviewServiceImpl implements ReviewService {
 	public int deleteReviewByReviewNo(int product_no) {
 		return reviewRepository.deleteReviewByReviewNo(product_no);
 	}
+
 
 	
 

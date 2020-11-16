@@ -17,6 +17,8 @@ public interface OrderRepository {
 	
 	public int updateOrder(OrderDomain order);
 	
+	public int update_order_status_to_complete(int order_no);
+	
 	public int deleteOrder(int order_no);
 
 	public int clearOrders(String user_id);

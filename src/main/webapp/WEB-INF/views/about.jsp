@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="common_header.jsp" />
 <link rel="stylesheet" href="assets/css/custom_css/about_custom.css">
 	<!--breadcrumbs area start-->
@@ -229,51 +230,17 @@
 						</div>
 						<div class="testimonial_container">
 							<div class="testimonial_carousel testimonial-two owl-carousel">
+							<c:forEach items="${reviews }" var="review">
 								<div class="single_testimonial">
 									<div class="testimonial_thumb">
-										<a href="#"><img src="assets/img/about/testimonial1.png"
-											alt=""></a>
+										<img src="assets/img/review/${review.review_image }"
+											alt="">
 									</div>
 									<div class="testimonial_content">
-										<div class="testimonial_icon_img">
-											<img src="assets/img/about/testimonials-icon.png" alt="">
-										</div>
-										<p>I'm so happy with all of the themes, great support,
-											could not wish for more. These people are geniuses! Kudo's
-											from the Netherlands!..</p>
-										<a href="#">Lindsy Neloms</a>
+										<p>${review.review_content }</p>
 									</div>
 								</div>
-								<div class="single_testimonial">
-									<div class="testimonial_thumb">
-										<a href="#"><img src="assets/img/about/testimonial2.png"
-											alt=""></a>
-									</div>
-									<div class="testimonial_content">
-										<div class="testimonial_icon_img">
-											<img src="assets/img/about/testimonials-icon.png" alt="">
-										</div>
-										<p>I'm so happy with all of the themes, great support,
-											could not wish for more. These people are geniuses! Kudo's
-											from the Netherlands!..</p>
-										<a href="#">Rebecka Filson</a>
-									</div>
-								</div>
-								<div class="single_testimonial">
-									<div class="testimonial_thumb">
-										<a href="#"><img src="assets/img/about/testimonial3.png"
-											alt=""></a>
-									</div>
-									<div class="testimonial_content">
-										<div class="testimonial_icon_img">
-											<img src="assets/img/about/testimonials-icon.png" alt="">
-										</div>
-										<p>I'm so happy with all of the themes, great support,
-											could not wish for more. These people are geniuses! Kudo's
-											from the Netherlands!..</p>
-										<a href="#">Amber Laha</a>
-									</div>
-								</div>
+							</c:forEach>
 							</div>
 						</div>
 					</div>

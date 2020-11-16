@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core"%>
 	<jsp:include page="common_header.jsp"/>
 
 <body>
@@ -32,126 +33,52 @@
             <div class="checkout_form">
                 <div class="row">
                     <div class="col-lg-6 col-md-6">
-                        <form action="#">
+                        <form action="" id="">
                             <h3>주문 정보</h3>
                             <div class="row">
 
                                 <div class="col-lg-6 mb-20">
                                     <label>이름 <span>*</span></label>
-                                    <input type="text">    
+                                    <input type="text" readonly value="${loginUser.user_first_name }">    
                                 </div>
                                 <div class="col-lg-6 mb-20">
                                     <label>성  <span>*</span></label>
-                                    <input type="text"> 
+                                    <input type="text" readonly value="${loginUser.user_last_name }"> 
                                 </div>
                                 <div class="col-lg-12 mb-20">
                                     <label>생년월일  <span>*</span></label>
-                                    <input placeholder="xxxx/xx/xx" type="text"> 
+                                    <input placeholder="xxxx/xx/xx" readonly type="text" 
+                                    value="${loginUser.user_birthdate.replaceAll('-', '/').substring(0,11) }"> 
                                 </div>
                                 <div class="col-12 mb-20">
                                     <label>회사이름(옵션)</label>
-                                    <input type="text">     
+                                    <input type="text" readonly value="${loginUser.addresses[0].address_company_name }">     
                                 </div>
-                                <!-- 
-                                <div class="col-12 mb-20">
-                                    <label for="country">국가 <span>*</span></label>
-                                    <select class="select_option" name="cuntry" id="country"> 
-                                        <option value="2">bangladesh</option>      
-                                        <option value="3">Algeria</option> 
-                                        <option value="4">Afghanistan</option>    
-                                        <option value="5">Ghana</option>    
-                                        <option value="6">Albania</option>    
-                                        <option value="7">Bahrain</option>    
-                                        <option value="8">Colombia</option>    
-                                        <option value="9">Dominican Republic</option>   
-
-                                    </select>
-                                </div>
-                                 -->
-
                                 <div class="col-12 mb-20">
                                     <label>거리 주소  <span>*</span></label>
-                                    <input placeholder="번지 및 도로명" type="text">     
+                                    <input placeholder="번지 및 도로명" readonly type="text"
+                                    value="${loginUser.addresses[0].address_street }">     
                                 </div>
                                 <div class="col-12 mb-20">
-                                    <input placeholder="상세 주소 (선택 사항)" type="text">     
+                                    <input placeholder="상세 주소" readonly type="text"
+                                    value="${loginUser.addresses[0].address_street_optional }">     
                                 </div>
                                 <div class="col-12 mb-20">
                                     <label>시 / 도시 <span>*</span></label>
-                                    <input  type="text">    
+                                    <input  type="text" readonly
+                                    value="${loginUser.addresses[0].address_city }">    
                                 </div> 
                                  <div class="col-12 mb-20">
                                     <label>국가 <span>*</span></label>
-                                    <input type="text">    
+                                    <input type="text" readonly
+                                    value="${loginUser.addresses[0].address_state }">    
                                 </div> 
                                 <div class="col-lg-12 mb-20">
                                     <label>전화번호<span>*</span></label>
-                                    <input type="text"> 
+                                    <input type="text" readonly
+                                    value="${loginUser.user_phone}"> 
 
                                 </div> 
-                                <div class="col-12 mb-20">
-                                    <input id="address" type="checkbox" data-target="createp_account" />
-                                    <label class="righ_0" for="address" data-toggle="collapse" data-target="#collapsetwo" aria-controls="collapseOne">다른 주소로 배송하기</label>
-
-                                    <div id="collapsetwo" class="collapse one" data-parent="#accordion">
-                                       <div class="row">
-                                            <div class="col-lg-6 mb-20">
-                                                <label>First Name <span>*</span></label>
-                                                <input type="text">    
-                                            </div>
-                                            <div class="col-lg-6 mb-20">
-                                                <label>Last Name  <span>*</span></label>
-                                                <input type="text"> 
-                                            </div>
-                                            <div class="col-12 mb-20">
-                                                <label>Company Name</label>
-                                                <input type="text">     
-                                            </div>
-                                            <div class="col-12 mb-20">
-                                                <div class="select_form_select">
-                                                    <label for="countru_name">country <span>*</span></label>
-                                                    <select class="select_option" name="cuntry" id="countru_name"> 
-                                                        <option value="2">bangladesh</option>      
-                                                        <option value="3">Algeria</option> 
-                                                        <option value="4">Afghanistan</option>    
-                                                        <option value="5">Ghana</option>    
-                                                        <option value="6">Albania</option>    
-                                                        <option value="7">Bahrain</option>    
-                                                        <option value="8">Colombia</option>    
-                                                        <option value="9">Dominican Republic</option>   
-
-                                                    </select>
-                                                </div> 
-                                            </div>
-
-                                            <div class="col-12 mb-20">
-                                                <label>Street address  <span>*</span></label>
-                                                <input placeholder="House number and street name" type="text">     
-                                            </div>
-                                            <div class="col-12 mb-20">
-                                                <input placeholder="Apartment, suite, unit etc. (optional)" type="text">     
-                                            </div>
-                                            <div class="col-12 mb-20">
-                                                <label>Town / City <span>*</span></label>
-                                                <input  type="text">    
-                                            </div> 
-                                             <div class="col-12 mb-20">
-                                                <label>State / County <span>*</span></label>
-                                                <input type="text">    
-                                            </div> 
-                                            <div class="col-lg-6 mb-20">
-                                                <label>전화번호<span>*</span></label>
-                                                <input type="text"> 
-
-                                            </div> 
-                                             <div class="col-lg-6">
-                                                <label> Email Address   <span>*</span></label>
-                                                  <input type="text"> 
-
-                                            </div> 
-                                        </div>
-                                    </div>
-                                </div>
                                 <div class="col-12">
                                     <div class="order-notes">
                                          <label for="order_note">주문 노트</label>
@@ -173,35 +100,25 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td> Handbag  fringilla <strong> Ã 2</strong></td>
-                                            <td> $165.00</td>
-                                        </tr>
-                                        <tr>
-                                            <td>  Handbag  justo	 <strong> Ã 2</strong></td>
-                                            <td> $50.00</td>
-                                        </tr>
-                                        <tr>
-                                            <td>  Handbag elit	<strong> Ã 2</strong></td>
-                                            <td> $50.00</td>
-                                        </tr>
-                                        <tr>
-                                            <td> Handbag Rutrum	 <strong> Ã 1</strong></td>
-                                            <td> $50.00</td>
-                                        </tr>
+                                    	<c:forEach items="${order.orderDetailList }" var="orderDetail">
+	                                        <tr>
+	                                            <td>${orderDetail.product.product_name }</td>
+	                                            <td>${orderDetail.o_d_product_count * orderDetail.product.product_price } 원</td>
+	                                        </tr>
+                                    	</c:forEach>
                                     </tbody>
                                     <tfoot>
                                         <tr>
                                             <th>장바구니 합계</th>
-                                            <td>$215.00</td>
+                                            <td>${order.order_total_price } 원</td>
                                         </tr>
                                         <tr>
                                             <th>배송비</th>
-                                            <td><strong>$5.00</strong></td>
+                                            <td><strong>3,000 원</strong></td>
                                         </tr>
                                         <tr class="order_total">
                                             <th>주문 합계</th>
-                                            <td><strong>$220.00</strong></td>
+                                            <td><strong>${order.order_total_price + 3000 } 원</strong></td>
                                         </tr>
                                     </tfoot>
                                 </table>     
@@ -223,8 +140,9 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="order_button">
-                                    <button  type="submit">결제</button> 
+                                <div class="order_button" >
+                                    <button id="checkout_action" type="submit">결제</button> 
+                                    <input type="hidden" value="${order.order_no}">
                                 </div>    
                             </div> 
                         </form>         
@@ -273,7 +191,7 @@
 
 <!-- Main JS -->
 <script src="assets/js/main.js"></script>
-
+<script src="assets/js/custom/checkout_custom.js"></script>
 
 
 

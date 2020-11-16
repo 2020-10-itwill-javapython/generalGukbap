@@ -16,11 +16,11 @@
 		order by review_upload_date desc	
 	</select>
 
-	<select id="selectAllReviewArrangeInTheLatestFive"
+	<!-- <select id="selectAllReviewArrangeInTheLatestFive"
 		resultType="com.itwill.gukbap.domain.ReviewDomain">
 		select * from ( select * from review order by
 		REVIEW_UPLOAD_DATE desc ) where rownum &lt;= 5
-	</select>
+	</select> -->
 
 	<select id="selectReviewWithPhoto"
 		resultType="com.itwill.gukbap.domain.ReviewDomain">
@@ -56,6 +56,12 @@
 		select * from review 
 		where review_step &gt; 1
 		order by review_upload_date desc
+	</select>
+	
+	<select id="select_review_with_o_d_no" resultType="com.itwill.gukbap.domain.ReviewDomain"
+			parameterType="int">
+		select * from review
+		where o_d_no = #{o_d_no}
 	</select>
 
 	<!-- INSERT -->

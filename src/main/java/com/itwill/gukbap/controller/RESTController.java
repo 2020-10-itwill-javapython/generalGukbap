@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.itwill.gukbap.domain.AddressDomain;
+import com.itwill.gukbap.domain.OrderDomain;
 import com.itwill.gukbap.domain.ProductDomain;
 import com.itwill.gukbap.domain.ReviewDomain;
 import com.itwill.gukbap.domain.UserDomain;
@@ -38,14 +39,24 @@ public class RESTController {
 	AddressService addressService;
 	@Autowired
 	ReviewService reviewService;
-
+	
+	@RequestMapping(value = "checkout_action", method = RequestMethod.POST)
+	public void checkout_action(@RequestParam String order_note, 
+								@RequestParam String order_no, HttpSession session) {
+		OrderDomain currentOrder = orderService.selectOrderByNo(Integer.parseInt(order_no));
+		currentOrder.setOrder_note(order_note);
+		currentOrder.setOrder_status("shipped");
+		orderService.updateOrder(currentOrder);
+		
+		UserDomain user = (UserDomain) session.getAttribute("loginUser");
+		orderService.createEmptyOrder(user.getUser_id());
+		
+	}
+	
 	@RequestMapping(value = "write_review", method = RequestMethod.POST)
 	public void write_review(@RequestParam MultipartFile image_file,
 							 @RequestParam String review_title, @RequestParam String review_content,
 							 @RequestParam String product_no, @RequestParam String o_d_no) {
-		
-		product_no = "1";
-		o_d_no = "1";
 		
 		ReviewDomain review = 
 				new ReviewDomain(0, image_file.getOriginalFilename(), 

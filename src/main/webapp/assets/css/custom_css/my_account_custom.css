@@ -134,3 +134,11 @@ form {
 	float: none;
 	margin-left: 0px;
 }
+
+.table-responsive {
+    width: 65em;
+}
+
+.table-responsive table tbody tr td a {
+    color: #d40000;
+}

@@ -77,9 +77,9 @@
 										<article class="single_product">
 											<figure>
 												<div class="product_thumb">
-													<a class="primary_img" href="product-details.jsp"><img
+													<a class="primary_img" href=""><img
 														src="assets/img/product/${product.product_image}" alt=""></a>
-													<a class="secondary_img" href="product-details.html"><img
+													<a class="secondary_img" href=""><img
 														src="assets/img/product/${product.product_image}" alt=""></a>
 													<div class="label_product"></div>
 													<!-- product.product_isonsale이 true이면 할인 노출 -->
@@ -99,7 +99,7 @@
 															<button style="border: none; background: transparent;" name="main_to_cart_button" value="${product.product_no}" >
                                                 				<li class="add_to_cart"><a title="장바구니 담기"><span class="lnr lnr-cart"></span></a></li></button>	
 																
-															<li class="quick_button"><a href="#" product_no="${product.product_no}" data-toggle="modal"
+															<li class="quick_button"><a href="" product_no="${product.product_no}" data-toggle="modal"
 																data-target="#modal_box" title="quick view">
 																<span class="lnr lnr-magnifier"></span></a></li>
 														
@@ -111,7 +111,7 @@
 												</div>
 												<figcaption class="product_content">
 													<h4 class="product_name">
-														<a href="product-details.html">${product.product_name}</a>
+														<a href="">${product.product_name}</a>
 													</h4>
 													<!-- product.product_isonsale이 true이면 current_price ${product.product_price*0.7}원 노출 -->
 													<c:choose>
@@ -179,9 +179,9 @@
 							<article class="single_product">
 								<figure>
 									<div class="product_thumb">
-										<a class="primary_img" href="product-details.jsp"><img
+										<a class="primary_img" href=""><img
 											src="assets/img/product/${product.product_image}" alt=""></a>
-										<a class="secondary_img" href="product-details.html"><img
+										<a class="secondary_img" href=""><img
 											src="assets/img/product/${product.product_image}" alt=""></a>
 										<div class="label_product"></div>
 										<!-- product.product_isonsale이 true이면 할인 노출 -->
@@ -221,7 +221,7 @@
 									</div>
 									<figcaption class="product_content">
 										<h4 class="product_name">
-											<a href="product-details.html">${product.product_name}</a>
+											<a href="">${product.product_name}</a>
 										</h4>
 										<c:choose>
 														<c:when test="${product.product_isOnSale}">
@@ -277,18 +277,18 @@
 						<article class="single_blog">
 							<figure>
 								<div class="blog_thumb">
-									<a href="blog-details.html"><img
-										src="assets/img/blog/${review.review_image}" alt=""></a>
+									<a href="blog_details?review_no=${review.review_no }"><img
+										src="assets/img/review/${review.review_image}" alt=""></a>
 								</div>
 								<figcaption class="blog_content">
 									<div class="articles_date">
 										<p>${review.review_upload_date}</p>
 									</div>
 									<h4 class="post_title">
-										<a href="blog-details.html">${review.review_title}</a>
+										<a href="blog_details?review_no=${review.review_no }">${review.review_title}</a>
 									</h4>
 									<footer class="blog_footer">
-										<a href="blog-details.html">${review.review_content}</a>
+										<a href="blog_details?review_no=${review.review_no }">${review.review_content}</a>
 									</footer>
 								</figcaption>
 							</figure>

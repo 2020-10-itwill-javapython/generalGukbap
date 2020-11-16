@@ -16,9 +16,13 @@ public interface ReviewService {
 	 
 	 ReviewDomain selectReviewByReviewNo(int review_no);
 	 
+	 public ReviewDomain select_review_with_o_d_no(int o_d_no);
+	 
 	 public List<ReviewDomain> review_and_replies(int review_group_no);
 	 
 	 public List<ReviewDomain> select_latest_reviews();
+	 
+	 
 	 
 	 //한 페이지에 보여주는 후기
 	 List<ReviewDomain> selectReviewOnOnePage(int review_no);
