@@ -1,46 +1,46 @@
 
 $(function() {
-     $("button[name=add_to_cart_button]").click(function(e) {
-        var product_no = $(this).val();
+	$("button[name=add_to_cart_button]").click(function(e) {
+		var product_no = $(this).val();
 		var param = 'product_no=' + product_no;
-		var pty='1';
+		var pty = '1';
 		var allData = { "product_no": product_no, "pty": pty };
-		 console.log(param); 
-		 console.log(pty); 
-			$.ajax({
-			url:"add_to_cart",
-			method:"POST",
-			data:allData,
+		console.log(param);
+		console.log(pty);
+		$.ajax({
+			url: "add_to_cart",
+			method: "POST",
+			data: allData,
 		})
 		alert("카트 추가완료");
 		e.preventDefault();
 	});
-	
-	 $("button[name=wishlist_button]").click(function(e) {
-        var product_no = $(this).val();
+
+	$("button[name=wishlist_button]").click(function(e) {
+		var product_no = $(this).val();
 		var param = 'product_no=' + product_no;
-		 console.log(param);
+		console.log(param);
 		$.ajax({
-			url:"add_wishlist",
-			method:"POST",			
-			data:param,		
+			url: "add_wishlist",
+			method: "POST",
+			data: param,
 		})
 		alert("찜 완료");
 		e.preventDefault();
 	});
-   
 
 
-	
-	
-	
+
+
+
+
 	$("#modal_box").on('show.bs.modal', function(e) {
 
 		//console.log(e.relatedTarget)
 
 		var product_no = $(e.relatedTarget).attr("product_no");
 		var param = 'product_no=' + product_no;
-        console.log(param);
+		console.log(param);
 		$.ajax({
 			url: "modal_prodcut_detail",
 			method: "GET",
@@ -64,7 +64,7 @@ $(function() {
 		$('#modal_detail_desc').text("");
 
 	})
-	
+
 	$('#main').click(function(e) {
 		console.log("main");
 		var param = 'c_no=' + 1;
@@ -109,8 +109,8 @@ $(function() {
 		})
 		e.preventDefault();
 	});
-	
-	$('[data-toggle="tooltip"]').tooltip();			
+
+	$('[data-toggle="tooltip"]').tooltip();
 })
 
 
