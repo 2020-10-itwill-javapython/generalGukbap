@@ -117,17 +117,17 @@
 													<c:choose>
 														<c:when test="${product.product_isOnSale}">
 															<div class="price_box">
-																<span class="current_price">${product.product_price*0.7}원</span>
-																<span class="old_price">${product.product_price}원</span>
+																<span class="current_price">${product.product_price}원</span>
+																<span class="old_price">8500원</span>
 															</div>
 														</c:when>
 														<c:otherwise>
 															<div class="price_box">
 																<span class="current_price">${product.product_price}원</span>
-																<!-- <span class="old_price">${product.product_price}원 </span> -->
 															</div>
 														</c:otherwise>
 													</c:choose>
+
 												</figcaption>
 											</figure>
 										</article>
@@ -226,14 +226,13 @@
 										<c:choose>
 											<c:when test="${product.product_isOnSale}">
 												<div class="price_box">
-													<span class="current_price">${product.product_price*0.7}원</span>
-													<span class="old_price">${product.product_price}원</span>
+													<span class="current_price">${product.product_price}원</span>
+													<span class="old_price">8500원</span>
 												</div>
 											</c:when>
 											<c:otherwise>
 												<div class="price_box">
 													<span class="current_price">${product.product_price}원</span>
-													<!-- <span class="old_price">${product.product_price}원 </span> -->
 												</div>
 											</c:otherwise>
 										</c:choose>
@@ -393,6 +392,7 @@
 										quos qui nemo ipsum numquam, reiciendis maiores quidem
 										aperiam, rerum vel recusandae</p>
 								</div>
+								<!--  
 								<div class="variants_selects">
 									<div class="variants_size">
 										<h2>size</h2>
@@ -402,6 +402,7 @@
 
 										</select>
 									</div>
+								-->
 
 									<div class="modal_add_to_cart">
 										<form action="#">
