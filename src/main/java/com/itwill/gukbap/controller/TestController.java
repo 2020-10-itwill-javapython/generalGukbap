@@ -187,11 +187,7 @@ public class TestController {
 	}
 	
 	
-	@RequestMapping("main")
-	public String main() {
-		return "index";
-	}
-	
+
 	@RequestMapping("login")
 	public String login() {
 		return "login";

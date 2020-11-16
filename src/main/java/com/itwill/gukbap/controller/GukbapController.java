@@ -223,7 +223,7 @@ public class GukbapController {
 		return user;
 	}
 	/************************** 김미영 ********************************/
-	@RequestMapping("gukbap_main")  
+	@RequestMapping("/gukbap_main")  
 	public String index_product_list(HttpServletRequest request) {
 		List<ProductDomain> indexProductList=productService.selectProductByCategoryNo(1);
 		request.setAttribute("indexProductList", indexProductList);
