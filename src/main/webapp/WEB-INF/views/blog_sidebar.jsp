@@ -13,7 +13,7 @@
     <!--header area end-->
 
     <!--breadcrumbs area start-->
-    <div class="breadcrumbs_area">
+ <!--    <div class="breadcrumbs_area">
         <div class="container">   
             <div class="row">
                 <div class="col-12">
@@ -27,6 +27,7 @@
             </div>
         </div>         
     </div>
+     -->
     <!--breadcrumbs area end-->
     
     <!--blog area start-->

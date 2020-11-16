@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="assets/css/custom_css/register_custom.css">
 <body>
     <!--breadcrumbs area start-->
-    <div class="breadcrumbs_area">
+ <!--  <div class="breadcrumbs_area">
         <div class="container">   
             <div class="row">
                 <div class="col-12">
@@ -20,6 +20,7 @@
             </div>
         </div>         
     </div>
+    -->   
     <!--breadcrumbs area end-->
     
     <!-- my account start  -->
