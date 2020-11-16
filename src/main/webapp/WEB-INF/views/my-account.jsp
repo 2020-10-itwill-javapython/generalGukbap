@@ -58,18 +58,43 @@
                                                 <th>날짜</th>
                                                 <th>상태</th>
                                                 <th>가격</th>
-                                                <th>주문상세확인</th>	 	 	 	
+                                                <th>주문상세확인</th>
+                                                <th>구매 확정</th>
+                                                 	 	 	
                                             </tr>
                                         </thead>
                                         <tbody>
                                         	<c:forEach items="${orders}" var="order">
-	                                            <tr>
-	                                                <td>${order.order_no }</td>
-	                                                <td>${order.order_date.substring(0, 11) }</td>
-	                                                <td><span class="success">${order.order_status }</span></td>
-	                                                <td>${order.order_total_price}원</td>
-	                                                <td><a href="cart?o_d_no=${order.order_no }" class="view">view</a></td>
-	                                            </tr>
+                                        		<c:choose>
+                                        			<c:when test="${order.order_desc == null }">
+                                        				<td colspan="4">현재 카트에 상품이 없습니다.</td>
+                                        			</c:when>
+                                        			<c:otherwise>
+			                                            <tr>
+			                                                <td>${order.order_no }</td>
+			                                                <td>${order.order_date.substring(0, 11) }</td>
+			                                                <td><span class="success">${order.order_status }</span></td>
+			                                                <td>${order.order_total_price}원</td>
+			                                                <td><a href="cart?order_no=${order.order_no }" class="view">view</a></td>
+			                                               	<c:choose>
+				                                               	<c:when test="${order.order_status == 'complete'}">
+				                                               		<td>구매 확정됨</td>
+				                                               	</c:when>
+				                                               	<c:otherwise>
+					                                                <c:choose>
+					                                                	<c:when test="${order.order_status == 'shipped'}">
+					                                                		<td><a href="confirm_purchase?order_no=${order.order_no }">구매 확정</a></td>
+					                                                	</c:when>
+					                                                	<c:otherwise>
+					                                                		<td>구매 대기중</td>
+					                                                	</c:otherwise>
+					                                                </c:choose>
+				                                               	</c:otherwise>
+			                                                </c:choose>
+				                                                
+			                                            </tr>
+                                        			</c:otherwise>
+                                        		</c:choose>
                                         	</c:forEach>
                                         </tbody>
                                     </table>

@@ -13,7 +13,7 @@
 					<div class="breadcrumb_content">
 						<h3>리뷰 작성</h3>
 						<ul>
-							<li><a href="index.html">메인</a></li>
+							<li><a href="gukbap_main">메인</a></li>
 							<li>리뷰 작성</li>
 						</ul>
 					</div>
@@ -47,8 +47,8 @@
 												<textarea type="text" id="review_content" 
 												name="review_content" rows=10></textarea> 
 												<br /> 
-												<input type="hidden" name="product_no"> 
-												<input type="hidden" name="o_d_no">
+												<input type="hidden" name="product_no" value="${orderDetail.product.product_no }"> 
+												<input type="hidden" name="o_d_no" value="${orderDetail.o_d_no }">
 												<div class="input-group mb-3">
 													<div class="custom-file">
 														<input type="file" class="custom-file-input"

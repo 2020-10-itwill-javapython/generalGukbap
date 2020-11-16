@@ -55,3 +55,9 @@
 #scr_list{
 	margin-left: 10px;
 }
+
+.testimonial_container .testimonial_thumb img {
+   width: 100px;
+    height: 100px;
+    margin: auto;
+}

@@ -115,10 +115,17 @@ public class OrderServiceImpl implements OrderService{
     }
     
     @Override
+	public int update_order_status_to_complete(int order_no) {
+		return orderRepository.update_order_status_to_complete(order_no);
+	}
+    
+    @Override
     public int deleteOrder(int order_no) {
     	orderDetailRepository.clearOrderList(order_no);
     	return orderRepository.deleteOrder(order_no);
     }
+
+	
 
 
 }

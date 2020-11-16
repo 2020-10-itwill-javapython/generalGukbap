@@ -178,8 +178,22 @@
 	                                        		<li><a href="my-account">내정보</a></li>
 	                                        	</c:otherwise>
                                         	</c:choose>
-
                                         
+                                        <li class="menu_item_children"><a href="gukbap_main">메인</a>
+                                        </li>
+                                        <li class="menu_item_children"><a href="shop-right-sidebar">메뉴</a>
+                                        </li>
+                                        <li class="menu_item_children"><a href="blog_sidebar">리뷰</a>
+                                        </li>
+                                        <li class="menu_item_children"><a href="chat">문의</a></li>
+	                                    <c:choose>
+	                                    	<c:when test="${empty loginUser }">
+	                                    	</c:when>
+	                                    	<c:otherwise>
+			                                    <li class="menu_item_children"><a href="my-account">내정보</a></li>
+	                                    	</c:otherwise>
+	                                    </c:choose>
+                                        	
                                     </ul>
                                 </div>
                             </div>

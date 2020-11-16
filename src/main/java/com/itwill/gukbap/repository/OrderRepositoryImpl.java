@@ -42,6 +42,11 @@ public class OrderRepositoryImpl implements OrderRepository{
 	public int updateOrder(OrderDomain order) {
 		return orderMapper.updateOrder(order);
 	}
+
+	@Override
+	public int update_order_status_to_complete(int order_no) {
+		return orderMapper.update_order_status_to_complete(order_no);
+	}
 	
 	@Override
 	public int deleteOrder(int order_no) {
@@ -52,6 +57,9 @@ public class OrderRepositoryImpl implements OrderRepository{
 	public int clearOrders(String user_id) {
 		return orderMapper.clearOrders(user_id);
 	}
+
+
+	
 
 	
 

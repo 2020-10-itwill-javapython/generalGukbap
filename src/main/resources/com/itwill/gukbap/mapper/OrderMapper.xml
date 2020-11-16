@@ -36,6 +36,7 @@
         left outer join order_detail od on go.order_no = od.order_no
         left outer join product p on od.product_no = p.product_no
         where go.user_id = #{user_id}
+        order by go.order_no desc
     </select>
     
     <select id="selectOrderByNo" resultMap="orderDomainMap">
@@ -77,6 +78,12 @@
 	    	order_desc=#{order_desc},
 	    	order_note=#{order_note}
 	    WHERE order_no=#{order_no}
+    </update>
+    
+    <update id="update_order_status_to_complete" parameterType="int">
+    	update gukbap_order set
+    		order_status = 'complete'
+    	where order_no = #{order_no}
     </update>
     
     <delete id="deleteOrder" parameterType="_int">
