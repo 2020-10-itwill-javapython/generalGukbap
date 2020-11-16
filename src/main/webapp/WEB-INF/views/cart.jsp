@@ -93,7 +93,7 @@
                                        <p class="cart_amount">${order.order_total_price+3000}원</p>
                                    </div>
                                    <div class="checkout_btn">
-                                       <a href="cart">주문하기</a>
+                                       <a href="checkout">주문하기</a>
                                    </div>
                                 </div>
                             </div>

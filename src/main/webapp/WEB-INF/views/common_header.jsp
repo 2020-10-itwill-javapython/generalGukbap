@@ -131,7 +131,7 @@
 
                                         	<c:choose>
 	                                        	<c:when test="${empty loginUser }">
-		                                            <li><a href="login">Register</a></li>
+		                                            <li><a href="register">Register</a></li>
 		                                            <li><span>/</span></li>
 		                                            <li><a href="login">Login</a></li>
 	                                        	</c:when>
