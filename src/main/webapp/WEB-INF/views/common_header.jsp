@@ -106,7 +106,7 @@
                     <div class="row align-items-center">
                         <div class="col-lg-2 col-md-3 col-sm-3 col-3">
                             <div class="logo">
-                                <a href="/gukbap"><img src="assets/img/logo/logo.png" alt=""></a>
+                                <a href="gukbap_main"><img src="assets/img/logo/logo.png" alt=""></a>
                             </div>
                         </div>
                         <div class="col-lg-10 col-md-6 col-sm-7 col-8">
@@ -129,12 +129,12 @@
                                         </ul>
                                     </div>
                                  
-                                    <div class="header_account_list header_wishlist">
-                                        <a href="wishlist"><span class="lnr lnr-heart"></span></a> 
+                                    <button style="border: none; background: transparent;" name="main_to_wishlist_button" value="${product.product_no }">
+									<li class="wishlist"><a title="찜 하기"><span class="lnr lnr-heart"></span></a></li></button> 
                                          
-                                    </div>
-                                    <div class="header_account_list  mini_cart_wrapper">
-                                       <a href="cart"><span class="lnr lnr-cart"></span></a>
+                                    
+                                 <button style="border: none; background: transparent;" name="main_to_cart_button" value="${product.product_no}" >
+                                    <li class="add_to_cart"><a title="장바구니 담기"><span class="lnr lnr-cart"></span></a></li></button>	
                                         <!--mini cart-->
                                         
                                         <!--mini cart end-->

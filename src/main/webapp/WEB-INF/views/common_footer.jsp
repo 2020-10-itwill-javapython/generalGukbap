@@ -21,8 +21,8 @@
                             <div class="footer_menu">
                             
                                 <ul>
-                                    <li><a href="about.html">회사소개</a></li>
-                                    <li><a href="contact.html"> 실시간 문의</a></li>
+                                    <li><a href="about">회사소개</a></li>
+                                    <li><a href="chat"> 실시간 문의</a></li>
                                 </ul>
                             </div>
                         </div>
