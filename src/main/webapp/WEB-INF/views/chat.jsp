@@ -102,7 +102,7 @@
 		<div class="row">
 			<div class="col-lg-6">
 				<div class="slider_content">
-				<img class="media-object img-circle" src="images/givecall.jpg" width = "1920px" height = "200px"  alt=""/>
+				<img class="media-object" src="images/givecall.png"  width = "1920px" height = "200px"  />
 				
  				</div>
 			</div>

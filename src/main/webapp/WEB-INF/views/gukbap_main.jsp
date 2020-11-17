@@ -77,10 +77,9 @@
 										<article class="single_product">
 											<figure>
 												<div class="product_thumb">
-													<a class="primary_img" href=""><img
-														src="assets/img/product/${product.product_image}" alt=""></a>
-													<a class="secondary_img" href=""><img
-														src="assets/img/product/${product.product_image}" alt=""></a>
+												
+													<img
+														src="assets/img/product/${product.product_image}" alt="">
 													<div class="label_product"></div>
 													<!-- product.product_isonsale이 true이면 할인 노출 -->
 													<c:choose>
@@ -110,8 +109,7 @@
 													</div>
 												</div>
 												<figcaption class="product_content">
-													<h4 class="product_name">
-														<a href="">${product.product_name}</a>
+													<h4 class="product_name">${product.product_name}
 													</h4>
 													<!-- product.product_isonsale이 true이면 current_price ${product.product_price*0.7}원 노출 -->
 													<c:choose>
@@ -179,10 +177,8 @@
 							<article class="single_product">
 								<figure>
 									<div class="product_thumb">
-										<a class="primary_img" href=""><img
-											src="assets/img/product/${product.product_image}" alt=""></a>
-										<a class="secondary_img" href=""><img
-											src="assets/img/product/${product.product_image}" alt=""></a>
+										<img src="assets/img/product/${product.product_image}" alt="">
+										
 										<div class="label_product"></div>
 										<!-- product.product_isonsale이 true이면 할인 노출 -->
 													<c:choose>
