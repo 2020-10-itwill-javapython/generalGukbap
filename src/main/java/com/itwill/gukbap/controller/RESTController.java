@@ -54,11 +54,10 @@ public class RESTController {
 			ProductDomain product = productService.selectProductByProductNo(Integer.parseInt(product_no));
 			UserDomain user = (UserDomain) request.getSession().getAttribute("loginUser");
 			orderService.insertOrder(user.getUser_id(), new OrderDetailDomain(0, 0, Integer.parseInt(pty), product));
-			response.sendRedirect("cart");
-			login_cart = "cart";
+			login_cart = "true";
 			return login_cart;
 		} else {
-			login_cart = "login";
+			login_cart = "false";
 			return login_cart;
 		}
 	}

@@ -5,18 +5,18 @@ $(function() {
 		var param = 'product_no=' + product_no;
 		var pty='1';
 		var allData = { "product_no": product_no, "pty": pty };
-		 console.log(param); 
-		 console.log(pty); 
 			$.ajax({
 			url:"add_cart",
 			method:"POST",
 			data:allData,
 			success: function(login_cart) {
-				if(login_cart == 'login') {
+				if(login_cart == 'false') {
+					console.log(login_cart); 
 					alert('로그인이 필요한 서비스입니다.');
 					location.href = 'login';
-				} else{
+				}else{
 					alert('추가완료');
+					console.log(login_cart); 
 				}
 			}
 		})
