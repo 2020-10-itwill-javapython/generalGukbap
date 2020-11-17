@@ -67,7 +67,6 @@
                                         	<c:forEach items="${orders}" var="order">
                                         		<c:choose>
                                         			<c:when test="${order.order_desc == null }">
-                                        				<td colspan="4">현재 카트에 상품이 없습니다.</td>
                                         			</c:when>
                                         			<c:otherwise>
 			                                            <tr>

@@ -1,5 +1,7 @@
 package com.itwill.gukbap.test;
 
+import java.util.List;
+
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -14,9 +16,12 @@ public class OrderRepositoryTestMain {
 				new ClassPathXmlApplicationContext("classpath:/spring/application-context.xml");
 		OrderRepository orderDao = applicationContext.getBean(OrderRepository.class);
 		
-//		System.out.println(orderDao.selectOrdersByName("helprun@naver.com"));
+		List<OrderDomain> orders = orderDao.selectOrdersByName("jaeil@naver.com");
+		for (OrderDomain orderDomain : orders) {
+			System.out.println(orderDomain);
+		}
 		
-		System.out.println(orderDao.selectOrderByNo(5));
+//		System.out.println(orderDao.selectOrderByNo(5));
 //		OrderDomain order = orderDao.selectOrderByNo(20);
 //		System.out.println(order.getOrderDetailList());
 		 //System.out.println(addressDao.selectOrderByName("helprun@naver.com"));

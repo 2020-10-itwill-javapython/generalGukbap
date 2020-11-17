@@ -126,14 +126,20 @@
                                        </c:if>
                                    </div>
                                    <c:choose>
-                                		<c:when test="${order.order_status == 'shipped' || order.order_status == 'complete' }">
-                                		</c:when>
-                                		<c:otherwise>
-		                                   <div class="checkout_btn">
-		                                       <a href="checkout">주문하기</a>
-		                                   </div>
-                                		</c:otherwise>
-                                	</c:choose>
+                                   		<c:when test="${order.order_total_price == null }">
+                                   		</c:when>
+                                   		<c:otherwise>
+                                   		<c:choose>
+	                                		<c:when test="${order.order_status == 'shipped' || order.order_status == 'complete' }">
+	                                		</c:when>
+	                                		<c:otherwise>
+			                                   <div class="checkout_btn">
+			                                       <a href="checkout">주문하기</a>
+			                                   </div>
+	                                		</c:otherwise>
+                                		</c:choose>
+                                	</c:otherwise>
+                                   </c:choose>
                                 </div>
                             </div>
                         </div>

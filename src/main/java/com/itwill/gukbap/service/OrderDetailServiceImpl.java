@@ -35,7 +35,8 @@ public class OrderDetailServiceImpl implements OrderDetailService {
 		return orderDetailRepository.selectOrderDetailByO_d_no(o_d_no);
 	}
 	
-	private void renewOrderDesc(int order_no) {
+	@Override
+	public void renewOrderDesc(int order_no) {
 		OrderDomain order = 
 				orderRepository.selectOrderByNo(order_no);
 		List<OrderDetailDomain> orderItems = order.getOrderDetailList();

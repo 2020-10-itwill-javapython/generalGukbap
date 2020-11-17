@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core"%>
+<link rel="stylesheet" href="assets/css/custom_css/checkout_custom.css">
 	<jsp:include page="common_header.jsp"/>
 
 <body>
@@ -90,7 +91,7 @@
                         </form>    
                     </div>
                     <div class="col-lg-6 col-md-6">
-                        <form action="#">    
+                        <form>    
                             <h3>주문 상세</h3> 
                             <div class="order_table table-responsive">
                                 <table>
@@ -142,14 +143,31 @@
                                     </div>
                                 </div>
                                 <div class="order_button" >
-                                    <button id="checkout_action" type="submit">결제</button> 
+                                    <button id="checkout_action" type="button"
+                                    data-toggle="modal" data-target="#checkout_notice_modal">결제</button> 
                                     <input type="hidden" value="${order.order_no}">
                                 </div>    
                             </div> 
+                             <div id="checkout_notice_modal" class="modal fade" tabindex="-1" role="dialog">
+								<div class="modal-dialog" role="document">
+									<div class="modal-content">
+										<div class="modal-header">
+											<h5 class="modal-title">결제 완료</h5>
+										</div>
+										<div class="modal-body">
+											<p>결제가 완료 되었습니다.</p>
+										</div>
+										<div class="modal-footer">
+											<button id="checkout_notice_modal_btn" type="button" class="btn btn-primary" data-dismiss="modal">확인</button>
+										</div>
+									</div>
+								</div>
+							</div>
                         </form>         
                     </div>
                 </div> 
             </div> 
+           
         </div>       
     </div>
     <!--Checkout page section end-->

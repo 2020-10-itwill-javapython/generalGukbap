@@ -11,6 +11,6 @@ public interface OrderDetailService {
 
 	public OrderDetailDomain selectOrderDetailByO_d_no(int o_d_no);
 	
-
+	public void renewOrderDesc(int order_no);
 	
 }

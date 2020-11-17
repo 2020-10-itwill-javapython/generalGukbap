@@ -45,102 +45,94 @@ public class RESTController {
 	ReviewService reviewService;
 	@Autowired
 	WishListService wishListService;
-	
-	@RequestMapping(value = "add_cart",method = RequestMethod.POST)
-	private String add_to_cart(HttpServletRequest request,@RequestParam String product_no,@RequestParam String pty,HttpServletResponse response)throws Exception {
-		String login_cart="login";
-		if((UserDomain) request.getSession().getAttribute("loginUser")!=null) {
-		ProductDomain product=productService.selectProductByProductNo(Integer.parseInt(product_no));
-		UserDomain user = (UserDomain) request.getSession().getAttribute("loginUser");
-		orderService.insertOrder(user.getUser_id(),new OrderDetailDomain(0,0,Integer.parseInt(pty),product));
-		response.sendRedirect("cart");
-		login_cart="cart";
-		return login_cart;
-		}else {
-			login_cart="login";
+
+	@RequestMapping(value = "add_cart", method = RequestMethod.POST)
+	private String add_to_cart(HttpServletRequest request, @RequestParam String product_no, @RequestParam String pty,
+			HttpServletResponse response) throws Exception {
+		String login_cart = "login";
+		if ((UserDomain) request.getSession().getAttribute("loginUser") != null) {
+			ProductDomain product = productService.selectProductByProductNo(Integer.parseInt(product_no));
+			UserDomain user = (UserDomain) request.getSession().getAttribute("loginUser");
+			orderService.insertOrder(user.getUser_id(), new OrderDetailDomain(0, 0, Integer.parseInt(pty), product));
+			response.sendRedirect("cart");
+			login_cart = "cart";
+			return login_cart;
+		} else {
+			login_cart = "login";
 			return login_cart;
 		}
 	}
-	
-	@RequestMapping(value = "add_wishlist",method = RequestMethod.POST)
-	private String add_wishlist(@RequestParam String product_no,HttpServletRequest request) {
+
+	@RequestMapping(value = "add_wishlist", method = RequestMethod.POST)
+	private String add_wishlist(@RequestParam String product_no, HttpServletRequest request) {
 		String result = "false";
-		if((UserDomain) request.getSession().getAttribute("loginUser")!=null) {
-		UserDomain user = (UserDomain) request.getSession().getAttribute("loginUser");
-		//String user_id=user.getUser_id();	
-		wishListService.addToWishList(user.getUser_id(),Integer.parseInt(product_no));
-		result = "true";
+		if ((UserDomain) request.getSession().getAttribute("loginUser") != null) {
+			UserDomain user = (UserDomain) request.getSession().getAttribute("loginUser");
+			// String user_id=user.getUser_id();
+			wishListService.addToWishList(user.getUser_id(), Integer.parseInt(product_no));
+			result = "true";
 		}
-		
+
 		return result;
 	}
-	
-	@RequestMapping(value = "main_to_wishlist",method = RequestMethod.POST)
-	private String main_to_wishlist(@RequestParam String product_no,HttpServletRequest request) {
-		//메인에 있는 메뉴 위시리스트에 담기(찜 하기)
+
+	@RequestMapping(value = "main_to_wishlist", method = RequestMethod.POST)
+	private String main_to_wishlist(@RequestParam String product_no, HttpServletRequest request) {
+		// 메인에 있는 메뉴 위시리스트에 담기(찜 하기)
 		String result = "false";
 		UserDomain user = (UserDomain) request.getSession().getAttribute("loginUser");
 		if (user == null) {
-					
+
 		} else {
-			String user_id=user.getUser_id();	
-			wishListService.addToWishList(user_id,Integer.parseInt(product_no));
+			String user_id = user.getUser_id();
+			wishListService.addToWishList(user_id, Integer.parseInt(product_no));
 			result = "true";
 		}
 		return result;
 	}
-	
-	@RequestMapping(value = "main_to_cart",method = RequestMethod.POST)
+
+	@RequestMapping(value = "main_to_cart", method = RequestMethod.POST)
 	private String main_to_cart(HttpServletRequest request, @RequestParam String product_no, @RequestParam String pty) {
-		//메인에 있는 메뉴 카트에 담기
+		// 메인에 있는 메뉴 카트에 담기
 		String result = "false";
 		UserDomain user = (UserDomain) request.getSession().getAttribute("loginUser");
 		if (user == null) {
-			
+
 		} else {
-			String user_id=user.getUser_id();	
-			ProductDomain product=productService.selectProductByProductNo(Integer.parseInt(product_no));
-			orderService.insertOrder(user_id,new OrderDetailDomain(0,0,Integer.parseInt(pty),product));
+			String user_id = user.getUser_id();
+			ProductDomain product = productService.selectProductByProductNo(Integer.parseInt(product_no));
+			orderService.insertOrder(user_id, new OrderDetailDomain(0, 0, Integer.parseInt(pty), product));
 			result = "true";
 		}
-		
+
 		return result;
 	}
-	
-	
-	
-	
-	
+
 	@RequestMapping(value = "checkout_action", method = RequestMethod.POST)
-	public void checkout_action(@RequestParam String order_note, 
-								@RequestParam String order_no, HttpSession session) {
+	public String checkout_action(@RequestParam String order_note, @RequestParam String order_no, HttpSession session) {
+		System.out.println(order_no);
 		OrderDomain currentOrder = orderService.selectOrderByNo(Integer.parseInt(order_no));
+		System.out.println(currentOrder);
 		currentOrder.setOrder_note(order_note);
 		currentOrder.setOrder_status("shipped");
 		orderService.updateOrder(currentOrder);
-		
+
 		UserDomain user = (UserDomain) session.getAttribute("loginUser");
 		orderService.createEmptyOrder(user.getUser_id());
-		
+		return "true";
 	}
-	
+
 	@RequestMapping(value = "write_review", method = RequestMethod.POST)
-	public void write_review(@RequestParam MultipartFile image_file,
-							 @RequestParam String review_title, @RequestParam String review_content,
-							 @RequestParam String product_no, @RequestParam String o_d_no) {
-		
-		ReviewDomain review = 
-				new ReviewDomain(0, image_file.getOriginalFilename(), 
-								review_title, review_content, 
-								null, 0, 0, 0, Integer.parseInt(product_no), Integer.parseInt(o_d_no));
-		
-		
+	public void write_review(@RequestParam MultipartFile image_file, @RequestParam String review_title,
+			@RequestParam String review_content, @RequestParam String product_no, @RequestParam String o_d_no) {
+
+		ReviewDomain review = new ReviewDomain(0, image_file.getOriginalFilename(), review_title, review_content, null,
+				0, 0, 0, Integer.parseInt(product_no), Integer.parseInt(o_d_no));
+
 		try (FileOutputStream fos = new FileOutputStream(
 				"C:\\java-python\\generalGukbap\\src\\main\\webapp\\assets\\img\\review\\"
 						+ image_file.getOriginalFilename());
-				InputStream is = image_file.getInputStream();
-		) 
-		{
+				InputStream is = image_file.getInputStream();) {
 			int readCount = 0;
 			byte[] buffer = new byte[1024];
 			while ((readCount = is.read(buffer)) != -1) {
@@ -149,7 +141,7 @@ public class RESTController {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
 		reviewService.insertReview(review);
 	}
 
@@ -182,7 +174,7 @@ public class RESTController {
 		userService.updateUserInfo(update_user);
 		UserDomain user = userService.selectUserById(update_user.getUser_id());
 		session.setAttribute("loginUser", user);
-		
+
 	}
 
 	@RequestMapping(value = "user_existed_id_check", method = RequestMethod.POST, produces = "text/plain;charset=UTF-8")

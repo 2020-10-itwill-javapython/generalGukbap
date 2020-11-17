@@ -41,15 +41,20 @@ public class OrderServiceImpl implements OrderService{
     	
     	if (orders.size() == 1) {
 			higest_order = orders.get(0);
-		} else {
-			for (int i = 0; i < orders.size() - 1; i++) {
-				if (orders.get(i).getOrder_no() > orders.get(i + 1).getOrder_no()) {
-					higest_order = orders.get(i);
-				} else {
-					higest_order = orders.get(i + 1);
-				}
-			}
+		} 
+    	
+    	if (orders.size() > 1) {
+    		OrderDomain temp = new OrderDomain();
+    		for (int i = 0; i < orders.size() - 1; i++) {
+    			if (orders.get(i).getOrder_no() > orders.get(i + 1).getOrder_no() ) {
+    				temp = orders.get(i);
+    				if (temp.getOrder_no() > higest_order.getOrder_no()) {
+    					higest_order = temp;
+					}
+    			} 
+    		}
 		}
+    	
     	
     	return higest_order.getOrder_no(); 
     }
@@ -62,20 +67,22 @@ public class OrderServiceImpl implements OrderService{
     
     @Override
     public void insertOrder(String user_id, OrderDetailDomain orderDetailDomain) {
-    	OrderDomain latestOrder = null;
-    	List<OrderDomain> userOrders = userRepository.selectUserById(user_id).getOrders();
+    	OrderDomain latestOrder = new OrderDomain();
+    	List<OrderDomain> userOrders = orderRepository.selectOrdersByName(user_id);
     	
-    	if (userOrders.size() == 1) {
-			latestOrder = userOrders.get(0);
-		} else {
+    	if (userOrders.size() > 1) {
+    		OrderDomain temp = new OrderDomain();
     		for (int i = 0; i < userOrders.size() - 1; i++) {
-				if (userOrders.get(i).getOrder_no() > userOrders.get(i+1).getOrder_no()) {
-					latestOrder = userOrders.get(i);
-				} else {
-					latestOrder = userOrders.get(i + 1);
-				}
-			}
+    			if (userOrders.get(i).getOrder_no() > userOrders.get(i + 1).getOrder_no() ) {
+    				temp = userOrders.get(i);
+    				if (temp.getOrder_no() > latestOrder.getOrder_no()) {
+    					latestOrder = temp;
+					}
+    			} 
+    		}
+    		System.out.println(latestOrder);
 		}
+    	
     	
 		orderDetailRepository.addItemIntoOrder(
 					new OrderDetailDomain(0, 

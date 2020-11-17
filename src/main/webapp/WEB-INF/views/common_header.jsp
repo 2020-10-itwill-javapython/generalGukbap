@@ -130,11 +130,11 @@
                                     </div>
                                  
                                     <button style="border: none; background: transparent;" name="main_to_wishlist_button" value="${product.product_no }">
-									<li class="wishlist"><a title="찜 하기"><span class="lnr lnr-heart"></span></a></li></button> 
+									<li class="wishlist"><a href="wishlist"><span class="lnr lnr-heart"></span></a></li></button> 
                                          
                                     
                                  <button style="border: none; background: transparent;" name="main_to_cart_button" value="${product.product_no}" >
-                                    <li class="add_to_cart"><a title="장바구니 담기"><span class="lnr lnr-cart"></span></a></li></button>	
+                                    <li class="add_to_cart"><a href="to_cart_from_header"><span class="lnr lnr-cart"></span></a></li></button>	
                                         <!--mini cart-->
                                         
                                         <!--mini cart end-->
@@ -178,22 +178,6 @@
 	                                        		<li><a href="my-account">내정보</a></li>
 	                                        	</c:otherwise>
                                         	</c:choose>
-                                        
-                                        <li class="menu_item_children"><a href="gukbap_main">메인</a>
-                                        </li>
-                                        <li class="menu_item_children"><a href="shop-right-sidebar">메뉴</a>
-                                        </li>
-                                        <li class="menu_item_children"><a href="blog_sidebar">리뷰</a>
-                                        </li>
-                                        <li class="menu_item_children"><a href="chat">문의</a></li>
-	                                    <c:choose>
-	                                    	<c:when test="${empty loginUser }">
-	                                    	</c:when>
-	                                    	<c:otherwise>
-			                                    <li class="menu_item_children"><a href="my-account">내정보</a></li>
-	                                    	</c:otherwise>
-	                                    </c:choose>
-                                        	
                                     </ul>
                                 </div>
                             </div>

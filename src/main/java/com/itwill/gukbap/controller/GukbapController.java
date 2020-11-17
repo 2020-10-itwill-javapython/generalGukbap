@@ -167,15 +167,19 @@ public class GukbapController {
 		
 		if (orderList.size() == 1) {
 			latestOrder = orderList.get(0);
-		} else {
-			for (int i = 0; i < orderList.size() -1; i++) {
-				if (orderList.get(i).getOrder_no() > orderList.get(i + 1).getOrder_no()) {
-					latestOrder = orderList.get(i);
-				} else {
-					latestOrder = orderList.get(i + 1);
-				} 
-					
-			}
+		} 
+    	
+    	if (orderList.size() > 1) {
+    		OrderDomain temp = new OrderDomain();
+    		for (int i = 0; i < orderList.size() - 1; i++) {
+    			if (orderList.get(i).getOrder_no() > orderList.get(i + 1).getOrder_no() ) {
+    				temp = orderList.get(i);
+    				if (temp.getOrder_no() > latestOrder.getOrder_no()) {
+    					latestOrder = temp;
+					}
+    			} 
+    		}
+    		System.out.println(latestOrder);
 		}
 		
 		request.setAttribute("order", latestOrder);
@@ -351,6 +355,44 @@ public class GukbapController {
 		List<ProductDomain> productList=productService.selectAll();
 		request.setAttribute("productList",productList);
 		return "shop-right-sidebar";
+	}
+	
+	@RequestMapping("to_cart_from_header")
+	public String to_cart_from_header(HttpServletRequest request) {
+		if((UserDomain) request.getSession().getAttribute("loginUser")!=null) {
+			
+			UserDomain user = (UserDomain) request.getSession().getAttribute("loginUser");
+		        if(orderService.selectOrderByNo(orderService.highOrderNo(user.getUser_id()))!=null) {
+		        	OrderDomain order= orderService.selectOrderByNo(orderService.highOrderNo(user.getUser_id()));
+		        	List<OrderDetailDomain> orderDetailList = order.getOrderDetailList();
+		        	request.setAttribute("orderDetailList",orderDetailList);
+		        	request.setAttribute("order",order);	
+		        		        
+		        	
+		        	Map<Integer, String> isReviewExist = new HashMap<Integer, String>();
+		        	
+		        	for (OrderDetailDomain orderDetailDomain : orderDetailList) {
+						ReviewDomain review = 
+								reviewService.select_review_with_o_d_no(orderDetailDomain.getO_d_no());
+						
+						String result = "";
+						
+						if (review == null) {
+							result = "none exist";
+						} else {
+							result = "exist";
+						}
+						
+						isReviewExist.put(new Integer(orderDetailDomain.getO_d_no()), result);
+					}
+		        	
+		        	request.setAttribute("isReviewExist", isReviewExist);
+		        }	
+		        
+				return "cart";
+		}else {
+			return "login";
+		}		          
 	}
 	
 	@RequestMapping("cart")

@@ -11,11 +11,15 @@ $(function() {
 			method: 'POST',
 			dataType: 'json',
 			data: {'order_note': order_note, 'order_no': order_no},
-			success: function() {
-				location.href = 'my-account';
+			success: function(resultStr) {
+					$('#checkout_notice_modal_btn').click(function() {
+						location.href = "my-account";
+					})
 			}
 				
 		})
+		
+		
 	})
 	
 })
