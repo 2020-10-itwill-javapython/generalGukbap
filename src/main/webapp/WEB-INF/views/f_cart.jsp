@@ -64,9 +64,15 @@
                                        <p class="cart_amount">${order.order_total_price+3000}원</p>
                                        </c:if>
                                    </div>
-                                   <div class="checkout_btn">
-                                       <a href="checkout">주문하기</a>
-                                   </div>
+                                   <c:choose>
+                                   		<c:when test="${orderDetailList == null }">
+                                   		</c:when>
+                                   		<c:otherwise>
+		                                   <div class="checkout_btn">
+		                                       <a href="checkout">주문하기</a>
+		                                   </div>
+                                   		</c:otherwise>
+                                   </c:choose>
                                 </div>
                             </div>
                         </div>
