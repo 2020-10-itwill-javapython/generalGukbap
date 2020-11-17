@@ -37,6 +37,7 @@ public class OrderServiceImpl implements OrderService{
     @Override
     public int highOrderNo(String user_id) {
     	List<OrderDomain> orders = orderRepository.selectOrdersByName(user_id);
+    	System.out.println(orders);
     	OrderDomain higest_order = new OrderDomain();
     	
     	if (orders.size() == 1) {
@@ -69,6 +70,12 @@ public class OrderServiceImpl implements OrderService{
     public void insertOrder(String user_id, OrderDetailDomain orderDetailDomain) {
     	OrderDomain latestOrder = new OrderDomain();
     	List<OrderDomain> userOrders = orderRepository.selectOrdersByName(user_id);
+    	System.out.println(orderDetailDomain);
+    	
+    	if (userOrders.size() == 1) {
+			latestOrder = userOrders.get(0);
+		}
+    	System.out.println(latestOrder);
     	
     	if (userOrders.size() > 1) {
     		OrderDomain temp = new OrderDomain();
