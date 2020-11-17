@@ -4,6 +4,7 @@ import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.util.List;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -123,14 +124,15 @@ public class RESTController {
 
 	@RequestMapping(value = "write_review", method = RequestMethod.POST)
 	public void write_review(@RequestParam MultipartFile image_file, @RequestParam String review_title,
-			@RequestParam String review_content, @RequestParam String product_no, @RequestParam String o_d_no) {
-
+			@RequestParam String review_content, @RequestParam String product_no, @RequestParam String o_d_no,HttpServletRequest r) {
+		String rootPath = System.getProperty("catalina.home");
+		rootPath=r.getRealPath("/");
+		System.out.println(rootPath);
 		ReviewDomain review = new ReviewDomain(0, image_file.getOriginalFilename(), review_title, review_content, null,
 				0, 0, 0, Integer.parseInt(product_no), Integer.parseInt(o_d_no));
 
 		try (FileOutputStream fos = new FileOutputStream(
-				"C:\\java-python\\generalGukbap\\src\\main\\webapp\\assets\\img\\review\\"
-						+ image_file.getOriginalFilename());
+				rootPath + "\\assets\\img\\review\\" + image_file.getOriginalFilename());
 				InputStream is = image_file.getInputStream();) {
 			int readCount = 0;
 			byte[] buffer = new byte[1024];
