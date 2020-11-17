@@ -77,10 +77,9 @@
 										<article class="single_product">
 											<figure>
 												<div class="product_thumb">
-													<a class="primary_img" href="product-details.jsp"><img
-														src="assets/img/product/${product.product_image}" alt=""></a>
-													<a class="secondary_img" href="product-details.html"><img
-														src="assets/img/product/${product.product_image}" alt=""></a>
+												
+													<img
+														src="assets/img/product/${product.product_image}" alt="">
 													<div class="label_product"></div>
 													<!-- product.product_isonsale이 true이면 할인 노출 -->
 													<c:choose>

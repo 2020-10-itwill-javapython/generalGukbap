@@ -129,12 +129,11 @@
                                         </ul>
                                     </div>
                                  
-                                    <button style="border: none; background: transparent;" name="main_to_wishlist_button" value="${product.product_no }">
-									<li class="wishlist"><a title="찜 하기"><span class="lnr lnr-heart"></span></a></li></button> 
-                                         
-                                    
-                                 <button style="border: none; background: transparent;" name="main_to_cart_button" value="${product.product_no}" >
-                                    <li class="add_to_cart"><a title="장바구니 담기"><span class="lnr lnr-cart"></span></a></li></button>	
+                                  <div class="header_account_list header_wishlist">
+                                        <a href="wishlist"><span class="lnr lnr-heart"></span></a>
+                                    </div>
+                                    <div class="header_account_list  mini_cart_wrapper">
+                                       <a href="cart"><span class="lnr lnr-cart"></span></a>
                                         <!--mini cart-->
                                         
                                         <!--mini cart end-->
