@@ -18,20 +18,26 @@
                                     <th class="product_total">합계</th>
                                 </tr>
                             </thead>
-                            <c:if test="${orderDetailList!=null}">
-                          <c:forEach items="${orderDetailList}" var="orderDetail">  
-                            <tbody>
-                                <tr>
-                                   <td class="product_remove"><a><button style="border: none; background: transparent;" name="cart_delete" value="${orderDetail.o_d_no}"><i class="fa fa-trash-o"></i></button></a></td>
-                                    <td class="product_thumb"><a><img src="assets/img/product/${orderDetail.product.product_image}"></a></td>
-                                    <td class="product_name"><a>${orderDetail.product.product_name}</a></td>
-                                    <td class="product-price">${orderDetail.product.product_price}</td>
-                                    <td class="product_quantity"><label>${orderDetail.o_d_product_count}</label></td>
-                                    <td class="product_total">${orderDetail.product.product_price*orderDetail.o_d_product_count}</td>
-                                </tr>
-                            </tbody>
-                            </c:forEach>
-                            </c:if>
+                            <c:choose>
+									<c:when test="${orderDetailList[0].o_d_no == '0'}">
+	                            	</c:when>
+								<c:otherwise>
+		                            <c:if test="${orderDetailList!=null}">
+		                          <c:forEach items="${orderDetailList}" var="orderDetail">  
+		                            <tbody>
+		                                <tr>
+		                                   <td class="product_remove"><a><button style="border: none; background: transparent;" name="cart_delete" value="${orderDetail.o_d_no}"><i class="fa fa-trash-o"></i></button></a></td>
+		                                    <td class="product_thumb"><a><img src="assets/img/product/${orderDetail.product.product_image}"></a></td>
+		                                    <td class="product_name"><a>${orderDetail.product.product_name}</a></td>
+		                                    <td class="product-price">${orderDetail.product.product_price}</td>
+		                                    <td class="product_quantity"><label>${orderDetail.o_d_product_count}</label></td>
+		                                    <td class="product_total">${orderDetail.product.product_price*orderDetail.o_d_product_count}</td>
+		                                </tr>
+		                            </tbody>
+		                            </c:forEach>
+		                            </c:if>
+								</c:otherwise>                           	
+                            </c:choose>
                         </table>   
                             </div>  
                             <!-- 
@@ -65,12 +71,18 @@
                                        </c:if>
                                    </div>
                                    <c:choose>
-                                   		<c:when test="${orderDetailList == null }">
+                                   		<c:when test="${order.order_total_price == null || order.order_total_price == '0' }">
                                    		</c:when>
                                    		<c:otherwise>
-		                                   <div class="checkout_btn">
-		                                       <a href="checkout">주문하기</a>
-		                                   </div>
+		                                   <c:choose>
+		                                   		<c:when test="${orderDetailList == null }">
+		                                   		</c:when>
+		                                   		<c:otherwise>
+				                                   <div class="checkout_btn">
+				                                       <a href="checkout">주문하기</a>
+				                                   </div>
+		                                   		</c:otherwise>
+		                                   </c:choose>
                                    		</c:otherwise>
                                    </c:choose>
                                 </div>

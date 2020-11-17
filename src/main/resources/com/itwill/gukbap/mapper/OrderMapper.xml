@@ -57,8 +57,8 @@
             p.product_discountrate,
             p.product_sale_date
         from gukbap_order go 
-        join order_detail od on go.order_no = od.order_no
-        join product p on od.product_no = p.product_no
+        full outer join order_detail od on go.order_no = od.order_no
+        full outer join product p on od.product_no = p.product_no
 		WHERE go.ORDER_NO=#{order_no}
    
    <!--  SELECT * FROM gukbap_order WHERE ORDER_NO=#{order_no} -->
