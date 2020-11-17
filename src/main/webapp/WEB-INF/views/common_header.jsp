@@ -129,6 +129,7 @@
                                         </ul>
                                     </div>
                                  
+                                  
                                     <button style="border: none; background: transparent;" name="main_to_wishlist_button" value="${product.product_no }">
 									<li class="wishlist"><a href="wishlist"><span class="lnr lnr-heart"></span></a></li></button> 
                                          
@@ -136,7 +137,7 @@
                                  <button style="border: none; background: transparent;" name="main_to_cart_button" value="${product.product_no}" >
                                     <li class="add_to_cart"><a href="to_cart_from_header"><span class="lnr lnr-cart"></span></a></li></button>	
                                         <!--mini cart-->
-                                        
+                    
                                         <!--mini cart end-->
                                    </div>
                                 </div>

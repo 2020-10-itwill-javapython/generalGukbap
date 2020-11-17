@@ -52,6 +52,11 @@ public class GukbapController {
 	@Autowired
 	private OrderDetailService orderDetailService;
 	
+	@RequestMapping("login")
+	public String login() {
+		return "login";
+	}
+	
 	@RequestMapping(value = "confirm_purchase")
 	public String confirm_purchase(@RequestParam String order_no) {
 		orderService.update_order_status_to_complete(Integer.parseInt(order_no));
