@@ -61,7 +61,7 @@
                             		   begin="0" end="2">
                             <div class="post_wrapper">
                                 <div class="post_thumb">
-                                    <a href="blog_details"><img src="assets/img/blog/comment2.png.jpg" alt=""></a>
+                                    <img src="assets/img/blog/comment2.png.jpg" alt="">
                                 </div>
                                 <div class="post_info">
                                     <span><a>사장님</a> 댓글:</span>
@@ -104,7 +104,7 @@
     </div>
     <!--blog area end-->
     
-    <!--blog pagination area start-->
+    <!--blog pagination area start
     <div class="blog_pagination">
         <div class="container">
             <div class="row">
@@ -122,7 +122,7 @@
             </div>
         </div>
     </div>
-    <!--blog pagination area end-->
+    blog pagination area end-->
    
     <!--footer area start-->
      <jsp:include page="common_footer.jsp"/>

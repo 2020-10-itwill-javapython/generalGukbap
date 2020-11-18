@@ -79,7 +79,7 @@
 	                                    <article class="single_related">
 	                                        <figure>
 	                                            <div class="related_thumb">
-	                                                <a href="blog_details?review_no=${related_review.review_no }"><img src="assets/img/product/${related_review.review_image }" alt=""></a>
+	                                                <a href="blog_details?review_no=${related_review.review_no }"><img src="assets/img/review/${related_review.review_image }" alt=""></a>
 	                                            </div>
 	                                            <figcaption class="related_content">
 	                                               <h4><a href="blog_details?review_no=${related_review.review_no }">${related_review.review_title }</a></h4>
@@ -148,19 +148,7 @@
                     <div class="blog_sidebar_widget">
                         <div class="widget_list widget_search">
                             
-                        <div class="widget_list widget_categories">
-                            <div class="widget_title">
-                                <h3>Categories</h3>
-                            </div>
-                            <ul>
-                                <li><a href="#">Audio</a></li>
-                                <li><a href="#">Company</a></li>
-                                <li><a href="#">Gallery</a></li>
-                                <li><a href="#">Image</a></li>
-                                <li><a href="#">Other</a></li>
-                                <li><a href="#">Travel</a></li>
-                            </ul>
-                        </div>
+                        
                         
                     </div>
                 </div>
