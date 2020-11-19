@@ -163,7 +163,7 @@
 			<div class="col-12">
 				<div class="section_title">
 					<p>국밥부장관</p>
-					<h2>클릭수 많은 메뉴</h2>
+					<h2>많이 본 메뉴</h2>
 				</div>
 			</div>
 		</div>
